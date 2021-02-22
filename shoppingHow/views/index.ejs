@@ -2,16 +2,66 @@
 <html>
   <head>
     <title>쇼핑하우</title>
+    <script
+      src="https://kit.fontawesome.com/2d323a629b.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <header></header>
+    <header>
+      <div class="area_top">
+        <img
+          src="//search1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/logo_shw.png"
+          class="area_top__icon"
+        />
+        <div class="area_top__search">
+          <input type="text" placeholder="1 가정용 금고" />
+          <button>
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+    <nav>
+      <div class="category">
+        <i class="fas fa-bars"></i>
+        <span>카테고리</span>
+      </div>
+      <ul class="show">
+        <li>핫딜</li>
+        <li>베스트100</li>
+        <li>할인특가</li>
+        <li>기획전</li>
+      </ul>
+      <ul class="keyword">
+        <li>#건강식품</li>
+        <li>#제철음식</li>
+        <li>#블루투스이어폰</li>
+        <li>#커블체어</li>
+        <li>#노트북</li>
+      </ul>
+      <ul class="user">
+        <li>로그인</li>
+        <li>최근본 상품</li>
+      </ul>
+    </nav>
     <main>
       <div class="main_wrapper">
-        <section class="">패션 베스트</section>
-        <section class="">커피메이커</section>
-        <section class="">그리드</section>
-        <section class="">지금 뜨는 테마 카테고리</section>
+        <section class="section_best">
+          <img
+            src="//shop4.daumcdn.net/shophow/sib/0_210219174900_cCDgZtbAhPiBQqcJamsODOWNoVrXILeM"
+          />
+        </section>
+        <section class="section_themes">커피메이커</section>
+        <section class="section_products">
+          그리드박스
+          <button>더보기</button>
+        </section>
+        <section class="section_categories">
+          <span>지금 뜨는 테마 카테고리</span>
+          <div>플렉스박스</div>
+        </section>
       </div>
     </main>
   </body>
