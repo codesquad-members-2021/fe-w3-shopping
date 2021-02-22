@@ -19,5 +19,8 @@
   "homepage": "https://github.com/hayoung123/fe-w3-shopping#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "sass": "^1.32.8"
   }
 }
