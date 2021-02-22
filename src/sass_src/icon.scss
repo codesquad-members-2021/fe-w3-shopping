@@ -1,0 +1,23 @@
+.icon {
+    background: url('/images/ico_gnb_shw.png') no-repeat;
+    background-size: 130px 90px;    
+    display: block;  
+}
+
+.i-search { 
+    @extend .icon;       
+    width: 23px;
+    height: 23px;    
+}  
+
+.i-category {
+    @extend .icon; 
+    background-position: 0 -30px;        
+    width: 28px;
+    height: 28px;
+}
+
+.i-user {
+    @extend .icon;
+    
+}

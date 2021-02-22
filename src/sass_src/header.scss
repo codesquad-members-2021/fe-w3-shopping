@@ -1,0 +1,164 @@
+@import './root.scss';
+
+$header-fontWeight: 700;
+$header-letterSpacing: -1.15px;
+
+.header {
+    width: 100%;
+    background-color: $white;
+
+    .logo-search {
+        @extend .flex-center;
+
+        width: $default-width;
+        margin: $auto;
+
+        padding-top: 43px;
+        background-color: $white;
+
+        .logo {
+            img {
+                width: 119px;
+                height: auto;
+            }
+        }
+
+        .search {
+            $search-borderColor: #cecfd1;
+
+            width: 670px;
+            height: 54px;
+            margin: 0 24px 0 30px;
+            padding: 16px 60px 14px 30px;
+
+            border-radius: 10px;
+            border: 1px solid $search-borderColor;
+
+            background-color: $white;
+            box-sizing: border-box;
+
+            position: relative;
+
+            input {
+                color: $default-color;
+                display: block;
+                width: 100%;
+                height: 100%;
+                border: 0;
+                font-weight: $header-fontWeight;
+                font-size: 20px;
+                line-height: 22px;
+
+                letter-spacing: $header-letterSpacing;
+            }
+
+            button {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 52px;
+                height: 52px;
+            }
+
+            span {
+                margin: $auto;
+            }
+        }
+    }
+
+    .menu {
+        $menu-borderColor: #efefef;
+        $menu-boxShadow: rgba(0, 0, 0, 0.16);
+        $menu-fontSize: 16px;
+
+        position: relative;
+        margin-top: 40px;
+        border-top: 1px solid $menu-borderColor;
+        box-shadow: 0 1px $menu-boxShadow;
+        
+        .emphasis {
+            position: absolute;
+            right: -6px;
+            top: -1px;
+
+            width: 5px;
+            height: 5px;
+            border-radius: 100%;
+            background-color: #f9624c;
+        }
+
+        .menu__wrapper {
+            width: $default-width;
+            margin: $auto;
+
+            display: flex;
+            justify-content: flex-start;
+
+            span.txt-bar {
+                width: 1px;
+                height: 18px;
+                margin-top: 18px;
+                background-color: #e3e3e3;
+            }
+
+            .category {
+                button {
+                    @extend .flex-center;
+
+                    width: 122px;
+                    height: 54px;
+
+                    span {
+                        display: inline-block;
+                        margin-left: 5px;
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            ul {
+                @extend .flex-center;
+
+                height: 54px;
+                padding: 0 12px 0 8px;
+                letter-spacing: $header-letterSpacing;
+
+                li {
+                    font-size: 15px;
+                    font-weight: $header-fontWeight;
+                }
+            }
+
+            ul.list-hot {
+                li {
+                    padding: 0 13px;
+                    a {
+                        position: relative;
+                        &:hover {
+                            color: #f65b3d;
+                        }
+                    }
+                }
+            }
+
+            ul.list-hash {
+                max-width: 535px;
+                padding: 0 12px;
+
+                li {
+                    padding: 0 10px;
+
+                    a {
+                        position: relative;
+                        color: #888;
+                    }
+                }
+            }
+
+            ul.list-usergroup {
+                margin-left: auto;
+            }
+
+        }
+    }
+}
