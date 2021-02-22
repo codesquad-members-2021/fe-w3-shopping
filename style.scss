@@ -1,0 +1,17 @@
+@import "./reset.css";
+
+.area_headtop { 
+   display: flex;
+  
+};
+
+.navigator {
+   display: flex;
+   div {
+      display: flex;
+   };
+   .nav_menu{ padding:50px;
+   &:hover{ 
+      color: red;
+   }}
+};
