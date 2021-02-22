@@ -1,0 +1,6 @@
+.cache
+bin
+dist
+node_modules
+public
+routes
