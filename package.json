@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/swing-park/fe-w3-shopping#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "sass": "^1.32.8"
   }
 }
