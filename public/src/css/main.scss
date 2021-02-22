@@ -1,1 +1,7 @@
-@import './reset.scss';
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 10px 20px;
+}
