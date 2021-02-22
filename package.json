@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile:sass": "node-sass shopping_how/public/stylesheets/main.scss shopping_how/public/stylesheets/style.css -w"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ha3158987/fe-w3-shopping/issues"
   },
-  "homepage": "https://github.com/ha3158987/fe-w3-shopping#readme"
+  "homepage": "https://github.com/ha3158987/fe-w3-shopping#readme",
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
 }
