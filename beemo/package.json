@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "predeploy-scss": "sass public/stylesheets/scss:public/stylesheets/css",
     "predeploy-webpack": "npx webpack",
-    "start": "npm run predeploy-webpack && node ./bin/www"
+    "start": "sass public/stylesheets/scss:public/stylesheets/css && npm run predeploy-webpack && node ./bin/www"
   },
   "dependencies": {
     "consolidate": "^0.16.0",
