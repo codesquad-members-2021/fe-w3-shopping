@@ -1,0 +1,13 @@
+body {
+  color: #333;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  line-height: 125%;
+}
+
+#main {
+  width: 100%;
+  max-width: 960px;
+}
+
+/*# sourceMappingURL=foo.css.map */
