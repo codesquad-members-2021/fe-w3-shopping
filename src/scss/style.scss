@@ -1,7 +1,99 @@
-div {
-  color: red;
+@import "var.scss";
+@import "color.scss";
+@import "debug.scss";
 
-  &:hover {
-    color: blue;
+* {
+  box-sizing: border-box;
+}
+
+.clear-both {
+  clear: both;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  @extend %debug-border-0;
+  width: 100%;
+  // height: 190px;
+  min-width: 980px;
+  padding-top: 44px;
+  position: fixed;
+  display: inline-block;
+  text-align: center;
+}
+
+.head-top {
+  @extend %debug-border-3;
+  display: inline-block;
+  vertical-align: top;
+
+  > div {
+    @extend %debug-border-1;
+    float: left;
+  }
+
+  .logo {
+  }
+
+  .search-bar {
+    width: 670px;
+    height: 54px;
+    margin: 0 0px 0 30px;
+
+    > fieldset {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      border: none;
+    }
+
+    $search-bar__input--width: 92%;
+    .search-bar__input {
+      width: $search-bar__input--width;
+      height: 100%;
+      float:left;
+    }
+    .search-bar__btn {
+      width: 100% - $search-bar__input--width;
+      height: 100%;
+      float: left;
+    }
+  }
+}
+
+.head-navi {
+  margin-top: 40px;
+  display: block;
+
+  .head-navi__category {
+    float: left;
+  }
+
+  %hori-list {
+    @extend %debug-border-2;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  
+    li {
+      @extend %debug-border-1;
+      position: relative;
+      display: inline-block;
+    }
+  }
+
+  .head-navi__hori-list-left {
+    @extend %hori-list;
+    float: left;
+  }
+
+  .head-navi__hori-list-right {
+    @extend %hori-list;
+    float: right;
   }
 }

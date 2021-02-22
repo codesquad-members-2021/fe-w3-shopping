@@ -1,0 +1,10 @@
+$debug-color-0: #000000;
+$debug-color-1: #ff0000;
+$debug-color-2: #7bbe00;
+$debug-color-3: #00be9f;
+$debug-color-4: #0b07f8;
+
+%debug-border-0 { box-shadow: 0 0 0 2px $debug-color-4 inset; }
+%debug-border-1 { box-shadow: 0 0 0 2px $debug-color-3 inset; }
+%debug-border-2 { box-shadow: 0 0 0 2px $debug-color-2 inset; }
+%debug-border-3 { box-shadow: 0 0 0 2px $debug-color-1 inset; }
