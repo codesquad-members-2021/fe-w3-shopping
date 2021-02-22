@@ -1,0 +1,27 @@
+main {
+  min-height: 770px;
+  background-color: #f3f3f3;
+  padding: 0 300px;
+  padding-top: 20px;
+}
+.banner {
+  border: 1px solid #e4e4e4;
+  background-color: #fff;
+  .banner__column {
+    display: flex;
+  }
+}
+
+//hot theme
+.hot-theme {
+  margin-top: 50px;
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 10px 0;
+  }
+}
+.hot-theme-list {
+  border: 1px solid #e4e4e4;
+  background-color: #fff;
+}

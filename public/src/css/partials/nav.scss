@@ -16,17 +16,14 @@
   margin-top: 18px;
   background-color: #e3e3e3;
 }
-.nav-container {
-  width: 100%;
-  border-top: 1px solid #efefef;
-  background-color: #fff;
-  margin-top: 10px;
-  box-shadow: 0 1px rgb(0 0 0 / 16%);
-}
 nav {
-  margin: 0 300px;
+  border-top: 1px solid #efefef;
+  margin-top: 10px;
+  padding: 0 300px;
   height: 54px;
   line-height: 54px;
+  background-color: #fff;
+  box-shadow: 0 1px rgb(0 0 0 / 16%);
   & > div,
   ul,
   .nav-user__column > a {
