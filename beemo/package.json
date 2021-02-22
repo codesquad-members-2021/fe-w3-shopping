@@ -14,5 +14,8 @@
     "morgan": "~1.9.1",
     "pug": "2.0.0-beta11",
     "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "node-sass": "^5.0.0"
   }
 }
