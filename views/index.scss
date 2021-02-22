@@ -1,9 +1,17 @@
-$width:100px;
-$height:100px;
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    h1 {
+        padding: 0 50px;
+    }
+}
 
-div {
-    width:$width;
-    height:$height;
+.search_bar {    
 
-    background-color: blue;
+    .search_input {
+        width: 300px;
+        padding: 17px 61px 15px 31px;
+    }
 }
