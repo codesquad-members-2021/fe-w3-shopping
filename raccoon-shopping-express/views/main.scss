@@ -2,10 +2,15 @@
   position: relative;
   width: 100%;
   text-align: center;
+  background: #f3f3f3;
 }
 
 a {
   text-decoration: none;
+}
+
+img {
+  border: 0;
 }
 
 form {
@@ -52,6 +57,7 @@ fieldset {
 header {
   padding-top: 43px;
   min-width: 977px;
+  background: #fff;
 
   .header__top {
     display: inline-block;
@@ -59,7 +65,7 @@ header {
 
     .title--shown {
       float: left;
-      margin-top: 4px;
+      margin-top: 8px;
 
       & img {
         width: 119px;
@@ -70,7 +76,7 @@ header {
     .search-bar {
       float: left;
       position: relative;
-      margin: 0 24px 0 30px;
+      margin: 0 24px 0 15px;
       z-index: 1060;
     }
 
@@ -139,13 +145,11 @@ header {
     margin-top: 40px;
     border-top: 1px solid #efefef;
     box-shadow: 0 1px rgb(0 0 0 / 16%);
-    outline: 1px solid red;
 
     .nav__wrapper {
       width: 1280px;
-      // margin: 0 auto;
+      margin: 0 auto;
       height: 54px;
-      margin: 0 151px;
     }
 
     .nav--category {
@@ -203,6 +207,10 @@ header {
       letter-spacing: -0.08em;
     }
 
+    .new--item {
+      position: relative;
+    }
+
     .list--left {
       float: left;
       padding: 0 12px 0 8px;
@@ -211,16 +219,417 @@ header {
         float: left;
       }
 
+      li .txt-new {
+        overflow: hidden;
+        position: absolute;
+        right: 2px;
+        top: 17px;
+        width: 5px;
+        height: 5px;
+        border-radius: 100%;
+        font-size: 0;
+        line-height: 0;
+        background-color: #f9624c;
+        text-indent: -9999px;
+      }
+
       .link--item {
         padding: 0 13px;
         color: #222;
+        display: inline-block;
       }
 
       @include link--common;
     }
 
     .list--right {
+      max-width: 535px;
+      height: 54px;
+      display: block;
+      float: left;
+      padding: 0 12px;
       @include link--common;
+
+      li {
+        float: left;
+      }
+
+      li .txt-new {
+        overflow: hidden;
+        position: absolute;
+        right: 2px;
+        top: 17px;
+        width: 5px;
+        height: 5px;
+        border-radius: 100%;
+        font-size: 0;
+        line-height: 0;
+        background-color: #f9624c;
+        text-indent: -9999px;
+      }
+
+      .link--sharp {
+        padding: 0 10px;
+        color: #888;
+        display: inline-block;
+      }
     }
   }
+
+  .list--user-box {
+    float: right;
+
+    li {
+      float: left;
+    }
+
+    #login-box {
+      .link--login {
+        width: 70px;
+        padding-left: 33px;
+        display: block;
+        position: relative;
+        height: 54px;
+        font-size: 16px;
+        line-height: 53px;
+        letter-spacing: -0.04em;
+        color: #000;
+        text-align: left;
+      }
+
+      .ico--background {
+        display: block;
+        overflow: hidden;
+        font-size: 0;
+        line-height: 0;
+        text-indent: -9999px;
+        background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
+        background-size: 130px 90px;
+      }
+
+      .ico--user {
+        left: 0;
+        background-position: -30px -30px;
+        position: absolute;
+        top: 13px;
+        width: 28px;
+        height: 28px;
+      }
+    }
+    .recent--product {
+      position: relative;
+      z-index: 1050;
+
+      .link--product {
+        width: 90px;
+        padding: 0 16px 0 34px;
+        display: block;
+        position: relative;
+        height: 54px;
+        font-size: 16px;
+        line-height: 53px;
+        letter-spacing: -0.04em;
+        color: #000;
+        text-align: left;
+
+        .ico--background {
+          display: block;
+          overflow: hidden;
+          font-size: 0;
+          line-height: 0;
+          text-indent: -9999px;
+          background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
+          background-size: 130px 90px;
+        }
+
+        .ico--product {
+          left: 0;
+          background-position: -60px -30px;
+          position: absolute;
+          top: 13px;
+          width: 28px;
+          height: 28px;
+        }
+
+        .ico--arrow {
+          position: absolute;
+          right: 6px;
+          top: 26px;
+          width: 8px;
+          height: 5px;
+          background-position: -60px -60px;
+        }
+      }
+    }
+  }
+}
+
+@mixin link--event {
+}
+
+section {
+  margin: 0 auto;
+  padding-top: 19px;
+}
+
+.section__contents {
+  width: 1276px;
+
+  #contents__main {
+    overflow: hidden;
+    // width: 977px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+
+    #main__article {
+      overflow: hidden;
+      // width: 977px;
+      margin: 0 auto;
+
+      .section--top {
+        overflow: hidden;
+        position: relative;
+        // width: 971px;
+        margin: 0 auto;
+        border: 1px solid #e4e4e4;
+        border-bottom: 0 none;
+
+        .contents__event {
+          overflow: hidden;
+          width: 100%;
+          border-bottom: 1px solid #f1f1f1;
+          background-color: #fff;
+
+          .event--item {
+            width: 510px;
+            float: left;
+            position: relative;
+            // width: 485px;
+            height: 340px;
+            .link--event {
+              display: block;
+              position: relative;
+              width: 484px;
+              margin: 0 auto;
+            }
+          }
+
+          .event--slide {
+            width: 763px;
+            float: left;
+            position: relative;
+            // width: 485px;
+            height: 340px;
+            border-left: 1px solid #f1f1f1;
+            background-color: #fff;
+
+            .event--slide--item {
+              overflow: hidden;
+              position: relative;
+              // width: 484px;
+              height: 340px;
+              margin: 0 auto;
+              width: 514px;
+
+              .slide {
+                // 동적인 부분
+                // 참고 사이트는 이너로 되어있음
+                position: relative;
+                top: 0px;
+                transform: translate3d(0px, 0px, 0px);
+                left: -514px;
+                width: 1542px;
+                .panel {
+                  height: 100%;
+                  overflow: hidden;
+                  display: inline-block;
+                  transform: translate3d(0px, 0px, 0px);
+                  width: 514px;
+                  .link--event {
+                    display: block;
+                    position: relative;
+                    width: 484px;
+                    margin: 0 auto;
+
+                    img {
+                      vertical-align: top;
+                    }
+                  }
+                }
+              }
+            }
+
+            .first {
+              margin-left: 0;
+            }
+            .paging--bar {
+              position: absolute;
+              top: 283px;
+              left: 0;
+              width: 100%;
+              text-align: center;
+              clear: both;
+
+              .inner--paging {
+                display: inline-block;
+                margin: 0 auto;
+
+                em.paging--button .page--number {
+                  background-color: #000;
+                }
+
+                .paging--button {
+                  display: inline;
+                  float: left;
+                  width: 15px;
+                  height: 5px;
+                  margin-left: 3px;
+                  padding: 5px 0;
+
+                  .page--number {
+                    display: block;
+                    width: 15px;
+                    height: 5px;
+                    font-size: 0;
+                    background-color: #ccc;
+                    line-height: 0;
+                    text-indent: -9999px;
+                  }
+                }
+              }
+
+              .slide--button {
+                top: -160px;
+                width: 63px;
+                height: 85px;
+                display: block;
+                overflow: hidden;
+                position: absolute;
+                // top: -14px;
+                // width: 35px;
+                // height: 45px;
+
+                .ico--slide {
+                  width: 23px;
+                  height: 45px;
+                  display: inline-block;
+                  overflow: hidden;
+                  // width: 15px;
+                  // height: 25px;
+                  font-size: 0;
+                  line-height: 0;
+                  background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/img_home_150131.png) no-repeat;
+                  text-indent: -9999px;
+                }
+              }
+              .slide--button--prev {
+                left: 44px;
+                background-position: -128px -335px;
+                .ico--prev {
+                  background-position: 0 0;
+                  left: 160px;
+                  // background-position: -128px -335px;
+                }
+              }
+              .slide--button--next {
+                right: 44px;
+                background-position: -145px -335px;
+                .ico--next {
+                  background-position: -30px 0;
+                  right: 160px;
+                  // background-position: -145px -335px;
+                }
+              }
+            }
+          }
+        }
+
+        .contents--top {
+          overflow: hidden;
+          position: relative;
+          // width: 971px;
+          height: 318px;
+          border-bottom: 1px solid #e4e4e4;
+        }
+
+        .contents--item {
+          float: left;
+          z-index: 0;
+        }
+
+        .mall__event {
+          #mall__event--slide {
+            // 여기도 동적 할당
+            .slide {
+              position: relative;
+              top: 0px;
+              transform: translate3d(0px, 0px, 0px);
+              left: -1280px;
+              width: 3840px;
+              .panel {
+                height: 100%;
+                overflow: hidden;
+                display: inline-block;
+                transform: translate3d(0px, 0px, 0px);
+                width: 1280px;
+                .list--item {
+                  overflow: hidden;
+                  width: 1275px;
+                  background-color: #fff;
+
+                  li {
+                    padding: 21px 27px;
+                    height: 276px;
+                    border-bottom: 0 none;
+                    text-align: left;
+                    width: 200px;
+                    overflow: hidden;
+                    float: left;
+                    position: relative;
+                    border-right: 1px solid #f1f1f1;
+                    line-height: 14px;
+                    letter-spacing: -1px;
+                  }
+
+                  .fisrt--goods {
+                    padding-right: 27px;
+                    width: 201px;
+                  }
+                  .goods {
+                  }
+                  .last--goods {
+                  }
+                  .link--product {
+                    display: block;
+                    overflow: hidden;
+                    position: relative;
+                    text-decoration: none;
+                  }
+                }
+              }
+            }
+          }
+
+          .button-group--prev {
+          }
+          .button-group--next {
+          }
+        }
+      }
+      .hotdeal__wrapper {
+      }
+      .rapidup__keyword {
+      }
+    }
+  }
+
+  .content__etc {
+    .shopping--partner {
+    }
+    .notice--wrapper {
+    }
+  }
+}
+
+footer {
 }
