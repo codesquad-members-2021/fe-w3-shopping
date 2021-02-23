@@ -10,6 +10,8 @@ $search_color: #cecfd1;
 $gray_font: #888;
 $icon_url : url(https://shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png);
 $icon_size : 130px 90px;
+$nav_font_size : 16px;
+
 
 
 
@@ -29,6 +31,10 @@ button, input {
     background: url("/images/logo_shw.png") no-repeat;
     background-size: cover;
 }
+
+
+
+
 
 .header {
     display:flex;
@@ -54,6 +60,10 @@ button, input {
     }
 }
 
+
+
+
+
 .search_box {
     border: 1px solid $search_color;
     border-radius: 12px;
@@ -78,15 +88,18 @@ button, input {
        align-items: center;
 
 
-       .icon_search {
-        background: $icon_url no-repeat;
-        background-size: $icon_size;
-        position: absolute;
-        width: 23px;
-        height: 23px;
+        .icon_search {
+                background: $icon_url no-repeat;
+                background-size: $icon_size;
+                position: absolute;
+                width: 23px;   
+                height: 23px;
         }
     }   
 }
+
+
+
 
 
 
@@ -99,7 +112,29 @@ button, input {
     .category {
         float:left;
         position:relative;
+
+        button {
+            font-size: $nav_font_size;
+            width: 122px;
+            height: 52px;
+           border:0;
+           background-color: transparent;
+           display: flex;
+           justify-content: space-around;
+           align-items: center;
+
+            .icon_hamburger {
+                background: $icon_url no-repeat;
+                background-size: $icon_size;
+                background-position: 0 -30px;
+                width: 28px;    
+                height: 28px;
+            }
+        }
     }
+
+
+
 
     .nav_menu {
         font-weight: 700;
@@ -121,9 +156,36 @@ button, input {
         min-width: 200px;
         float: right;
         position: absolute;
-    }
+        display: inline-flex;
+        justify-content: space-between;
+        
+    
+        li > a {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
 
+            .icon_human {
+                background: $icon_url no-repeat;
+                background-size: $icon_size;
+                background-position: -30px -30px;
+                width: 28px;    
+                height: 28px;
+            }
+
+            .icon_layers {
+                background: $icon_url no-repeat;
+                background-size: $icon_size;
+                background-position: -60px -30px;
+                width: 28px;    
+                height: 28px; 
+            }
+        }
+    }
 }
+
+
+
 
 .menu_link {
     padding: 0 13px;

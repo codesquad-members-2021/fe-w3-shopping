@@ -78,6 +78,23 @@ button, input {
   float: left;
   position: relative;
 }
+.nav_wrapper .category button {
+  font-size: 16px;
+  width: 122px;
+  height: 52px;
+  border: 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav_wrapper .category button .icon_hamburger {
+  background: url(https://shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
+  background-size: 130px 90px;
+  background-position: 0 -30px;
+  width: 28px;
+  height: 28px;
+}
 .nav_wrapper .nav_menu {
   font-weight: 700;
   float: left;
@@ -96,6 +113,27 @@ button, input {
   min-width: 200px;
   float: right;
   position: absolute;
+  display: inline-flex;
+  justify-content: space-between;
+}
+.nav_wrapper .nav_user li > a {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav_wrapper .nav_user li > a .icon_human {
+  background: url(https://shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
+  background-size: 130px 90px;
+  background-position: -30px -30px;
+  width: 28px;
+  height: 28px;
+}
+.nav_wrapper .nav_user li > a .icon_layers {
+  background: url(https://shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
+  background-size: 130px 90px;
+  background-position: -60px -30px;
+  width: 28px;
+  height: 28px;
 }
 
 .menu_link {

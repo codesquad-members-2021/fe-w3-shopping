@@ -5,3 +5,4 @@ app.js
 *.json
 **/images
 *.map
+*.css
