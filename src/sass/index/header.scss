@@ -7,7 +7,7 @@ $header-letterSpacing: -1.15px;
     width: 100%;
     background-color: $white;
 
-    .logo-search {
+    &__logo-search {
         @extend .flex-center;
 
         width: $default-width;
@@ -66,7 +66,7 @@ $header-letterSpacing: -1.15px;
         }
     }
 
-    .menu {
+    &__menu {
         $menu-borderColor: #efefef;
         $menu-boxShadow: rgba(0, 0, 0, 0.16);
         $menu-fontSize: 16px;
@@ -75,7 +75,7 @@ $header-letterSpacing: -1.15px;
         margin-top: 40px;
         border-top: 1px solid $menu-borderColor;
         box-shadow: 0 1px $menu-boxShadow;
-        
+
         .emphasis {
             position: absolute;
             right: -6px;
@@ -87,7 +87,7 @@ $header-letterSpacing: -1.15px;
             background-color: #f9624c;
         }
 
-        .menu__wrapper {
+        &__wrapper {
             width: $default-width;
             margin: $auto;
 
@@ -127,55 +127,53 @@ $header-letterSpacing: -1.15px;
                     font-size: 15px;
                     font-weight: $header-fontWeight;
                 }
-            }
 
-            ul.list-hot {
-                li {
-                    padding: 0 13px;
-                    a {
-                        position: relative;
-                        &:hover {
-                            color: #f65b3d;
+                &.list {
+                    &-hot {
+                        li {
+                            padding: 0 13px;
+                            a {
+                                position: relative;
+                                &:hover {
+                                    color: #f65b3d;
+                                }
+                            }
+                        }
+                    }
+
+                    &-hash {
+                        max-width: 535px;
+                        padding: 0 12px;
+
+                        li {
+                            padding: 0 10px;
+
+                            a {
+                                position: relative;
+                                color: $gray_2;
+                            }
+                        }
+                    }
+
+                    &-usergroup {
+                        margin-left: auto;
+
+                        li {
+                            padding: 0 10px;
+
+                            a {
+                                @extend .flex-center;
+                                span {
+                                    margin-left: 4px;
+                                    display: inline-block;
+                                    font-weight: normal;
+                                    font-size: $menu-fontSize;
+                                }
+                            }
                         }
                     }
                 }
             }
-
-            ul.list-hash {
-                max-width: 535px;
-                padding: 0 12px;
-
-                li {
-                    padding: 0 10px;
-
-                    a {
-                        position: relative;
-                        color: #888;
-                    }
-                }
-            }
-
-            ul.list-usergroup {
-                margin-left: auto;
-                
-                li {
-                    padding: 0 10px;
-
-                    a {
-                        @extend .flex-center;
-                        span {
-                            margin-left: 4px;
-                            display: inline-block;
-                            font-weight: normal;
-                            font-size: $menu-fontSize;
-                        }
-
-                        
-                    }
-                }                
-            }
-
-
         }
     }
 }

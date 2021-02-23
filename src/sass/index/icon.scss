@@ -2,37 +2,67 @@
     background: url('/images/ico_gnb_shw.png') no-repeat;
     background-size: 130px 90px;
     display: block;
+
+    &__carousel {
+        background: url('/images/img_home_150131.png') no-repeat;
+        display: block;
+    }
 }
 
-.wh-23 {
-    width: 23px;
-    height: 23px;
+.wh {
+    &-23 {
+        width: 23px;
+        height: 23px;
+    }
+
+    &-28 {
+        width: 28px;
+        height: 28px;
+    }
 }
 
-.wh-28 {
-    width: 28px;
-    height: 28px;
+.w {
+    &-23 {
+        width: 23px;
+    }
 }
 
-.i-search {
-    @extend .icon;
-    @extend .wh-23;
+.h {
+    &-45 {
+        height: 45px;
+    }
 }
 
-.i-category {
-    @extend .icon;
-    @extend .wh-28;
-    background-position: 0 -30px;
-}
+.i {
+    &-search {
+        @extend .icon, .wh-23;
+    }
 
-.i-user {
-    @extend .icon;
-    @extend .wh-28;
-    background-position: -30px -30px;
-}
+    &-category {
+        @extend .icon, .wh-28;
+        background-position: 0 -30px;
+    }
 
-.i-recent {
-    @extend .icon;
-    @extend .wh-28;
-    background-position: -60px -30px;
+    &-user {
+        @extend .icon, .wh-28;
+        background-position: -30px -30px;
+    }
+
+    &-recent {
+        @extend .icon, .wh-28;
+        background-position: -60px -30px;
+    }
+
+    &-slide {
+        &__paging {
+            &--prev {
+                @extend .icon__carousel, .w-23, .h-45;
+                background-position: 1px 0px;
+            }
+            &--next {
+                @extend .icon__carousel, .w-23, .h-45;
+                background-position: -30px 0px;
+            }
+        }
+    }
 }

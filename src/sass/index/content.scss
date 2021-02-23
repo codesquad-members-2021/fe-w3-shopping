@@ -1,7 +1,144 @@
-@import "./root.scss";
+@import './root.scss';
+@import './common.scss';
 
-.content { 
+.content {
+    // * {
+    //     outline: 1px solid black;
+    // }
+
+    .header + & {
+        margin-top: 19px;
+    }
     width: $default-width;
-    margin: 0 auto;
-    background-color: red;
+    margin: $auto;
+
+    &__event {
+        display: flex;
+        border: 1px solid $lightGray;
+        background-color: $white;
+
+        &__one {
+            @extend .col-4;
+            height: 340px;
+            border-right: 1px solid $lightGray;
+
+            a {
+                @extend .max-WH-auto;
+                @extend .flex-center;
+                width: 100%;
+                margin: $auto;
+            }
+        }
+
+        &__carousel {
+            @extend .col-6;
+            height: 340px;
+            position: relative;
+
+            .carousel {
+                @extend .max-WH-auto;
+                @extend .flex-center;
+                width: 485px;
+                margin: $auto;
+            }
+
+            .carousel__paging {
+                position: absolute;
+                text-align: center;
+
+                top: 283px;
+                left: 0;
+                width: 100%;
+
+                &__inner {
+                    margin: $auto;
+                    @extend .flex-center;
+
+                    span {
+                        display: inline-block;
+                        padding: 0px 10px;
+                        margin: 0 2px;
+                        height: 5px;
+                        background-color: $gray;
+                    }
+
+                    span.current {
+                        background-color: $default-color;
+                    }
+                }
+
+                &--prev {
+                    position: absolute;
+                    left: 52px;
+                    top: -146px;
+                }
+
+                &--next {
+                    position: absolute;
+                    right: 52px;
+                    top: -146px;
+                }
+            }
+        }
+    }
+
+    &__more {
+        background-color: $white;
+        border: 1px solid $lightGray;
+        border-top: none;
+
+        &__view {
+            ul {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+
+                li {
+                    @extend .view-li;
+                    border-right: 1px solid $lightGray;
+                    border-bottom: 1px solid $lightGray;
+
+                    &.noBorder {
+                        // js에서 불러올때 상태 바꾸기 (classList 활용)
+                        border-right: none;
+                    }
+                }
+            }
+        }
+
+        &__btn {
+            width: 100%;
+            padding: 20px 0;
+            background-color: #e9e9e9;
+        }
+    }
+
+    &__hot {
+        margin: 40px auto;
+
+        &__info {
+            margin-bottom: 10px;
+            font-size: 20px;
+            line-height: 20px;
+            letter-spacing: -1.55px;
+        }
+
+        &__carousel {
+            background-color: $white;
+            margin: $auto;
+            border: 1px solid $lightGray;
+
+            ul {
+                display: flex;
+                li {
+                    display: inline-block;
+                    @extend .view-li;
+                    border-right: 1px solid $lightGray;
+
+                    &:last-child {
+                        border-right: none;
+                    }
+                }
+            }
+        }
+    }
 }
