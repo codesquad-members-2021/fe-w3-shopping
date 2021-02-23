@@ -1,21 +1,42 @@
 /* init */
-$header_padding_top: 43px;
+$content_min_width: 1000px;
 $search_width: 670px;
 $search_height: 54px;
 $logoImg_width: 119px;
 $logoImg_height: 51px;
+$nav_height: 56px;
+$content_side_padding: 15%;
+$search_color: #cecfd1;
+$gray_font: #888;
+$icon_url : url(https://shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png);
+$icon_size : 130px 90px;
+
+
+
+ul, li {
+    list-style: none;
+    display:inline;
+}
+
+button, input {
+    border:transparent;
+    background-color: transparent;
+}
 
 .main_icon {
     width:$logoImg_width;
     height:$logoImg_height;
+    background: url("/images/logo_shw.png") no-repeat;
+    background-size: cover;
 }
-
 
 .header {
     display:flex;
     flex-direction: column;
     align-items: center;
-    padding-top: $header_padding_top;
+    padding-top: 43px;
+    min-width: $content_min_width;
+
     .head_top {
         width:843px;
         height:55px;
@@ -26,11 +47,15 @@ $logoImg_height: 51px;
     .nav {
         width:100%;
         height:55px;
+        position:relative;
+        margin-top: 40px;
+        border-top: 1px solid #efefef;
+        box-shadow: 0 1px rgb(0 0 0 / 16%);
     }
 }
 
 .search_box {
-    border: 1px solid #333;
+    border: 1px solid $search_color;
     border-radius: 12px;
     width: $search_width;
     height: $logoImg_height + 3;
@@ -41,16 +66,70 @@ $logoImg_height: 51px;
     .search {
         width:578px;
         height:22px;
-
         margin-left: 30px;
-        border: transparent;
     }
-    .search-btn {
-        background: url(https://shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png)
-        no-repeat;
-        background-size: 130px 90px;
-        border:transparent;
+    .search_btn {
         width: 52px;
         height: 52px;
-    }
+       border:0;
+       background-color: transparent;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+
+
+       .icon_search {
+        background: $icon_url no-repeat;
+        background-size: $icon_size;
+        position: absolute;
+        width: 23px;
+        height: 23px;
+        }
+    }   
 }
+
+
+
+.nav_wrapper {
+    margin: 0 auto;
+    padding: 0 $content_side_padding;
+    min-width: $content_min_width;
+
+
+    .category {
+        float:left;
+        position:relative;
+    }
+
+    .nav_menu {
+        font-weight: 700;
+        float:left;
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .nav_hashtag {
+        color: $gray_font;
+        float:left;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav_user {
+        min-width: 200px;
+        float: right;
+        position: absolute;
+    }
+
+}
+
+.menu_link {
+    padding: 0 13px;
+}
+
+.hash_link {
+    padding: 0 10px;
+}
+
