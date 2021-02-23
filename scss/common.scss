@@ -141,6 +141,11 @@ ul {
       color: #ef8323;
       padding: 0 0.3em;
     }
+    &__price {
+      @extend .f-14;
+      @extend .fw-600;
+      color: #000;
+    }
     &:hover {
       .box__item__title {
         text-decoration: underline;
