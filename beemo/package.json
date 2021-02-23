@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "watch-scss": "sass --watch public/stylesheets/scss:public/stylesheets/css",
     "predeploy-scss": "sass public/stylesheets/scss:public/stylesheets/css",
     "predeploy-webpack": "npx webpack",
-    "start": "sass public/stylesheets/scss:public/stylesheets/css && npm run predeploy-webpack && node ./bin/www"
+    "start": "npm run predeploy-scss && npm run predeploy-webpack && node ./bin/www"
   },
   "dependencies": {
     "consolidate": "^0.16.0",
@@ -21,6 +22,7 @@
     "css-loader": "^5.0.2",
     "cssnano": "^4.1.10",
     "node-sass": "^5.0.0",
+    "nodemon": "^2.0.7",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
     "webpack": "^5.23.0",
