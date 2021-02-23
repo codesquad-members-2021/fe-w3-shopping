@@ -1,4 +1,5 @@
 @import "./nav.scss";
+@import "./main-top.scss";
 
 $site_max_width: 960px;
 $font_color: #333;
@@ -27,7 +28,6 @@ body {
 }
 
 header {
-  height: 500px;
   outline: red solid;
   display: block;
 }
