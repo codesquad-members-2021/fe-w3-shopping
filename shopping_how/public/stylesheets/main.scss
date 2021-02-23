@@ -145,6 +145,17 @@ header {
 
       ul {
         display: inline-block;
+
+        li {
+          &:link {
+            color: #222;
+          }
+
+          &:hover {
+            transition: background-color 0.4s;
+            color: #f9624c;
+          }
+        }
       }
 
       .nav_first,

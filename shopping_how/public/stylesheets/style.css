@@ -89,6 +89,11 @@ header {
         display: table; }
       header .nav-container div ul {
         display: inline-block; }
+        header .nav-container div ul li:link {
+          color: #222; }
+        header .nav-container div ul li:hover {
+          transition: background-color 0.4s;
+          color: #f9624c; }
       header .nav-container div .nav_first,
       header .nav-container div .nav_middle {
         float: left; }
