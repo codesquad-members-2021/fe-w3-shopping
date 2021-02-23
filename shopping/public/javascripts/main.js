@@ -1,6 +1,6 @@
 const mallEventSlide = document.querySelector("#mallEventSlide");
 
-console.log(mallEventSlide);
+// console.log(mallEventSlide);
 
 const createPanel = (lists) => {
   return `<div class="panel"><ul class="list_item">${lists}</ul></div>`;
@@ -25,6 +25,9 @@ let lists = "";
 fetch("http://localhost:3000/planningEvent.json")
   .then((res) => res.json())
   .then((data) => {
+    const event = data.event; // best100 event 상품
+    const mileageList = data.mileageList; // 캐러셀
+    console.log(mileageList);
     const mallEventListProducts = data.mallEventList;
     console.log(mallEventListProducts);
     mallEventListProducts.forEach((product, idx, array) => {

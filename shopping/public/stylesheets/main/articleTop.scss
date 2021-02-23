@@ -19,11 +19,21 @@
 
     .event__item {
       grid-column: 1/3;
-      border-right: none;
     }
 
     .event__slide {
       grid-column: 3/6;
+
+      .slide_event {
+        background-color: tan;
+      }
+
+      .panel {
+        display: table;
+        float: left;
+        width: map-get($slide_img, width);
+        height: map-get($slide_img, height);
+      }
     }
 
     .paging_comm {
