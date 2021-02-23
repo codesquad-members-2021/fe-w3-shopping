@@ -1,0 +1,140 @@
+@import "../vars.scss";
+
+.article__top {
+  // background-color: teal;
+
+  .top__event {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    // border: 1px solid $navbar-line-color;
+
+    .event {
+      // width: 100%;;
+      border: 1px solid map-get($color-palette, top_border);
+      border-bottom: none;
+      text-align: center;
+      position: relative;
+    }
+
+    .event__item {
+      grid-column: 1/3;
+      border-right: none;
+    }
+
+    .event__slide {
+      grid-column: 3/6;
+    }
+
+    .paging_comm {
+      // border: 1px solid yellow;
+      position: absolute;
+      top: 283px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+
+      button {
+        position: absolute;
+        top: -160px;
+        font-size: 50px;
+        color: map-get($color-palette, top_border);
+        //   background-color: blueviolet;
+        padding: 0 5.5%;
+      }
+
+      .btn_prev {
+        left: 0;
+      }
+
+      .btn_next {
+        right: 0;
+      }
+
+      .inner_paging {
+        display: inline-block;
+
+        .btn_paging {
+          float: left;
+          margin-left: 3px;
+
+          .num_page {
+            display: block;
+            width: 15px;
+            height: 5px;
+            background-color: map-get($color-palette, num_page-color);
+          }
+        }
+      }
+    }
+  }
+
+  .top__event-list {
+    // height: 100%;
+    // border: 1px solid red;
+
+    .event-list__slide {
+      width: 100%;
+      position: relative;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .list_item {
+      //   border: 1px solid red;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(20%, auto));
+      height: 100%;
+      border: 1px solid map-get($color-palette, top_border);
+
+      ._GI_ {
+        // background-color: teal;
+        padding: 20px 25px;
+        border-right: 1px solid map-get($color-palette, top_border);
+        // height: 100%;
+        a {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          color: map-get($font-color, content);
+          height: 23.5em;
+
+          strong {
+            margin-top: 10px;
+            font-size: map-get($font-size, title);
+            color: map-get($font-color, title);
+          }
+
+          .ico_theme {
+            color: map-get($font-color, theme);
+            border: 1px solid map-get($font-color, theme);
+            border-radius: 2px;
+            width: fit-content;
+            position: absolute;
+            bottom: 1px;
+          }
+        }
+      }
+
+      .last {
+        border-right: none;
+      }
+    }
+
+    .btn_g {
+      //   background-color: wheat;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 2em;
+    }
+
+    .btn_next {
+      right: 0;
+    }
+  }
+}
