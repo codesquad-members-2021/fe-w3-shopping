@@ -951,6 +951,13 @@ section {
     }
   }
 
+  .button--home {
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/img_home_190702.png) no-repeat;
+    text-indent: -9999px;
+  }
   .contents__etc {
     .banner--item {
       overflow: hidden;
@@ -981,6 +988,19 @@ section {
         border: 1px solid #e4e4e4;
         border-bottom: 0;
         background-color: #fff;
+
+        .button--home {
+          left: 1246px;
+          position: absolute;
+          bottom: -1px;
+          // left: 948px;
+          width: 29px;
+          height: 29px;
+          background-position: -105px -220px;
+          padding: 0;
+          background-color: black;
+        }
+
         .contents-partner {
           overflow: hidden;
           height: 110px;
@@ -1014,23 +1034,6 @@ section {
               }
             }
           }
-        }
-        .button--home {
-          left: 1246px;
-          position: absolute;
-          bottom: -1px;
-          // left: 948px;
-          width: 29px;
-          height: 29px;
-          background-position: -105px -220px;
-          display: block;
-          font-size: 0;
-          line-height: 0;
-          background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/img_home_190702.png) no-repeat;
-          text-indent: -9999px;
-          overflow: hidden;
-          vertical-align: middle;
-          padding: 0;
         }
       }
       .link--all {
@@ -1188,6 +1191,13 @@ section {
 #wrapMinidaum {
   display: none;
 }
+.ico_home {
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/img_home_190702.png) no-repeat;
+  text-indent: -9999px;
+}
 
 .btn_follow {
   overflow: hidden;
@@ -1200,4 +1210,10 @@ section {
   padding: 15px 11px;
   border: 1px solid #aeaeae;
   background-color: #fff;
+
+  .ico_follow {
+    width: 17px;
+    height: 9px;
+    background-position: 0 -350px;
+  }
 }
