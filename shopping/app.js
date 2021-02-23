@@ -11,16 +11,23 @@ var usersRouter = require("./routes/users");
 
 var app = express();
 
-global.data = JSON.parse(fs.readFileSync("./data/homeContents.json"));
+// global 변수에 지정
+global.planningEventData = JSON.parse(fs.readFileSync("./data/planningEvent.json"));
+global.homeContentsData = JSON.parse(fs.readFileSync("./data/homeContents.json"));
 
+// json response
 app.use(express.json());
+// cors-enable
 app.use(cors());
 
-app.get("/data.json", function (req, res, next) {
-  // res.json({ msg: "This is CORS-enabled for all origins" });
-  const { data } = global;
-  // console.log(data);
-  res.json(data);
+app.get("/planningEvent.json", function (req, res, next) {
+  const { planningEventData } = global;
+  res.json(planningEventData);
+});
+
+app.get("/homeContents.json", function (req, res, next) {
+  const { homeContentsData } = global;
+  res.json(homeContentsData);
 });
 
 app.listen(80, function () {
