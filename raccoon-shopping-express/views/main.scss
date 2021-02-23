@@ -3,10 +3,13 @@
   width: 100%;
   text-align: center;
   background: #f3f3f3;
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 a {
   text-decoration: none;
+  color: #333;
 }
 
 img {
@@ -548,6 +551,7 @@ section {
           overflow: hidden;
           position: relative;
           // width: 971px;
+          width: 1274px;
           height: 318px;
           border-bottom: 1px solid #e4e4e4;
         }
@@ -557,8 +561,19 @@ section {
           z-index: 0;
         }
 
+        .first {
+          padding-right: 27px;
+          width: 201px;
+        }
+
+        .last {
+          padding-right: 26px;
+        }
+
         .mall__event {
           #mall__event--slide {
+            width: 1280px;
+            height: 323px;
             // 여기도 동적 할당
             .slide {
               position: relative;
@@ -571,7 +586,7 @@ section {
                 overflow: hidden;
                 display: inline-block;
                 transform: translate3d(0px, 0px, 0px);
-                width: 1280px;
+                // width: 1280px;
                 .list--item {
                   overflow: hidden;
                   width: 1275px;
@@ -591,10 +606,6 @@ section {
                     letter-spacing: -1px;
                   }
 
-                  .fisrt--goods {
-                    padding-right: 27px;
-                    width: 201px;
-                  }
                   .goods {
                   }
                   .last--goods {
@@ -604,15 +615,86 @@ section {
                     overflow: hidden;
                     position: relative;
                     text-decoration: none;
+
+                    .info--thumb {
+                      display: block;
+                      overflow: hidden;
+                      height: 200px;
+
+                      .image--top {
+                      }
+                    }
+                    .info--title {
+                      display: block;
+                      overflow: hidden;
+                      margin: 10px 0 1px;
+                      font-size: 14px;
+                      white-space: nowrap;
+                      text-overflow: ellipsis;
+                      line-height: 22px;
+                      // 사실 폰트로 두께가 달라짐
+                      font-weight: 800;
+                    }
+                    .info--txt {
+                      display: block;
+                      color: #888;
+                    }
+
+                    .ico--background2 {
+                      float: left;
+                      height: 18px;
+                      margin: 11px 4px 0 0;
+                      background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/img/ico_comm2_150514.gif) no-repeat;
+                      display: block;
+                      overflow: hidden;
+                      text-indent: -9999px;
+                    }
+
+                    .ico--theme {
+                      width: 31px;
+                      background-position: 0 -850px;
+                    }
                   }
                 }
               }
             }
           }
 
-          .button-group--prev {
+          .button-group {
+            // display: none;
+            overflow: hidden;
+            position: absolute;
+            top: 50%;
+            z-index: 1;
+            width: 41px;
+            height: 41px;
+            margin-top: -58px;
+            background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/specials/ico_eventlist_141110_v3.png) 0 -340px no-repeat;
           }
-          .button-group--next {
+          .ico--home {
+            width: 9px;
+            height: 17px;
+            font-size: 0;
+            line-height: 0;
+            background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/specials/ico_eventlist_141110_v2.png) no-repeat;
+            display: block;
+            text-indent: -9999px;
+          }
+          .button--prev {
+            left: 0;
+            .ico--home {
+              margin: 12px 17px 12px 9px;
+              background-position: -120px -300px;
+            }
+          }
+          .button--next {
+            right: 0;
+            padding: 0;
+
+            .ico--home {
+              margin: 12px 14px 12px 17px;
+              background-position: -140px -300px;
+            }
           }
         }
       }
