@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>쇼핑하우 by daisycommerce</title>
     <link rel="stylesheet" href="../public/stylesheets/style.scss" />
   </head>
   <body>
@@ -11,43 +11,56 @@
       <div class="header__search-wrap">
         <a>
           <img
+            id="main-logo"
             src="//search1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/logo_shw.png"
             alt="쇼핑하우 by kakaocommerce"
           />
         </a>
         <form class="header__search-form">
-          <input type="text" class="search-form__input" />
+          <div class="search-form__input-wrap">
+            <input type="text" class="search-form__input" />
+          </div>
+
           <button class="search-form__btn">
-            <span class="search-form__btn__icon"> 검색 </span>
+            <!-- <span class="search-form__btn__icon"></span> -->
           </button>
         </form>
       </div>
       <nav class="header__nav-menu">
-        <ul class="nav-menu__list">
-          <button id="list__category-btn"><span>아이콘</span>카테고리</button>
+        <ul class="header__nav-menu__list">
+          <button id="list__category-btn">
+            <span
+              ><img
+                src="../public/images/ico.png"
+                alt="hamburger-btn"
+                id="hamburger" /></span
+            >카테고리
+          </button>
           <li>핫딜</li>
           <li>베스트100</li>
           <li>할인특가</li>
           <li>기획전</li>
         </ul>
-        <ul class="nav-menu__hashtag">
+        <ul class="header__nav-menu__hashtag">
           <li>#건강식품</li>
           <li>#제철음식</li>
           <li>#블루투스이어폰</li>
           <li>#커블체어</li>
           <li>#노트북</li>
         </ul>
-        <ul class="nav-menu__user">
+        <ul class="header__nav-menu__user">
           <li>
             <button id="user__login-btn"><span>아이콘</span>로그인</button>
           </li>
           <li>
-            <button id="user__recently-btn"><span>아이콘</span>최근본 상품</button>
+            <button id="user__recently-btn">
+              <span>아이콘</span>최근본 상품
+            </button>
           </li>
         </ul>
       </nav>
     </header>
-    <section class="top">
+    <!-- <section class="top">
       <div class="top__wrap">
         <div class="wrap__panel" id ="best">패션 베스트</div>
         <div class="wrap__panel" id =>커피메이커</div>
@@ -141,7 +154,7 @@
       최종 상품 정보는 구매 전 판매처에서 반드시 확인해주세요.<br>
       각 판매처의 매매보호 서비스를 통해 구매안전 절차 확인 후(에스크로/소비자피해보험/채무지금보증계약) 상품을 구매해 주시기 바랍니다.
     </p></footer>
-    <small class="copyright">Copyright © daisycommerce Corp. All rights reserved.</small>
+    <small class="copyright">Copyright © daisycommerce Corp. All rights reserved.</small> -->
 
     <script src="./main.js"></script>
   </body>
