@@ -4,7 +4,7 @@ import path from "path";
 
 const router = express.Router();
 
-const __dirname = path.resolve()
+const __dirname = path.resolve();
 
 const homeContentsData = fs.readFileSync(`${__dirname}/backend/data/homeContents.json`, 'utf8', (err, data) => {
   return data;
