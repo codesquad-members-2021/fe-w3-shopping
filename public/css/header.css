@@ -1,8 +1,26 @@
-.header {
-  background-color: pink; }
-  .header .main__logo__box {
-    background-color: pink; }
-
-.main__head {
+header .main__head {
+  margin: 100px 100px;
   display: flex;
-  flex-direction: row; }
+  flex-flow: row nowrap; }
+
+header .main__logo__box {
+  display: inline; }
+  header .main__logo__box img {
+    width: 120px; }
+
+header .main__search__box {
+  position: relative;
+  width: 670px;
+  height: 51px;
+  box-sizing: border-box;
+  margin: 0 30px;
+  padding: 3px 10px; }
+  header .main__search__box input {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 2px solid #cecfd1;
+    font-size: 20px; }
+  header .main__search__box button {
+    position: absolute;
+    right: 0; }
