@@ -8,42 +8,56 @@
     <link rel="stylesheet" href="style/reset.css"> 
 </head>
 <body>
-    <div>
-        <%= homeContents.contents[0].eventContent.title %>
-    </div>
     <div class="header__container">
+
         <header>
-            <a href="#"><img></a>
-            <div></div>
+            <a href="#" class="header__logo">
+                <img src="//search1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/logo_shw.png"
+                alt = "쇼핑하우 by kakaocommerce">
+            </a>
+
+            <div class="header__search">
+                <form>
+                    <fieldset>
+                        <div class="search__box">
+                            <input>
+                            <button></button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div> <!-- .header__search -->
         </header>
 
         <nav>
             <button></button>
-            <ul>
+            <ul class="gnb__main">
                 <li><a href="#">핫딜</a></li>
                 <li><a href="#">베스트100</a></li>
                 <li><a href="#">할인특가</a></li>
                 <li><a href="#">기획전</a></li>
             </ul>
-            <ul>
+            <ul class="gnb__word">
                 <li><a href="#">#수능 선물</a></li>
                 <li><a href="#">#김치 냉장고</a></li>
                 <li><a href="#">#체험 가습기</a></li>
                 <li><a href="#">#구스다운</a></li>
                 <li><a href="#">#온수매트</a></li>
             </ul>
-            <ul>    
+            <ul class="gnb__user">
                 <li><a href="#">로그인</a></li>
                 <li><a href="#">최근본 상품</a></li>
             </ul>
         </nav>
+
     </div> <!-- .header__container -->
 
+    <!-- content__container : 헤더 밑을 모두 감싸는 요소 -->
     <div class="content__container">
+
         <div class="content__banner">
-            <div class="banner__evt">
+            <div class="banner__main">
                 <div class="banner__left"><a href="#">
-                    <img>
+                    <img src="//shop4.daumcdn.net/shophow/sib/0_210219174849_FwZShCdZPYIPpJmvgEiGWverDgJVqrrq" alt="기획전 이벤트">
                 </a></div>
                 <div class="banner__right"><a href="#">
                     <img>
@@ -51,18 +65,48 @@
             </div>
 
             <ul class="banner__list">
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
+                <li><a href="#">
+                    <img src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop1.daumcdn.net%2Fshophow%2Fp%2FF10881341690.jpg%3Fut%3D20201024101305&scode=talkgift" 
+                    alt="도시적인 미니멀 스타일 킨더살몬">
+                    <span class="list__title">도시적인 미니멀 스타일 킨더살몬</span>
+                    <span class="list__des">깔끔한 데일리룩을 위한 브랜드</span>
+                    <span class="list__theme">테마</span>
+                </a></li>
+                <li><a href="#">
+                    <img src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FY4435589935.jpg%3Fut%3D20210211120637&scode=talkgift"
+                    alt="퇴근 후 즐기는 홈스파 #배스솔트">
+                    <span class="list__title">퇴근 후 즐기는 홈스파 #배스솔트</span>
+                    <span class="list__des">바쁜 하루의 마무리를 개운하게</span>
+                    <span class="list__theme">테마</span>
+                </a></li>
+                <li><a href="#">
+                    <img src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FN10314846256.jpg%3Fut%3D20200828103519&scode=talkgift"
+                    alt="매력적인 포인트를 주는 실버링">
+                    <span class="list__title">매력적인 포인트를 주는 실버링</span>
+                    <span class="list__des">매끄럽고 세련된 디자인</span>
+                    <span class="list__theme">테마</span>
+                </a></li>
+                <li><a href="#">
+                    <img src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FG11290107196.jpg%3Fut%3D20201125081850&scode=talkgift"
+                    alt="단정하지만 우아한 스타일, 르메르">
+                    <span class="list__title">단정하지만 우아한 스타일, 르메르</span>
+                    <span class="list__des">디렉터 크리스토퍼 르메르의 컬렉션</span>
+                    <span class="list__theme">테마</span>
+                </a></li>
+                <li><a href="#">
+                    <img src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop1.daumcdn.net%2Fshophow%2Fp%2FH11353503109.jpg%3Fut%3D20201130095857&scode=talkgift"
+                    alt="바비브라운 브랜드전">
+                    <span class="list__title">바비브라운 브랜드전</span>
+                    <span class="list__des">완벽한 메이크업을 위한 뷰티템</span>
+                    <span class="list__theme">테마</span>
+                </a></li>
             </ul>
         </div> <!-- .content__banner -->
 
         <div class="content__middle">
 
         </div>
-    </div>
+    </div> <!--content__container-->
 
 </body>
 </html>
