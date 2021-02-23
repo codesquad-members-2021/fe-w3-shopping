@@ -1,9 +1,9 @@
-import express from "../node_modules/express/lib/express.js";
-import cors from "../node_modules/cors/lib/index.js";
-import fs from "fs"
-// const cors = require('cors')
 
-import {default as apiRoutes} from "./apiRoutes.js";
+import express from "express";
+import cors from "cors";
+import fs from "fs"
+
+import { default as apiRoutes } from "./apiRoutes.js";
 
 const app = express();
 const port = 3333;
