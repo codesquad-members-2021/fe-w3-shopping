@@ -11,89 +11,137 @@
 </head>
 
 <body>
-  <header>
-    <div>
-      <div>
-        쇼핑하우
+  <header class="header_tag">
+    <div class="head">
+      <div class="head__logo">
+        <a href="#"><img src="./images/logo.png" class="head__logo--img" alt=""></a>
       </div>
-      <div>
-        1. 쿠쿠 2. 단백질 ...
-      </div>
-      <div>
-        돋보기
+      <div class="head__search">
+        <div class="head__search--input">
+          <ol>
+            <li>쿠쿠</li>
+            <li>아크릴가림막</li>
+            <li>낮잠이불</li>
+            <li>싱크대물막이</li>
+            <li>저분자콜라겐</li>
+            <li>샤워커튼</li>
+            <li>울트라기어모니터</li>
+            <li>더치커피</li>
+            <li>착즙기</li>
+            <li>오덴세</li>
+          </ol>
+        </div>
+        <button class="head__search--button">
+          <img class="head__search--img" src="./images/magnifyingGlass.svg" alt="">
+        </button>
       </div>
     </div>
   </header>
 
-  <nav>
-    <div>
-      <button>
-        <span>햄버거img</span> 카테고리
+  <nav class="nav_tag">
+    <div class="nav">
+      <button class="nav__category_button">
+        <span><img src="./images/menu.svg" alt=""></span> <span>카테고리</span>
       </button>
-      <ul>
-        <li>핫딜</li>
-        <li>베스트100</li>
-        <li>할인특가</li>
-        <li>기획전</li>
+      <ul class="nav__menu__list">
+        <li class="nav__menu__item"><a href="#">핫딜</a></li>
+        <li class="nav__menu__item"><a href="#">베스트100</a></li>
+        <li class="nav__menu__item"><a href="#">할인특가</a></li>
+        <li class="nav__menu__item"><a href="#">기획전</a></li>
       </ul>
-      <ul>
-        <li>#건강식품</li>
-        <li>#제철음식</li>
-        <li>#블루투스이어폰</li>
-        <li>#커블체어</li>
-        <li>#노트북</li>
+      <ul class="nav__hashtag__list">
+        <li class="nav__hashtag__item"><a href="#">#건강식품</a></li>
+        <li class="nav__hashtag__item"><a href="#">#제철음식</a></li>
+        <li class="nav__hashtag__item"><a href="#">#블루투스이어폰</a></li>
+        <li class="nav__hashtag__item"><a href="#">#커블체어</a></li>
+        <li class="nav__hashtag__item"><a href="#">#노트북</a></li>
       </ul>
-      <a href="#"><span>사용자img</span>로그인</a>
-      <a href="#"><span>네모img</span>최근 본 상품</a>
+      <ul class="nav__auth__list">
+        <li class="nav__auth__item">
+          <a href="#">
+            <span>
+              <img class="nav__auth__item--img" src="./images/menu.svg" alt="">
+            </span><span>로그인</span>
+          </a>
+        </li>
+        <li class="nav__auth__item">
+          <a href="#">
+            <span>
+              <img class="nav__auth__item--img" src="./images/menu.svg" alt="">
+            </span><span>최근 본 상품▼</span>
+          </a>
+        </li>
+      </ul>
     </div>
   </nav>
 
   <section>
     <article>
-      <div>
-        <div>
+      <div class="main">
+        <div class="main__first_line">
           <!-- 첫째줄 -->
-          <div>
-            자동차 베스트
+          <div class="main__first_line--left">
+            <img src="./images/ex1.jpg" alt="">
           </div>
-          <div>
-            G마켓
+          <div class="main__first_line--right">
+            <img src="./images/ex2.jpg" alt="">
           </div>
         </div>
 
-        <div>
+        <div class="main__second_line">
           <!-- 둘째줄 -->
-          <ul>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
+          <ul class="main__second_line__list">
+            <li class="main__second_line__item"><a href="#">
+                <img src="./images/ex1.jpg" alt="">
+              </a></li>
+            <li class="main__second_line__item"><a href="#">
+                <img src="./images/ex2.jpg" alt="">
+              </a></li>
+            <li class="main__second_line__item"><a href="#">
+                <img src="./images/ex3.jpg" alt="">
+              </a></li>
+            <li class="main__second_line__item"><a href="#">
+                <img src="./images/ex4.jpg" alt="">
+              </a></li>
+            <li class="main__second_line__item"><a href="#">
+                <img src="./images/ex5.jpg" alt="">
+              </a></li>
           </ul>
-          <div>
-            더보기(1/276건) ▼
-          </div>
+
+        </div>
+
+        <div class="main__third_line">
+          <button class="main__third_line--button">더보기(1/276건) ▼</button>
         </div>
 
       </div>
     </article>
 
     <article>
-      <div>
-        <div>지금뜨는 테마 카테고리</div>
-        <div>
-          <ul>
-            <li><a href="#">6</a></li>
-            <li><a href="#">7</a></li>
-            <li><a href="#">8</a></li>
-            <li><a href="#">9</a></li>
-            <li><a href="#">10</a></li>
-          </ul>
-        </div>
+      <div class="another_item_title">지금뜨는 테마 카테고리</div>
+      <div class="other">
+        <ul class="other__list">
+          <li class="other__item"><a href="#">
+              <img src="./images/ex1.jpg" alt="">
+            </a></li>
+          <li class="other__item"><a href="#">
+              <img src="./images/ex2.jpg" alt="">
+            </a></li>
+          <li class="other__item"><a href="#">
+              <img src="./images/ex3.jpg" alt="">
+            </a></li>
+          <li class="other__item"><a href="#">
+              <img src="./images/ex4.jpg" alt="">
+            </a></li>
+          <li class="other__item"><a href="#">
+              <img src="./images/ex5.jpg" alt="">
+            </a></li>
+        </ul>
       </div>
     </article>
   </section>
 
+  <script src="./main_bundle.js"></script>
 </body>
 
 </html>
