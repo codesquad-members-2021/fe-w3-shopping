@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "start-p": "parcel index.html --open"
+    "start-p": "parcel ./views/index.html --open",
+    "build:sass": "sass stylesheets/scss:dist/css"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -17,7 +18,9 @@
   },
   "description": "",
   "main": "app.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "sass": "^1.32.8"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/damilog/fe-w3-shopping.git"
