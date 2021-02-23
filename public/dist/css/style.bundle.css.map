@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://fe-w3-shopping/./public/src/scss/style.scss"],"names":[],"mappings":"AAEE;EACE,YAFK;EAGL,aAHK;EAIL;AADJ,C","file":"css/style.bundle.css","sourcesContent":[".scssTest {\r\n  $size: 100px;\r\n  .box {\r\n    width: $size;\r\n    height: $size;\r\n    background-color: tomato;\r\n  }\r\n}\r\n"],"sourceRoot":""}
