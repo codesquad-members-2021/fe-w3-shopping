@@ -1,4 +1,4 @@
-import API from "./util/api.js";
+import API from "./src/util/api.js";
 
 class App {
   constructor({ $target }) {
