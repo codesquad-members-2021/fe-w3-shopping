@@ -49,7 +49,7 @@
         </a>
       </div>
       <div class="col-6 carousel">
-        <div class="carousel-box">
+        <div class="carousel__box">
           <div class="panel">
             <a class="panel__item">
               <img src="images/c1.png">
@@ -62,45 +62,26 @@
             </a>
           </div>
         </div>
+        <div class="carousel__paging">
+          <div class="paging-arrow" id="pagingArrow">
+            <div class="paging-arrow__left" data-arrow="prev"></div>
+            <div class="paging-arrow__right" data-arrow="next"></div>
+          </div>
+          <div class="paging-hover" id="pagingHover">
+            <div class="paging-hover__button" data-index="0"></div>
+            <div class="paging-hover__button" data-index="1"></div>
+            <div class="paging-hover__button" data-index="2"></div>
+          </div>
+        </div>
       </div>
       <div class="col-10">
-        <div class="col-10 grid box">
-          <a class="box__item" href="">
-            <img class="box__item__img" src="//shop2.daumcdn.net/shophow/c/image/content/set/ad8255/20210222154513356_716799" alt="">
-            <span class="box__item__title">맛있어요.</span>
-            <span class="box__item__content">아침대용 구운도넛 20봉 외</span>
-            <span class="box__item__tag">테마</span>
-          </a>
-          <a class="box__item" href="">
-            <img class="box__item__img" src="//shop2.daumcdn.net/shophow/c/image/content/set/ad8255/20210115140738392_2355" alt="">
-            <span class="box__item__title">먹었으면 운동해야죠.</span>
-            <span class="box__item__content">다이어트 관리를 위한 체중계 모음</span>
-            <span class="box__item__tag">테마</span>
-          </a>
-          <a class="box__item" href="">
-            <img class="box__item__img" src="//shop1.daumcdn.net/thumb/R250x250/?fname=https%3A%2F%2Fshop1.daumcdn.net%2Fshophow%2Fp%2FD5094239302.jpg%3Fut%3D20200601232313" alt="">
-            <span class="box__item__title">다이어트를 위한 착즙기</span>
-            <span class="box__item__content">3만원 이하 착즙기 모음</span>
-            <span class="box__item__tag">테마</span>
-          </a>
-          <a class="box__item" href="">
-            <img class="box__item__img" src="//shop2.daumcdn.net/thumb/R250x250/?fname=https%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FD5096601663.jpg%3Fut%3D20200703162742" alt="">
-            <span class="box__item__title">더치 커피는 0칼로리</span>
-            <span class="box__item__content">1만원 이하 더치커피 모음</span>
-            <span class="box__item__tag">테마</span>
-          </a>
-          <a class="box__item" href="">
-            <img class="box__item__img" src="//shop2.daumcdn.net/shophow/c/image/content/set/ad8255/20210222152040232_440720" alt="">
-            <span class="box__item__title">다이어트 했으면 먹어야죠.</span>
-            <span class="box__item__content">치팅데이에는 필수! 흑돼지 외</span>
-            <span class="box__item__tag">테마</span>
-          </a>
+        <div class="col-10 grid box" id="boxTarget">
         </div>
         <div class="col-10 button-wrap">
           <div class="more-button" id="moreBoxButton">
             <span class="more-button__text">더보기</span>
             <span class="more-button__count">
-              (<span id="viewBoxCount">5</span>/<span id="totalBoxCount">49</span>)</span>
+              (<span id="viewBoxCount"></span>/<span id="totalBoxCount"></span>)</span>
             <span class="more-button__arrow"></span>
           </div>
         </div>
@@ -144,6 +125,6 @@
       </div>   
     </section>
   </main>
-  <!-- <script src='main.js'></script> -->
+  <script src='main.js'></script>
 </body>
 </html>
