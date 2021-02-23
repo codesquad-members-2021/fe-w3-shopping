@@ -17,6 +17,7 @@
   background-color: #e3e3e3;
 }
 nav {
+  width: 100%;
   border-top: 1px solid #efefef;
   margin-top: 10px;
   padding: 0 300px;
@@ -24,12 +25,14 @@ nav {
   line-height: 54px;
   background-color: #fff;
   box-shadow: 0 1px rgb(0 0 0 / 16%);
+  overflow: hidden;
   & > div,
   ul,
   .nav-user__column > a {
     display: flex;
   }
 }
+
 .nav__category {
   float: left;
   i {
@@ -39,6 +42,7 @@ nav {
     padding: 0 12px;
   }
 }
+
 .nav__event-list {
   float: left;
   font-weight: 600;
@@ -46,6 +50,7 @@ nav {
     padding: 0 12px;
   }
 }
+
 .nav__tag-list {
   float: left;
   font-weight: 600;
@@ -54,6 +59,7 @@ nav {
     padding: 0 12px;
   }
 }
+
 .nav__user-container {
   float: right;
   a {
