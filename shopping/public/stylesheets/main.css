@@ -144,4 +144,11 @@ button, input {
   padding: 0 10px;
 }
 
+.main {
+  background-color: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /*# sourceMappingURL=main.css.map */
