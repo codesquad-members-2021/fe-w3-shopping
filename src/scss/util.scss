@@ -1,0 +1,15 @@
+@import "debug.scss";
+
+%hori-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+
+  li {
+    @extend %debug-border-1;
+    float: left;
+    position: relative;
+    display: inline-block;
+  }
+}
