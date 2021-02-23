@@ -561,32 +561,25 @@ section {
           z-index: 0;
         }
 
-        .first {
-          padding-right: 27px;
-          width: 201px;
-        }
-
-        .last {
-          padding-right: 26px;
-        }
-
         .mall__event {
           #mall__event--slide {
             width: 1280px;
-            height: 323px;
+
             // 여기도 동적 할당
             .slide {
               position: relative;
               top: 0px;
               transform: translate3d(0px, 0px, 0px);
-              left: -1280px;
-              width: 3840px;
+              // 여기 이상하게 틀어짐
+              left: -1285px;
+              width: 3849px;
               .panel {
                 height: 100%;
                 overflow: hidden;
                 display: inline-block;
                 transform: translate3d(0px, 0px, 0px);
-                // width: 1280px;
+                width: 1280px;
+
                 .list--item {
                   overflow: hidden;
                   width: 1275px;
@@ -606,10 +599,15 @@ section {
                     letter-spacing: -1px;
                   }
 
-                  .goods {
+                  .first {
+                    padding-right: 27px;
+                    width: 201px;
                   }
-                  .last--goods {
+
+                  .last {
+                    padding-right: 26px;
                   }
+
                   .link--product {
                     display: block;
                     overflow: hidden;
@@ -622,6 +620,7 @@ section {
                       height: 200px;
 
                       .image--top {
+                        float: left;
                       }
                     }
                     .info--title {
@@ -698,9 +697,141 @@ section {
           }
         }
       }
-      .hotdeal__wrapper {
+      #hot-deal__wrapper {
+        .section--tab {
+          width: 1276px;
+          overflow: visible;
+          position: relative;
+          // width: 973px;
+          margin: 50px auto 0;
+          clear: both;
+
+          .title__hot-deal {
+            overflow: hidden;
+            width: 100%;
+            height: 24px;
+            margin-bottom: 11px;
+
+            .title--txt {
+              float: left;
+              height: 24px;
+              font-weight: 400;
+              font-size: 22px;
+              line-height: 22px;
+              color: #000;
+              letter-spacing: -2px;
+            }
+          }
+
+          .contents--item {
+            float: none;
+            border: 1px solid #e4e4e4;
+            overflow: hidden;
+            position: relative;
+            z-index: 0;
+            background: #fff;
+            .list--item {
+              width: 1275px;
+            }
+            .list--item li {
+              padding: 25px 27px 20px;
+              width: 200px;
+              text-align: center;
+              overflow: hidden;
+              float: left;
+              position: relative;
+              border-right: 1px solid #f1f1f1;
+              border-bottom: 1px solid #f1f1f1;
+              line-height: 14px;
+              letter-spacing: -1px;
+
+              .link--product {
+                display: block;
+                overflow: hidden;
+                position: relative;
+                text-decoration: none;
+
+                .hot-deal--thumb {
+                  display: block;
+                  overflow: hidden;
+                  width: 200px;
+                  height: 200px;
+
+                  .image-group {
+                    width: 100%;
+                    vertical-align: top;
+                  }
+                }
+                .info--title {
+                  display: -webkit-box;
+                  height: 40px;
+                  margin: 11px 0 0;
+                  font-size: 13px;
+                  line-height: 20px;
+                  color: #555;
+                  word-break: break-all;
+                  -webkit-box-orient: vertical;
+                  -webkit-line-clamp: 2;
+                  overflow: hidden;
+                  width: 100%;
+                }
+                .detail--price {
+                  display: block;
+                  height: 43px;
+                  padding-top: 7px;
+                  letter-spacing: 0;
+
+                  .info--discount {
+                    display: block;
+                    overflow: hidden;
+                    height: 30px;
+                    .txt--unit {
+                      font-weight: 400;
+                    }
+
+                    .txt--discount {
+                      float: left;
+                      font-size: 14px;
+                      line-height: 23px;
+                      color: #000;
+                      font-weight: 700;
+                    }
+                    .txt--percent {
+                      float: right;
+                      font-size: 24px;
+                      line-height: 30px;
+                      color: #fc363c;
+                      .txt--unit {
+                        display: inline-block;
+                        margin-top: 10px;
+                        font-size: 14px;
+                        line-height: 16px;
+                        vertical-align: top;
+                      }
+                    }
+                    .price--hot-deal {
+                      padding-right: 5px;
+                      font-size: 18px;
+                      letter-spacing: -1px;
+                    }
+                  }
+                  .txt--price {
+                    display: block;
+                    margin-top: -9px;
+                    font-size: 13px;
+                    color: #888;
+                    line-height: 22px;
+                    font-family: Tahoma, sans-serif;
+                    text-decoration: line-through;
+                    text-align: left;
+                  }
+                }
+              }
+            }
+          }
+        }
       }
-      .rapidup__keyword {
+      .hot-keyword__wrapper {
       }
     }
   }
