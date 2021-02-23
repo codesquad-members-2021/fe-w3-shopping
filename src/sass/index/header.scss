@@ -111,7 +111,7 @@ $header-letterSpacing: -1.15px;
                     span {
                         display: inline-block;
                         margin-left: 5px;
-                        font-size: 16px;
+                        font-size: $menu-fontSize;
                     }
                 }
             }
@@ -157,7 +157,24 @@ $header-letterSpacing: -1.15px;
 
             ul.list-usergroup {
                 margin-left: auto;
+                
+                li {
+                    padding: 0 10px;
+
+                    a {
+                        @extend .flex-center;
+                        span {
+                            margin-left: 4px;
+                            display: inline-block;
+                            font-weight: normal;
+                            font-size: $menu-fontSize;
+                        }
+
+                        
+                    }
+                }                
             }
+
 
         }
     }

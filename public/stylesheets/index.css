@@ -15,7 +15,7 @@ a {
   text-decoration: none;
   color: #333; }
 
-.flex-center, .header .logo-search, .header .menu .menu__wrapper .category button, .header .menu .menu__wrapper ul {
+.flex-center, .header .logo-search, .header .menu .menu__wrapper .category button, .header .menu .menu__wrapper ul, .header .menu .menu__wrapper ul.list-usergroup li a {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -24,19 +24,27 @@ a {
   width: 100%;
   margin: 0 auto; }
 
-.icon, .i-search, .i-category, .i-user {
+.icon, .i-search, .i-category, .i-user, .i-recent {
   background: url("/images/ico_gnb_shw.png") no-repeat;
   background-size: 130px 90px;
   display: block; }
 
-.i-search {
+.wh-23, .i-search {
   width: 23px;
   height: 23px; }
 
-.i-category {
-  background-position: 0 -30px;
+.wh-28, .i-category, .i-user, .i-recent {
   width: 28px;
   height: 28px; }
+
+.i-category {
+  background-position: 0 -30px; }
+
+.i-user {
+  background-position: -30px -30px; }
+
+.i-recent {
+  background-position: -60px -30px; }
 
 body {
   font-size: 12px;
@@ -54,7 +62,7 @@ a {
   text-decoration: none;
   color: #333; }
 
-.flex-center, .header .logo-search, .header .menu .menu__wrapper .category button, .header .menu .menu__wrapper ul {
+.flex-center, .header .logo-search, .header .menu .menu__wrapper .category button, .header .menu .menu__wrapper ul, .header .menu .menu__wrapper ul.list-usergroup li a {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -155,6 +163,13 @@ a {
             color: #888; }
       .header .menu .menu__wrapper ul.list-usergroup {
         margin-left: auto; }
+        .header .menu .menu__wrapper ul.list-usergroup li {
+          padding: 0 10px; }
+          .header .menu .menu__wrapper ul.list-usergroup li a span {
+            margin-left: 4px;
+            display: inline-block;
+            font-weight: normal;
+            font-size: 16px; }
 
 body {
   font-size: 12px;
@@ -172,7 +187,7 @@ a {
   text-decoration: none;
   color: #333; }
 
-.flex-center, .header .logo-search, .header .menu .menu__wrapper .category button, .header .menu .menu__wrapper ul {
+.flex-center, .header .logo-search, .header .menu .menu__wrapper .category button, .header .menu .menu__wrapper ul, .header .menu .menu__wrapper ul.list-usergroup li a {
   display: flex;
   justify-content: center;
   align-items: center; }
