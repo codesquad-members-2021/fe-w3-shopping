@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <img src='<%= planningEvent.mileageList[0].imgurl %>'>
-  </body>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <img src='<%= home.contents[0].eventContent.imgurl %>'>
+  <img src='<%= event.mileageList[0].imgurl %>'>
+</body>
+
 </html>

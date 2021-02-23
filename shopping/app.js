@@ -6,7 +6,6 @@ var logger = require("morgan");
 var sassMiddleware = require("node-sass-middleware");
 
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
 
 var app = express();
 
@@ -16,8 +15,11 @@ app.set("view engine", "ejs");
 
 app.use(logger("dev"));
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: false }));
+
 app.use(cookieParser());
+
 app.use(
   sassMiddleware({
     src: path.join(__dirname, "public"),
@@ -26,10 +28,11 @@ app.use(
     sourceMap: true,
   })
 );
+
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -47,6 +50,5 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-app.locals.planningEvent = require("./data/planningEvent.json");
 
 module.exports = app;
