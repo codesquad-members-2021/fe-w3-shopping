@@ -7,7 +7,8 @@ app.set('port', 3000);
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.locals.homeContents = require('./public/data/homeContents.json');
+app.locals.banner = require('./public/data/planningEvent.json');
+app.locals.contents = require('./public/data/homeContents.json');
 
 app.get('/', (req, res) => {
     res.render("index", {});

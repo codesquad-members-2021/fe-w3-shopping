@@ -31,7 +31,7 @@
         <nav>
             <div class="gnb__cate">
                 <button>
-                    <span></span>
+                    <span class="gnb__ico"></span>
                     카테고리
                 </button>
             </div>
@@ -50,11 +50,11 @@
             </ul>
             <ul class="gnb__user">
                 <li><a href="#">
-                    <span></span>
+                    <span class="gnb__ico"></span>
                     로그인
                 </a></li>
                 <li><a href="#">
-                    <span></span>
+                    <span class="gnb__ico"></span>
                     최근본 상품
                 </a></li>
             </ul>
@@ -67,57 +67,53 @@
 
         <div class="content__banner">
             <div class="banner__main">
-                <div class="banner__left"><a href="#">
+                <div><a href="#">
                     <img src="//shop4.daumcdn.net/shophow/sib/0_210219174849_FwZShCdZPYIPpJmvgEiGWverDgJVqrrq" alt="기획전 이벤트">
                 </a></div>
-                <div class="banner__right"><a href="#">
-                    <img>
-                </a></div>
+                <div class="slide__cont">
+                    <ul class="slide__wrap">
+                        <li class="slide__list"><a href="#">
+                            <img src="//shop3.daumcdn.net/shophow/sib/0_210219175556_BtjOWRoiPbsVXvlYusgFvjboDPXRIBQD">
+                        </a></li>
+                        <li class="slide__list"><a href="#">
+                            <img src="//shop3.daumcdn.net/shophow/sib/0_210219175609_PZjbWVyRtwcxTlShApbdyOenwLaYCOhs">
+                        </a></li>
+                        <li class="slide__list"><a href="#">
+                            <img src="//shop1.daumcdn.net/shophow/sib/0_210219175602_vRyGDQxWDethcelhYcMmXKXpgLqlAIAj">
+                        </a></li>
+                    </ul>
+                </div> <!-- .slide__cont -->
             </div>
 
             <ul class="banner__list">
-                <li><a href="#">
-                    <img src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop1.daumcdn.net%2Fshophow%2Fp%2FF10881341690.jpg%3Fut%3D20201024101305&scode=talkgift" 
-                    alt="도시적인 미니멀 스타일 킨더살몬">
-                    <span class="list__title">도시적인 미니멀 스타일 킨더살몬</span>
-                    <span class="list__des">깔끔한 데일리룩을 위한 브랜드</span>
-                    <span class="list__theme">테마</span>
-                </a></li>
-                <li><a href="#">
-                    <img src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FY4435589935.jpg%3Fut%3D20210211120637&scode=talkgift"
-                    alt="퇴근 후 즐기는 홈스파 #배스솔트">
-                    <span class="list__title">퇴근 후 즐기는 홈스파 #배스솔트</span>
-                    <span class="list__des">바쁜 하루의 마무리를 개운하게</span>
-                    <span class="list__theme">테마</span>
-                </a></li>
-                <li><a href="#">
-                    <img src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FN10314846256.jpg%3Fut%3D20200828103519&scode=talkgift"
-                    alt="매력적인 포인트를 주는 실버링">
-                    <span class="list__title">매력적인 포인트를 주는 실버링</span>
-                    <span class="list__des">매끄럽고 세련된 디자인</span>
-                    <span class="list__theme">테마</span>
-                </a></li>
-                <li><a href="#">
-                    <img src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FG11290107196.jpg%3Fut%3D20201125081850&scode=talkgift"
-                    alt="단정하지만 우아한 스타일, 르메르">
-                    <span class="list__title">단정하지만 우아한 스타일, 르메르</span>
-                    <span class="list__des">디렉터 크리스토퍼 르메르의 컬렉션</span>
-                    <span class="list__theme">테마</span>
-                </a></li>
-                <li><a href="#">
-                    <img src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop1.daumcdn.net%2Fshophow%2Fp%2FH11353503109.jpg%3Fut%3D20201130095857&scode=talkgift"
-                    alt="바비브라운 브랜드전">
-                    <span class="list__title">바비브라운 브랜드전</span>
-                    <span class="list__des">완벽한 메이크업을 위한 뷰티템</span>
-                    <span class="list__theme">테마</span>
-                </a></li>
+                <% for(let i = 0; i < 5; i++) { %>
+                    <li><a href="#">
+                        <img src= <%= banner.mallEventList[i].imgurl %> alt= <%= banner.mallEventList[i].text %>>
+                        <span class="list__title"><%= banner.mallEventList[i].text %></span>
+                        <span class="list__des"><%= banner.mallEventList[i].text2 %></span>
+                        <span class="list__theme">테마</span>
+                    </a></li>
+                <% } %>
             </ul>
         </div> <!-- .content__banner -->
 
-        <div class="content__middle">
+        <div class="showMore">더보기</div>
 
+        <div class="content__theme ">
+            <h3>지금뜨는 테마 카테고리</h3>
+            <ul>
+                <% for(let i = 0; i < 5; i++) { %>
+                    <li><a href="#">
+                        <!-- 0 ~ 4번째까지 배너랑 겹쳐서 i + 5번째 해줌. -->
+                        <img src= <%= contents.contents[i+5].eventContent.imgurl %> alt= <%= contents.contents[i+5].eventContent.title %>>
+                        <span class="list__title"><%= contents.contents[i+5].eventContent.title %></span>
+                        <span class="list__des"><%= contents.contents[i+5].eventContent.subtitle %></span>
+                        <span class="list__theme">테마</span>
+                    </a></li>
+                <% } %>
+            </ul>
         </div>
     </div> <!--content__container-->
 
-</body>
+</body>       
 </html>
