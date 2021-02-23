@@ -1,10 +1,141 @@
 * {
   padding: 0;
   margin: 0;
+
   box-sizing: border-box;
 }
 
+button,
+button:focus {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+ul,
+li {
+  list-style: none;
+}
+
 header {
-  padding: 10px;
-  margin: 0px;
+  width: 100vw;
+  height: 193px;
+  padding-top: 43px;
+  border-bottom: 1px solid #cecfd1;
+  .area_top {
+    width: 843px;
+    height: 55px;
+    display: flex;
+    margin: 0 auto;
+
+    img {
+      width: 119px;
+      height: auto;
+    }
+    .area_top__search {
+      position: relative;
+      width: 670px;
+      height: 54px;
+      margin: 0 auto;
+      border: 1px solid #cecfd1;
+      border-radius: 10px;
+      padding-left: 30px;
+      input {
+        width: 92%;
+        height: 100%;
+        border: none;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      button {
+        height: 100%;
+        width: 8%;
+        color: rgb(255, 45, 45);
+        position: absolute;
+        font-size: 23px;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+  nav {
+    width: 100vw;
+    height: 55px;
+    border-top: 1px solid #e3e3e3;
+    margin-top: 40px;
+    .nav_container {
+      display: flex;
+      height: 100%;
+      justify-content: space-between;
+      width: 67%;
+      margin: 0px auto;
+      align-items: center;
+      .nav_left {
+        height: 100%;
+        display: flex;
+        font-size: 16px;
+
+        align-items: center;
+        .category {
+          width: 122px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          i {
+            background-color: #000;
+            color: #fff;
+            border-radius: 50%;
+            font-size: 12.2px;
+            padding: 8px;
+            margin: 0px 6px 0px 1px;
+          }
+        }
+        .show {
+          display: flex;
+          font-weight: bold;
+          align-items: center;
+          li {
+            padding: 0 13px;
+          }
+        }
+        .keyword {
+          display: flex;
+          font-weight: bold;
+          color: #808080;
+          align-items: center;
+          li {
+            padding: 0 10px 0 0;
+          }
+        }
+      }
+      .nav_right {
+        .user {
+          display: flex;
+          li {
+            padding: 0 10px;
+          }
+
+          i {
+            font-size: 20px;
+            color: white;
+            background: black;
+            border-radius: 50%;
+            padding: 5px;
+          }
+          i:last-child {
+            font-size: 16px;
+            color: black;
+            background: white;
+          }
+        }
+      }
+    }
+    .nav_line {
+      float: left;
+      width: 1px;
+      height: 18px;
+      margin-top: 4px;
+      background-color: #e3e3e3;
+    }
+  }
 }
