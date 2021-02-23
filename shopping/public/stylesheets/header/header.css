@@ -1,12 +1,4 @@
 @charset "UTF-8";
-.icon {
-  background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
-  background-size: 130px 90px; }
-
-.ico_menu {
-  left: 4px;
-  background-position: 0 -30px; }
-
 header {
   width: 100%;
   padding-top: 43px;
@@ -50,6 +42,3 @@ header {
 
 .header__navbar__login {
   float: right; }
-
-body {
-  height: 500vh; }

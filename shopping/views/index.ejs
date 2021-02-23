@@ -5,23 +5,25 @@
   <title>
     <%= title %>
   </title>
+  <link rel='stylesheet' href='/stylesheets/reset.css' />
+  <link rel='stylesheet' href='/stylesheets/nomalize.css' />
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
 <body>
   <header>
     <div class="header__searchbar">
-      <img src="https://search1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/logo_shw.png">
+      <img class="header__searchbar__img" src="https://search1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/logo_shw.png">
       <input type="text">
     </div>
     <div class="header__keywords"></div>
     <div class="header__navbar">
-      <button class="header__navbar__catagory">
+      <div class="header__navbar__catagory">
         <div>
           <span class="icon ico_menu">펼치기</span>
         </div>
         <span>카테고리</span>
-      </button>
+      </div>
 
       <ul class="header__navbar__hotDeal">
         <li>핫딜</li>
@@ -39,11 +41,11 @@
       <ul class="header__navbar__login">
         <li>
           <span class="ico_shwgnb ico_user"></span>
-          "로그인"
+          로그인
         </li>
         <li>
           <span class="ico_shwgnb ico_products"></span>
-          "최근본 상품"
+          최근본 상품
           <span class="ico_shwgnb ico_arrow"> 펼치기</span>
         </li>
 
