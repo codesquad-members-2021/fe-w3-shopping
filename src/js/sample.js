@@ -1,2 +1,1 @@
-const el = document.querySelector('#test');
-el.innerHTML = "#test innerHTML";
+document.addEventListener('click', () => console.log('클릭좀그만해'));

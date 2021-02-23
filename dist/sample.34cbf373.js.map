@@ -1,0 +1,1 @@
+{"version":3,"sources":["js/sample.js"],"names":["document","addEventListener","console","log"],"mappings":"AAAAA,QAAQ,CAACC,gBAAT,CAA0B,OAA1B,EAAmC;AAAA,SAAMC,OAAO,CAACC,GAAR,CAAY,QAAZ,CAAN;AAAA,CAAnC","file":"sample.34cbf373.js","sourceRoot":"../src","sourcesContent":["document.addEventListener('click', () => console.log('클릭좀그만해'));"]}
