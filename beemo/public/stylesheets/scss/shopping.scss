@@ -144,12 +144,53 @@ section {
   &__first_line {
     display: flex;
     height: 340px;
-    &--left {
-      width: 510px;
+    &__left {
+      &__box {
+        width: 510px;
+        height: 100%;
+      }
     }
 
-    &--right {
+    &__right {
       width: 763px;
+
+      &__box {
+        margin: auto;
+        width: 514px;
+        height: 100%;
+      }
+
+      &__nav {
+        position: absolute;
+        height: 20px;
+        width: 762px;
+        top: 500px;
+        text-align: center;
+
+        &--dotted {
+          display: inline-block;
+        }
+
+        &--left_button {
+          position: absolute;
+          left: 45px;
+          width: 63px;
+          height: 85px;
+          bottom: 100px;
+          border: none;
+          background: none;
+        }
+
+        &--right_button {
+          position: absolute;
+          right: 45px;
+          width: 63px;
+          height: 85px;
+          bottom: 100px;
+          border: none;
+          background: none;
+        }
+      }
     }
   }
 
