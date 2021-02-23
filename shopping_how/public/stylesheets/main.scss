@@ -1,3 +1,10 @@
+// @import url("default.scss");
+// @import url("header.scss");
+
+/*-------------------------------*/
+/*SET-UP*/
+/*-------------------------------*/
+
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +24,9 @@ html {
 body {
   text-align: center;
   justify-content: center;
+  line-height: 1.5;
+  font-size: 12px;
+  color: #333;
 }
 
 li {
@@ -27,4 +37,188 @@ li {
 .invisible {
   visibility: hidden;
   /* opacity: 0 */
+}
+
+/*-------------------------------*/
+/*HEADER*/
+/*-------------------------------*/
+
+$white-background: #fff;
+$full-width: 100vw;
+
+@mixin centering {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+}
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+@mixin icon {
+  display: block;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999px;
+  background-image: url("/images/icon.png");
+  background-repeat: no-repeat;
+}
+
+@mixin vertical_bar {
+  width: 1px;
+  height: 18px;
+  background-color: #e3e3e3;
+  display: inline-block;
+}
+
+header {
+  background-color: $white-background;
+  text-align: center;
+  width: $full-width;
+  min-width: 977px;
+  height: 6.5rem;
+  position: relative;
+  padding-top: 43px;
+
+  .header__top {
+    display: inline-block;
+    vertical-align: top;
+    @include clearfix;
+
+    .sh-logo {
+      width: 119px;
+      height: auto;
+      vertical-align: top;
+    }
+
+    .searchbox {
+      position: relative;
+      float: right;
+      border: 1px solid #cecfd1;
+      width: 670px;
+      height: 54px;
+      padding: 16px 60px 14px 30px;
+      margin: 0 24px 0 30px;
+      border-radius: 10px;
+      background-color: $white-background;
+
+      button {
+        font-size: 12px;
+        line-height: 1.5;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 52px;
+        height: 52px;
+        background-color: transparent;
+        cursor: pointer;
+        vertical-align: middle;
+        border: 0;
+
+        .search-icon {
+          @include icon;
+          position: absolute;
+          left: 14px;
+          top: 15px;
+          width: 23px;
+          height: 23px;
+          background-size: 130px 90px;
+        }
+      }
+    }
+  }
+
+  .nav-container {
+    margin-top: 40px;
+    border-top: 1px solid #efefef;
+    box-shadow: 0 1px #555;
+
+    div {
+      width: 1276px;
+      margin: 0 auto;
+      position: relative;
+      padding: 19px 0;
+
+      ul {
+        display: inline-block;
+      }
+
+      .nav_first,
+      .nav_middle {
+        float: left;
+      }
+
+      &:first-child {
+        display: block;
+        height: 54px;
+        font-weight: 700;
+        font-size: 16px;
+
+        .nav_first__button {
+          cursor: pointer;
+          display: inline-block;
+          float: left;
+
+          .category {
+            background-color: transparent;
+            border: 0;
+            border-radius: 0;
+            width: 118px;
+          }
+          .menu-icon {
+            @include icon;
+            left: 4px;
+            background-position: 0 -30px;
+            position: absolute;
+            top: 13px;
+            width: 28px;
+            height: 28px;
+            background-size: 130px 90px;
+          }
+        }
+
+        .tab_bold {
+          cursor: pointer;
+          padding: 0 19px;
+          float: left;
+        }
+      }
+
+      li {
+        display: inline-block;
+        position: relative;
+        letter-spacing: -0.04em;
+        color: #000;
+        text-align: left;
+
+        .tab_light {
+          cursor: pointer;
+          float: left;
+          padding: 0 14px;
+          color: #888;
+        }
+      }
+
+      .txt_bar {
+        @include vertical_bar;
+        float: left;
+      }
+
+      .nav_last {
+        display: inline-block;
+        height: 54px;
+        font-weight: 500;
+        font-size: 16px;
+        float: right;
+      }
+    }
+  }
 }
