@@ -1,4 +1,58 @@
 @import './reset.scss';
 
+$main-grey-color: #CECECE;
+$primary-color: #FF4C3F;
+$page-side-margin: 3.4rem;
+$logo-width: 7.5rem;
+$logo-height: 3.2rem;
+$search-bar-padding: 1rem;
 
+.nav {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+}
+
+.nav-search-wrap {
+    padding-top: 3rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    
+    .nav-logo img{
+        width: $logo-width;
+        height: $logo-height;
+    }
+
+    .nav-search-bar {
+        position: relative;
+    }
+
+    .search-bar {
+        margin-left: 2rem;
+        padding: $search-bar-padding;
+        width: 38rem;
+        border: 1px solid $main-grey-color;
+        border-radius: 1rem;
+        }
+
+        .fa-search {
+            transform: translate(-2.5rem, 50%);
+            font-size: 1.5rem;
+            color: $primary-color;
+            position: absolute;
+        }
+    }
+
+    .under-nav-wrapper {
+        width: 100%;
+        margin: 2rem, $page-side-margin;
+
+        .under-nav-container {
+            display: flex;
+
+        }
+    }
 
