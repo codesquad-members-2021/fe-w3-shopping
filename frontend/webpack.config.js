@@ -37,5 +37,14 @@ const webpackConfig = {
     filename: "[name].bundle.js",
     path: path.resolve("./build/frontend"),
   },
+
+  // webpack-dev-server 관련
+  devServer: {
+    contentBase: path.resolve("./build/frontend"),
+    inline: true,
+    hot: true,
+    host: "localhost",
+    port: 3030
+  },
 }
 export default webpackConfig;
