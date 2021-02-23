@@ -6,6 +6,7 @@ const totalBoxCount = document.getElementById('totalBoxCount');
 const boxTarget = document.getElementById('boxTarget');
 const pagingArrow = document.getElementById('pagingArrow');
 const pagingHover = document.getElementById('pagingHover');
+const panel = document.querySelector('.panel');
 
 const numberWithCommas = s => String(s).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
@@ -69,6 +70,38 @@ const init = () => {
   const checkMoreButton = () => {
     if(+viewBoxCount.textContent >= +totalBoxCount.textContent) {
       moreBoxButton.classList.add('not-used');
+    }
+  }
+  
+  const moveCarousel = target => {
+    if(target.dataset.arrow === 'prev') {
+      panel.classList.add('transition-on', 'move-prev');
+      setTimeout(() => {
+        const list = panel.querySelectorAll('img');
+        let tmp = new String(list[0].src);
+        for(let i = 1; i < list.length; i++) {
+          const now = new String(list[i].src);
+          list[i].src = tmp;
+          tmp = now;
+        }
+        list[0].src = tmp;
+        panel.classList.remove('transition-on', 'move-prev');
+      }, 300);
+    }
+    if(target.dataset.arrow === 'next') {
+      panel.classList.add('transition-on', 'move-next');
+      setTimeout(() => {
+        const list = panel.querySelectorAll('img');
+        let tmp = new String(list[list.length - 1].src);
+        for(let i = list.length - 1; i >= 0; i--) {
+          const now = new String(list[i].src);
+          list[i].src = tmp;
+          tmp = now;
+        }
+        list[list.length - 1].src = tmp;
+        panel.classList.remove('transition-on', 'move-next')
+      }, 300);
+
     }
   }
 
