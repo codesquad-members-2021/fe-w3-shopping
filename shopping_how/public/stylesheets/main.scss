@@ -42,10 +42,11 @@ li {
 /*-------------------------------*/
 /*HEADER*/
 /*-------------------------------*/
-
+//변수 정의
 $white-background: #fff;
 $full-width: 100vw;
 
+//mixin 정의
 @mixin centering {
   position: absolute;
   top: 50%;
@@ -70,6 +71,8 @@ $full-width: 100vw;
   text-indent: -9999px;
   background-image: url("/images/icon.png");
   background-repeat: no-repeat;
+  background-size: 130px 90px;
+  position: absolute;
 }
 
 @mixin vertical_bar {
@@ -79,6 +82,7 @@ $full-width: 100vw;
   display: inline-block;
 }
 
+//쇼핑하우 로고 & 검색창
 header {
   background-color: $white-background;
   text-align: center;
@@ -87,6 +91,7 @@ header {
   height: 6.5rem;
   position: relative;
   padding-top: 43px;
+  box-shadow: 0 1px rgb(199, 198, 198);
 
   .header__top {
     display: inline-block;
@@ -122,30 +127,21 @@ header {
         cursor: pointer;
         vertical-align: middle;
         border: 0;
-
-        .search-icon {
-          @include icon;
-          position: absolute;
-          left: 14px;
-          top: 15px;
-          width: 23px;
-          height: 23px;
-          background-size: 130px 90px;
-        }
       }
     }
   }
 
+  //네비게이션 바
   .nav-container {
     margin-top: 40px;
     border-top: 1px solid #efefef;
-    box-shadow: 0 1px #555;
 
     div {
       width: 1276px;
       margin: 0 auto;
       position: relative;
       padding: 19px 0;
+      @include clearfix;
 
       ul {
         display: inline-block;
@@ -171,17 +167,8 @@ header {
             background-color: transparent;
             border: 0;
             border-radius: 0;
-            width: 118px;
-          }
-          .menu-icon {
-            @include icon;
-            left: 4px;
-            background-position: 0 -30px;
-            position: absolute;
-            top: 13px;
-            width: 28px;
-            height: 28px;
-            background-size: 130px 90px;
+            width: 100px;
+            position: relative;
           }
         }
 
@@ -189,6 +176,17 @@ header {
           cursor: pointer;
           padding: 0 19px;
           float: left;
+        }
+
+        .special_sale::after {
+          content: "";
+          position: absolute;
+          top: 0px;
+          width: 5px;
+          right: 10px;
+          height: 5px;
+          background-color: #f9624c;
+          border-radius: 10px;
         }
       }
 
@@ -210,15 +208,82 @@ header {
       .txt_bar {
         @include vertical_bar;
         float: left;
+        margin: 0 12px;
       }
 
       .nav_last {
         display: inline-block;
-        height: 54px;
         font-weight: 500;
         font-size: 16px;
         float: right;
+
+        .nav_last__list {
+          display: inline-block;
+          position: relative;
+          float: left;
+          padding-left: 30px;
+        }
       }
     }
   }
+}
+
+//아이콘 모음
+.search-icon {
+  @include icon;
+  left: 14px;
+  top: 15px;
+  width: 23px;
+  height: 23px;
+}
+
+.menu-icon {
+  @include icon;
+  left: -15px;
+  background-position: 0 -30px;
+  top: -8px;
+  width: 28px;
+  height: 28px;
+}
+
+.login_container,
+.recent_view {
+  top: 13px;
+  width: 70px;
+  height: 28px;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.login-icon {
+  @include icon;
+  left: -4px;
+  background-position: -30px -30px;
+  top: -5px;
+  width: 28px;
+  height: 28px;
+}
+
+.recent-icon {
+  @include icon;
+  left: -4px;
+  background-position: -60px -30px;
+  top: -5px;
+  width: 28px;
+  height: 28px;
+}
+
+.arrow-icon {
+  @include icon;
+  right: 17px;
+  top: 8px;
+  width: 8px;
+  height: 5px;
+  background-position: -60px -60px;
+}
+
+//바디
+.main,
+.hot-deal {
+  background-color: #f3f3f3;
 }
