@@ -23,7 +23,7 @@ $slide_img: (
   height: 340px,
 );
 
-$slide_img_total-width: (map-get($slide_img, width) * 6) px;
+$slide_img_total-width: (map-get($slide_img, width) * 5) px;
 
 $padding-height-size: 1.5em;
 $padding-for-left-right: 7%;

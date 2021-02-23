@@ -23,9 +23,15 @@
 
     .event__slide {
       grid-column: 3/6;
+      position: relative;
 
       .slide_event {
-        background-color: tan;
+        // background-color: tan;
+        width: map-get($slide_img, width);
+        height: map-get($slide_img, height);
+        margin: auto;
+        overflow-x: hidden;
+        overflow-y: hidden;
       }
 
       .panel {
