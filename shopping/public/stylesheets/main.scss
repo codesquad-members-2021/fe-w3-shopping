@@ -1,5 +1,56 @@
 /* init */
-$font_color: #00c;
-body {
-    color:$font_color;
+$header_padding_top: 43px;
+$search_width: 670px;
+$search_height: 54px;
+$logoImg_width: 119px;
+$logoImg_height: 51px;
+
+.main_icon {
+    width:$logoImg_width;
+    height:$logoImg_height;
+}
+
+
+.header {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: $header_padding_top;
+    .head_top {
+        width:843px;
+        height:55px;
+        display:flex;
+        justify-content: space-around;
+    }
+
+    .nav {
+        width:100%;
+        height:55px;
+    }
+}
+
+.search_box {
+    border: 1px solid #333;
+    border-radius: 12px;
+    width: $search_width;
+    height: $logoImg_height + 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .search {
+        width:578px;
+        height:22px;
+
+        margin-left: 30px;
+        border: transparent;
+    }
+    .search-btn {
+        background: url(https://shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png)
+        no-repeat;
+        background-size: 130px 90px;
+        border:transparent;
+        width: 52px;
+        height: 52px;
+    }
 }
