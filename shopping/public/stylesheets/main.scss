@@ -1,0 +1,14 @@
+$font_size: 24px;
+
+body,
+ul,
+button,
+a {
+  all: unset;
+}
+
+body {
+  font: {
+    size: $font_size;
+  }
+}
