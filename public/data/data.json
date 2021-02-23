@@ -1,0 +1,25 @@
+{
+    "items": [
+      {
+        "special": "best100",
+        "category": "fasion",
+        "image": "../images/main-static.jpeg"
+      },
+      {
+        "special": "exhibitions",
+        "category": "home-appliances",
+        "image": "../images/pink_t.png"
+      },
+      {
+        "special": "exhibitions",
+        "category": "computer",
+        "image": "../images/pink_t.png"
+      },
+      {
+        "special": "exhibitions",
+        "category": "life",
+        "image": "../images/pink_t.png"
+      }
+    ]
+  }
+  

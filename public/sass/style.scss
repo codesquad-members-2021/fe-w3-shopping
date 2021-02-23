@@ -1,22 +1,113 @@
 // $site_max_width: 960px;
 // $font_color: #333;
 // $link_color: #00c;
-// $font_family: Arial, sans-serif;
-// $font_size: 48px;
+$font_family: Arial, sans-serif;
+$font_size: 18px;
+$title_padding: 20px 300px;
 // $line_height: percentage(20px / $font_size);
 
-// body {
-//   color: $font_color;
+* {
+  //   color: $font_color;
 
-//   // Property Nesting
-//   font: {
-//     size: $font_size;
-//     family: $font_family;
-//   }
+  //   // Property Nesting
+  font: {
+    size: $font_size;
+    family: $font_family;
+  }
 
-//   line-height: $line_height;
-// }
+  //   line-height: $line_height;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
 
+.front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lavenderblush;
+  padding: $title_padding;
+  .front__logo {
+    background-color: royalblue;
+    .logo__img {
+      height: 70px;
+    }
+  }
+  .front__input-box {
+    margin-left: 40px;
+    background-color: red;
+    display: flex;
+    justify-self: start;
+    .input-box__input {
+      //   display: inline-block;
+      height: 50px;
+      width: 700px;
+      //   width: 600px;
+      flex: 0 70%;
+      //   border-radius: 20px;
+    }
+    .input-box__icon {
+      //   display: inline-block;
+    }
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: greenyellow;
+  padding: 20px 40px;
+  .nav__category,
+  .special-menu,
+  .hash-tag,
+  .add-on {
+    background-color: salmon;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav__category {
+    flex-grow: 0.1;
+    // margin-left: 20px;
+  }
+  .special-menu {
+    flex-grow: 0.2;
+    // margin-left: 20px;
+  }
+  .hash-tag {
+    flex-grow: 0.2;
+  }
+  .add-on {
+    flex-grow: 0.1;
+    .add-on__recent-product,
+    .add-on__login {
+      display: flex;
+      justify-content: space-between;
+      li {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.main-banner {
+  background-color: rosybrown;
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 40px;
+  .main-banner__static {
+    background-color: yellow;
+    //   pa
+  }
+  .main-banner__slide {
+    flex-grow: 0.7;
+    background-color: red;
+    padding: 0 60px;
+  }
+}
 // #main {
 //   width: 100%;
 //   max-width: $site_max_width;
