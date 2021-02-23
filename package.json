@@ -1,0 +1,29 @@
+{
+  "name": "fe-w3-shopping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "express.js",
+  "scripts": {
+    "build": "node-sass public/style.scss public/style.css && node-sass --watch public/style.scss public/style.css",
+    "dev": "nodemon express.js -e js,json,hbs"
+  },
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skawnkk/fe-w3-shopping.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skawnkk/fe-w3-shopping/issues"
+  },
+  "homepage": "https://github.com/skawnkk/fe-w3-shopping#readme",
+  "devDependencies": {
+    "node-sass": "^5.0.0",
+    "nodemon": "^2.0.7",
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "express-handlebars": "^5.2.1"
+  }
+}
