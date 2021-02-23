@@ -6,8 +6,8 @@ $link_color: #00c;
 $search_color: #cecfd1;
 $bg_color: #f3f3f3;
 $font_family: Arial, sans-serif;
-$font_size: 15px;
-$line_height: percentage(20px / $font_size);
+
+//$line_height: percentage(20px / $font_size);
 
 * {
   margin: 0;
@@ -24,14 +24,6 @@ body {
   background-color: $bg_color;
 
   color: $font_color;
-
-  // Property Nesting
-  font: {
-    size: $font_size;
-    family: $font_family;
-  }
-
-  line-height: $line_height;
 }
 
 header {
