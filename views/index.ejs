@@ -12,19 +12,22 @@
 
 </head>
 <body>
-    <header class="main__head">
+    <header class>
+        <div class="main__head">
+            <div class="main__logo__box">
+                <span>쇼핑하우</span>
+            </div>
 
-        <div class="main__logo__box">
-            <span>쇼핑하우</span>
-        </div>
-        <div class="main__search__box">
-            <input type="search" class="inp_search btn_searchbox" placeholder="상품 검색" data-gg="{lk:mo_gnb_search,tp:A}">
-            <button type="submit" class="btn_search btn_searchbox _GC_">
-                <span class="ico_shwgnb">
-                    <img src="./images/fe-w3-icon.png">
+            <%= homeContents.contents[0].eventContent.title %>
 
-                </span>
-            </button>
+            <div class="main__search__box">
+                <input type="search" class="inp_search btn_searchbox" placeholder="상품 검색" data-gg="{lk:mo_gnb_search,tp:A}">
+                <button type="såubmit" class="btn_search btn_searchbox _GC_">
+                    <span class="ico_shwgnb">
+                        <img src="./images/fe-w3-icon.png">
+                    </span>
+                </button>
+            </div>
         </div>
 
         <nav class="main__nav__box">

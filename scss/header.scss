@@ -1,3 +1,17 @@
-.main__logo__box  {
-    background-color: red;
+
+
+.header {
+    // width: 100%;
+    background-color: pink;
+    
+   
+    .main__logo__box{
+        background-color: pink;
+    }
+
+    
+}
+.main__head{
+    display: flex;
+    flex-direction: row;
 }

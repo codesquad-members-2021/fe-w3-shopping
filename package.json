@@ -4,7 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "scss" :"node-sass --watch scss --output public/css",
+    "start": "concurrently -n 'dev,scss' -c 'bgCyan.bold,bgBlue.bold' 'npm run dev' 'npm run scss'"
   },
   "repository": {
     "type": "git",

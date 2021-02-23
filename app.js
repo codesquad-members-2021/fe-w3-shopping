@@ -4,7 +4,7 @@ const path = require('path');
 
 const i_router =require('./api/index');
 const app =  express();
-
+app.locals.homeContents = require('./api/homeContents.json');
 
 app.set("view engine","ejs");
 app.engine('ejs',require('ejs').renderFile);

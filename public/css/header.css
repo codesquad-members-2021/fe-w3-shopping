@@ -1,2 +1,8 @@
-.main__logo__box {
-  background-color: red; }
+.header {
+  background-color: pink; }
+  .header .main__logo__box {
+    background-color: pink; }
+
+.main__head {
+  display: flex;
+  flex-direction: row; }
