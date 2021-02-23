@@ -11,15 +11,17 @@
 </head>
 <body>
     <header>
-        <ul class="header__logo">
-            <li class="logo__name"></li>
-            <li class="logo__desc"></li>
-        </ul>
+        <div class="header__logo">
+            <img src="images/kakocommerce.png" alt="" class="logo__img">
+        </div>
         <div class="header__input">
             <input type="text" class="main__input">
         </div>
         <nav>
-            <div class="nav__category">카테고리</div>
+            <div class="nav__category">
+                <div class="category__icon"><i class="fas fa-bars"></i></div>
+                <div class="category__name">카테고리</div>
+            </div>
             <ul class="special-menu">
                 <li class="special-menu__list">핫딜</li>
                 <li class="special-menu__list">베스트100</li>
@@ -35,13 +37,13 @@
             </ul>
             <div class="add-on">
                 <ul class="add-on__login">
-                    <li class="login__icon"></li>
+                    <li class="login__icon"><i class="fas fa-user-circle"></i></li>
                     <li class="login__desc">로그인</li>
                 </ul>
                 <ul class="add-on__recent-product">
-                    <li class="recent-product__icon"></li>
+                    <li class="recent-product__icon"><i class="fas fa-copy"></i></li>
                     <li class="recent-product__desc">최근본상품</li>
-                    <li class="recent-product__toggle"></li>
+                    <li class="recent-product__toggle"><i class="fas fa-sort-down"></i></li>
                 </ul>
             </div>
         </nav>
