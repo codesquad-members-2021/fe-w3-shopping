@@ -128,46 +128,8 @@
                 <div class="content__more">
                     <div class="content__more__view">
                         <ul>
-                            <li>
-                                <a href="/">
-                                    <img src="/images/itemsample.jfif" />
-                                    <div>
-                                        <span class="txt-bold">테스트</span>
-                                        <span class="txt-info">테스트</span>
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/">
-                                    <img src="/images/itemsample.jfif" />
-                                    <div>
-                                        <span class="txt-bold">테스트2</span>
-                                        <span class="txt-info">테스트2</span>
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/">
-                                    <img src="/images/itemsample.jfif" />
-                                    <div>
-                                        <span class="txt-bold">테스트3</span>
-                                        <span class="txt-info">테스트3</span>
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/">
-                                    <img src="/images/itemsample.jfif" />
-                                    <div>
-                                        <span class="txt-bold">테스트4</span>
-                                        <span class="txt-info">테스트4</span>
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
+                            <!--
+                                SAMPLE 
                             <li class="noBorder">
                                 <a href="/">
                                     <img src="/images/itemsample.jfif" />
@@ -178,23 +140,11 @@
                                     </div>
                                 </a>
                             </li>
-                            <li>
-                                <a href="/">
-                                    <img src="/images/itemsample.jfif" />
-                                    <div>
-                                        <span class="txt-bold">테스트6</span>
-                                        <span class="txt-info">테스트6</span>
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
+                             -->                          
                         </ul>                        
                     </div>
 
-                    <button type="button" class="content__more__btn" value="1">
-                        더보기(1/276건)
-                        <!-- 이버튼 누르면, ul(more) 안에서 아이템 ++  -->
-                    </button>
+                    <button type="button" class="content__more__btn" value="1"></button>
                 </div>
 
                 <div class="content__hot">                    
@@ -203,57 +153,18 @@
                     <div class="content__hot__carousel">
                         <!-- 버튼 클릭당 2개의 아이템 이동, 보이는 최대 갯수 5개  -->
                         <ul>
-                            <li>
-                                <a href="/">
-                                    <img src="/images/itemsample2.jfif" />
-                                    <div>
-                                        <span class="txt-bold">테스트2-1</span>
-                                        <span class="txt-info">테스트2-1</span>
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/">
-                                    <img src="/images/itemsample2.jfif" />
-                                    <div>
-                                        <span class="txt-bold">테스트2-2</span>
-                                        <span class="txt-info">테스트2-2</span>
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/">
-                                    <img src="/images/itemsample2.jfif" />
-                                    <div>
-                                        <span class="txt-bold">테스트2-3</span>
-                                        <span class="txt-info">테스트2-3</span>
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/">
-                                    <img src="/images/itemsample2.jfif" />
-                                    <div>
-                                        <span class="txt-bold">테스트2-4</span>
-                                        <span class="txt-info">테스트2-4</span>
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/">
-                                    <img src="/images/itemsample2.jfif" />
-                                    <div>
-                                        <span class="txt-bold">테스트2-5</span>
-                                        <span class="txt-info">테스트2-5</span>
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                            
+                            <% for(let i = 0; i < 5; i++) { %>                                
+                                <li>
+                                    <a href="/">
+                                        <img src="/images/itemsample2.jfif" />
+                                        <div>
+                                            <span class="txt-bold">테스트2-<%= (i+1) %></span>
+                                            <span class="txt-info">테스트2-<%= (i+1) %></span>
+                                            <span class="i-theme"></span>
+                                        </div>
+                                    </a>
+                                </li>
+                            <% } %>
                         </ul>
                         <!-- <button class="carousel__prevBtn">◁</button> -->
                         <!-- <button class="carousel__nextBtn">▷</button> -->
