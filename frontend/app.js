@@ -1,6 +1,8 @@
 import API from "./src/util/api.js";
 import Header from "./src/components/Header/header.js"
 
+import "./app.sass.scss";
+
 class App {
   constructor({ $target }) {
     this.$target = $target;
