@@ -17,6 +17,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+//불러오는 모든 파일을 출처는 'public' 폴더가 된다는 뜻.
+//미들웨어 설명: https://www.youtube.com/watch?v=6vwMv6tH3O4
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
