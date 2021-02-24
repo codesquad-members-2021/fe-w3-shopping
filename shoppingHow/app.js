@@ -1,19 +1,18 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-var sassMiddleware = require("node-sass-middleware");
-var fs = require("fs");
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const sassMiddleware = require("node-sass-middleware");
+const fs = require("fs");
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
 
-var app = express();
+const app = express();
 
 let data = {};
 data = JSON.parse(fs.readFileSync("./public/data/homeContents.json", "utf8"));
-console.log(data.contents[0].eventContent);
 
 app.get("/homeContents.json", (req, res, next) => {
   res.json(data);
