@@ -1,0 +1,35 @@
+{
+  "name": "fe-w3-shopping",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "start-p": "parcel ./views/index.html --open",
+    "build:sass": "sass stylesheets/scss:dist/css"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "node-sass-middleware": "0.11.0"
+  },
+  "description": "",
+  "main": "app.js",
+  "devDependencies": {
+    "sass": "^1.32.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damilog/fe-w3-shopping.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/damilog/fe-w3-shopping/issues"
+  },
+  "homepage": "https://github.com/damilog/fe-w3-shopping#readme"
+}

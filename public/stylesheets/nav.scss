@@ -1,0 +1,132 @@
+$nav-font_size: 16px;
+$nav-bg-color: rgb(255, 255, 255);
+$nav-font_color_dark-gray: rgb(34, 34, 34);
+$nav-font_color_light-gray: rgb(147, 147, 147);
+$outline_color: #cecfd1;
+
+.header__nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 135px 599.5px 0px 599.5px;
+  border-bottom: $outline_color 1px solid;
+  background-color: $nav-bg-color;
+  height: 200px;
+  width: 100%;
+  letter-spacing: -0.04em;
+
+  .list__category {
+    position: relative;
+    width: 100px;
+    height: 27px;
+
+    span {
+      position: absolute;
+      top: 4px;
+      left: 40px;
+      margin: 0;
+      font : {
+        size: $nav-font_size;
+        color: $nav-font_color_dark-gray;
+        weight: 400;
+      }
+    }
+    #list__category-btn {
+      height: 28px;
+      width: 28px;
+      background-color: transparent;
+      border: none;
+      background-image: url("../images/ico.png");
+      background-position: (0px, -30px);
+    }
+  }
+  .header__nav-menu__list {
+    display: flex;
+
+    li {
+      padding: 0 19px;
+      color: $nav-font_color_dark-gray;
+      font: {
+        size: $nav-font_size;
+        weight: 700;
+      }
+    }
+  }
+
+  .header__nav-menu__hashtag {
+    display: flex;
+
+    li {
+      padding: 0 14px;
+      color: $nav-font_color_light-gray;
+      font: {
+        size: $nav-font_size;
+        weight: 700;
+      }
+    }
+  }
+
+  .header__nav-menu__user {
+    display: flex;
+    letter-spacing: -0.04em;
+
+    & li:nth-child(1) {
+      position: relative;
+      padding: 0 19px;
+      width: 90px;
+      height: 27px;
+
+      #user__login-btn {
+        position: absolute;
+        height: 28px;
+        width: 28px;
+        left: 0;
+        background-color: transparent;
+        border: none;
+        background-image: url("../images/ico.png");
+        background-position: (-30px, -30px);
+      }
+      span {
+        position: absolute;
+        top: 5px;
+        left: 32px;
+        margin: 0;
+        font : {
+          size: $nav-font_size;
+          color: $nav-font_color_dark-gray;
+          weight: 400;
+        }
+      }
+    }
+
+    & li:nth-child(2) {
+      position: relative;
+      padding: 0 19px;
+      width: 130px;
+      height: 27px;
+      //outline: red solid;
+
+      #user__recently-btn {
+        position: absolute;
+        height: 28px;
+        width: 28px;
+        left: 0;
+        background-color: transparent;
+        border: none;
+        background-image: url("../images/ico.png");
+        background-position: (-60px, -30px);
+      }
+      span {
+        position: absolute;
+        top: 5px;
+        left: 35px;
+        margin: 0;
+        font : {
+          size: $nav-font_size;
+          color: $nav-font_color_dark-gray;
+          weight: 400;
+        }
+      }
+    }
+  }
+}
