@@ -1,3 +1,13 @@
+const calculateTotalWidth = (width, length) => `${width * (length + 2)}`;
+
+const cloneFirstLastChildren = (slideList) => {
+  let firstChild = slideList.firstElementChild;
+  let lastChild = slideList.lastElementChild;
+  let clonedFirst = firstChild.cloneNode(true);
+  let clonedLast = lastChild.cloneNode(true);
+  return { clonedFirst, clonedLast };
+};
+
 export default function createCarousel(slideContents, buttons, slideList, width = undefined, speed = undefined) {
   const slideWidth = width ? width : 400;
   const slideSpeed = speed ? speed : 300;

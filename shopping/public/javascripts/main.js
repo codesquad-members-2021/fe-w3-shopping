@@ -2,6 +2,7 @@
 import createCarousel from "./slide.js";
 // import { processDataToHtmlContents, setPaginationHtml } from "./htmlCodes.js";
 import { createEventItem, setMileageListHtml, setPaginationHtml, setMallEventListHtml } from "./htmlCodes.js";
+import setSecondCarousel from "./carousel2.js";
 
 const mallEventSlide = document.querySelector("#mallEventSlide");
 const slideList = document.querySelector(".slide_list");
@@ -97,7 +98,7 @@ fetch(urls.homeContents)
             <img src="${imageurl}" alt="" />
           </span>
           <strong class="title_g">${prodname}</strong>
-          <span class="detail_price">${mprice}
+          <span class="detail_price">${numberWithCommas(mprice)}
             <span class="price_unit">원</span>
           </span>
         </a>
@@ -108,4 +109,15 @@ fetch(urls.homeContents)
       totalHtml += hotDealHtml;
     });
     hotDealItemHtml.innerHTML = totalHtml;
+
+    const slideContents = document.querySelectorAll(".list_item");
+    const prevButton = document.querySelector(".btn_hotDeal_prev");
+    const nextButton = document.querySelector(".btn_hotDeal_next");
+    const slideList = document.querySelector(".content_hotDeal");
+
+    setSecondCarousel(slideContents, prevButton, nextButton, slideList);
   });
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
