@@ -1,19 +1,14 @@
-const fetch = require('cross-fetch');
+import Model from './Model.js';
+import View from './View.js';
+import _ from './util.js';
+// const leftTopImg = document.querySelector('.main__first_line__left__box > img');
+// const rightTopImg = document.querySelectorAll('.main__first_line__right__box >div> img');
 
-const url = 'https://shoppinghow.kakao.com/v1.0/shophow/top/planningEvent.json?_=1614072773662';
+window.addEventListener('DOMContentLoaded', () => {
 
-const leftTopImg = document.querySelector('.main__first_line__left__box > img');
-const rightTopImg = document.querySelector('.main__first_line__right__box > img')
-const ajax = () => { //왼쪽 위 데이터
-  fetch(url).then((response) => {
-    console.log(response)
-    return response.json();
-  }).then((data) => {
-    console.log(data);
-    leftTopImg.setAttribute('src', data.event.imgurl)
-    rightTopImg.setAttribute('src', data.mileageList[0].imgurl)
-    // console.log(data.mileageList.)
-  })
-}
+  const url = 'https://shoppinghow.kakao.com/v1.0/shophow/top/planningEvent.json?_=1614072773662';
 
-ajax();
+  const model = new Model({ url });
+
+  const view = new View({ model });
+})

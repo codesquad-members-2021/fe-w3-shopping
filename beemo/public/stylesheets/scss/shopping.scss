@@ -158,6 +158,14 @@ section {
         margin: auto;
         width: 514px;
         height: 100%;
+        overflow: hidden;
+        > div {
+          position: relative;
+          display: flex;
+          height: 100%;
+          width: 1542px;
+          right: 513px;
+        }
       }
 
       &__nav {
