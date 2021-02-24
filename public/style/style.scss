@@ -7,7 +7,7 @@ $main-background-color: #F3F3F4;
 $full-contents-width: 80rem;
 $primary-color: #FF4C3F;
 $primary-font-family: 돋움,dotum,sans-serif;
-$page-side-margin: 6rem;
+$page-side-margin: auto;
 $logo-width: 7.5rem;
 $logo-height: 3.2rem;
 $search-bar-padding: 1rem;
@@ -20,6 +20,7 @@ $small-img-padding: 0 1rem;
 $small-title-line-height: 2rem;
 $smail-desc-font-size: 0.7rem;
 $show-more-btn-background-color: #E9E9E9;
+$arrow-size: 3rem;
 
 body {
     font-family: $primary-font-family;
@@ -135,6 +136,10 @@ body {
               align-items: center;
           }
       }
+
+      .down-arrow {
+          padding: 0.5rem 0 0 0.5rem;
+      }
 }
 
 .main {
@@ -179,8 +184,8 @@ body {
 
                 .fa-angle-left,
                 .fa-angle-right {
-                    width: 3rem;
-                    height: 3rem;
+                    width: $arrow-size;
+                    height: $arrow-size;
                 }
             }
 
@@ -304,6 +309,35 @@ body {
         img {
             width: $small-img-size-width;
             height: $small-img-size-height;
+        }
+
+        .main-theme-arrow-btn {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: $arrow-size;
+            height: $arrow-size;
+            top: 8rem;
+            background-color: rgba(0, 0, 0, 0.2);
+
+            button {
+                width: 100%;
+                height: 100%;
+                background: 0;
+                outline: 0;
+                border: 0;
+                color: $main-white-color;
+                font-size: 2rem;
+            }
+        }
+
+        .left-arrow {
+            left: 0;
+        }
+
+        .right-arrow {
+            right: 0;
         }
     }
 }
