@@ -82,13 +82,14 @@ main {
     position: relative;
     max-width: 485px;
     margin: 0 147px;
-
     overflow: hidden;
   }
   .slide-item__wrapper {
     position: relative;
     left: -515px;
     display: flex;
+    transition: all, 0.3s;
+    z-index: 99;
     .slide-item {
       float: left;
       height: 100%;
@@ -129,6 +130,7 @@ main {
       bottom: 40px;
       display: flex;
       justify-content: center;
+      z-index: 100;
       .btn-paging {
         width: 17px;
         height: 6px;
