@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
     "build-css": "node-sass -w public/stylesheets/sass -o public/stylesheets/",
-    "watch": "nodemon -e sass -x \"npm run build-css\""
+    "watch": "nodemon -e sass -x \"npm run build-css\"",
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

@@ -1,7 +1,15 @@
 .icon {
   background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
-  background-size: 130px 90px; }
+  background-size: 130px 90px;
+  font-size: 0;
+  position: absolute;
+  top: 13px;
+  width: 28px;
+  height: 28px; }
 
-.ico_menu {
-  left: 4px;
-  background-position: 0 -30px; }
+.bar {
+  float: left;
+  width: 1px;
+  height: 18px;
+  margin-top: 18px;
+  background-color: #e3e3e3; }

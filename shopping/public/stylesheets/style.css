@@ -1,11 +1,19 @@
 @charset "UTF-8";
 .icon {
   background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
-  background-size: 130px 90px; }
+  background-size: 130px 90px;
+  font-size: 0;
+  position: absolute;
+  top: 13px;
+  width: 28px;
+  height: 28px; }
 
-.ico_menu {
-  left: 4px;
-  background-position: 0 -30px; }
+.bar {
+  float: left;
+  width: 1px;
+  height: 18px;
+  margin-top: 18px;
+  background-color: #e3e3e3; }
 
 header {
   width: 100%;
@@ -33,23 +41,73 @@ header {
     box-sizing: border-box; }
 
 .header__navbar {
+  box-sizing: border-box;
+  line-height: 58px;
   border-top: 1px solid #efefef;
   width: 100%;
   margin: 0 auto;
-  height: 54px;
+  height: 55px;
   display: block;
-  margin-top: 50px; }
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: 40px;
+  box-shadow: 0 1px rgba(0, 0, 0, 0.16); }
   .header__navbar div {
     float: left; }
-  .header__navbar ul {
-    float: left; }
-    .header__navbar ul li {
-      float: left;
-      padding: 0 13px;
-      color: #222; }
+  .header__navbar ul li {
+    float: left;
+    color: #222; }
+
+.header__navbar__hashtag {
+  float: left; }
+  .header__navbar__hashtag li {
+    padding: 0 6px;
+    opacity: 50%; }
+
+.header__navbar__hotDeal {
+  float: left; }
+  .header__navbar__hotDeal li {
+    font-weight: 700;
+    font-size: 16px;
+    padding: 0 13px;
+    letter-spacing: -.08em; }
 
 .header__navbar__login {
-  float: right; }
+  float: right;
+  position: relative;
+  text-align: left; }
+  .header__navbar__login .ico_user {
+    left: 0;
+    background-position: -30px -30px; }
+
+.navber__login__login {
+  width: 70px;
+  padding-left: 33px; }
+
+.navber__login__lastItem {
+  width: 90px;
+  padding: 0 16px 0 34px;
+  position: relative;
+  text-align: left; }
+  .navber__login__lastItem .ico_products {
+    left: 0;
+    background-position: -60px -30px; }
+  .navber__login__lastItem .ico_arrow {
+    right: 6px;
+    top: 26px;
+    width: 8px;
+    height: 5px;
+    background-position: -60px -70px; }
+
+.header__navbar__catagory {
+  position: relative;
+  text-align: left;
+  width: 82px;
+  height: 54px;
+  padding-left: 40px; }
+  .header__navbar__catagory .ico_menu {
+    left: 4px;
+    background-position: 0 -30px; }
 
 body {
   height: 500vh; }
