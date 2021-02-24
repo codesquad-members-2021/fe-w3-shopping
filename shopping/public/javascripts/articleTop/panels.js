@@ -7,7 +7,7 @@ const createMallEventListPanel = (lists) => {
 };
 
 const createMileageListPanel = (href_url, img_url) => {
-  return `<div class="panel"><a href="${href_url}"><img src="${img_url}"></a></div>`;
+  return `<div class="slide_content"><a href="${href_url}"><img src="${img_url}"></a></div>`;
 };
 
 const createLists = (href_url, img_url, title, info) => {

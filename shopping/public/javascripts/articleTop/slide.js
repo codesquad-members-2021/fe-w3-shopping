@@ -1,10 +1,20 @@
-export default function createCarousel(panels, buttons, slideList, width = undefined, speed = undefined) {
+export function setPagnationHtml(slideLen, startNum) {
+  return new Promise((resolve, reject) => {
+    const pageChild = [...Array(slideLen).keys()].reduce((acc, val) => acc + `<span class="btn_paging ${val === startNum ? "dot_active" : ""}" data-index="${val}"><span class="num_page"></span></span>`, ``);
+    console.log(pageChild);
+    resolve(pageChild);
+  });
+}
+
+export function createCarousel(slideContents, buttons, slideList, width = undefined, speed = undefined) {
   const slideWidth = width ? width : 400;
   const slideSpeed = speed ? speed : 300;
   const prevButton = Object.values(buttons).find((button) => button.classList.contains("btn_prev"));
   const nextButton = Object.values(buttons).find((button) => button.classList.contains("btn_next"));
-  const slideLen = panels.length;
+  const slideLen = slideContents.length;
   const startNum = 0;
+  const pageDots = document.querySelectorAll(".btn_paging");
+
   slideList.style.width = `${slideWidth * (slideLen + 2)}px`;
 
   let firstChild = slideList.firstElementChild;
@@ -19,7 +29,7 @@ export default function createCarousel(panels, buttons, slideList, width = undef
   slideList.style.transform = `translateX(-${slideWidth * (startNum + 1)}px)`;
 
   let currIndex = startNum;
-  let currSlide = panels[currIndex];
+  let currSlide = slideContents[currIndex];
   currSlide.classList.add("slide_active");
 
   nextButton.addEventListener("click", () => {
@@ -35,8 +45,10 @@ export default function createCarousel(panels, buttons, slideList, width = undef
       currIndex = -1;
     }
     currSlide.classList.remove("slide_active");
-    currSlide = panels[++currIndex];
+    pageDots[currIndex === -1 ? slideLen - 1 : currIndex].classList.remove("dot_active");
+    currSlide = slideContents[++currIndex];
     currSlide.classList.add("slide_active");
+    pageDots[currIndex].classList.add("dot_active");
   });
 
   prevButton.addEventListener("click", () => {
@@ -53,7 +65,28 @@ export default function createCarousel(panels, buttons, slideList, width = undef
       currIndex = slideLen;
     }
     currSlide.classList.remove("slide_active");
-    currSlide = panels[--currIndex];
+    pageDots[currIndex === slideLen ? 0 : currIndex].classList.remove("dot_active");
+    currSlide = slideContents[--currIndex];
     currSlide.classList.add("slide_active");
+    pageDots[currIndex].classList.add("dot_active");
+  });
+
+  let currDot;
+  pageDots.forEach((dot, i) => {
+    dot.addEventListener("click", (e) => {
+      e.preventDefault();
+      currDot = document.querySelector(".dot_active");
+      currDot.classList.remove("dot_active");
+
+      currDot = this;
+      this.classList.add("dot_active");
+
+      currSlide.classList.remove("slide_active");
+      currIndex = Number(this.getAttribute("data-index"));
+      currSlide = slideContents[currIndex];
+      currSlide.classList.add("slide_active");
+      slideList.style.transition = `${slideSpeed}ms`;
+      slideList.style.transform = `translateX(-${slideWidth * (currIndex + 1)}px)`;
+    });
   });
 }

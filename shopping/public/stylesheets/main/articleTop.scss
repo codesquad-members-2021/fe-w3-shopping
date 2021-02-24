@@ -33,7 +33,7 @@
         overflow-y: hidden;
       }
 
-      .panel {
+      .slide_content {
         display: flex;
         float: left;
         width: map-get($slide_img, width);
@@ -79,6 +79,10 @@
             height: 5px;
             background-color: map-get($color-palette, num_page-color);
           }
+        }
+
+        .dot_active {
+          border: 1px solid black;
         }
       }
     }

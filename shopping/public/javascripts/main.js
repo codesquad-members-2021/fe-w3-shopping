@@ -1,4 +1,4 @@
-import createCarousel from "./articleTop/slide.js";
+import { createCarousel, setPagnationHtml } from "./articleTop/slide.js";
 import { createEventItem, setMileageListHtml, setMallEventListHtml } from "./articleTop/panels.js";
 
 const mallEventSlide = document.querySelector("#mallEventSlide");
@@ -24,17 +24,16 @@ fetch("http://localhost:3000/planningEvent.json")
   .then((strs) => {
     const { eventItem, mileageListPanels, mallEventListPanels } = strs;
     insertStrsIntoHtmls(eventItemHtml, slideList, mallEventSlide)(eventItem, mileageListPanels, mallEventListPanels);
-    // eventItemHtml.innerHTML = eventItem;
-    // slideList.innerHTML = mileageListPanels;
-    // mallEventSlide.innerHTML = mallEventListPanels;
-
-    const panels = document.querySelectorAll(".panel");
+    const slideContents = document.querySelectorAll(".slide_content");
     const buttons = document.querySelectorAll(".btn_slide");
-    // document.querySelector(".btn_prev");
-    // document.querySelector(".btn_next");
-    const slideWidth = 485;
-    const slideSpeed = 300;
+    const pagination = document.querySelector(".slide_pagination");
+    const slideLen = slideContents.length;
 
-    createCarousel(panels, buttons, slideList, slideWidth, slideSpeed);
+    setPagnationHtml(slideLen, 0).then((pageChild) => {
+      pagination.innerHTML = pageChild;
+      const slideWidth = 485;
+      const slideSpeed = 300;
+      createCarousel(slideContents, buttons, slideList, slideWidth, slideSpeed);
+    });
   })
   .catch((err) => console.log(err));
