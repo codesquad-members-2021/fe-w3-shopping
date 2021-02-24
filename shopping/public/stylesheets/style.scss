@@ -1,0 +1,115 @@
+$gray : #cecfd1;
+$lightgray : #e2e2e2;
+$width : 970px;
+
+.header-wrapper{
+    display: flex;
+    justify-content: center;
+    .header{
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        display: inline-flex;
+        width: $width;
+        justify-content: center;
+        align-items: center;
+        .header__logo img{
+            width: 120px;
+            padding-right: 2rem;
+        }
+        .header__search-bar{
+            display: inline-flex;
+            height: 2rem;
+            width: 30rem;
+            border-radius: 0.7rem;
+            border: 1px solid $gray;
+            padding: 0.5rem;
+            align-items: center;
+            justify-content: space-between;
+            .header__search-bar--content{
+                border: white;
+                width: 90%;
+            }
+            .header__search-bar--icon{
+                border: none;
+                background-color: transparent;
+                color: #FF385C;
+                font-size: 150%;
+            }
+            
+        }
+    }
+}
+.navbar-wrapper{
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid $lightgray;
+    border-bottom: 1px solid $gray;
+    .navbar{
+        display: inline-flex;
+        width: $width;
+        height: 2rem;
+        align-items: center;
+        
+        .navbar__category{
+            padding-right: 2rem;
+            border-right: 1px solid $gray;
+        }
+        .navbar__menu{
+            width: 90%;
+            display: inline-flex;
+            justify-content: space-between;
+            .navbar__menu--item{
+                span{
+                    padding-left: 1rem;
+                }
+            }
+        }
+    }
+}
+  
+.main{
+    display: flex;
+    padding-top: 1rem;
+    background-color: $lightgray;
+    justify-content: center;
+    flex-wrap: wrap;
+    .main__event{
+        display: flex;
+        width: $width;
+        background-color: white;
+        .main__event--curation-arrow{
+            position: relative;
+            top: -50px;
+            left: 180px;
+        }
+    }
+    .main__content-1{
+        display: inline-flex;
+        width: $width;
+        justify-content: space-between;
+        background-color: white;
+        li{
+            width: 200px;
+            padding: 1rem;
+            img{
+                width: 200px;
+            }
+            .main__content-1--title{
+                font-weight: bold;
+            }
+            .main__content-1--description{
+                font-size: 90%;
+                color: #888;
+            }
+        }
+    }
+
+    .main__see-more-button{
+        display: flex;
+        width: $width;
+        height: 2rem;
+        background-color: $gray;
+        justify-content: center;
+        align-items: center;
+    }
+}
