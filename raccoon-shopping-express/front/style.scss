@@ -578,6 +578,13 @@ section {
           z-index: 0;
         }
 
+        .mall__event:hover {
+          .button-group {
+            opacity: 1;
+            transition: 0.4s;
+          }
+        }
+
         .mall__event {
           #mall__event--slide {
             width: 1280px;
@@ -677,7 +684,6 @@ section {
           }
 
           .button-group {
-            // display: none;
             overflow: hidden;
             position: absolute;
             top: 50%;
@@ -686,7 +692,9 @@ section {
             height: 41px;
             margin-top: -58px;
             background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/specials/ico_eventlist_141110_v3.png) 0 -340px no-repeat;
+            opacity: 0;
           }
+
           .ico--home {
             width: 9px;
             height: 17px;
