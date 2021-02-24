@@ -1,0 +1,19 @@
+.pannel {
+  display: flex;
+  padding-top: 19px;
+}
+
+#CarouselUI {
+  display: flex;
+  position: relative;
+}
+
+#CarouselUI > div:nth-child(2) {
+  position: absolute;
+  left: 100px;
+}
+
+#CarouselUI > div:nth-child(3) {
+  position: absolute;
+  left: 200px;
+}
