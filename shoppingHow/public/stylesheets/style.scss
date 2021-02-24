@@ -162,6 +162,7 @@ main {
       height: 340px;
       position: relative;
       .slide_box {
+        position: relative;
         width: 514px;
         height: 100%;
         margin: 0 auto;
@@ -207,6 +208,18 @@ main {
     }
     .section_categories {
       grid-column: 1/3;
+    }
+  }
+}
+
+main {
+  .slide_list {
+    display: flex;
+    width: 1542px;
+    li {
+      margin: 0 14.5px;
+      width: 514px;
+      float: left;
     }
   }
 }

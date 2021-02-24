@@ -11,11 +11,21 @@ const usersRouter = require("./routes/users");
 
 const app = express();
 
-let data = {};
-data = JSON.parse(fs.readFileSync("./public/data/homeContents.json", "utf8"));
+let homeContents = {};
+let planningEvent = {};
+homeContents = JSON.parse(
+  fs.readFileSync("./public/data/homeContents.json", "utf8")
+);
+planningEvent = JSON.parse(
+  fs.readFileSync("./public/data/planningEvent.json", "utf8")
+);
 
 app.get("/homeContents.json", (req, res, next) => {
-  res.json(data);
+  res.json(homeContents);
+});
+
+app.get("/planningEvent.json", (req, res, next) => {
+  res.json(planningEvent);
 });
 
 app.set("views", path.join(__dirname, "views"));
