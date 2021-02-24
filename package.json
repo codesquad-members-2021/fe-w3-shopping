@@ -2,18 +2,17 @@
   "name": "shoppinghow-clone",
   "version": "1.0.0",
   "description": "codesquad masters FE week3",
-  "main": "src/js/app.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app",
-    "build:sass": "sass sass:src/css"
+    "build:sass": "sass public/scss:public/css"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dyongdi/fe-w3-shopping.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Autumn",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dyongdi/fe-w3-shopping/issues"
