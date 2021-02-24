@@ -2,38 +2,53 @@
 <html>
   <head>
     <title>쇼핑하우</title>
+    <link rel='stylesheet' href='/stylesheets/normalize.css'/>
+    <link rel='stylesheet' href='/stylesheets/reset.css'/>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <%#header.scss%>
     <header>
-      <span><img class="sh-logo"></span>
-      <div class="searchbox"><!--여기에 돋보기 이미지 들어감--></div>
+      <div class="header__top">
+        <span><img class="sh-logo" src='/images/logo_sh.png' alt="shoppinghow logo"></span>
+        <div class="searchbox">
+          <button>
+            <span class="search-icon"></span>
+          </button>
+        </div>
+      </div>
       <nav class="nav-container">
-        <ul>
-          <li>카테고리</li>
-          <li>핫딜</li>
-          <li>베스트100</li>
-          <li>할인특가</li>
-          <li>기획전</li>
-          <li>#수능 선물</li>
-          <li>#김치냉장고</li>
-          <li>#복합 가습기</li>
-          <li>#구스다운</li>
-          <li>#온수매트</li>
-        </ul>
-        <ul>
-          <li>로그인</li>
-          <li>최근본 상품</li>
-        </ul>
+        <div>
+          <ul class="nav_first">
+            <li class="nav_first__button"><button class="category"><span class="menu-icon"></span>카테고리</button></li>
+            <span class="txt_bar"></span>
+            <li><a class="tab_bold">핫딜</a></li>
+            <li><a class="tab_bold">베스트100</a></li>
+            <li><a class="tab_bold">할인특가</a></li>
+            <li><a class="tab_bold">기획전</a></li>
+          </ul>
+          <ul class="nav_middle">
+            <span class="txt_bar"></span>
+            <li><a class="tab_light">#수능 선물</a></li>
+            <li><a class="tab_light">#김치냉장고</a></li>
+            <li><a class="tab_light">#복합 가습기</a></li>
+            <li><a class="tab_light">#구스다운</a></li>
+            <li><a class="tab_light">#온수매트</a></li>
+          </ul>
+          <ul class="nav_last">
+            <li>로그인</li>
+            <li>최근본 상품</li>
+          </ul>
+        </div>
       </nav>
     </header>
     <section class="main">
       <div class="upper-half">
         <div class="upper-half__left">
-          <img>
+          <img src="/images/main-1.png" alt="main image1">
         </div>
         <div class="upper-half__right"><!--여기가 캐로셀-->
-          <img>
+          <img src="/images/main-2.png" alt="main image2">
         </div>
       </div>
       <div class="lower-half">

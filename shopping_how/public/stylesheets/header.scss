@@ -1,0 +1,15 @@
+/*-------------------------------*/
+/*HEADER*/
+/*-------------------------------*/
+
+.header {
+  background-color: red;
+  text-align: center;
+  width: 100vw;
+  height: 20rem;
+
+  .header__top {
+    border: 3px solid #555;
+    padding-top: 43px;
+  }
+}
