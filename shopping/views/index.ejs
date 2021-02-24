@@ -55,12 +55,23 @@
     </div>
   </header>
   <section class="main_section">
-    <div class="main__banner">
-      <div class="main__banner__top">
+    <div class="main__banner layer1">
+      <div class="main__banner__top layer1">
         <div class="banner__left">
           <img src="<%= event.event.imgurl %>">
         </div>
         <div class="banner__right">
+          <div class="banner__slider layer2">
+            <div class="panel">
+              <img src="<%= event.mileageList[0].imgurl %>">
+            </div>
+            <div class="panel">
+              <img src="<%= event.mileageList[1].imgurl %>">
+            </div>
+            <div class="panel">
+              <img src="<%= event.mileageList[2].imgurl %>">
+            </div>
+          </div>
           <div class="banner__right__btns">
             <button class="icon_slide prev"></button>
             <span class="inner_paging">
@@ -79,7 +90,7 @@
           </div>
         </div>
       </div>
-      <ul class="shoppinglists">
+      <ul class="shoppinglists layer1">
         <li class="shoppinglist">
           <img src="<%= event.mallEventList[0].imgurl%>">
           <strong>

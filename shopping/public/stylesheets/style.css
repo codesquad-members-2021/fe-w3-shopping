@@ -1,4 +1,10 @@
 @charset "UTF-8";
+.layer1 {
+  z-index: 1; }
+
+.layer2 {
+  z-index: -1; }
+
 .icon {
   background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
   background-size: 130px 90px;
@@ -28,7 +34,8 @@
 .shoppinglists {
   float: left;
   overflow: hidden;
-  width: 1275px; }
+  width: 1275px;
+  background-color: #fff; }
 
 .shoppinglist {
   float: left;
@@ -174,6 +181,16 @@ header {
     float: right;
     width: 485px;
     height: 340px; }
+    .main__banner__top .banner__right .banner__slider {
+      position: relative;
+      top: 0px;
+      left: -484px;
+      width: 1452px; }
+      .main__banner__top .banner__right .banner__slider .panel {
+        height: 100%;
+        overflow: hidden;
+        display: inline-block;
+        width: 484px; }
 
 .banner__right__btns {
   position: absolute;
