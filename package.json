@@ -1,0 +1,33 @@
+{
+  "name": "fe-w3-shopping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "shopping-how",
+  "scripts": {
+    "dev": "webpack --watch --mode development",
+    "prod": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cchoongh/fe-w3-shopping.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cchoongh/fe-w3-shopping/issues"
+  },
+  "homepage": "https://github.com/cchoongh/fe-w3-shopping#readme",
+  "devDependencies": {
+    "css-loader": "^5.0.2",
+    "express": "^4.17.1",
+    "file-loader": "^6.2.0",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.5.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.7.1"
+  }
+}
