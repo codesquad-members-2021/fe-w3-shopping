@@ -4,18 +4,27 @@ $main-grey-color: #a7a7a7;
 $main-black-color: black;
 $main-white-color: white;
 $main-background-color: #F3F3F4;
+$full-contents-width: 80rem;
 $primary-color: #FF4C3F;
 $primary-font-family: 돋움,dotum,sans-serif;
-$page-side-margin: 6rem;
+$page-side-margin: auto;
 $logo-width: 7.5rem;
 $logo-height: 3.2rem;
 $search-bar-padding: 1rem;
 $nav-item-width: 1.5rem;
 $nav-item-height: 1.5rem;
 $nav-item-border-radius: 50%;
+$small-img-size-width: 12.5rem;
+$small-img-size-height: 12.5rem;
+$small-img-padding: 0 1rem;
+$small-title-line-height: 2rem;
+$smail-desc-font-size: 0.7rem;
+$show-more-btn-background-color: #E9E9E9;
+$arrow-size: 3rem;
 
 body {
     font-family: $primary-font-family;
+    border: red 1px solid;
 }
 
 .nav {
@@ -58,10 +67,14 @@ body {
     }
 
 .under-nav-wrapper {
-     margin: 1rem $page-side-margin;
+     margin: 0 auto;
+     width: $full-contents-width;
+     display: flex;
+     justify-content: center;
 
       .under-nav-container {
           margin-top: 2rem;
+          width: 100%;
           display: flex;
           position: relative;
           justify-content: space-between;
@@ -69,7 +82,7 @@ body {
       }
 
       .under-nav-list{
-          padding: 1rem;
+          padding: 1rem 0;
           display: flex;
       }
 
@@ -92,6 +105,7 @@ body {
 
       .under-nav-list-item {
           display: flex;     
+          padding-right: 5rem;
 
           li {
             padding: 0 0.5rem;
@@ -106,6 +120,7 @@ body {
       .under-nav-right-item {
           display: flex;
           align-items: center;
+          padding-left: 1rem;
           
           span {
               padding-left: 0.5rem;
@@ -121,21 +136,30 @@ body {
               justify-content: center;
               align-items: center;
           }
+      }
 
+      .down-arrow {
+          padding: 0.5rem 0 0 0.5rem;
       }
 }
 
 .main {
     background-color: $main-background-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: cetner;
 
     .main-top-section {
-        margin: 1rem $page-side-margin;
+        margin: 0 $page-side-margin;
         padding: 2rem 0;
+        width: 80rem;
     }
 
     .main-top-article {
         display: flex;
         flex-direction: column;
+        background-color: $main-white-color;
 
         .main-top-article-fristline {
             display: flex;
@@ -145,8 +169,7 @@ body {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                flex-grow: 2; 
-                background-color: $main-white-color;
+                flex-grow: 2;         
                 position: relative;
             }
 
@@ -157,11 +180,34 @@ body {
                 cursor: pointer;
             }
 
-            .fa-angle-left,
-            .fa-angle-right {
-                padding: 0 1rem;
-                width: 3rem;
-                height: 3rem;
+            .arrow-btn {
+                position: absolute;
+
+                .fa-angle-left,
+                .fa-angle-right {
+                    width: $arrow-size;
+                    height: $arrow-size;
+                }
+            }
+
+            .arrow-btn-left {
+                left: 3rem;
+            }
+
+            .arrow-btn-right{
+                right:3rem;
+            }
+
+
+            .main-top-slide-imgs {
+                margin: 0 auto;
+                width: 32rem;
+                display: flex;
+                overflow: hidden;
+                
+                .slide-img{
+                    padding: 0 2rem;
+                }
             }
 
             .main-top-slide-select{
@@ -180,14 +226,121 @@ body {
 
         .main-top-article-secondline {
             display: flex;
+            justify-content: space-evenly;
+
+            .main-top-article-sec-imgs {
+                width: $small-img-size-width;
+                padding: $small-img-padding;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            h6 {
+                line-height: $small-title-line-height;
+                font-weight: bold;
+            }
+
+            p {
+                font-size: $smail-desc-font-size;
+                color:$main-grey-color
+            }
 
             img {
-                width: 12.5rem;
-                height: 12.5rem;
+                width: $small-img-size-height;
+                height: $small-img-size-height;
             }
         }
     }
 
+    .main-top-article-btn-container {
+        margin-top: 1rem;
+        width: 100%;
+
+        button {
+            padding: 0;
+            width: $full-contents-width;
+            height: 5rem;
+            background-color: $show-more-btn-background-color;
+            outline: 0;
+            border: 0;
+            cursor: pointer;
+        }
+    }
+
+
+    .main-theme-category-wrapper {
+        margin: 0 $page-side-margin;
+        width: $full-contents-width;
+
+        h3 {
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .main-theme-category-container {
+            height: 18rem;
+            background-color: $main-white-color;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .main-theme-category-lists {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .main-theme-category-list {
+            width: $small-img-size-width;
+            padding: $small-img-padding;
+
+            h6 {
+                line-height: $small-title-line-height;
+                font-weight: bold;
+            }
+
+            p {
+                font-size: $smail-desc-font-size;
+                color:$main-grey-color
+            }
+        }
+
+        img {
+            width: $small-img-size-width;
+            height: $small-img-size-height;
+        }
+
+        .main-theme-arrow-btn {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: $arrow-size;
+            height: $arrow-size;
+            top: 8rem;
+            background-color: rgba(0, 0, 0, 0.2);
+
+            button {
+                width: 100%;
+                height: 100%;
+                background: 0;
+                outline: 0;
+                border: 0;
+                color: $main-white-color;
+                font-size: 2rem;
+            }
+        }
+
+        .left-arrow {
+            left: 0;
+        }
+
+        .right-arrow {
+            right: 0;
+        }
+    }
 }
 
 
