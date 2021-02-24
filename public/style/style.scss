@@ -16,6 +16,9 @@ $nav-item-height: 1.5rem;
 $nav-item-border-radius: 50%;
 $small-img-size-width: 12.5rem;
 $small-img-size-height: 12.5rem;
+$small-img-padding: 0 1rem;
+$small-title-line-height: 2rem;
+$smail-desc-font-size: 0.7rem;
 $show-more-btn-background-color: #E9E9E9;
 
 body {
@@ -137,6 +140,7 @@ body {
 .main {
     background-color: $main-background-color;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: cetner;
 
@@ -220,19 +224,19 @@ body {
 
             .main-top-article-sec-imgs {
                 width: $small-img-size-width;
-                padding: 0 1rem;
+                padding: $small-img-padding;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
             }
 
             h6 {
-                line-height: 2rem;
+                line-height: $small-title-line-height;
                 font-weight: bold;
             }
 
             p {
-                font-size: 0.7rem;
+                font-size: $smail-desc-font-size;
                 color:$main-grey-color
             }
 
@@ -244,12 +248,62 @@ body {
     }
 
     .main-top-article-btn-container {
-        margin: 1rem auto;
+        margin-top: 1rem;
         width: 100%;
 
         button {
-            width: 100%;
+            padding: 0;
+            width: $full-contents-width;
+            height: 5rem;
             background-color: $show-more-btn-background-color;
+            outline: 0;
+            border: 0;
+            cursor: pointer;
+        }
+    }
+
+
+    .main-theme-category-wrapper {
+        margin: 0 $page-side-margin;
+        width: $full-contents-width;
+
+        h3 {
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .main-theme-category-container {
+            height: 18rem;
+            background-color: $main-white-color;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .main-theme-category-lists {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .main-theme-category-list {
+            width: $small-img-size-width;
+            padding: $small-img-padding;
+
+            h6 {
+                line-height: $small-title-line-height;
+                font-weight: bold;
+            }
+
+            p {
+                font-size: $smail-desc-font-size;
+                color:$main-grey-color
+            }
+        }
+
+        img {
+            width: $small-img-size-width;
+            height: $small-img-size-height;
         }
     }
 }
