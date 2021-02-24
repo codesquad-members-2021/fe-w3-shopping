@@ -75,6 +75,7 @@ header {
 .wrap-body-sect {
   @extend %debug-border-1;
   width: 100%;
+  min-width: $main-evt-img-w * 2;
   padding: 20px 0;
   position: relative;
   display: inline-block;
@@ -112,9 +113,59 @@ header {
         }
 
         .main-evt-slide-ctrl {
+          width: 100%;
           position: absolute;
-          top: 80%;
+          top: 85%;
           left: 0;
+          display: inline-block;
+          text-align: center;
+
+          .page-ctrl{
+            @extend %debug-border-1;
+            width: 15px;
+            height: 5px;
+            display: inline-block;
+            background-color: $gray;
+          }
+
+
+          %slide-ctrl__btn {
+            width: 35px;
+            height: 45px;
+            position: absolute;
+            top: -50%;
+          }
+
+          %slide-ctrl__btn__icon {
+            @extend %debug-border-0;
+            display: inline-block;
+            background-image: url("../../rsc/ic/img_home_150131.png");
+            overflow: hidden;
+            width: 15px;
+            height: 25px;
+          }
+
+          .slide-ctrl__to-left-btn {
+            @extend %debug-border-1;
+            @extend %slide-ctrl__btn;
+            left: 32%;
+
+            .slide-ctrl__to-left-btn__icon {
+              @extend %slide-ctrl__btn__icon;
+              background-position: -128px -335px;
+            }
+          }
+
+          .slide-ctrl__to-right-btn {
+            @extend %debug-border-1;
+            @extend %slide-ctrl__btn;
+            right: 32%;
+            
+            .slide-ctrl__to-right-btn__icon {
+              @extend %slide-ctrl__btn__icon;
+              background-position: -145px -335px;
+            }
+          }
         }
       }
     }
