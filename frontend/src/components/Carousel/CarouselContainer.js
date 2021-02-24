@@ -36,11 +36,11 @@ class CarouselContainer {
     switch (type) {
       case "banner":
         this.type = type;
-        this.$carousel = new BannerCarouselPresentational({ $target });
+        this.$carousel = new BannerCarouselPresentational({ $target, images: this.images });
         break;
       case "hotTheme":
         this.type = type;
-        this.$carousel = new HotThemeCarouselPresentational({ $target });
+        this.$carousel = new HotThemeCarouselPresentational({ $target, images: this.images });
         break;
       default:
         console.error("Wrong type was inserted. Please check carousel assign syntax.")
