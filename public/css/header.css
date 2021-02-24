@@ -64,15 +64,15 @@ input {
   border-bottom: 1px solid #dcdfe4;
   margin: 10px 20px 20px 10px;
   font-size: 16px; }
+  .nav .divideLine {
+    width: 1px;
+    height: 18px;
+    margin-top: 18px;
+    background-color: #e3e3e3; }
   .nav__wrapper {
     display: flex;
     height: 45px;
     justify-content: flex-start; }
-    .nav__wrapper .divideLine {
-      width: 1px;
-      height: 18px;
-      margin-top: 18px;
-      background-color: #e3e3e3; }
   .nav__category_box {
     padding: 5px 20px;
     width: 160px; }
@@ -81,7 +81,7 @@ input {
       align-items: center;
       grid-gap: 7px;
       grid-template-columns: auto auto;
-      margin: 5px 0;
+      margin: 8px 0;
       font-size: 16px;
       color: #333;
       letter-spacing: -.03em; }
@@ -100,7 +100,7 @@ input {
         text-decoration: none;
         font-weight: 600; }
   .nav__hashtag__box {
-    width: 500px; }
+    width: 680px; }
     .nav__hashtag__box ul {
       display: grid;
       grid-template-columns: auto auto auto auto auto;
@@ -114,7 +114,7 @@ input {
         text-decoration: none;
         font-weight: 600; }
   .nav__mypage__box {
-    width: 700px;
+    width: 500px;
     display: flex;
     justify-content: flex-end;
     gap: 40px; }
