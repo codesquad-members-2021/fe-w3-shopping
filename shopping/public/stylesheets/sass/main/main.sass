@@ -21,5 +21,43 @@
             height: 340px
 
     .banner__right
+        position: relative
+        float: right
         width: 485px
         height: 340px
+
+.banner__right__btns
+    position: absolute
+    top: 283px
+    left: 0
+    width: 100%
+    text-align: center
+    clear: both
+
+.prev
+    position: absolute
+    top: -4px
+    left: 160px
+    background-position: -128px -335px
+
+.next
+    right: 160px
+    background-position: -145px -335px
+    position: absolute
+    top: -4px
+
+.inner_paging
+    display: inline-block
+    span
+        margin-left: 3px
+        float: left
+        padding: 5px 0
+        .num_page
+            width: 15px
+            height: 5px
+            font-size: 0
+            line-height: 0
+        .unselected
+            background-color: #ccc
+        .selected
+            background-color: #000

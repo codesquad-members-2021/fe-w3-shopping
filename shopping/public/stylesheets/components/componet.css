@@ -7,6 +7,16 @@
   width: 28px;
   height: 28px; }
 
+.icon_slide {
+  display: inline-block;
+  overflow: hidden;
+  width: 15px;
+  height: 25px;
+  font-size: 0;
+  line-height: 0;
+  background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/img_home_150131.png) no-repeat;
+  text-indent: -9999px; }
+
 .bar {
   float: left;
   width: 1px;
@@ -15,15 +25,18 @@
   background-color: #e3e3e3; }
 
 .shoppinglists {
-  float: bottom;
-  display: flex; }
+  float: left;
+  overflow: hidden;
+  width: 1275px; }
 
 .shoppinglist {
+  float: left;
   width: 200px;
   height: 276px;
   padding: 21px;
   border-bottom: 0 none;
-  border: 0.5px solid rgba(0, 0, 0, 0.05); }
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-right: 1px solid rgba(0, 0, 0, 0.05); }
   .shoppinglist img {
     width: 200px;
     aspect-ratio: auto 200 / 200;
