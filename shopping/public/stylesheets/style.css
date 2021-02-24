@@ -15,13 +15,38 @@
   margin-top: 18px;
   background-color: #e3e3e3; }
 
+.shoppinglists {
+  float: bottom;
+  display: flex; }
+
+.shoppinglist {
+  width: 200px;
+  height: 276px;
+  padding: 21px;
+  border-bottom: 0 none;
+  border: 0.5px solid rgba(0, 0, 0, 0.05); }
+  .shoppinglist img {
+    width: 200px;
+    aspect-ratio: auto 200 / 200;
+    height: 200px; }
+  .shoppinglist strong {
+    display: block;
+    overflow: hidden;
+    margin: 10px 1px;
+    font-size: 14px;
+    white-space: nowrap; }
+  .shoppinglist span {
+    display: block;
+    color: #888;
+    font-size: 12px; }
+
 header {
   width: 100%;
   padding-top: 43px;
   font-family: Apple SD Gothic Neo,Malgun Gothic,맑은 고딕,Dotum,돋움,sans-serif;
   background-color: #fff;
   text-align: center;
-  min-width: 977px; }
+  min-width: 1200px; }
 
 .header__searchbar {
   display: inline-block;
@@ -109,5 +134,37 @@ header {
     left: 4px;
     background-position: 0 -30px; }
 
+.main__banner {
+  overflow: hidden;
+  position: relative;
+  width: 971px;
+  margin: 0 auto;
+  border: 1px solid #e4e4e4;
+  border-bottom: 0 none;
+  background-color: #fff; }
+
+.main__banner__top {
+  float: top; }
+  .main__banner__top .banner__left {
+    float: left;
+    position: relative;
+    width: 485px;
+    height: 340px;
+    border-right: 1px solid #f1f1f1;
+    background-color: #fff; }
+    .main__banner__top .banner__left img {
+      width: 485px;
+      aspect-ratio: auto 485 / 340;
+      height: 340px; }
+  .main__banner__top .banner__right {
+    width: 485px;
+    height: 340px; }
+
 body {
-  height: 500vh; }
+  height: 500vh;
+  background-color: #f3f3f3;
+  font-family: 돋움,dotum,sans-serif; }
+
+section {
+  width: 100%;
+  padding-top: 19px; }

@@ -13,7 +13,8 @@
 <body>
   <header>
     <div class="header__searchbar">
-      <img class="header__searchbar__img" src="https://search1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/logo_shw.png">
+      <img class="header__searchbar__img"
+        src="https://search1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/logo_shw.png">
       <input type="text">
     </div>
     <div class="header__keywords"></div>
@@ -55,13 +56,50 @@
   </header>
   <section class="main_section">
     <div class="main__banner">
-      <div class="main__banner__top"></div>
+      <div class="main__banner__top">
+        <div class="banner__left">
+          <img src="<%= event.event.imgurl %>">
+        </div>
+        <div class="banner__right"></div>
+      </div>
       <ul class="shoppinglists">
-        <li class="shoppinglist"></li>
-        <li class="shoppinglist"></li>
-        <li class="shoppinglist"></li>
-        <li class="shoppinglist"></li>
-      </ul>
+        <li class="shoppinglist">
+          <img src="<%= event.mallEventList[0].imgurl%>">
+          <strong>
+            <%= event.mallEventList[0].text %>
+          </strong>
+          <span>
+            <%= event.mallEventList[0].text2 %>
+          </span>
+        </li>
+        <li class="shoppinglist">
+          <img src="<%= event.mallEventList[1].imgurl%>">
+          <strong>
+            <%= event.mallEventList[1].text %>
+          </strong>
+          <span>
+            <%= event.mallEventList[1].text2 %>
+          </span>
+        </li>
+        <li class="shoppinglist">
+          <img src="<%= event.mallEventList[2].imgurl%>">
+          <strong>
+            <%= event.mallEventList[2].text %>
+          </strong>
+          <span>
+            <%= event.mallEventList[2].text2 %>
+          </span>
+        </li>
+        <li class="shoppinglist">
+          <img src="<%= event.mallEventList[3].imgurl%>">
+          <strong>
+            <%= event.mallEventList[3].text %>
+          </strong>
+          <span>
+            <%= event.mallEventList[3].text2 %>
+          </span>
+        </li>
+      </ul> 
     </div>
   </section>
   <section class="hotDeal_section"></section>
