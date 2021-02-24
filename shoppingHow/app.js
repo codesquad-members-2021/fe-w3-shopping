@@ -4,16 +4,21 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var sassMiddleware = require("node-sass-middleware");
+var fs = require("fs");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 
 var app = express();
-//express를 함수처럼 호출하고있네..? 그럼 그 리턴된 값을 app에 넣고있는다는거..
-//리턴값으로는 Application이라는 객체를 리턴해준다.
-//Application객체가 갖고있는 메소드들: get() 등등
 
-// view engine setup
+let data = {};
+data = JSON.parse(fs.readFileSync("./public/data/homeContents.json", "utf8"));
+console.log(data.contents[0].eventContent);
+
+app.get("/homeContents.json", (req, res, next) => {
+  res.json(data);
+});
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
