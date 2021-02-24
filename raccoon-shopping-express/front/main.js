@@ -12,6 +12,8 @@ const $mileageEventSlide = document.querySelector('.event--slide');
 const $prevEventButton = document.querySelector('.slide--button--prev');
 const $nextEventButton = document.querySelector('.slide--button--next');
 
+const $mallEventList = document.querySelector('#mallEventList');
+
 $mileageEventSlide.addEventListener('mouseover', overEventSlider);
 $mileageEventSlide.addEventListener('mouseout', outEventSlider);
 

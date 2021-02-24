@@ -57,6 +57,15 @@ fieldset {
   text-indent: -9999px;
 }
 
+.link--product:hover {
+  img {
+    opacity: 0.75;
+  }
+  strong {
+    text-decoration: underline;
+  }
+}
+
 header {
   padding-top: 43px;
   min-width: 977px;
