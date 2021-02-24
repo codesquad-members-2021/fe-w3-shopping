@@ -1,12 +1,13 @@
 import HeaderPresentational from "./src/components/Header/HeaderPresentational.js"
 
-import "./app.sass.scss";
+import "./app.scss";
 
 class App {
   constructor({ $target }) {
     this.$target = $target;
     this.header = null;
   }
+  
   init() {
     let $target = null;
     
