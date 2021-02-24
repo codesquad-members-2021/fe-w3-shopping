@@ -1,11 +1,28 @@
 @import "reset.css";
+@import "carousel.scss";
 
 $menu_interval: .5rem;
 $color-emphasis: #f9624c;
 $color-css-grey:#bbbbbb;
 $color-text-grey: #888888;
+$color-background-beige: #f3f3f3; 
+$color-background-white: #fff; 
+$color-transparent-black: #222222d7;
 
+body{
+   background-color: $color-background-beige;
+   font-family: 'Nanum Gothic', sans-serif;
+}
 
+div{
+   box-sizing: border-box;
+}
+
+.icon_ctrl{
+   background-image: url("https://shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/img_home_150131.png");
+   overflow: hidden;
+   margin-left:-688px;
+}
 
 .btn_icon{ 
    width:  2rem;
@@ -17,17 +34,27 @@ a {
    color: #000;
 }
 
-.wrap{ 
-   width: 80vw;
-   margin: 10px auto;
+p {
+   font-weight: 800;
 }
+
+.wrap{ 
+   width: 75vw;
+   margin: 0px auto;
+   padding: 0;
+}
+
+.head {
+   background-color: $color-background-white;
+}
+
 .area_headtop{
    display: flex;
    justify-content:center;
    align-items: center;
    width: 100vw;
-   margin: 60px auto 0px;
-   padding-bottom: 60px;
+   margin: 0 auto;
+   padding: 60px 0;
    border-bottom: 1px solid $color-css-grey;
    .banner{
       margin-right: 30px;
@@ -88,6 +115,7 @@ a {
          background-color: $color-css-grey;
          font-size:0px;
       }
+      
       span{ 
          display: inline-block;
          width: 5px;
@@ -101,7 +129,7 @@ a {
             padding: 0 10px;
             a{
                font: {
-                  weight: 800;
+                  weight: 700;
                   size: 18px;
                }
                   &:hover{ 
@@ -114,7 +142,7 @@ a {
          li{
             padding: 0 10px;
             a{ 
-               font-weight: 800;
+               font-weight: 700;
                color: $color-text-grey;
             }
          }
@@ -132,6 +160,114 @@ a {
    }
 }
 
+/*body*/
+
 .body{ 
-   border-top: 2px solid $color-css-grey;
+   border-top: 1.5px solid $color-css-grey;
+}
+
+.section_top{
+   background-color: $color-background-white;
+   margin-top: 30px;
+   border: 1px solid $color-css-grey;
+}
+
+.evt_main{
+   display: flex;
+   justify-content:space-between;
+   border-bottom: 1px solid $color-css-grey;
+}
+
+.banner_area{
+   border-right: 1px solid $color-css-grey;
+   width: 512px;
+}
+
+.slide_area{
+   padding:0 30px;
+}
+
+.slide{
+   width: 485px;
+   display: flex;
+   overflow: hidden;
+}
+
+.slide_prev_main_next{
+   display: flex;
+   button {
+      margin: 0 35px;
+      border:none;
+   }
+   .slide_panel{
+      img{
+         width: 485px;
+      }
+   }
+}
+.panel{
+   display: flex;
+   justify-content:space-between;
+   .panel_list{
+      border-left: 1px solid $color-css-grey;
+      padding: 27px;
+      &:first-child{
+         border-left:none;
+      }
+      a{
+         &:hover{
+            cursor: pointer;
+         }
+
+         img{
+            display: block;
+            width: 200px;
+            height: 200px;
+         }
+
+         p, span{
+            width: 200px;
+            display: block;
+            margin-top: 10px;
+            text-overflow:ellipsis;
+            overflow:hidden;
+            white-space:nowrap;
+         }
+      }
+   }
+}
+.see_more_btn{
+   width: 100%;
+   height: 80px;
+   border: none;
+   border-top: 1px solid $color-css-grey;
+}
+
+
+.section_hot_deal{
+   margin: 60px auto;
+   h3 {
+      font-weight: 700;
+      font-size:20px;
+      padding: 10px;
+   }
+}
+
+.hot_deal_list{
+   display: flex;
+   justify-content:space-between;
+   border: 1px solid $color-css-grey;
+   background-color:$color-background-white;
+   button{
+      width: 50px;
+      height: 50px;
+      background-color:$color-transparent-black;
+      border:none;
+      .prev{
+         float: left;
+      }
+      .next{
+         float: right;
+      }
+   }
 }
