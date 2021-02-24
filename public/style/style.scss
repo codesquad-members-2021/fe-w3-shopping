@@ -4,6 +4,7 @@ $main-grey-color: #a7a7a7;
 $main-black-color: black;
 $main-white-color: white;
 $main-background-color: #F3F3F4;
+$full-contents-width: 80rem;
 $primary-color: #FF4C3F;
 $primary-font-family: 돋움,dotum,sans-serif;
 $page-side-margin: 6rem;
@@ -58,10 +59,14 @@ body {
     }
 
 .under-nav-wrapper {
-     margin: 1rem $page-side-margin;
+     margin: 0 auto;
+     width: $full-contents-width;
+     display: flex;
+     justify-content: center;
 
       .under-nav-container {
           margin-top: 2rem;
+          width: 100%;
           display: flex;
           position: relative;
           justify-content: space-between;
@@ -69,7 +74,7 @@ body {
       }
 
       .under-nav-list{
-          padding: 1rem;
+          padding: 1rem 0;
           display: flex;
       }
 
@@ -92,6 +97,7 @@ body {
 
       .under-nav-list-item {
           display: flex;     
+          padding-right: 5rem;
 
           li {
             padding: 0 0.5rem;
@@ -106,6 +112,7 @@ body {
       .under-nav-right-item {
           display: flex;
           align-items: center;
+          padding-left: 1rem;
           
           span {
               padding-left: 0.5rem;
@@ -127,15 +134,20 @@ body {
 
 .main {
     background-color: $main-background-color;
+    display: flex;
+    justify-content: center;
+    align-items: cetner;
 
     .main-top-section {
-        margin: 1rem $page-side-margin;
+        margin: 0 $page-side-margin;
         padding: 2rem 0;
+        width: 80rem;
     }
 
     .main-top-article {
         display: flex;
         flex-direction: column;
+        background-color: $main-white-color;
 
         .main-top-article-fristline {
             display: flex;
@@ -145,8 +157,7 @@ body {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                flex-grow: 2; 
-                background-color: $main-white-color;
+                flex-grow: 2;         
                 position: relative;
             }
 
@@ -157,11 +168,34 @@ body {
                 cursor: pointer;
             }
 
-            .fa-angle-left,
-            .fa-angle-right {
-                padding: 0 1rem;
-                width: 3rem;
-                height: 3rem;
+            .arrow-btn {
+                position: absolute;
+
+                .fa-angle-left,
+                .fa-angle-right {
+                    width: 3rem;
+                    height: 3rem;
+                }
+            }
+
+            .arrow-btn-left {
+                left: 3rem;
+            }
+
+            .arrow-btn-right{
+                right:3rem;
+            }
+
+
+            .main-top-slide-imgs {
+                margin: 0 auto;
+                width: 32rem;
+                display: flex;
+                overflow: hidden;
+                
+                .slide-img{
+                    padding: 0 2rem;
+                }
             }
 
             .main-top-slide-select{
@@ -180,6 +214,23 @@ body {
 
         .main-top-article-secondline {
             display: flex;
+
+            .main-top-article-sec-imgs {
+                display: flex;
+                padding: 1.5rem;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            h6 {
+                line-height: 2rem;
+                font-weight: bold;
+            }
+
+            p {
+                font-size: 0.5rem;
+                color:$main-grey-color
+            }
 
             img {
                 width: 12.5rem;
