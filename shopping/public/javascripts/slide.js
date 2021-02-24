@@ -1,12 +1,4 @@
-export function setPagnationHtml(slideLen, startNum) {
-  return new Promise((resolve, reject) => {
-    const pageChild = [...Array(slideLen).keys()].reduce((acc, val) => acc + `<span class="btn_paging ${val === startNum ? "dot_active" : ""}" data-index="${val}"><span class="num_page"></span></span>`, ``);
-    console.log(pageChild);
-    resolve(pageChild);
-  });
-}
-
-export function createCarousel(slideContents, buttons, slideList, width = undefined, speed = undefined) {
+export default function createCarousel(slideContents, buttons, slideList, width = undefined, speed = undefined) {
   const slideWidth = width ? width : 400;
   const slideSpeed = speed ? speed : 300;
   const prevButton = Object.values(buttons).find((button) => button.classList.contains("btn_prev"));

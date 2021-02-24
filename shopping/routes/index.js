@@ -1,5 +1,5 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 const cors = require("cors");
 const fs = require("fs");
 
@@ -13,6 +13,7 @@ router.use(cors());
 router.get("/planningEvent.json", function (req, res, next) {
   // const { planningEventData } = global;
   // res.json(planningEventData);
+  // console.log(JSON.parse(fs.readFileSync("./data/planningEvent.json")));
   res.json(JSON.parse(fs.readFileSync("./data/planningEvent.json")));
 });
 
