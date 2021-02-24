@@ -20,9 +20,10 @@ module.exports = {
       {
         // to use image files in .scss
         test: /\.(png|jpe?g)$/,
-        use: [
-          'file-loader?name=rsc/img/[name].[ext]',
-          'url-loader'],
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]',
+        },
       }
     ]
   },
@@ -30,7 +31,10 @@ module.exports = {
     // to use image files in .html
     new CopyWebpackPlugin({
       patterns: [
-        {from: './rsc/img', to: 'rsc/img'},
+        {
+          from: './rsc/img',
+          to: 'rsc/img',
+        },
       ],
     }),
   ],
