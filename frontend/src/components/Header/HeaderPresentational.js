@@ -10,7 +10,6 @@ class HeaderPresentational {
     this.init();
   }
   init() {
-    // fetch()를 통해 실시간 검색어를 불러오는 부분
     this.render();
   }
   render() {
