@@ -1,1 +1,4 @@
-export const domSelect = (selector, base = document) => base.querySelector(selector);
+export const domSelect = (selector, multi = false, base = document) => {
+  if (multi) return base.querySelectorAll(selector);
+  else return base.querySelector(selector);
+};

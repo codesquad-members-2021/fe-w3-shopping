@@ -142,7 +142,8 @@ main {
       .paging-first {
         margin: 0;
       }
-      .btn-paging:hover {
+      .btn-paging:hover,
+      .current-page {
         opacity: 1;
       }
     }

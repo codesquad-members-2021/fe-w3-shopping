@@ -3,8 +3,8 @@ import { domSelect } from './util.js';
 
 const slideContainer = domSelect('.slide');
 const slideList = domSelect('.slide-list');
-const slideHTML = { container: slideContainer, itemList: slideList };
+const pagingBtn = domSelect('.slide-event__paging');
+const slideHTML = { container: slideContainer, slideList, pagingBtn };
 
 const slide = new Slide(slideHTML);
-console.log(slide);
 slide.init();
