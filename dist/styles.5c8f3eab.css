@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html,
 body,
 div,
@@ -129,43 +130,203 @@ table {
   border-spacing: 0;
 }
 
-ul {
-  cursor: pointer;
+body {
+  font-size: 12px;
+  line-height: 1.5;
+  font-family: 돋움, dotum, sans-serif;
+  color: #333;
 }
 
-#header {
+.item-display, .bottom-pannel--right, .bottom-pannel--left, .bottom-pannel, .top-pannel, .header__categori--mypage li, .header__categori--button button, .wrap-categori ul, .wrap-categori, .header__categori, .header__top--search, .header__top {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+}
+
+.button, .carouselUI--rightBtn button, .carouselUI--leftBtn button, .header__categori--button button, .header__top--search button {
+  border: none;
+  background-color: #fff;
+}
+
+.bold-font, .header__categori--keywords, .header__top--search input {
+  font-size: 20px;
+  font-weight: 700;
+  color: #939393;
+}
+
+.categori-border, .header__categori--list, .header__categori--button button {
+  border-right: 1px solid #efefef;
+}
+
+.header-img, .header__categori--mypage img, .header__categori--button img, .header__top--search button img {
+  width: 28px;
+  height: 28px;
+}
+
+/*-------------------여기까지 heade.scss 공통 클래스--------------------*/
+.contents {
+  padding-top: 19px;
+  border-top: 2px solid gainsboro;
+  background-color: #f3f3f3;
+}
+
+.header {
   padding-top: 43px;
 }
 
-#search {
-  display: flex;
+.header__top {
+  justify-content: center;
 }
 
-#categori {
-  display: flex;
+.header__top--logo img {
+  width: 119px;
+  height: 51px;
+}
+
+.header__top--search {
+  justify-content: space-between;
+  width: 670px;
+  height: 54px;
+  margin: 0px 30px;
+  border: 1px solid;
+  border-color: #cecfd1;
+  border-radius: 10px;
+}
+.header__top--search input {
+  border: none;
+  margin: 3px 3px;
+  padding: 10px 60px 10px 30px;
+}
+.header__top--search button {
+  margin: 3px 3px;
+}
+.header__categori {
+  border-top: 1px solid #efefef;
   margin-top: 40px;
+  height: 54px;
+}
+
+.wrap-categori {
+  margin: 0px 70px;
+}
+.header__categori--button button {
+  width: 118px;
+}
+.header__categori--button span {
+  padding: 4px 0px 0px 5px;
+  font-size: 16px;
+}
+
+.header__categori--list {
+  padding: 0px 8px 0px 12px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.header__categori--list li {
+  padding: 0px 19px;
+}
+
+.header__categori--keywords {
+  font-size: 16px;
+  padding: 0px 8px 0px 12px;
+  margin-right: 90px;
+}
+.header__categori--keywords li {
+  padding: 0px 12px;
+}
+
+.header__categori--mypage {
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: space-between;
+}
+.header__categori--mypage li:nth-child(1) {
+  margin-right: 20px;
+}
+.header__categori--mypage img {
+  margin-right: 5px;
 }
 
 .pannel {
-  display: flex;
-  padding-top: 19px;
+  background-color: #fff;
+  border: 1px solid gainsboro;
+  margin: 0px 70px;
 }
 
-#CarouselUI {
-  display: flex;
+.staticUI {
+  border-right: 1px solid gainsboro;
+}
+
+.wrap-carouselUI {
   position: relative;
+  width: 800px;
 }
 
-#CarouselUI > div:nth-child(2) {
-  position: absolute;
-  left: 100px;
+.carouselUI img {
+  margin-left: 160px;
 }
 
-#CarouselUI > div:nth-child(3) {
+.carouselUI--leftBtn {
   position: absolute;
-  left: 200px;
+  top: 40%;
+  left: 10%;
+}
+.carouselUI--leftBtn button {
+  font-size: 4rem;
+  font-weight: lighter;
+}
+
+.carouselUI--rightBtn {
+  position: absolute;
+  top: 40%;
+  right: 10%;
+}
+.carouselUI--rightBtn button {
+  font-size: 4rem;
+  font-weight: lighter;
+}
+
+.carouselUI--paging {
+  position: absolute;
+  bottom: 5%;
+  left: 45%;
+}
+
+.bottom-pannel {
+  border-top: 1px solid gainsboro;
+}
+.bottom-pannel li {
+  padding: 21px 21px;
+  border-right: 1px solid gainsboro;
+}
+.bottom-pannel img {
+  width: 200px;
+  height: 200px;
+}
+
+.bottom-pannel--right {
+  justify-content: space-around;
+}
+.bottom-pannel--right li:nth-child(3) {
+  border-right: none;
+}
+
+.list--name {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 10px 0px 1px;
+}
+
+.list--explain {
+  font-weight: 300;
+}
+
+.list--theme {
+  border: 1px solid orange;
+  color: orange;
+  margin: 11px 4px 0px 0px;
+  padding: 2px 0px;
+  width: 31px;
+  text-align: center;
 }
 
 /*# sourceMappingURL=/styles.5c8f3eab.css.map */

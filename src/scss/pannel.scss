@@ -1,19 +1,103 @@
+$pannel-border: 1px solid gainsboro;
+
 .pannel {
-  display: flex;
-  padding-top: 19px;
+  background-color: #fff;
+  border: 1px solid gainsboro;
+  margin: 0px 70px;
 }
 
-#CarouselUI {
-  display: flex;
+.top-pannel {
+  @extend .item-display;
+}
+
+.staticUI {
+  border-right: $pannel-border;
+}
+
+.wrap-carouselUI {
   position: relative;
+  width: 800px;
 }
 
-#CarouselUI > div:nth-child(2) {
-  position: absolute;
-  left: 100px;
+.carouselUI {
+  img {
+    margin-left: 160px;
+  }
 }
 
-#CarouselUI > div:nth-child(3) {
+.carouselUI--leftBtn {
   position: absolute;
-  left: 200px;
+  top: 40%;
+  left: 10%;
+
+  button {
+    @extend .button;
+    font-size: 4rem;
+    font-weight: lighter;
+  }
+}
+
+.carouselUI--rightBtn {
+  position: absolute;
+  top: 40%;
+  right: 10%;
+
+  button {
+    @extend .button;
+    font-size: 4rem;
+    font-weight: lighter;
+  }
+}
+
+.carouselUI--paging {
+  position: absolute;
+  bottom: 5%;
+  left: 45%;
+}
+
+.bottom-pannel {
+  @extend .item-display;
+  border-top: $pannel-border;
+
+  li {
+    padding: 21px 21px;
+    border-right: $pannel-border;
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.bottom-pannel--left {
+  @extend .item-display;
+}
+
+.bottom-pannel--right {
+  @extend .item-display;
+  justify-content: space-around;
+
+  li:nth-child(3) {
+    border-right: none;
+  }
+}
+
+.list--name {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 10px 0px 1px;
+}
+
+.list--explain {
+  font-weight: 300;
+}
+
+.list--theme {
+  border: 1px solid orange;
+  color: orange;
+  margin: 11px 4px 0px 0px;
+  padding: 2px 0px;
+  width: 31px;
+  text-align: center;
 }
