@@ -1,0 +1,91 @@
+#middle {
+    background-color: #f3f3f3;
+    width:100%;
+    padding-top: 19px;
+    margin: 0 auto;
+    text-align: -webkit-center;
+}
+
+.middle_width {
+    width: 1280px;
+}
+
+.middle_box {
+    width:1280px;
+    justify-content: center;
+    border: 1px solid #cdcdcd;
+}
+
+.top_content {
+    display: flex;
+    background-color: white;
+
+    .best100 {
+        width:510px;
+        height:340px;
+    }
+
+    .top_slide {
+        border-left: 1px solid #cdcdcd;
+        width: 770px;
+        height:340px;
+    }
+}
+
+.top_imglist {
+    width: 1282px;
+    a {
+        position:relative;
+        color:black;
+        text-decoration: none;
+        
+        strong {
+            display: block;
+            overflow:hidden;
+            font-size: 14px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            margin: 10px 0 1px;
+        }
+
+        .img_text {
+            display: block;
+            text-overflow: ellipsis;
+            font-size: 12px;
+            letter-spacing: -1px;
+        }
+    }
+    ul {
+        display: flex;
+        background-color: white;
+        border: 1px solid #cdcdcd;
+        border-top:none;
+        padding:0;
+        margin:0;
+    }
+    li {
+        width:200px;
+        height:276px;
+        cursor: pointer;
+        text-align: left;
+        border-right: 1px solid #cdcdcd;
+        padding: 21px 27px;
+        list-style-type: none;
+        &:last-child {
+            border:none;
+        }
+    }
+    img {
+        width:200px;
+        height: 200px;
+    }
+
+    .tema_icon {
+        float:left;
+        margin: 11px 4px 0 0;
+        width: 32px;
+        height: 17px;
+        background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/img/ico_comm2_150514.gif) no-repeat;
+        background-position: 0 -850px;
+    }
+}
