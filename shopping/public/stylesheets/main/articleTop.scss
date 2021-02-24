@@ -29,8 +29,7 @@
         width: map-get($slide_img, width);
         height: map-get($slide_img, height);
         margin: auto;
-        overflow-x: hidden;
-        overflow-y: hidden;
+        overflow: hidden;
       }
 
       .slide_content {
@@ -98,44 +97,44 @@
       text-align: center;
     }
 
-    img {
-      width: 80%;
+    a {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      color: map-get($font-color, content);
+
+      img {
+        height: 18em;
+      }
+
+      strong {
+        margin-top: 10px;
+        font-size: map-get($font-size, title);
+        color: map-get($font-color, title);
+      }
+
+      .ico_theme {
+        color: map-get($font-color, theme);
+        border: 1px solid map-get($font-color, theme);
+        border-radius: 2px;
+        position: absolute;
+        top: 300px;
+        left: 1em;
+      }
     }
 
     .list_item {
-      //   border: 1px solid red;
+      // border: 1px solid red;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(20%, auto));
-      height: fit-content;
+      min-height: 350px;
       // border: 1px solid map-get($color-palette, top_border);
 
       ._GI_ {
         // background-color: teal;
-        padding: 20px 25px;
+        padding: 20px 0;
         // height: 100%;
         border: 1px solid map-get($color-palette, top_border);
-        a {
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          color: map-get($font-color, content);
-          height: 23.5em;
-
-          strong {
-            margin-top: 10px;
-            font-size: map-get($font-size, title);
-            color: map-get($font-color, title);
-          }
-
-          .ico_theme {
-            color: map-get($font-color, theme);
-            border: 1px solid map-get($font-color, theme);
-            border-radius: 2px;
-            width: fit-content;
-            position: absolute;
-            bottom: 1px;
-          }
-        }
       }
     }
 

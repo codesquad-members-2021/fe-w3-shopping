@@ -1,5 +1,6 @@
-const createEventItem = (href_url, img_url) => {
-  return `<a href="${href_url}"><img src="${img_url}"/></a>`;
+const createEventItem = (data) => {
+  const {linkurl, imgurl} = data
+  return `<a href="${linkurl}"><img src="${imgurl}"/></a>`;
 };
 
 const createMallEventListPanel = (lists) => {

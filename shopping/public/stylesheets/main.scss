@@ -1,5 +1,6 @@
 @import "./vars.scss";
 @import "./main/articleTop.scss";
+@import "./main/articleHotdeal.scss";
 
 main {
   padding: 0 $padding-for-left-right;
@@ -22,9 +23,6 @@ main {
 .main__article {
   width: 100%;
   background-color: #fff;
-
-  .article__hotDeal {
-  }
 
   .article__keyword {
   }
