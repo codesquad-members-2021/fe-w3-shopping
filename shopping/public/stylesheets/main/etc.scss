@@ -1,0 +1,44 @@
+.main__etc {
+  width: 100%;
+  //   border: 1px solid red;
+  position: relative;
+  padding: 3em 0;
+
+  .section_etc {
+    // border: 1px solid blueviolet;
+
+    .cont_partner {
+      position: relative;
+      display: flex;
+      background-color: white;
+      border: 1px solid map-get($color-palette, searchBar-color);
+      padding: 2em 3em;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      margin-right: 7em;
+    }
+
+    .btn_home {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      i {
+        padding: 0.4em;
+        color: map-get($font-color, title);
+        background-color: white;
+        border: 1px solid map-get($color-palette, searchBar-color);
+      }
+    }
+  }
+
+  .link_all {
+    position: absolute;
+    top: 0;
+    right: 1em;
+    margin-top: 5em;
+  }
+}

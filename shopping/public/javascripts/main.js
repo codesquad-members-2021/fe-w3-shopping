@@ -89,7 +89,7 @@ fetch(urls.homeContents)
     let i = 0;
     Object.entries(hotDealContents).forEach((value, key) => {
       const currProducts = value[1].eventProducts;
-      let hotDealHtml = `<ul class="list_item">`;
+      let hotDealHtml = `<ul class="list_hotDeal">`;
       hotDealHtml += currProducts.reduce((acc, val) => {
         const { imageurl, produrl, prodname, mprice } = val;
         acc += `<li class="_GI_" data-id="${i++}">
@@ -110,7 +110,7 @@ fetch(urls.homeContents)
     });
     hotDealItemHtml.innerHTML = totalHtml;
 
-    const slideContents = document.querySelectorAll(".list_item");
+    const slideContents = document.querySelectorAll(".list_hotDeal");
     const prevButton = document.querySelector(".btn_hotDeal_prev");
     const nextButton = document.querySelector(".btn_hotDeal_next");
     const slideList = document.querySelector(".content_hotDeal");

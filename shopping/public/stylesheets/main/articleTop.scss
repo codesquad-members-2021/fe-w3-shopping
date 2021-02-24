@@ -124,21 +124,6 @@
       }
     }
 
-    .list_item {
-      // border: 1px solid red;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(20%, auto));
-      min-height: 350px;
-      // border: 1px solid map-get($color-palette, top_border);
-
-      ._GI_ {
-        // background-color: teal;
-        padding: 20px 0;
-        // height: 100%;
-        border: 1px solid map-get($color-palette, top_border);
-      }
-    }
-
     // .btn_g {
     //   //   background-color: wheat;
     //   position: absolute;
