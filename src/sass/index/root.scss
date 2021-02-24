@@ -1,14 +1,17 @@
 @charset "UTF-8";
 
 $default-fontSize: 12px;
-$default-fontFamily: 돋움, dotum, sans-serif;
+$default-fontFamily: NanumGothic, '나눔고딕', 'Nanum Gothic', 'Malgun Gothic',
+    '맑은 고딕', Dotum, '돋움', Helvetica, AppleSDGothicNeo, Arial, sans-serif;
 $default-color: #333;
 $default-backgroundColor: #f3f3f3;
 $default-lineHeight: 1.5;
-
-
 $default-width: 1280px;
+
+$lightGray: #f1f1f1;
 $white: #fff;
+$gray: #ccc;
+$gray_2: #888;
 $auto: 0 auto;
 
 body {
