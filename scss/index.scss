@@ -1,0 +1,147 @@
+body {
+  background: #f3f3f3;
+}
+
+main {
+  padding: 0 10vw;
+  padding-top: 2vh;
+  margin-top: 1px;
+  margin-bottom: 5vh;
+}
+
+.special-section {
+  background: #fff;
+  margin-bottom: 1.5em;
+  & > * {
+    outline: 1px solid #f7f7f7;
+  }
+  .carousel {
+    padding: 0 10vw;
+    &__box {
+      overflow: hidden;
+      position: relative;
+      width: 490px;
+      text-align: center;
+    }
+    &__paging {
+      .paging-arrow {
+        position: absolute;
+        width: 100%;
+        top: calc(50% - 25px);
+        left: 0;
+        &__left, &__right {
+          position: absolute;
+          left: 5.5vw;
+          cursor: pointer;
+          padding: 25px;
+          &::before {
+            content: "";
+            border-left: 1px solid #333;
+            position: absolute;
+            height: 30px;
+            top: 0;
+            transform: rotate(45deg);
+          }
+          &::after {
+            content: "";
+            border-left: 1px solid #333;
+            position: absolute;
+            height: 30px;
+            top: 21px;
+            transform: rotate(-45deg);
+          }
+        }
+        &__right {
+          position: absolute;
+          left: initial;
+          right: 5.5vw;
+          transform: rotate(180deg);
+        }
+      }
+      .paging-hover {
+        text-align: center;
+        position: relative;
+        top: -6vh;
+        cursor: default;
+        &__button {
+          display: inline-block;
+          width: 15px;
+          height: 5px;
+          background-color: #ccc;
+          transition: background-color 0.3s linear;
+          &.active {
+            background-color: #000;
+          }
+        }
+      }
+    }
+    .panel {
+      display: inline-block;
+      width: 300%;
+      position: relative;
+      left: -100%;
+      &__item {
+        position: relative;
+        height: 100%;
+        display: inline-block;
+      }
+      &.transition-on {
+        transition: transform 0.3s linear;
+        &.move-next {
+          transform: translateX(-33.3%);
+        }
+        &.move-prev {
+          transform: translateX(33.3%);
+        }
+      }
+    }
+  }
+  .carousel-none {
+    text-align: center;
+  }
+  .button-wrap {
+    background-color: #d2d2d2;
+    text-align: center;
+    .more-button {
+      display: inline-block;
+      padding: 1.5em 3em;
+      @extend .fw-600;
+      @extend .f-14;
+      cursor: pointer;
+      color: #777;
+      &__arrow {
+        position: relative;
+        &::before {
+          content: "";
+          width: 3px;
+          top: 5px;
+          right: -15px;
+          height: 10px;
+          position: absolute;
+          background: #777;
+          transform: rotate(-45deg);
+        }
+        &::after {
+          content: "";
+          width: 3px;
+          top: 5px;
+          right: -20px;
+          height: 10px;
+          position: absolute;
+          background: #777;
+          transform: rotate(45deg);
+        }
+      }
+      &.not-used {
+        user-select: none;
+        pointer-events: none;
+        opacity: 0.3;
+        cursor: default;
+      }
+    }
+  }
+}
+
+.box-section {
+  
+}
