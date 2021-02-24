@@ -1,0 +1,30 @@
+@import "./vars.scss";
+@import "./main/articleTop.scss";
+
+main {
+  padding: 0 $padding-for-left-right;
+  background-color: map-get($color-palette, default-border-color);
+  font-size: map-get($font-size, content);
+}
+
+.dividing-space {
+  height: 40px;
+}
+
+.none {
+  display: none;
+}
+
+.main__article {
+  width: 100%;
+  background-color: #fff;
+
+  .article__hotDeal {
+  }
+
+  .article__keyword {
+  }
+
+  .article__how {
+  }
+}

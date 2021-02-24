@@ -1,0 +1,73 @@
+@import "./vars.scss";
+.header__head {
+  width: 100%;
+  //   background-color: violet;
+  padding: 3em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 119px;
+  }
+
+  .head__logo {
+    // border: 1px solid green;
+    margin-right: 1em;
+  }
+
+  .head__searchBar {
+    display: flex;
+    border-radius: 10px;
+    border: 1px solid map-get($color-palette, searchBar-color);
+    // background-color: green;
+    align-items: center;
+
+    .searchBar__input {
+      width: 600px;
+    }
+
+    .searchBar__button {
+      //   background-color: coral;
+      text-align: center;
+      width: 52px;
+      height: 52px;
+    }
+  }
+}
+
+.header__navbar {
+  border-top: 1px solid map-get($color-palette, navbar-line-color);
+  border-bottom: 1px solid map-get($color-palette, searchBar-color);
+  padding: 1em $padding-for-left-right;
+  font-size: 16px;
+  display: flex;
+
+  .navbar__line {
+    width: 1px;
+    height: 18px;
+    margin: 0 1em;
+    background-color: map-get($color-palette, navbar-line-color);
+  }
+
+  li {
+    margin: 0 0.2em;
+  }
+
+  //   .navbar__category {
+  //     background-color: coral;
+  //   }
+
+  //   .navbar__list-default {
+  //     background-color: cornflowerblue;
+  //   }
+
+  //   .navbar__list-hashTag {
+  //     background-color: mediumseagreen;
+  //   }
+
+  .navbar__list-user {
+    // background-color: olive;
+    margin-left: auto;
+  }
+}

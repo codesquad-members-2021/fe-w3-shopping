@@ -1,0 +1,11 @@
+@import "./vars.scss";
+@import "./header.scss";
+@import "./main.scss";
+
+body,
+ul,
+li,
+button,
+a {
+  all: unset;
+}
