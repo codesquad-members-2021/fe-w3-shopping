@@ -49,6 +49,7 @@ main {
     display: flex;
   }
   .banner-event {
+    min-width: 509px;
     flex: 2;
     height: 100%;
     text-align: center;
@@ -62,7 +63,6 @@ main {
     background-color: #fff;
     overflow: hidden;
     li {
-      overflow: hidden;
       flex: 1;
       @include itemBox();
     }
@@ -75,11 +75,26 @@ main {
   position: relative;
   flex: 3;
   height: 100%;
-  text-align: center;
   border-left: 1px solid #f1f1f1;
   margin-right: 2px;
-  .slide-item {
-    height: 100%;
+  text-align: center;
+  .slide-list__wrapper {
+    position: relative;
+    max-width: 485px;
+    margin: 0 147px;
+    overflow: hidden;
+  }
+  .slide-list {
+    position: relative;
+    left: -515px;
+    display: flex;
+    // transition: all 0.3s;
+    z-index: 99;
+    .slide-item {
+      float: left;
+      height: 100%;
+      margin: 0 15px;
+    }
   }
   .slide-event {
     width: 100%;
@@ -104,7 +119,7 @@ main {
       & > div:hover {
         color: rgba(0, 0, 0, 0.6);
       }
-      & > div:focus {
+      & > div:active {
         border: 2px solid #000;
         border-radius: 5px;
       }
@@ -115,6 +130,7 @@ main {
       bottom: 40px;
       display: flex;
       justify-content: center;
+      z-index: 100;
       .btn-paging {
         width: 17px;
         height: 6px;
@@ -126,9 +142,33 @@ main {
       .paging-first {
         margin: 0;
       }
-      .btn-paging:hover {
+      .btn-paging:hover,
+      .current-page {
         opacity: 1;
       }
+    }
+  }
+}
+//왼쪽 이벤트
+
+//더보기
+.banner-more {
+  width: 100%;
+  height: 60px;
+  background-color: #dadada;
+  text-align: center;
+  line-height: 60px;
+  margin-top: 5px;
+  .more-text-container {
+    width: 150px;
+    height: 60px;
+    margin: auto;
+    display: flex;
+    .text-index {
+      align-self: baseline;
+      font-size: 0.7rem;
+      line-height: 55px;
+      margin: 0 10px 0 1px;
     }
   }
 }
@@ -147,7 +187,6 @@ main {
     background-color: #fff;
     overflow: hidden;
     li {
-      overflow: hidden;
       flex: 1;
       @include itemBox();
     }
