@@ -1,7 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-
+  outline: 1px solid salmon;
   box-sizing: border-box;
 }
 
@@ -136,6 +136,34 @@ header {
       height: 18px;
       margin-top: 4px;
       background-color: #e3e3e3;
+    }
+  }
+}
+
+main {
+  width: 100vw;
+  .main_wrapper {
+    width: 1274px;
+    margin: 0 auto;
+    .main_container {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+    }
+    .section_best {
+      width: 510px;
+      padding: 0 12.5px;
+    }
+    .section_themes {
+      width: 764px;
+    }
+    .section_products {
+      grid-column: 1/3;
+      grid-row: 2/3;
+    }
+    .section_categories {
+      grid-column: 1/3;
     }
   }
 }
