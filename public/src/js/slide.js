@@ -38,7 +38,7 @@ class Slide {
   //prettier-ignore
   handleMouseOver({ target: { dataset: { index } } }) {
     if (index) {
-      // this.paging(index);
+      this.paging(index);
     }
   }
   isPrevBtn(classList) {
@@ -92,6 +92,18 @@ class Slide {
           btn.classList.remove(CURRENT_PAGE);
         }
       }
+    }
+  }
+  paging(index) {
+    this.setDataByIndex(index);
+    this.checkPagingBtn();
+    this.render();
+  }
+  //주어진 index를 중앙으로 Data정렬
+  setDataByIndex(index) {
+    const midIdx = Math.floor(this.data.length / 2);
+    while (this.data[midIdx] !== this.originData[index]) {
+      this.setNextData();
     }
   }
 }
