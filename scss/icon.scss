@@ -22,14 +22,21 @@
 }
 
 .w {
+
     &-23 {
         width: 23px;
+    }
+    &-10 {
+        width: 10px;
     }
 }
 
 .h {
     &-45 {
         height: 45px;
+    }
+    &-10 {
+        height: 10px;
     }
 }
 
@@ -53,8 +60,12 @@
     &-cart{
         @extend .icon, .wh-28;
         background-position: -60px -30px;
-
-
+    }
+    &-down-arrow{
+        @extend .icon, .w-10, .h-10;
+        background-position: -60px -60px;
+        
+        
 
     }
 }

@@ -96,13 +96,13 @@ input {
     border-bottom: 1px solid #dcdfe4;
     margin: 10px 20px 20px 10px;
     font-size: 16px;
+    
 
 
     &__wrapper {
         display: flex;
         height: 45px;
         justify-content: flex-start;
-
         .divideLine{
             width: 1px;
             height: 18px;
@@ -167,21 +167,28 @@ input {
     }
 
     &__mypage__box {
-        width:14%;
-        ul{
-            display: grid;
-            grid-template-columns: auto auto auto auto auto;
-            grid-gap:20px;
-            align-items : center;
-            list-style-type: none;
-            margin:15px;
-            text-align: center;
-            
-            li a {
-                color:rgb(180, 180, 180);
-                text-decoration:none;
-                font-weight: 600;
+        width:700px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 40px;
+
+        .mypage{
+
+            &__login__box{
+                display:flex;
+                align-items: center;
+                grid-gap:5px;
+                // grid-template-columns: auto auto;
+            }
+
+            &__cart__box{
+                display:flex;
+                align-items: center;
+                grid-gap:5px;
+
             }
         }
+        
     }
+    
 }

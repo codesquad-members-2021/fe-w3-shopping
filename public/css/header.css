@@ -114,16 +114,15 @@ input {
         text-decoration: none;
         font-weight: 600; }
   .nav__mypage__box {
-    width: 14%; }
-    .nav__mypage__box ul {
-      display: grid;
-      grid-template-columns: auto auto auto auto auto;
-      grid-gap: 20px;
+    width: 700px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px; }
+    .nav__mypage__box .mypage__login__box {
+      display: flex;
       align-items: center;
-      list-style-type: none;
-      margin: 15px;
-      text-align: center; }
-      .nav__mypage__box ul li a {
-        color: #b4b4b4;
-        text-decoration: none;
-        font-weight: 600; }
+      grid-gap: 5px; }
+    .nav__mypage__box .mypage__cart__box {
+      display: flex;
+      align-items: center;
+      grid-gap: 5px; }

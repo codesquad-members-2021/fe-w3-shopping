@@ -1,4 +1,4 @@
-.icon, .i-search, .i-category, .i-user, .i-cart {
+.icon, .i-search, .i-category, .i-user, .i-cart, .i-down-arrow {
   background: url("/images/fe-w3-icon.png") no-repeat;
   background-size: 130px 90px;
   display: block; }
@@ -19,8 +19,14 @@
 .w-23 {
   width: 23px; }
 
+.w-10, .i-down-arrow {
+  width: 10px; }
+
 .h-45 {
   height: 45px; }
+
+.h-10, .i-down-arrow {
+  height: 10px; }
 
 .i-category {
   background-position: 0 -30px; }
@@ -30,3 +36,6 @@
 
 .i-cart {
   background-position: -60px -30px; }
+
+.i-down-arrow {
+  background-position: -60px -60px; }
