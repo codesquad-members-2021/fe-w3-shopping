@@ -1,0 +1,155 @@
+//아이템 박스
+@mixin itemBox {
+  background-color: #fff;
+  height: 330px;
+  padding: 21px 27px;
+  border-right: 1px solid #f1f1f1;
+  float: left;
+  img {
+    width: 200px;
+    height: 200px;
+  }
+  .item-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 10px 0 7px;
+  }
+  .item-info {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    line-height: 15px;
+    margin-bottom: 9px;
+  }
+  .item-theme {
+    width: 31px;
+    font-size: 0.8rem;
+    color: #f0a969;
+    border: 1px solid #f0a969;
+    border-radius: 2px;
+    padding: 2px 1px;
+    text-align: center;
+  }
+}
+
+//메인
+main {
+  width: 100%;
+  min-height: 770px;
+  background-color: #f3f3f3;
+  padding: 0 300px;
+  padding-top: 20px;
+}
+
+//이벤트 배너
+.banner {
+  border: 1px solid #e4e4e4;
+  background-color: #fff;
+  .banner__main-event {
+    height: 340px;
+    display: flex;
+  }
+  .banner-event {
+    flex: 2;
+    height: 100%;
+    text-align: center;
+    .banner-event-item {
+      height: 100%;
+    }
+  }
+  ul {
+    display: flex;
+    border-top: 1px solid #f1f1f1;
+    background-color: #fff;
+    overflow: hidden;
+    li {
+      overflow: hidden;
+      flex: 1;
+      @include itemBox();
+    }
+  }
+}
+
+//슬라이드
+
+.slide {
+  position: relative;
+  flex: 3;
+  height: 100%;
+  text-align: center;
+  border-left: 1px solid #f1f1f1;
+  margin-right: 2px;
+  .slide-item {
+    height: 100%;
+  }
+  .slide-event {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    .slide-event__btn {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 60px;
+      align-items: center;
+      & > div {
+        padding: 15px 12px;
+        font-size: 3rem;
+        cursor: pointer;
+        color: rgba(0, 0, 0, 0.3);
+        border: 2px solid rgba(0, 0, 0, 0);
+      }
+      & > div:hover {
+        color: rgba(0, 0, 0, 0.6);
+      }
+      & > div:focus {
+        border: 2px solid #000;
+        border-radius: 5px;
+      }
+    }
+    .slide-event__paging {
+      width: 100%;
+      position: absolute;
+      bottom: 40px;
+      display: flex;
+      justify-content: center;
+      .btn-paging {
+        width: 17px;
+        height: 6px;
+        margin-left: 5px;
+        float: left;
+        background-color: #000;
+        opacity: 0.5;
+      }
+      .paging-first {
+        margin: 0;
+      }
+      .btn-paging:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+//hot theme
+.hot-theme {
+  margin-top: 50px;
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 10px 0;
+  }
+  ul {
+    display: flex;
+    border: 1px solid #e4e4e4;
+    background-color: #fff;
+    overflow: hidden;
+    li {
+      overflow: hidden;
+      flex: 1;
+      @include itemBox();
+    }
+  }
+}
