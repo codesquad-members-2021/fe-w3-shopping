@@ -1,6 +1,12 @@
 .moveLeft{
-   div{
-      transform: translate(400px);
+   div {
+      transform: translate(-485px);
+      transition: 1s
    }
-   
+}
+.moveRight{
+   div {
+      transform: translate(485px);
+      transition: 1s
+   }
 }
