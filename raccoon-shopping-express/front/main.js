@@ -1,21 +1,16 @@
 fetch('http://localhost:3000/api/mileageList')
-  .then((response) => {
-    return response.json();
-  })
+  .then((response) => response.json())
   .then((data) => {
-    pushContents(data);
-    console.log(data);
+    setMileageEventContents(data);
     return data;
   })
   .then((status) => console.log('Request successful', status.code))
   .catch((error) => console.log('Request failed', error));
 
 fetch('http://localhost:3000/api/mallEventList')
-  .then((response) => {
-    return response.json();
-  })
+  .then((response) => response.json())
   .then((data) => {
-    console.log(data);
+    getMallEventContentLists(data);
     return data;
   })
   .then((status) => console.log('Request successful', status.code))
@@ -27,12 +22,12 @@ const $nextEventButton = document.querySelector('.slide--button--next');
 
 const $mallEventList = document.querySelector('#mallEventList');
 const $topMileageSlide = document.querySelector('#topMileageSlide');
+const $mallEventSlide = document.querySelector('#mallEventSlide');
 
 $mileageEventSlide.addEventListener('mouseover', overEventSlider);
 $mileageEventSlide.addEventListener('mouseout', outEventSlider);
 
 function overEventSlider(e) {
-  console.log(e.target);
   $prevEventButton.querySelector('.ico--prev').classList.replace('ico--prev', 'ico--prev__slide--hover');
   $nextEventButton.querySelector('.ico--next').classList.replace('ico--next', 'ico--next__slide--hover');
 }
@@ -44,7 +39,7 @@ function outEventSlider(e) {
 
 // slide 내부 동적으로 그려보기
 
-function pushContents(contents) {
+function setMileageEventContents(contents) {
   $topMileageSlide.insertAdjacentHTML('afterbegin', getMileageEventContents(contents));
 }
 
@@ -63,4 +58,39 @@ function getMileageEventContents(jsonData) {
   }
 
   return panelDiv;
+}
+
+function getMallEventContents(jsonData) {
+  return `
+<div class="panel" aria-hidden="true">
+<ul class="list--item">
+</ul>
+</div>
+`;
+}
+
+function getMallEventContentLists(jsonData) {
+  console.log(jsonData.mallEventList[0]);
+  const imgurl = jsonData.mallEventList.map((el) => el.imgurl);
+  const linkurl = jsonData.mallEventList.map((el) => el.linkurl);
+  const text1 = jsonData.mallEventList.map((el) => el.text1);
+  const text2 = jsonData.mallEventList.map((el) => el.text2);
+
+  let lists = ``;
+  for (let i = 0; i < imgurl.list; i++) {}
+  return `
+  <li class="goods">
+  <a href="" class="link--product"
+    ><span class="info--thumb"
+      ><img
+        src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop1.daumcdn.net%2Fshophow%2Fp%2FF11929626306.jpg%3Fut%3D20210114041340&amp;scode=talkgift"
+        width="200"
+        height="200"
+        class="imgage--top"
+        alt="안전을 생각한다면, 창문 잠금장치" /></span
+    ><strong class="info--title">안전을 생각한다면, 창문 잠금장치</strong><span class="info--txt">침입은 물론 낙하사고 예방해요</span
+    ><span class="ico--background2 ico--theme">테마</span></a
+  >
+</li>
+  `;
 }
