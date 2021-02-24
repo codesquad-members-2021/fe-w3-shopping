@@ -1,4 +1,22 @@
 {
+  "mileageList": [
+    {
+      "imgurl": "http://shop3.daumcdn.net/shophow/sib/0_210219175556_BtjOWRoiPbsVXvlYusgFvjboDPXRIBQD",
+      "linkurl": "http:http://shoppinghow.kakao.com/siso/p/sale/mall/gmarket",
+      "target": "N"
+    },
+    {
+      "imgurl": "http:http://shop3.daumcdn.net/shophow/sib/0_210219175609_PZjbWVyRtwcxTlShApbdyOenwLaYCOhs",
+      "linkurl": "http://shoppinghow.kakao.com/event/detail/53420",
+      "target": "N"
+    },
+    {
+      "imgurl": "http://shop1.daumcdn.net/shophow/sib/0_210219175602_vRyGDQxWDethcelhYcMmXKXpgLqlAIAj",
+      "linkurl": "http://shoppinghow.kakao.com/event/detail/52969",
+      "target": "N"
+    }
+  ],
+
   "carousel": {
     "prefix": "http://shop1.daumcdn.net/thumb/S318x318/",
     "list": [
