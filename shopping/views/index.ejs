@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/reset.css' />
+  <link rel='stylesheet' href='/stylesheets/nomalize.css' />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <header>
+    <div class="header__searchbar">
+      <img class="header__searchbar__img" src="https://search1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/logo_shw.png">
+      <input type="text">
+    </div>
+    <div class="header__keywords"></div>
+    <div class="header__navbar">
+      <div class="header__navbar__catagory">
+        <div>
+          <span class="icon ico_menu">펼치기</span>
+        </div>
+        <span>카테고리</span>
+      </div>
+
+      <ul class="header__navbar__hotDeal">
+        <li>핫딜</li>
+        <li>베스트100</li>
+        <li>할인특가</li>
+        <li>기획전</li>
+      </ul>
+      <ul class="header__navbar__hashtag">
+        <li>#수능선물</li>
+        <li>#김치냉장고</li>
+        <li>#복합가습기</li>
+        <li>#구스다운</li>
+        <li>#온수매트</li>
+      </ul>
+      <ul class="header__navbar__login">
+        <li>
+          <span class="ico_shwgnb ico_user"></span>
+          로그인
+        </li>
+        <li>
+          <span class="ico_shwgnb ico_products"></span>
+          최근본 상품
+          <span class="ico_shwgnb ico_arrow"> 펼치기</span>
+        </li>
+
+      </ul>
+    </div>
+  </header>
+  <section class="main_section">
+    <div class="main__banner">
+      <div class="main__banner__top"></div>
+      <ul class="shoppinglists">
+        <li class="shoppinglist"></li>
+        <li class="shoppinglist"></li>
+        <li class="shoppinglist"></li>
+        <li class="shoppinglist"></li>
+      </ul>
+    </div>
+  </section>
+  <section class="hotDeal_section"></section>
+  <section class="keywords_section"></section>
+  <footer></footer>
+</body>
+
+</html>
