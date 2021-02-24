@@ -9,40 +9,38 @@
     <link rel="apple-touch-icon-precomposed" href="//t1.daumcdn.net/shopping_operation_image/152x152.png">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/icon.css">
 
 </head>
 <body>
     <header class>
-        <div class="main__head">
-            <div class="main__logo__box">
+        <div class="head">
+            <div class="head__logo__box">
                 <img src="/images/main-logo.png" />
             </div>
 
             <!-- <%= homeContents.contents[0].eventContent.title %> -->
 
-            <div class="main__search__box">
+            <div class="head__search__box">
                 <input type="search" class="inp_search btn_searchbox" placeholder="상품 검색" data-gg="{lk:mo_gnb_search,tp:A}">
-                <button type="såubmit" class="btn_search btn_searchbox _GC_">
-                    <span class="ico_shwgnb">
-                        <img src="./images/fe-w3-icon.png">
-                    </span>
+                <button type="button" class="btn_search btn_searchbox _GC_">
+                    <span class="i-search"></span>
                 </button>
             </div>
         </div>
 
-        <nav class="main__nav__box">
-            <div class="main__nav">
+        <nav class="nav">
+            <div class="nav__wrapper">
                 <div class="nav__category_box">
-                    <div class="nav__category-btn"></div>
-                    <div class="nav__category-text"></div>
+                    <button type="button" class="nav__category-btn">
+                        <span class="i-category"></span>
+                        <span class="nav__category-text">카테고리</span>
+                    </button>
                 </div>
     
-                <div class="divideLine"></div>
+                <span class="divideLine"></div>
                 <div class="nav__menu__box">
                     <ul class="nav__menu__list">
-                        <li class="menu__list">
-                            <a href="/m/" class="menu__list-a" role="tab" aria-selected="true" data-gg="{lk:mo_gnb_section_home}">홈</a>
-                        </li>
                         <li>
                             <a href="/m/hotdeal/" class="menu__list-a" role="tab" aria-selected="false" data-gg="{lk:mo_gnb_section_hotdeal}">핫딜</a>
                         </li>

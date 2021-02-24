@@ -1,0 +1,32 @@
+.icon, .i-search, .i-category, .i-user, .i-cart {
+  background: url("/images/fe-w3-icon.png") no-repeat;
+  background-size: 130px 90px;
+  display: block; }
+
+.icon2 {
+  background: url("/images/fe-w3-icon2.png") no-repeat;
+  background-size: 130px 90px;
+  display: block; }
+
+.wh-23, .i-search {
+  width: 23px;
+  height: 23px; }
+
+.wh-28, .i-category, .i-user, .i-cart {
+  width: 28px;
+  height: 28px; }
+
+.w-23 {
+  width: 23px; }
+
+.h-45 {
+  height: 45px; }
+
+.i-category {
+  background-position: 0 -30px; }
+
+.i-user {
+  background-position: -30px -30px; }
+
+.i-cart {
+  background-position: -60px -30px; }
