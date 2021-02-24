@@ -43,7 +43,7 @@ const setMallEventListHtml = (array) => {
   }, ``);
 };
 
-export function processDataToHtmlContents(data) {
+function processDataToHtmlContents(data) {
   const { mileageList, mallEventList, event } = data;
   const eventItem = createEventItem(event.linkurl, event.imgurl);
   const mileageListPanels = setMileageListHtml(mileageList);
@@ -58,7 +58,7 @@ function createPagnationHtml(slideLen, startNum) {
   });
 }
 
-export function setPaginationHtml(pagination) {
+function setPaginationHtml(pagination) {
   return new Promise((resolve, reject) => {
     const slideContents = document.querySelectorAll(".slide_content");
     const slideLen = slideContents.length;
@@ -68,3 +68,5 @@ export function setPaginationHtml(pagination) {
     });
   });
 }
+
+export { createEventItem, setMileageListHtml, setPaginationHtml, setMallEventListHtml };

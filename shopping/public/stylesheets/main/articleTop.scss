@@ -158,3 +158,10 @@
     }
   }
 }
+
+#mallEventList_more {
+  width: 100%;
+  background-color: map-get($color-palette, navbar-line-color);
+  text-align: center;
+  padding: 2em 0;
+}
