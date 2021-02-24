@@ -1,0 +1,154 @@
+/* init */
+ul, li {
+  list-style: none;
+  display: inline;
+}
+
+button, input {
+  border: transparent;
+  background-color: transparent;
+}
+
+.main_icon {
+  width: 119px;
+  height: 51px;
+  background: url("/images/logo_shw.png") no-repeat;
+  background-size: cover;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 43px;
+  min-width: 1000px;
+}
+.header .head_top {
+  width: 843px;
+  height: 55px;
+  display: flex;
+  justify-content: space-around;
+}
+.header .nav {
+  width: 100%;
+  height: 55px;
+  position: relative;
+  margin-top: 40px;
+  border-top: 1px solid #efefef;
+  box-shadow: 0 1px rgba(0, 0, 0, 0.16);
+}
+
+.search_box {
+  border: 1px solid #cecfd1;
+  border-radius: 12px;
+  width: 670px;
+  height: 54px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.search_box .search {
+  width: 578px;
+  height: 22px;
+  margin-left: 30px;
+}
+.search_box .search_btn {
+  width: 52px;
+  height: 52px;
+  border: 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search_box .search_btn .icon_search {
+  background: url(https://shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
+  background-size: 130px 90px;
+  position: absolute;
+  width: 23px;
+  height: 23px;
+}
+
+.nav_wrapper {
+  margin: 0 auto;
+  padding: 0 15%;
+  min-width: 1000px;
+}
+.nav_wrapper .category {
+  float: left;
+  position: relative;
+}
+.nav_wrapper .category button {
+  font-size: 16px;
+  width: 122px;
+  height: 52px;
+  border: 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav_wrapper .category button .icon_hamburger {
+  background: url(https://shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
+  background-size: 130px 90px;
+  background-position: 0 -30px;
+  width: 28px;
+  height: 28px;
+}
+.nav_wrapper .nav_menu {
+  font-weight: 700;
+  float: left;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+}
+.nav_wrapper .nav_hashtag {
+  color: #888;
+  float: left;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.nav_wrapper .nav_user {
+  min-width: 200px;
+  float: right;
+  position: absolute;
+  display: inline-flex;
+  justify-content: space-between;
+}
+.nav_wrapper .nav_user li > a {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav_wrapper .nav_user li > a .icon_human {
+  background: url(https://shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
+  background-size: 130px 90px;
+  background-position: -30px -30px;
+  width: 28px;
+  height: 28px;
+}
+.nav_wrapper .nav_user li > a .icon_layers {
+  background: url(https://shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
+  background-size: 130px 90px;
+  background-position: -60px -30px;
+  width: 28px;
+  height: 28px;
+}
+
+.menu_link {
+  padding: 0 13px;
+}
+
+.hash_link {
+  padding: 0 10px;
+}
+
+.main {
+  background-color: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*# sourceMappingURL=main.css.map */

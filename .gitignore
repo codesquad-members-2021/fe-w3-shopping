@@ -1,0 +1,8 @@
+node_modules/
+routes/
+bin/
+app.js
+*.json
+**/images
+*.map
+*.css
