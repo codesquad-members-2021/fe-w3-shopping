@@ -1,34 +1,13 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-var cors = require("cors");
-const fs = require("fs");
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
 
-var app = express();
-
-// global 변수에 지정
-global.planningEventData = JSON.parse(fs.readFileSync("./data/planningEvent.json"));
-global.homeContentsData = JSON.parse(fs.readFileSync("./data/homeContents.json"));
-
-// json response
-app.use(express.json());
-// cors-enable
-app.use(cors());
-
-app.get("/planningEvent.json", function (req, res, next) {
-  const { planningEventData } = global;
-  res.json(planningEventData);
-});
-
-app.get("/homeContents.json", function (req, res, next) {
-  const { homeContentsData } = global;
-  res.json(homeContentsData);
-});
+const app = express();
 
 app.listen(80, function () {
   console.log("CORS-enabled web server listening on port 80");

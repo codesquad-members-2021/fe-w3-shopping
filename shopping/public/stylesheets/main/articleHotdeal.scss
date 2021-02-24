@@ -1,0 +1,63 @@
+@import "./vars.scss";
+
+.article__hotDeal {
+  .title_info {
+    margin-left: 1em;
+    font-size: 18px;
+  }
+
+  .hotDeal__container {
+    position: relative;
+    width: 100%;
+    height: 351px;
+    overflow: hidden;
+  }
+
+  .content_hotDeal {
+    background-color: paleturquoise;
+    display: table;
+  }
+
+  .buttons_hotDeal {
+    background-color: teal;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 1%;
+    width: 100%;
+  }
+
+  ul {
+    display: flex;
+    float: left;
+    width: 100%;
+    height: 351px;
+
+    li {
+      width: 100%;
+      border: 1px solid map-get($color-palette, top_border);
+      display: flex;
+      text-align: center;
+    }
+
+    a {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    img {
+      width: 80%;
+    }
+
+    strong {
+      margin: 0 1em;
+      font-size: map-get($font-size, title);
+    }
+
+    .detail_price {
+      padding: 1em 0;
+    }
+  }
+}

@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./stylesheets/style.scss" />
-    <script defer type="module" src="./javascripts/main.js"></script>
     <title>쇼핑하우 by kakaocommerce</title>
   </head>
 
@@ -66,424 +65,49 @@
       <div class="dividing-space"></div>
       <section class="main__article">
         <article class="article__top">
-          <!-- <h3>기획전 및 이벤트</h3> -->
-          <!-- < class="event"> -->
           <div class="top__event">
-            <div class="event event__item">
-              <a href="">
-                <img src="https://shop4.daumcdn.net/shophow/sib/0_210219174849_FwZShCdZPYIPpJmvgEiGWverDgJVqrrq" alt="기획전 이벤트" />
-              </a>
-            </div>
+            <!-- best100 아이템 -->
+            <div class="event event__item"></div>
+
+            <!-- 캐러셀 3개 아이템 -->
             <div class="event event__slide">
               <div class="slide_event">
-                <div class="slide slide_list">
-                  <!-- <div class="panel">
-                    <a href="">
-                      <img src="http://shop3.daumcdn.net/shophow/sib/0_210219175556_BtjOWRoiPbsVXvlYusgFvjboDPXRIBQD" alt="" />
-                    </a>
-                  </div>
-                  <div class="panel">
-                    <a href="">
-                      <img src="http://shop3.daumcdn.net/shophow/sib/0_210219175609_PZjbWVyRtwcxTlShApbdyOenwLaYCOhs" alt="" />
-                    </a>
-                  </div>
-                  <div class="panel">
-                    <a href="">
-                      <img src="http://shop1.daumcdn.net/shophow/sib/0_210219175602_vRyGDQxWDethcelhYcMmXKXpgLqlAIAj" alt="" />
-                    </a>
-                  </div> -->
-                </div>
+                <div class="slide slide_list"></div>
               </div>
+              <!-- 페이지 넘기는 버튼, 페이지네이션 -->
               <div class="paging_comm">
                 <button class="btn_slide btn_prev"><i class="fas fa-chevron-left"></i></button>
-                <span class="inner_paging">
-                  <span class="btn_paging" data-index="0">
-                    <span class="num_page"></span>
-                  </span>
-                  <span class="btn_paging" data-index="1">
-                    <span class="num_page"></span>
-                  </span>
-                  <span class="btn_paging" data-index="2">
-                    <span class="num_page"></span>
-                  </span>
-                </span>
+                <span class="inner_paging slide_pagination"> </span>
                 <button class="btn_slide btn_next"><i class="fas fa-chevron-right"></i></button>
               </div>
             </div>
           </div>
+          <!-- 캐러셀 5개 아이템 -->
           <div id="mallEventList" class="top__event-list">
             <div id="mallEventListSlide" class="event-list__slide">
-              <div id="mallEventSlide" class="slide">
-                <!-- <div class="panel">
-                  <ul class="list_item">
-                    <li class="_GI_">
-                      <a href="">
-                        <span class="info_thumb">
-                          <img src="https://shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop1.daumcdn.net%2Fshophow%2Fp%2FW10820502125.jpg%3Fut%3D20201018174348&scode=talkgift" alt="" />
-                        </span>
-                        <strong class="title_g">3만원 미만 화상캠</strong>
-                        <span class="txt_info">언택트 시대 필수품! 화상 웹캡</span>
-                        <span class="ico_comm2 ico_theme">테마</span>
-                      </a>
-                    </li>
-                    <li class="_GI_">
-                      <a href="">
-                        <span class="info_thumb">
-                          <img src="https://shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FP9810509204.jpg%3Fut%3D20200702012320&scode=talkgift" alt="" />
-                        </span>
-                        <strong class="title_g">영롱하게 빛나는 자개 보석함</strong>
-                        <span class="txt_info">그냥 두기만 해도 아름답게 빛나죠</span>
-                        <span class="ico_comm2 ico_theme">테마</span>
-                      </a>
-                    </li>
-                    <li class="_GI_">
-                      <a href="">
-                        <span class="info_thumb">
-                          <img src="https://shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FF11847141813.jpg%3Fut%3D20210108051340&scode=talkgift" alt="" />
-                        </span>
-                        <strong class="title_g">오찌 브랜드 잡화 모음</strong>
-                        <span class="txt_info">편한 신발부터 멋스러운 모자까지</span>
-                        <span class="ico_comm2 ico_theme">테마</span>
-                      </a>
-                    </li>
-                    <li class="_GI_">
-                      <a href="">
-                        <span class="info_thumb">
-                          <img src="https://shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FR9281523523.jpg%3Fut%3D20200502205541&scode=talkgift" alt="" />
-                        </span>
-                        <strong class="title_g">안정적인 그립감의 핸들 커버</strong>
-                        <span class="txt_info">스타일리시함까지 갖춘 차량 아이템</span>
-                        <span class="ico_comm2 ico_theme">테마</span>
-                      </a>
-                    </li>
-                    <li class="_GI_ last">
-                      <a href="">
-                        <span class="info_thumb">
-                          <img src="https://shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FG11290107196.jpg%3Fut%3D20201125081850&scode=talkgift" alt="" />
-                        </span>
-                        <strong class="title_g">단정하지만 우아한 스타일,...</strong>
-                        <span class="txt_info">디렉터 크리스토퍼 르메르 컬렉션</span>
-                        <span class="ico_comm2 ico_theme">테마</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="panel none">
-                  <ul class="list_item">
-                    <li class="_GI_">
-                      <a href="">
-                        <span class="info_thumb">
-                          <img src="" alt="" />
-                        </span>
-                        <strong class="title_g"></strong>
-                        <span class="txt_info"></span>
-                        <span class="ico_comm2 ico_theme"></span>
-                      </a>
-                    </li>
-                    <li class="_GI_">
-                      <a href="">
-                        <span class="info_thumb">
-                          <img src="" alt="" />
-                        </span>
-                        <strong class="title_g"></strong>
-                        <span class="txt_info"></span>
-                        <span class="ico_comm2 ico_theme"></span>
-                      </a>
-                    </li>
-                    <li class="_GI_">
-                      <a href="">
-                        <span class="info_thumb">
-                          <img src="" alt="" />
-                        </span>
-                        <strong class="title_g"></strong>
-                        <span class="txt_info"></span>
-                        <span class="ico_comm2 ico_theme"></span>
-                      </a>
-                    </li>
-                    <li class="_GI_">
-                      <a href="">
-                        <span class="info_thumb">
-                          <img src="" alt="" />
-                        </span>
-                        <strong class="title_g"></strong>
-                        <span class="txt_info"></span>
-                        <span class="ico_comm2 ico_theme"></span>
-                      </a>
-                    </li>
-                    <li class="_GI_">
-                      <a href="">
-                        <span class="info_thumb">
-                          <img src="" alt="" />
-                        </span>
-                        <strong class="title_g"></strong>
-                        <span class="txt_info"></span>
-                        <span class="ico_comm2 ico_theme"></span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="panel none">
-                  <ul class="list_item">
-                    <li class="_GI_">
-                      <a href="">
-                        <span class="info_thumb">
-                          <img src="" alt="" />
-                        </span>
-                        <strong class="title_g"></strong>
-                        <span class="txt_info"></span>
-                        <span class="ico_comm2 ico_theme"></span>
-                      </a>
-                    </li>
-                    <li class="_GI_">
-                      <a href="">
-                        <span class="info_thumb">
-                          <img src="" alt="" />
-                        </span>
-                        <strong class="title_g"></strong>
-                        <span class="txt_info"></span>
-                        <span class="ico_comm2 ico_theme"></span>
-                      </a>
-                    </li>
-                    <li class="_GI_">
-                      <a href="">
-                        <span class="info_thumb">
-                          <img src="" alt="" />
-                        </span>
-                        <strong class="title_g"></strong>
-                        <span class="txt_info"></span>
-                        <span class="ico_comm2 ico_theme"></span>
-                      </a>
-                    </li>
-                    <li class="_GI_">
-                      <a href="">
-                        <span class="info_thumb">
-                          <img src="" alt="" />
-                        </span>
-                        <strong class="title_g"></strong>
-                        <span class="txt_info"></span>
-                        <span class="ico_comm2 ico_theme"></span>
-                      </a>
-                    </li>
-                    <li class="_GI_">
-                      <a href="">
-                        <span class="info_thumb">
-                          <img src="" alt="" />
-                        </span>
-                        <strong class="title_g"></strong>
-                        <span class="txt_info"></span>
-                        <span class="ico_comm2 ico_theme"></span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>-->
-              </div>
-              <button class="btn_g btn_prev"><i class="fas fa-chevron-left"></i></button>
-              <button class="btn_g btn_next"><i class="fas fa-chevron-right"></i></button>
+              <div id="mallEventSlide" class="slide"></div>
+              <!-- <button class="btn_g btn_prev"><i class="fas fa-chevron-left"></i></button>
+              <button class="btn_g btn_next"><i class="fas fa-chevron-right"></i></button> -->
             </div>
           </div>
-          <!-- </> -->
+          <button id="mallEventList_more">더보기</button>
         </article>
+
         <article class="article__hotDeal">
           <div class="section__hotDeal">
             <div class="title_info">
               <h3>품절주의! 역대급 핫딜</h3>
             </div>
-            <div class="content_item">
-              <ul class="list_item">
-                <li class="_GI_">
-                  <a>
-                    <span class="thumb_hotdeal">
-                      <img src="" alt="" />
-                    </span>
-                    <strong class="title_g">스타벅스 캡슐 100개 특가</strong>
-                    <span class="detail_price">
-                      <span class="info_discount">
-                        <span class="txt_discount">
-                          <span class="txt_unit">원</span>
-                        </span>
-                        <span class="txt_percent">
-                          <span class="txt_unit">%</span>
-                        </span>
-                      </span>
-                      <span class="txt_price"></span>
-                    </span>
-                  </a>
-                </li>
-                <li class="_GI_">
-                  <a>
-                    <span class="thumb_hotdeal">
-                      <img src="" alt="" />
-                    </span>
-                    <strong class="title_g">스타벅스 캡슐 100개 특가</strong>
-                    <span class="detail_price">
-                      <span class="info_discount">
-                        <span class="txt_discount">
-                          <span class="txt_unit">원</span>
-                        </span>
-                        <span class="txt_percent">
-                          <span class="txt_unit">%</span>
-                        </span>
-                      </span>
-                      <span class="txt_price"></span>
-                    </span>
-                  </a>
-                </li>
-                <li class="_GI_">
-                  <a>
-                    <span class="thumb_hotdeal">
-                      <img src="" alt="" />
-                    </span>
-                    <strong class="title_g">스타벅스 캡슐 100개 특가</strong>
-                    <span class="detail_price">
-                      <span class="info_discount">
-                        <span class="txt_discount">
-                          <span class="txt_unit">원</span>
-                        </span>
-                        <span class="txt_percent">
-                          <span class="txt_unit">%</span>
-                        </span>
-                      </span>
-                      <span class="txt_price"></span>
-                    </span>
-                  </a>
-                </li>
-                <li class="_GI_">
-                  <a>
-                    <span class="thumb_hotdeal">
-                      <img src="" alt="" />
-                    </span>
-                    <strong class="title_g">스타벅스 캡슐 100개 특가</strong>
-                    <span class="detail_price">
-                      <span class="info_discount">
-                        <span class="txt_discount">
-                          <span class="txt_unit">원</span>
-                        </span>
-                        <span class="txt_percent">
-                          <span class="txt_unit">%</span>
-                        </span>
-                      </span>
-                      <span class="txt_price"></span>
-                    </span>
-                  </a>
-                </li>
-                <li class="_GI_">
-                  <a>
-                    <span class="thumb_hotdeal">
-                      <img src="" alt="" />
-                    </span>
-                    <strong class="title_g">스타벅스 캡슐 100개 특가</strong>
-                    <span class="detail_price">
-                      <span class="info_discount">
-                        <span class="txt_discount">
-                          <span class="txt_unit">원</span>
-                        </span>
-                        <span class="txt_percent">
-                          <span class="txt_unit">%</span>
-                        </span>
-                      </span>
-                      <span class="txt_price"></span>
-                    </span>
-                  </a>
-                </li>
-                <li class="_GI_">
-                  <a>
-                    <span class="thumb_hotdeal">
-                      <img src="" alt="" />
-                    </span>
-                    <strong class="title_g">스타벅스 캡슐 100개 특가</strong>
-                    <span class="detail_price">
-                      <span class="info_discount">
-                        <span class="txt_discount">
-                          <span class="txt_unit">원</span>
-                        </span>
-                        <span class="txt_percent">
-                          <span class="txt_unit">%</span>
-                        </span>
-                      </span>
-                      <span class="txt_price"></span>
-                    </span>
-                  </a>
-                </li>
-                <li class="_GI_">
-                  <a>
-                    <span class="thumb_hotdeal">
-                      <img src="" alt="" />
-                    </span>
-                    <strong class="title_g">스타벅스 캡슐 100개 특가</strong>
-                    <span class="detail_price">
-                      <span class="info_discount">
-                        <span class="txt_discount">
-                          <span class="txt_unit">원</span>
-                        </span>
-                        <span class="txt_percent">
-                          <span class="txt_unit">%</span>
-                        </span>
-                      </span>
-                      <span class="txt_price"></span>
-                    </span>
-                  </a>
-                </li>
-                <li class="_GI_">
-                  <a>
-                    <span class="thumb_hotdeal">
-                      <img src="" alt="" />
-                    </span>
-                    <strong class="title_g">스타벅스 캡슐 100개 특가</strong>
-                    <span class="detail_price">
-                      <span class="info_discount">
-                        <span class="txt_discount">
-                          <span class="txt_unit">원</span>
-                        </span>
-                        <span class="txt_percent">
-                          <span class="txt_unit">%</span>
-                        </span>
-                      </span>
-                      <span class="txt_price"></span>
-                    </span>
-                  </a>
-                </li>
-                <li class="_GI_">
-                  <a>
-                    <span class="thumb_hotdeal">
-                      <img src="" alt="" />
-                    </span>
-                    <strong class="title_g">스타벅스 캡슐 100개 특가</strong>
-                    <span class="detail_price">
-                      <span class="info_discount">
-                        <span class="txt_discount">
-                          <span class="txt_unit">원</span>
-                        </span>
-                        <span class="txt_percent">
-                          <span class="txt_unit">%</span>
-                        </span>
-                      </span>
-                      <span class="txt_price"></span>
-                    </span>
-                  </a>
-                </li>
-                <li class="_GI_">
-                  <a>
-                    <span class="thumb_hotdeal">
-                      <img src="" alt="" />
-                    </span>
-                    <strong class="title_g">스타벅스 캡슐 100개 특가</strong>
-                    <span class="detail_price">
-                      <span class="info_discount">
-                        <span class="txt_discount">
-                          <span class="txt_unit">원</span>
-                        </span>
-                        <span class="txt_percent">
-                          <span class="txt_unit">%</span>
-                        </span>
-                      </span>
-                      <span class="txt_price"></span>
-                    </span>
-                  </a>
-                </li>
-              </ul>
+            <div class="hotDeal__container">
+              <div class="content_hotDeal"></div>
+              <div class="buttons_hotDeal">
+                <button class="btn_hotDeal_prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="btn_hotDeal_next"><i class="fas fa-chevron-right"></i></button>
+              </div>
             </div>
           </div>
         </article>
+
         <article class="article__keyword">
           <div class="title_info">
             <h3 class="title_home">쇼핑 급상승 키워드</h3>
@@ -1037,6 +661,7 @@
     <a href="#top" class="btn_follow">
       <span><i class="fas fa-chevron-up"></i></span>
     </a>
+    <script type="module" src="./javascripts/main.js"></script>
     <script src="https://kit.fontawesome.com/439db4bb02.js" crossorigin="anonymous"></script>
   </body>
 </html>

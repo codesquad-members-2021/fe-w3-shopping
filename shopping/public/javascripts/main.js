@@ -1,121 +1,111 @@
+// import { createEventItem, setMileageListHtml, setMallEventListHtml } from "./articleTop/panels.js";
+import createCarousel from "./slide.js";
+// import { processDataToHtmlContents, setPaginationHtml } from "./htmlCodes.js";
+import { createEventItem, setMileageListHtml, setPaginationHtml, setMallEventListHtml } from "./htmlCodes.js";
+
 const mallEventSlide = document.querySelector("#mallEventSlide");
 const slideList = document.querySelector(".slide_list");
+const eventItemHtml = document.querySelector(".event__item");
+const pagination = document.querySelector(".slide_pagination");
 
-const createMallEventListPanel = (lists) => {
-  return `<div class="panel"><ul class="list_item">${lists}</ul></div>`;
+const urls = {
+  event: "http://localhost:3000/event.json",
+  mileageList: "http://localhost:3000/mileageList.json",
+  mallEventList: "http://localhost:3000/mallEventList.json",
+  homeContents: "http://localhost:3000/homeContents.json",
 };
 
-const createCarouselPanel = (href_url, img_url) => {
-  return `<div class="panel"><a href="${href_url}"><img src="${img_url}"></a></div>`;
+const insertContentsIntoHtmls = (...htmls) => (...contents) => {
+  if (htmls.length !== contents.length) throw new Error("CANNOT INSERT STRS INTO HTMLS");
+  htmls.forEach((html, index) => (html.innerHTML = contents[index]));
 };
 
-const createLists = (href_url, img_url, title, info) => {
-  return `<li class="_GI_">
-    <a href="${href_url}">
-      <span class="info_thumb">
-        <img src="${img_url}" alt="" />
-      </span>
-      <strong class="title_g">${title}</strong>
-      <span class="txt_info">${info}</span>
-      <span class="ico_comm2 ico_theme">테마</span>
-    </a>
-  </li>`;
-};
+// fetch("http://localhost:3000/planningEvent.json")
+//   .then((res) => res.json())
+//   .then((data) => processDataToHtmlContents(data))
+//   .then((contents) => {
+//     insertContentsIntoHtmls(eventItemHtml, slideList, mallEventSlide)(contents);
+//     setPaginationHtml(pagination).then((res) => {
+//       console.log(res);
+//       const buttons = document.querySelectorAll(".btn_slide");
+//       const slideWidth = 485;
+//       const slideSpeed = 300;
+//       createCarousel(res, buttons, slideList, slideWidth, slideSpeed);
+//     });
+//   })
+//   .catch((err) => console.log(err));
 
-fetch("http://localhost:3000/planningEvent.json")
+fetch(urls.event)
   .then((res) => res.json())
   .then((data) => {
-    const event = data.event; // best100 event 상품
-    const mileageList = data.mileageList; // 캐러셀
-    const mallEventListProducts = data.mallEventList;
+    const eventItem = createEventItem(data);
+    insertContentsIntoHtmls(eventItemHtml)(eventItem);
+  });
 
-    // mileageList html 코드 만들기
-    const carousel_panels = mileageList.reduce((acc, val) => {
-      const { imgurl, linkurl } = val;
-      acc += createCarouselPanel(linkurl, imgurl);
-      return acc;
-    }, ``);
-
-    // mallEventListProducts html 코드 만들기
-    let lists = "";
-    const mallEventListPanels = mallEventListProducts.reduce((acc, val, idx) => {
-      const { imgurl, linkurl, text, text2 } = val;
-      if (!idx % 5) {
-        if (idx) acc += createMallEventListPanel(lists);
-        lists = "";
-        lists += createLists(linkurl, imgurl, text, text2);
-      } else if (idx === mallEventListProducts.length - 1) {
-        lists += createLists(linkurl, imgurl, text, text2);
-        acc += createMallEventListPanel(lists);
-      } else lists += createLists(linkurl, imgurl, text, text2);
-      return acc;
-    }, ``);
-
-    return { carousel_panels, mallEventListPanels };
-  })
-  .then((res) => {
-    const { carousel_panels, mallEventListPanels } = res;
-    slideList.innerHTML = carousel_panels;
-    console.log(slideList);
-    mallEventSlide.innerHTML = mallEventListPanels;
-
-    const panels = document.querySelectorAll(".panel");
-    const prevButton = document.querySelector(".btn_prev");
-    const nextButton = document.querySelector(".btn_next");
-    const slideLen = panels.length;
-    const slideWidth = 485;
-    const slideSpeed = 300;
-    const startNum = 0; // index 0 ~ 4
-
-    slideList.style.width = `${slideWidth * (slideLen + 2)}px`;
-
-    let firstChild = slideList.firstElementChild;
-    let lastChild = slideList.lastElementChild;
-    let clonedFirst = firstChild.cloneNode(true);
-    let clonedLast = lastChild.cloneNode(true);
-
-    // add cloned slides
-    slideList.appendChild(clonedFirst);
-    slideList.insertBefore(clonedLast, slideList.firstElementChild);
-
-    slideList.style.transform = `translateX(-${slideWidth * (startNum + 1)}px)`;
-
-    let currIndex = startNum;
-    let currSlide = panels[currIndex];
-    currSlide.classList.add("slide_active");
-
-    nextButton.addEventListener("click", () => {
-      if (currIndex <= slideLen - 1) {
-        slideList.style.transition = slideSpeed + "ms";
-        slideList.style.transform = `translateX(-${slideWidth * (currIndex + 2)}px)`;
-      }
-      if (currIndex === slideLen - 1) {
-        setTimeout(() => {
-          slideList.style.transition = "0ms";
-          slideList.style.transform = `translateX(-${slideWidth}px)`;
-        }, slideSpeed);
-        currIndex = -1;
-      }
-      currSlide.classList.remove("slide_active");
-      currSlide = panels[++currIndex];
-      currSlide.classList.add("slide_active");
+fetch(urls.mileageList)
+  .then((res) => res.json())
+  .then((data) => {
+    const mileageListPanels = setMileageListHtml(data);
+    insertContentsIntoHtmls(slideList)(mileageListPanels);
+    setPaginationHtml(pagination).then((res) => {
+      const buttons = document.querySelectorAll(".btn_slide");
+      const slideWidth = 485;
+      const slideSpeed = 300;
+      createCarousel(res, buttons, slideList, slideWidth, slideSpeed);
     });
+  });
 
-    prevButton.addEventListener("click", () => {
-      if (currIndex >= 0) {
-        slideList.style.transition = slideSpeed + "ms";
-        slideList.style.transform = `translateX(-${slideWidth * currIndex}px)`;
-      }
+fetch(urls.mallEventList)
+  .then((res) => res.json())
+  .then((data) => {
+    const initialMallEventListPanels = setMallEventListHtml(data);
+    insertContentsIntoHtmls(mallEventSlide)(initialMallEventListPanels);
+  });
 
-      if (currIndex === 0) {
-        setTimeout(() => {
-          slideList.style.transition = "0ms";
-          slideList.style.transform = `translateX(-${slideWidth * slideLen}px)`;
-        }, slideSpeed);
-        currIndex = slideLen;
-      }
-      currSlide.classList.remove("slide_active");
-      currSlide = panels[--currIndex];
-      currSlide.classList.add("slide_active");
+const moreButton = document.querySelector("#mallEventList_more");
+moreButton.addEventListener("click", () => {
+  fetch(urls.mallEventList)
+    .then((res) => {
+      if (res.status === 503) moreButton.innerText = "마지막";
+      else return res.json();
+    })
+    .then((data) => {
+      if (!data) return;
+      const mallEventListPanels = setMallEventListHtml(data);
+      mallEventSlide.insertAdjacentHTML("beforeend", mallEventListPanels);
     });
+});
+
+// hotdeal 불러오기
+
+fetch(urls.homeContents)
+  .then((res) => res.json())
+  .then((data) => {
+    // console.log(data.contents);
+    const hotDealItemHtml = document.querySelector(".content_hotDeal");
+    const hotDealContents = data.contents;
+    let totalHtml = "";
+    let i = 0;
+    Object.entries(hotDealContents).forEach((value, key) => {
+      const currProducts = value[1].eventProducts;
+      let hotDealHtml = `<ul class="list_item">`;
+      hotDealHtml += currProducts.reduce((acc, val) => {
+        const { imageurl, produrl, prodname, mprice } = val;
+        acc += `<li class="_GI_" data-id="${i++}">
+        <a href="${produrl}">
+          <span class="thumb_hotdeal">
+            <img src="${imageurl}" alt="" />
+          </span>
+          <strong class="title_g">${prodname}</strong>
+          <span class="detail_price">${mprice}
+            <span class="price_unit">원</span>
+          </span>
+        </a>
+      </li>`;
+        return acc;
+      }, ``);
+      hotDealHtml += `</ul>`;
+      totalHtml += hotDealHtml;
+    });
+    hotDealItemHtml.innerHTML = totalHtml;
   });
