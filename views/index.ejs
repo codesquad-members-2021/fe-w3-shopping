@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼핑하우</title>
+    <link rel="stylesheet" href="style/reset.css"> 
+</head>
+<body>
+    <div class="header__container">
+
+        <header>
+            <a href="#" class="header__logo">
+                <img src="//search1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/logo_shw.png"
+                alt = "쇼핑하우 by kakaocommerce">
+            </a>
+
+            <div class="header__search">
+                <form>
+                    <fieldset>
+                        <div class="search__box">
+                            <input>
+                            <button></button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div> <!-- .header__search -->
+        </header>
+
+        <nav>
+            <div class="gnb__cate">
+                <button>
+                    <span class="gnb__ico"></span>
+                    카테고리
+                </button>
+            </div>
+            <ul class="gnb__main">
+                <li><a href="#">핫딜</a></li>
+                <li><a href="#">베스트100</a></li>
+                <li><a href="#">할인특가</a></li>
+                <li><a href="#">기획전</a></li>
+            </ul>
+            <ul class="gnb__word">
+                <li><a href="#">#수능 선물</a></li>
+                <li><a href="#">#김치 냉장고</a></li>
+                <li><a href="#">#체험 가습기</a></li>
+                <li><a href="#">#구스다운</a></li>
+                <li><a href="#">#온수매트</a></li>
+            </ul>
+            <ul class="gnb__user">
+                <li><a href="#">
+                    <span class="gnb__ico"></span>
+                    로그인
+                </a></li>
+                <li><a href="#">
+                    <span class="gnb__ico"></span>
+                    최근본 상품
+                </a></li>
+            </ul>
+        </nav>
+
+    </div> <!-- .header__container -->
+
+    <!-- content__container : 헤더 밑을 모두 감싸는 요소 -->
+    <div class="content__container">
+
+        <div class="content__banner">
+            <div class="banner__main">
+                <div><a href="#">
+                    <img src="//shop4.daumcdn.net/shophow/sib/0_210219174849_FwZShCdZPYIPpJmvgEiGWverDgJVqrrq" alt="기획전 이벤트">
+                </a></div>
+                <div class="slide__cont">
+                    <ul class="slide__wrap">
+                        <li class="slide__list"><a href="#">
+                            <img src="//shop3.daumcdn.net/shophow/sib/0_210219175556_BtjOWRoiPbsVXvlYusgFvjboDPXRIBQD">
+                        </a></li>
+                        <li class="slide__list"><a href="#">
+                            <img src="//shop3.daumcdn.net/shophow/sib/0_210219175609_PZjbWVyRtwcxTlShApbdyOenwLaYCOhs">
+                        </a></li>
+                        <li class="slide__list"><a href="#">
+                            <img src="//shop1.daumcdn.net/shophow/sib/0_210219175602_vRyGDQxWDethcelhYcMmXKXpgLqlAIAj">
+                        </a></li>
+                    </ul>
+                </div> <!-- .slide__cont -->
+            </div>
+
+            <ul class="banner__list">
+                <% for(let i = 0; i < 5; i++) { %>
+                    <li><a href="#">
+                        <img src= <%= banner.mallEventList[i].imgurl %> alt= <%= banner.mallEventList[i].text %>>
+                        <span class="list__title"><%= banner.mallEventList[i].text %></span>
+                        <span class="list__des"><%= banner.mallEventList[i].text2 %></span>
+                        <span class="list__theme">테마</span>
+                    </a></li>
+                <% } %>
+            </ul>
+        </div> <!-- .content__banner -->
+
+        <div class="showMore">더보기</div>
+
+        <div class="content__theme ">
+            <h3>지금뜨는 테마 카테고리</h3>
+            <ul>
+                <% for(let i = 0; i < 5; i++) { %>
+                    <li><a href="#">
+                        <!-- 0 ~ 4번째까지 배너랑 겹쳐서 i + 5번째 해줌. -->
+                        <img src= <%= contents.contents[i+5].eventContent.imgurl %> alt= <%= contents.contents[i+5].eventContent.title %>>
+                        <span class="list__title"><%= contents.contents[i+5].eventContent.title %></span>
+                        <span class="list__des"><%= contents.contents[i+5].eventContent.subtitle %></span>
+                        <span class="list__theme">테마</span>
+                    </a></li>
+                <% } %>
+            </ul>
+        </div>
+    </div> <!--content__container-->
+
+</body>       
+</html>
