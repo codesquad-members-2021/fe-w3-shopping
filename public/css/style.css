@@ -1,0 +1,88 @@
+* {
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+.front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lavenderblush;
+  padding: 20px 300px;
+}
+.front .front__logo {
+  background-color: royalblue;
+}
+.front .front__logo .logo__img {
+  height: 70px;
+}
+.front .front__input-box {
+  margin-left: 40px;
+  background-color: red;
+  display: flex;
+  justify-self: start;
+}
+.front .front__input-box .input-box__input {
+  height: 50px;
+  width: 700px;
+  flex: 0 70%;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: greenyellow;
+  padding: 20px 40px;
+}
+nav .nav__category,
+nav .special-menu,
+nav .hash-tag,
+nav .add-on {
+  background-color: salmon;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .nav__category {
+  flex-grow: 0.1;
+}
+nav .special-menu {
+  flex-grow: 0.2;
+}
+nav .hash-tag {
+  flex-grow: 0.2;
+}
+nav .add-on {
+  flex-grow: 0.1;
+}
+nav .add-on .add-on__recent-product,
+nav .add-on .add-on__login {
+  display: flex;
+  justify-content: space-between;
+}
+nav .add-on .add-on__recent-product li,
+nav .add-on .add-on__login li {
+  margin-left: 10px;
+}
+
+.main-banner {
+  background-color: rosybrown;
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 40px;
+}
+.main-banner .main-banner__static {
+  background-color: yellow;
+}
+.main-banner .main-banner__slide {
+  flex-grow: 0.7;
+  background-color: red;
+  padding: 0 60px;
+}
+
+/*# sourceMappingURL=style.css.map */
