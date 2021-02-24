@@ -1,0 +1,171 @@
+/* * {
+    outline: 1px solid red
+} */
+
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+}
+
+.header {
+    height: 150px;
+}
+
+.logo {
+    float: left;
+}
+
+.logo img {
+    width: 90px;
+    height: 40px;
+    margin-left: 10px;
+    margin-top: 75px;
+}
+
+.search {
+    float: left;
+    margin-left: 10px;
+    margin-top: 75px;
+    position: relative;
+}
+
+.search input {
+    width: 600px;
+    height: 40px;
+}
+
+.search button {
+    position: absolute;
+    top: 10px;
+    left: 550px;
+}
+
+.navi {
+    height: 100px;
+    margin-left: 10px;
+}
+
+.navi>div:nth-child(1) {
+    float: left;
+    margin-right: 10px;
+}
+
+.split {
+    float: left;
+    height: 20px;
+    width: 20px;
+    border-right: 1px solid gray;
+}
+
+.navi li {
+    float: left;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.navi img {
+    width: 30px;
+    height: 30px;
+}
+
+.navi a>img,
+.navi a>span {
+    float: left;
+}
+
+.main {
+    margin-left: 10px;
+    width: 80%;
+    height: 400px;
+}
+
+.banner-event {
+    float: left;
+    width: 50%;
+    height: 400px;
+    border-left: 1px solid gray;
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    text-align: center;
+}
+
+.banner-mileage-slide {
+    float: left;
+    width: 50%;
+    height: 400px;
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    text-align: center;
+    position: relative;
+}
+
+.top-mileage-slide {}
+
+.top-mileage-slide img {
+    width: 300px;
+    height: 300px;
+}
+
+.top-mileage-slide div:nth-child(2) {
+    padding: 50px 50px 0px 50px;
+}
+
+.top-mileage-slide div:nth-child(1),
+.top-mileage-slide div:nth-child(3) {
+    display: none;
+}
+
+.paging {
+    clear: both;
+    margin-top: 10px;
+}
+
+.pre {
+    position: absolute;
+    top: 160px;
+    left: 100px;
+}
+
+.next {
+    position: absolute;
+    top: 160px;
+    left: 640px;
+}
+
+.slide {
+    clear: both;
+    margin-left: 10px;
+    width: 80%;
+    height: 209px;
+}
+
+.slide li {
+    border: 1px solid gray;
+    float: left;
+    width: 20%;
+    padding: 20px;
+    text-align: center;
+}
+
+.slide img {
+    width: 100px;
+    height: 100px;
+}
+
+.slide>ul>li>a>span {
+    float: left;
+    width: 100%;
+}
