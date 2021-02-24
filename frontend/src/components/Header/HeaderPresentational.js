@@ -11,6 +11,10 @@ class HeaderPresentational {
   }
   init() {
     this.render();
+    
+    // 롤링 키워드 initialize
+    let $target = this.$target.querySelector("#rolling-keywords");
+    this.rollingKeywords = new RollingKeywordsContainer({ $target });
   }
   render() {
     const $Header = /* html */ `
@@ -57,10 +61,6 @@ class HeaderPresentational {
       </header>
     `
     this.$target.insertAdjacentHTML('beforeend', $Header);
-    
-    // 롤링 키워드 initialize
-    let $target = this.$target.querySelector("#rolling-keywords");
-    this.rollingKeywords = new RollingKeywordsContainer({ $target });
   }
 }
 
