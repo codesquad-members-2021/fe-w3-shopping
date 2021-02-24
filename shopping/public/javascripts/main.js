@@ -1,3 +1,5 @@
+import createCarousel from "./slide.js";
+
 const mallEventSlide = document.querySelector("#mallEventSlide");
 const slideList = document.querySelector(".slide_list");
 
@@ -5,7 +7,7 @@ const createMallEventListPanel = (lists) => {
   return `<div class="panel"><ul class="list_item">${lists}</ul></div>`;
 };
 
-const createCarouselPanel = (href_url, img_url) => {
+const createMileageListPanel = (href_url, img_url) => {
   return `<div class="panel"><a href="${href_url}"><img src="${img_url}"></a></div>`;
 };
 
@@ -32,9 +34,9 @@ fetch("http://localhost:3000/planningEvent.json")
     // const mallEventListProducts = data.mallEventList;
 
     // mileageList html 코드 만들기
-    const carousel_panels = mileageList.reduce((acc, val) => {
+    const mileageListpanels = mileageList.reduce((acc, val) => {
       const { imgurl, linkurl } = val;
-      acc += createCarouselPanel(linkurl, imgurl);
+      acc += createMileageListPanel(linkurl, imgurl);
       return acc;
     }, ``);
 
@@ -53,71 +55,18 @@ fetch("http://localhost:3000/planningEvent.json")
       return acc;
     }, ``);
 
-    return { carousel_panels, mallEventListPanels };
+    return { mileageListpanels, mallEventListPanels };
   })
   .then((res) => {
-    const { carousel_panels, mallEventListPanels } = res;
-    slideList.innerHTML = carousel_panels;
-    console.log(slideList);
+    const { mileageListpanels, mallEventListPanels } = res;
+    slideList.innerHTML = mileageListpanels;
     mallEventSlide.innerHTML = mallEventListPanels;
 
     const panels = document.querySelectorAll(".panel");
     const prevButton = document.querySelector(".btn_prev");
     const nextButton = document.querySelector(".btn_next");
-    const slideLen = panels.length;
     const slideWidth = 485;
     const slideSpeed = 300;
-    const startNum = 0; // index 0 ~ 4
 
-    slideList.style.width = `${slideWidth * (slideLen + 2)}px`;
-
-    let firstChild = slideList.firstElementChild;
-    let lastChild = slideList.lastElementChild;
-    let clonedFirst = firstChild.cloneNode(true);
-    let clonedLast = lastChild.cloneNode(true);
-
-    // add cloned slides
-    slideList.appendChild(clonedFirst);
-    slideList.insertBefore(clonedLast, slideList.firstElementChild);
-
-    slideList.style.transform = `translateX(-${slideWidth * (startNum + 1)}px)`;
-
-    let currIndex = startNum;
-    let currSlide = panels[currIndex];
-    currSlide.classList.add("slide_active");
-
-    nextButton.addEventListener("click", () => {
-      if (currIndex <= slideLen - 1) {
-        slideList.style.transition = slideSpeed + "ms";
-        slideList.style.transform = `translateX(-${slideWidth * (currIndex + 2)}px)`;
-      }
-      if (currIndex === slideLen - 1) {
-        setTimeout(() => {
-          slideList.style.transition = "0ms";
-          slideList.style.transform = `translateX(-${slideWidth}px)`;
-        }, slideSpeed);
-        currIndex = -1;
-      }
-      currSlide.classList.remove("slide_active");
-      currSlide = panels[++currIndex];
-      currSlide.classList.add("slide_active");
-    });
-
-    prevButton.addEventListener("click", () => {
-      if (currIndex >= 0) {
-        slideList.style.transition = slideSpeed + "ms";
-        slideList.style.transform = `translateX(-${slideWidth * currIndex}px)`;
-      }
-
-      if (currIndex === 0) {
-        setTimeout(() => {
-          slideList.style.transition = "0ms";
-          slideList.style.transform = `translateX(-${slideWidth * slideLen}px)`;
-        }, slideSpeed);
-        currIndex = slideLen;
-      }
-      currSlide.classList.remove("slide_active");
-      currSlide = panels[--currIndex];
-      currSlide.classList.add("slide_active");
-    });
+    createCarousel(panels, prevButton, nextButton, slideList, slideWidth, slideSpeed);
   });

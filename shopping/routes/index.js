@@ -4,20 +4,22 @@ const cors = require("cors");
 const fs = require("fs");
 
 // global 변수에 지정
-global.planningEventData = JSON.parse(fs.readFileSync("./data/planningEvent.json"));
-global.homeContentsData = JSON.parse(fs.readFileSync("./data/homeContents.json"));
+// global.planningEventData = JSON.parse(fs.readFileSync("./data/planningEvent.json"));
+// global.homeContentsData = JSON.parse(fs.readFileSync("./data/homeContents.json"));
 
 router.use(express.json());
 router.use(cors());
 
 router.get("/planningEvent.json", function (req, res, next) {
-  const { planningEventData } = global;
-  res.json(planningEventData);
+  // const { planningEventData } = global;
+  // res.json(planningEventData);
+  res.json(JSON.parse(fs.readFileSync("./data/planningEvent.json")));
 });
 
 router.get("/homeContents.json", function (req, res, next) {
-  const { homeContentsData } = global;
-  res.json(homeContentsData);
+  // const { homeContentsData } = global;
+  // res.json(homeContentsData);
+  res.json(JSON.parse(fs.readFileSync("./data/homeContents.json")));
 });
 
 /* GET home page. */

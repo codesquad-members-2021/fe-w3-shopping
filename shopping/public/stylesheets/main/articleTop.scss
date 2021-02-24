@@ -10,7 +10,6 @@
     // border: 1px solid $navbar-line-color;
 
     .event {
-      // width: 100%;;
       border: 1px solid map-get($color-palette, top_border);
       border-bottom: none;
       text-align: center;
@@ -35,7 +34,7 @@
       }
 
       .panel {
-        display: table;
+        display: flex;
         float: left;
         width: map-get($slide_img, width);
         height: map-get($slide_img, height);

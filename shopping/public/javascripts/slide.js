@@ -1,73 +1,55 @@
-export default class Slide {
-  constructor(panels, slideList, prevButton, nextButton, width, speed) {
-    this.panels = panels;
-    this.slideList = slideList;
-    this.prevButton = prevButton;
-    this.nextButton = nextButton;
-    this.slideWidth = width;
-    this.slideSpeed = speed;
-    this.currIndex = 0;
-  }
+export default function createCarousel(panels, prevButton, nextButton, slideList, slideWidth, slideSpeed) {
+  const slideLen = panels.length;
+  const startNum = 0;
+  slideList.style.width = `${slideWidth * (slideLen + 2)}px`;
 
-  init() {
-    this.slideList.style.width = `${this.slideWidth} * (${this.panels.length + 2})px`;
+  let firstChild = slideList.firstElementChild;
+  let lastChild = slideList.lastElementChild;
+  let clonedFirst = firstChild.cloneNode(true);
+  let clonedLast = lastChild.cloneNode(true);
 
-    let firstChild = this.slideList.firstElementChild;
-    let lastChild = this.slideList.lastElementChild;
-    let clonedFirst = firstChild.cloneNode(true);
-    let clonedLast = lastChild.cloneNode(true);
+  // add cloned slides
+  slideList.appendChild(clonedFirst);
+  slideList.insertBefore(clonedLast, slideList.firstElementChild);
 
-    // add cloned slides
-    this.slideList.appendChild(clonedFirst);
-    this.slideList.insertBefore(clonedLast, this.slideList.firstElementChild);
+  slideList.style.transform = `translateX(-${slideWidth * (startNum + 1)}px)`;
 
-    this.slideList.style.transform = `translateX(-${this.slideWidth}px)`;
+  let currIndex = startNum;
+  let currSlide = panels[currIndex];
+  currSlide.classList.add("slide_active");
 
-    const currSlide = this.panels[this.currIndex];
+  nextButton.addEventListener("click", () => {
+    if (currIndex <= slideLen - 1) {
+      slideList.style.transition = slideSpeed + "ms";
+      slideList.style.transform = `translateX(-${slideWidth * (currIndex + 2)}px)`;
+    }
+    if (currIndex === slideLen - 1) {
+      setTimeout(() => {
+        slideList.style.transition = "0ms";
+        slideList.style.transform = `translateX(-${slideWidth}px)`;
+      }, slideSpeed);
+      currIndex = -1;
+    }
+    currSlide.classList.remove("slide_active");
+    currSlide = panels[++currIndex];
     currSlide.classList.add("slide_active");
-    return currSlide;
-  }
+  });
 
-  moveToNext() {
-    const slideLen = this.panels.length;
-    let currSlide = this.init();
-    this.nextButton.addEventListener("click", () => {
-      if (this.currIndex <= slideLen - 1) {
-        this.slideList.style.transition = this.slideSpeed + "ms";
-        this.slideList.style.transform = `translateX(-${this.slideWidth * (this.currIndex + 2)}px)`;
-      }
-      if (this.currIndex === slideLen - 1) {
-        setTimeout(() => {
-          this.slideList.style.transition = "0ms";
-          this.slideList.style.transform = `translateX(-${this.slideWidth}px)`;
-        }, this.slideSpeed);
-        this.currIndex = -1;
-      }
-      currSlide.classList.remove("slide_active");
-      currSlide = this.panels[++this.currIndex];
-      currSlide.classList.add("slide_active");
-    });
-  }
+  prevButton.addEventListener("click", () => {
+    if (currIndex >= 0) {
+      slideList.style.transition = slideSpeed + "ms";
+      slideList.style.transform = `translateX(-${slideWidth * currIndex}px)`;
+    }
 
-  moveToPrev() {
-    const slideLen = this.panels.length;
-    let currSlide = this.init();
-    this.prevButton.addEventListener("click", () => {
-      if (this.currIndex >= 0) {
-        this.slideList.style.transition = this.slideSpeed + "ms";
-        this.slideList.style.transform = `translateX(-${this.slideWidth * this.currIndex}px)`;
-      }
-
-      if (this.currIndex === 0) {
-        setTimeout(() => {
-          this.slideList.style.transition = "0ms";
-          this.slideList.style.transform = `translateX(-${this.slideWidth * slideLen}px)`;
-        }, this.slideSpeed);
-        this.currIndex = slideLen;
-      }
-      currSlide.classList.remove("slide_active");
-      currSlide = this.panels[--this.currIndex];
-      currSlide.classList.add("slide_active");
-    });
-  }
+    if (currIndex === 0) {
+      setTimeout(() => {
+        slideList.style.transition = "0ms";
+        slideList.style.transform = `translateX(-${slideWidth * slideLen}px)`;
+      }, slideSpeed);
+      currIndex = slideLen;
+    }
+    currSlide.classList.remove("slide_active");
+    currSlide = panels[--currIndex];
+    currSlide.classList.add("slide_active");
+  });
 }
