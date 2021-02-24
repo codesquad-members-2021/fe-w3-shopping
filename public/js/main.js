@@ -1,3 +1,4 @@
-fetch('http://127.0.0.1:3000/data/')
+fetch('http://localhost:3000/data/1')
   .then((response) => response.json())
-  .then((json) => console.log(json));
+  .then((json) => console.log(json))
+  .catch((error) => console.log('에러입니다', error));
