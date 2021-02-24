@@ -32,6 +32,7 @@ $mileageEventSlide.addEventListener('mouseover', overEventSlider);
 $mileageEventSlide.addEventListener('mouseout', outEventSlider);
 
 function overEventSlider(e) {
+  console.log(e.target);
   $prevEventButton.querySelector('.ico--prev').classList.replace('ico--prev', 'ico--prev__slide--hover');
   $nextEventButton.querySelector('.ico--next').classList.replace('ico--next', 'ico--next__slide--hover');
 }

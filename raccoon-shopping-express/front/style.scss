@@ -251,6 +251,10 @@ header {
         display: inline-block;
       }
 
+      .link--item:hover {
+        color: #f65b3d;
+      }
+
       @include link--common;
     }
 
@@ -542,9 +546,13 @@ section {
                   left: 160px;
                   // background-position: -128px -335px;
                 }
+
                 .ico--prev__slide--hover {
                   background-position: -60px 0;
                   right: 160px;
+                }
+                .ico--prev__slide--hover:hover {
+                  background-position: -120px 0px;
                 }
               }
               .slide--button--next {
@@ -558,6 +566,9 @@ section {
                 .ico--next__slide--hover {
                   background-position: -90px 0;
                   right: 160px;
+                }
+                .ico--next__slide--hover:hover {
+                  background-position: -150px 0px;
                 }
               }
             }
