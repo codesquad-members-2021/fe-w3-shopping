@@ -1,0 +1,169 @@
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    outline: none;    
+}
+$line_borderColor: #f2f2f2;
+
+%light_boldLine{
+        border: 2px solid $line_borderColor;
+    
+}
+main {
+    background-color: $line_borderColor;
+    margin: 0  40px;
+}
+
+.best {
+    padding: 10px 1px 0 1px;
+
+    &__zone{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background-color:white;
+        @extend %light_boldLine;
+
+
+    }
+
+    &__box{
+
+        &_first{
+            padding: 0px 50px;
+            border-right:1px solid $line_borderColor;
+        }
+
+        &_second{
+
+            display: flex;
+            justify-content: center;
+
+            .best__button{
+                padding: 150px 60px;
+                cursor: pointer;
+            }
+            .best__box__bar {
+                display: inline-block;
+                position: relative;
+                top: 288px;
+                right: 420px;
+                width: 100px;
+
+                button {
+                    background-color: $line_borderColor;
+                    border:0;
+                    height: 8px;
+                    color: $line_borderColor;
+                    cursor: pointer;
+                }
+
+            }
+        }
+
+    }
+}
+
+.item {
+    background-color: white;
+    @extend %light_boldLine;
+
+    &__zone.theme{
+        margin-bottom: 100px;
+        padding:29px 4px 40px 4px;
+    }
+    &__zone{
+        // padding: 10px 1px;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 4px;
+        padding: 29px 4px;
+    }
+
+    &__box {
+        // @extend %light_boldLine;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px 20px;
+        background-color: white;
+        padding: 10px 46px;
+       
+
+        &-img img{
+            
+            object-fit:contain;
+            width: 220px;
+            height: 220px;
+            border-radius: 2px;
+        }
+
+        &-title{
+            margin-top: 5px;
+            span{
+                font-size: 14px;
+                font-weight: 700;
+                margin-top: 5px;
+        
+            }
+        } 
+            
+        &-subtitle span{
+            font-size: 13px;
+            font-weight: 400;
+            color:rgb(146, 146, 146);
+
+        }
+        &-label {
+            margin-top: 10px;
+
+            font-size: 11px;
+            color: orange;
+            display: inline-block;
+            border:1px solid orange;
+            border-radius: 2px;
+            width: 40px;
+            text-align: center;
+
+        }
+    }
+
+    
+}
+
+
+.more__item-btn {
+    margin: 1px 0;
+    button {
+        width: 100%;
+        height: 70px;
+        border: 0;
+        cursor: pointer;
+        background-color:#d3d3d3;
+    }
+}
+
+.theme__title {
+    font-size: 22px;
+    font-weight: 600;
+    margin:20px 20px;
+}
+
+.prev-btn{
+    position: relative;
+    top: 100px;
+    right: 1560px;
+    cursor: pointer;
+}
+
+.next-btn{
+    position: relative;
+    top: 80px;
+    left: -100px;
+    cursor: pointer;
+
+}
+

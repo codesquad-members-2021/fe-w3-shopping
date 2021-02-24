@@ -96,7 +96,8 @@ input {
     border-bottom: 1px solid #dcdfe4;
     margin: 10px 20px 20px 10px;
     font-size: 16px;
-    
+    display: flex;
+    justify-content: space-between;
     .divideLine{
         width: 1px;
         height: 18px;
@@ -107,7 +108,7 @@ input {
     &__wrapper {
         display: flex;
         height: 45px;
-        justify-content: flex-start;
+        justify-content: space-between;
     }
 
     &__category_box{
@@ -127,7 +128,7 @@ input {
     }
 
     &__menu__box {
-        width: 400px;
+        width: 410px;
         ul{
             display: grid;
             grid-template-columns: auto auto auto auto;
@@ -147,7 +148,7 @@ input {
     }
 
     &__hashtag__box {
-        width: 680px;
+        width: 670px;
         ul{
             display: grid;
             grid-template-columns: auto auto auto auto auto;
@@ -166,10 +167,11 @@ input {
     }
 
     &__mypage__box {
-        width:500px;
+        width:450px;
         display: flex;
         justify-content: flex-end;
         gap: 40px;
+        padding: 0 20px;
 
         .mypage{
 
