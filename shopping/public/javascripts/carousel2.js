@@ -1,6 +1,6 @@
 export default function setSecondCarousel(slideContents, prevButton, nextButton, slideList) {
   const slideLen = slideContents.length;
-  const startNum = 0;
+  const startNum = 5;
   const slideSpeed = 300;
   const slideWidth = 252;
 
@@ -11,7 +11,7 @@ export default function setSecondCarousel(slideContents, prevButton, nextButton,
   let clonedLast = lastChild.cloneNode(true);
 
   slideList.style.width = `${slideWidth * (slideLen + 2)}px`;
-  slideList.style.transform = `translateX(-${slideWidth * (startNum + 5)}px)`;
+  slideList.style.transform = `translateX(-${slideWidth * startNum}px)`;
 
   slideList.appendChild(clonedFirst);
   slideList.insertBefore(clonedLast, slideList.firstElementChild);

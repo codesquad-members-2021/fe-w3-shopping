@@ -71,17 +71,18 @@
         .btn_paging {
           float: left;
           margin-left: 3px;
+          background-color: map-get($color-palette, num_page-color);
 
           .num_page {
             display: block;
             width: 15px;
             height: 5px;
-            background-color: map-get($color-palette, num_page-color);
           }
         }
 
         .dot_active {
-          border: 1px solid black;
+          background-color: none;
+          background-color: black;
         }
       }
     }
