@@ -441,7 +441,7 @@ section {
                 top: 0px;
                 transform: translate3d(0px, 0px, 0px);
                 left: -514px;
-                width: 1542px;
+                width: 1551px;
                 .panel {
                   height: 100%;
                   overflow: hidden;
@@ -533,6 +533,10 @@ section {
                   left: 160px;
                   // background-position: -128px -335px;
                 }
+                .ico--prev__slide--hover {
+                  background-position: -60px 0;
+                  right: 160px;
+                }
               }
               .slide--button--next {
                 right: 44px;
@@ -541,6 +545,10 @@ section {
                   background-position: -30px 0;
                   right: 160px;
                   // background-position: -145px -335px;
+                }
+                .ico--next__slide--hover {
+                  background-position: -90px 0;
+                  right: 160px;
                 }
               }
             }
