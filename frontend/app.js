@@ -5,6 +5,14 @@ class App {
   constructor({ $target }) {
     this.$target = $target;
     this.api = API;
+    this.header = null;
+  }
+  init() {
+    let $target = null;
+    
+    $target = this.$target.querySelector("div#header");
+    this.header = new Header({ $target });
+    
   }
 }
 
