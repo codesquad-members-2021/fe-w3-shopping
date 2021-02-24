@@ -9,13 +9,11 @@ router.get('/mileageList', function (req, res, next) {
   let option = {
     root: path.join(__dirname, '../serverData'),
   };
-
   res.sendFile('mileageList.json', option);
 });
 
 router.get('/mallEventList', function (req, res, next) {
-  res.contentType('text/json');
-
+  res.contentType('application/json');
   let option = {
     root: path.join(__dirname, '../serverData'),
   };

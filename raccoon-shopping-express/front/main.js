@@ -1,10 +1,24 @@
-fetch('http://localhost:3000/api/mileageList', { mode: 'cors' })
+fetch('http://localhost:3000/api/mileageList')
   .then((response) => {
-    let data = response.json();
+    return response.json();
+  })
+  .then((data) => {
+    pushContents(data);
+    console.log(data);
     return data;
   })
-  .then((data) => pushContents(data))
-  .then((status) => console.log('Request successful', status))
+  .then((status) => console.log('Request successful', status.code))
+  .catch((error) => console.log('Request failed', error));
+
+fetch('http://localhost:3000/api/mallEventList')
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+    return data;
+  })
+  .then((status) => console.log('Request successful', status.code))
   .catch((error) => console.log('Request failed', error));
 
 const $mileageEventSlide = document.querySelector('.event--slide');
