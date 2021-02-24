@@ -7,8 +7,8 @@ const eventData = require("./db/planningEvent.json")
 server.engine("hbs", hbs({
    extname: "hbs",
    defaultLayout: "layout.hbs",
-   layoutsDir: __dirname + "/views/layouts",
-   partialsDir: __dirname + "/views/partials",
+   // layoutsDir: __dirname + "/views/layouts",
+   partialsDir: "partials",
 }));
 //node.js 템플릿 엔진은 views를 먼저 확인한다.
 
@@ -18,8 +18,9 @@ server.set("view engine", "hbs");
 //static->txt파일을 읽어올 때 사용한다.
 server.use(express.static(__dirname + "/public"))
 server.get("/", (req, res) => {
-   res.render("index", {
-      message: "hello junamee"
+   res.status(200).render("index", {
+      message: "hello junamee",
+      eventData
    })
 });
 
