@@ -1,0 +1,38 @@
+.icon {
+    background: url('/images/ico_gnb_shw.png') no-repeat;
+    background-size: 130px 90px;
+    display: block;
+}
+
+.wh-23 {
+    width: 23px;
+    height: 23px;
+}
+
+.wh-28 {
+    width: 28px;
+    height: 28px;
+}
+
+.i-search {
+    @extend .icon;
+    @extend .wh-23;
+}
+
+.i-category {
+    @extend .icon;
+    @extend .wh-28;
+    background-position: 0 -30px;
+}
+
+.i-user {
+    @extend .icon;
+    @extend .wh-28;
+    background-position: -30px -30px;
+}
+
+.i-recent {
+    @extend .icon;
+    @extend .wh-28;
+    background-position: -60px -30px;
+}

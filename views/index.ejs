@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel="stylesheet" href="/stylesheets/reset.css" />
+        <link rel="stylesheet" href="/stylesheets/index.css" />
+    </head>
+
+    <body>
+
+        <div class="all-wrapper">
+            
+            <div class="header">
+                <div class="logo-search">
+                    <div class="logo">
+                        <a href="/">
+                            <img src="/images/logo_shw.png" />
+                        </a>
+                    </div>
+
+                    <div class="search">
+                        <input
+                            type="text"
+                            id="search"
+                            name="search"
+                            size="55"
+                            autocomplete="off"
+                            placeholder="검색어를 입력하세요"
+                        />
+                        <button type="button">                            
+                            <span class="i-search"></span>         
+                        </button>
+                    </div>
+                </div>
+
+                <div class="menu">
+                    <div class="menu__wrapper">
+                        <div class="category">
+                            <button type="button">                                
+                                <span class="i-category"></span>
+                                <span>카테고리</span>                            
+                            </button>
+                        </div>
+                        <span class="txt-bar"></span>
+                        
+                        <ul class="list-hot">
+                            <li><a href="#">핫딜</a></li>
+                            <li><a href="#">베스트100</a></li>
+                            <li><a href="#">할인특가<span class="emphasis"></span></a></li>
+                            <li><a href="#">기획전</a></li>
+                        </ul>
+                        <span class="txt-bar"></span>
+
+                        <ul class="list-hash">
+                            <li><a href="#">#건강식품</a></li>
+                            <li><a href="#">#제철음식</a></li>
+                            <li><a href="#">#블루투스이어폰</a></li>
+                            <li><a href="#">#커블체어</a></li>
+                            <li><a href="#">#노트북<span class="emphasis"></span></a></li>
+                        </ul>
+
+                        <ul class="list-usergroup">
+                            <li>
+                                <a href="#">
+                                    <span class="i-user"></span>
+                                    <span>로그인</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="i-recent"></span>
+                                    <span>최근본 상품</span>
+                                </a>
+                               
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">                    
+                <div class="event">                    
+                    <div class="event-one">
+                        <a href="/">
+                            <img src="" />
+                        </a>
+                    </div>
+                    
+                    <div class="event-carousel">
+                        <ul class="carousel">
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                        <div class="carousel__paging">
+                            <span>_</span>
+                            <span>_</span>
+                            <span>_</span>
+                        </div>
+                        <button>◁</button>
+                        <button>▷</button>   
+                    </div>
+
+                    <div class="event-more">
+                        <ul class="more">                            
+                            <li>
+                                <span class="img">
+                                    <img src=""/>
+                                </span>
+                                <span class="bold">
+
+                                </span>
+                                <span class="txt-info">
+
+                                </span>
+                                <span class="icon_theme">
+
+                                </span>
+                            </li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                        </ul>
+                        <button type="button" class="more__btn">
+                            더보기(1/276건)
+                            <!-- 이버튼 누르면, ul(more) 안에서 아이템 ++  -->
+                        </button>
+                    </div>
+                                            
+                </div>
+
+                <div class="hot">
+                    <p>지금뜨는 테마 카테고리</p>
+                    
+                    <div class="hot-carousel">  
+                        <!-- 버튼 클릭당 2개의 아이템 이동, 보이는 최대 갯수 5개  -->
+                        <ul class="carousel">
+                            <li>
+                                <span class="img">
+                                    <img src=""/>
+                                </span>
+                                <span class="bold">
+
+                                </span>
+                                <span class="txt-info">
+
+                                </span>
+                                <span class="icon_theme">
+
+                                </span>
+                            </li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                            <li>6</li>
+                            <li>7</li>
+                            <li>8</li>
+                            <li>9</li>
+                            <li>10</li>
+                        </ul>
+                        <button>◁</button>
+                        <button>▷</button>                            
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
