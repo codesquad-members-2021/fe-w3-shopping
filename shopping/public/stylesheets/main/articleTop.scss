@@ -19,11 +19,27 @@
 
     .event__item {
       grid-column: 1/3;
-      border-right: none;
     }
 
     .event__slide {
       grid-column: 3/6;
+      position: relative;
+
+      .slide_event {
+        // background-color: tan;
+        width: map-get($slide_img, width);
+        height: map-get($slide_img, height);
+        margin: auto;
+        overflow-x: hidden;
+        overflow-y: hidden;
+      }
+
+      .panel {
+        display: table;
+        float: left;
+        width: map-get($slide_img, width);
+        height: map-get($slide_img, height);
+      }
     }
 
     .paging_comm {
@@ -76,24 +92,25 @@
     .event-list__slide {
       width: 100%;
       position: relative;
+      text-align: center;
     }
 
     img {
-      width: 100%;
+      width: 80%;
     }
 
     .list_item {
       //   border: 1px solid red;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(20%, auto));
-      height: 100%;
-      border: 1px solid map-get($color-palette, top_border);
+      height: fit-content;
+      // border: 1px solid map-get($color-palette, top_border);
 
       ._GI_ {
         // background-color: teal;
         padding: 20px 25px;
-        border-right: 1px solid map-get($color-palette, top_border);
         // height: 100%;
+        border: 1px solid map-get($color-palette, top_border);
         a {
           position: relative;
           display: flex;
@@ -117,10 +134,6 @@
           }
         }
       }
-
-      .last {
-        border-right: none;
-      }
     }
 
     .btn_g {
@@ -131,6 +144,10 @@
       background-color: rgba(0, 0, 0, 0.5);
       color: white;
       padding: 2em;
+    }
+
+    .btn_prev {
+      left: 0;
     }
 
     .btn_next {

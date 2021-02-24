@@ -18,8 +18,17 @@ $font-color: (
   theme: #f0a969,
 );
 
-// $border-color: #f5f5f5;
-// $navbar-line-color: #e3e3e3;
+$slide_img: (
+  width: 485px,
+  height: 340px,
+);
+
+$slide_img_total-width: (map-get($slide_img, width) * 5) px;
+
 $padding-height-size: 1.5em;
-// $searchBar-border-color: #d4d5d7;
 $padding-for-left-right: 7%;
+
+// :export {
+//   slideWidth: map-get($slide_img, width);
+//   slideListWidth: $slide_img_total-width;
+// }
