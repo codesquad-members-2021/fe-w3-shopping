@@ -49,6 +49,7 @@ main {
     display: flex;
   }
   .banner-event {
+    min-width: 509px;
     flex: 2;
     height: 100%;
     text-align: center;
@@ -62,7 +63,6 @@ main {
     background-color: #fff;
     overflow: hidden;
     li {
-      overflow: hidden;
       flex: 1;
       @include itemBox();
     }
@@ -75,11 +75,25 @@ main {
   position: relative;
   flex: 3;
   height: 100%;
-  text-align: center;
   border-left: 1px solid #f1f1f1;
   margin-right: 2px;
-  .slide-item {
-    height: 100%;
+  text-align: center;
+  .slide-list {
+    position: relative;
+    max-width: 485px;
+    margin: 0 147px;
+
+    overflow: hidden;
+  }
+  .slide-item__wrapper {
+    position: relative;
+    left: -515px;
+    display: flex;
+    .slide-item {
+      float: left;
+      height: 100%;
+      margin: 0 15px;
+    }
   }
   .slide-event {
     width: 100%;
@@ -132,6 +146,8 @@ main {
     }
   }
 }
+//왼쪽 이벤트
+
 //더보기
 .banner-more {
   width: 100%;
@@ -139,6 +155,7 @@ main {
   background-color: #dadada;
   text-align: center;
   line-height: 60px;
+  margin-top: 5px;
   .more-text-container {
     width: 150px;
     height: 60px;
@@ -167,7 +184,6 @@ main {
     background-color: #fff;
     overflow: hidden;
     li {
-      overflow: hidden;
       flex: 1;
       @include itemBox();
     }
