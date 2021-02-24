@@ -5,6 +5,10 @@
 /*SET-UP*/
 /*-------------------------------*/
 
+//변수 정의
+$background: #f3f3f3;
+$full-width: 100vw;
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +16,7 @@
 }
 
 html {
-  background-color: #fff;
+  background-color: #f3f3f3;
   color: black;
   scroll-behavior: smooth;
   font-weight: 400;
@@ -42,9 +46,6 @@ li {
 /*-------------------------------*/
 /*HEADER*/
 /*-------------------------------*/
-//변수 정의
-$white-background: #fff;
-$full-width: 100vw;
 
 //mixin 정의
 @mixin centering {
@@ -84,16 +85,16 @@ $full-width: 100vw;
 
 //쇼핑하우 로고 & 검색창
 header {
-  background-color: $white-background;
+  background-color: #fff;
   text-align: center;
   width: $full-width;
   min-width: 977px;
   height: 6.5rem;
   position: relative;
   padding-top: 43px;
-  box-shadow: 0 1px rgb(199, 198, 198);
 
   .header__top {
+    background-color: #fff;
     display: inline-block;
     vertical-align: top;
     @include clearfix;
@@ -113,7 +114,7 @@ header {
       padding: 16px 60px 14px 30px;
       margin: 0 24px 0 30px;
       border-radius: 10px;
-      background-color: $white-background;
+      background-color: #fff;
 
       button {
         font-size: 12px;
@@ -135,12 +136,13 @@ header {
   .nav-container {
     margin-top: 40px;
     border-top: 1px solid #efefef;
+    box-shadow: 0 1px rgb(199, 198, 198);
 
     div {
       width: 1276px;
       margin: 0 auto;
       position: relative;
-      padding: 19px 0;
+      padding: 19px 0 19px 20px;
       @include clearfix;
 
       ul {
@@ -165,7 +167,7 @@ header {
 
       &:first-child {
         display: block;
-        height: 54px;
+        height: 56px;
         font-weight: 700;
         font-size: 16px;
 
@@ -228,7 +230,7 @@ header {
         font-size: 16px;
         float: right;
 
-        .nav_last__list {
+        li {
           display: inline-block;
           position: relative;
           float: left;
@@ -296,5 +298,75 @@ header {
 //바디
 .main,
 .hot-deal {
-  background-color: #f3f3f3;
+  background-color: $background;
+  position: relative;
+}
+
+//그리드
+.grid_container {
+  width: 1276px;
+  margin: 0.7rem 10.5rem 0 10.5rem;
+  display: grid;
+  grid-gap: 1px 1px;
+  grid-template-rows: repeat(3, 340px, 276px, 73px);
+  grid-template-columns: repeat(5, 1fr);
+  border: 1px solid #dddcdc;
+
+  .cell {
+    border: 1px solid #f1f1f1;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    height: 276px;
+    background-size: cover; //핵중요
+  }
+
+  .cell:nth-child(1) {
+    grid-column: 1 / 3;
+    height: 340px;
+  }
+
+  .cell:nth-child(2) {
+    grid-column: 3 / 6;
+    height: 340px;
+  }
+
+  .cell:last-child {
+    //더보기 버튼
+    grid-column: 1 / 6;
+    height: 73px;
+  }
+
+  li {
+    padding: 21px 27px;
+    height: 276px;
+    text-align: left;
+    border-bottom: 0 none;
+    position: relative;
+    line-height: 14px;
+    letter-spacing: -1px;
+    background-size: cover; //핵중요
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.carousel1 {
+  // display: inline-block;
+}
+
+.btn-more-info {
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-size: 0.5rem;
+  border: 2px solid #f1f1f1;
+  border-bottom: 4px solid #f1f1f1;
+  background-color: #dedada;
+  cursor: pointer;
 }
