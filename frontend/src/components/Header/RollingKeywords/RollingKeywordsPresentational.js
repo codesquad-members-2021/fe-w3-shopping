@@ -1,5 +1,5 @@
 class RollingKeywords {
-  constructor({$target}){
+  constructor({ $target }){
 
   }
 }
