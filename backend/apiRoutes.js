@@ -1,4 +1,4 @@
-import express from "../node_modules/express/lib/express.js";
+import express from "express";
 import fs from "fs";
 import path from "path";
 
@@ -15,12 +15,12 @@ const planningEventsData = fs.readFileSync(`${__dirname}/backend/data/planningEv
 
 // JSON.parse(fs.readFileSync("data.json").toString()).length;
 
-router.get("/planningEvents", (req, res) => {
+router.get("/planning-events", (req, res) => {
   return res.status(200).send(planningEventsData);
 });
 
 // 페이지 네이션 작업 필요
-router.get("/homeContents", (req, res) => {
+router.get("/home-contents", (req, res) => {
   return res.status(200).send(homeContentsData);
 });
 
