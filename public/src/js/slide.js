@@ -96,6 +96,7 @@ class Slide {
   }
   paging(index) {
     this.setDataByIndex(index);
+    this.setCurrentData();
     this.checkPagingBtn();
     this.render();
   }
