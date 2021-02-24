@@ -1,4 +1,8 @@
-export default function createCarousel(panels, prevButton, nextButton, slideList, slideWidth, slideSpeed) {
+export default function createCarousel(panels, buttons, slideList, width = undefined, speed = undefined) {
+  const slideWidth = width ? width : 400;
+  const slideSpeed = speed ? speed : 300;
+  const prevButton = Object.values(buttons).find((button) => button.classList.contains("btn_prev"));
+  const nextButton = Object.values(buttons).find((button) => button.classList.contains("btn_next"));
   const slideLen = panels.length;
   const startNum = 0;
   slideList.style.width = `${slideWidth * (slideLen + 2)}px`;
