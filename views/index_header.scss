@@ -9,7 +9,7 @@ body {
     padding-top: 43px;
     align-items: center;
     justify-content: center;
-    
+
     .header_box {
         display: flex;
         height: 80px;
@@ -144,6 +144,9 @@ body {
     
 .menu_lists_left {
     float:left;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -.08em;
     padding: 0 12px 0 8px;
         li {
             padding: 0 13px;
@@ -154,6 +157,10 @@ body {
 .menu_lists_center {
     padding :0 12px;
     float:left;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -.08em;
+    color: #888;
         li {
             padding: 0 10px;
         }
@@ -203,19 +210,5 @@ body {
     right:-1px;
     background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
     background-position: -60px -60px;
-    }
-}
-
-
-#middle_mid {
-    margin-top: 50px;
-}
-
-.middle_head {
-    text-align: left;
-    margin-bottom: 11px;
-    
-    h3 {
-        margin:0;
     }
 }
