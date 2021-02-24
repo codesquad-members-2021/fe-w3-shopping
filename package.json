@@ -1,0 +1,38 @@
+{
+  "name": "fe-w3-shopping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "concurrently": "^6.0.0",
+    "cors": "^2.8.5",
+    "css-loader": "^5.0.2",
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^5.2.0",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.24.0",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode development  --config ./frontend/webpack.config.js",
+    "dev": "webpack serve --config ./frontend/webpack.config.js",
+    "start": "concurrently \"node backend/index.js\" \"node frontend/index.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ppamppamman/fe-w3-shopping.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ppamppamman/fe-w3-shopping/issues"
+  },
+  "homepage": "https://github.com/ppamppamman/fe-w3-shopping#readme",
+  "type": "module"
+}
