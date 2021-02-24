@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon app.js",
-    "build:sass": "sass --watch src/sass:public/stylesheets"
+    "build:sass": "sass --watch sass:public/stylesheets"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -13,7 +13,9 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.7",
+    "sass": "^1.32.8"
   },
   "description": "쇼핑하우 클론",
   "main": "app.js",
