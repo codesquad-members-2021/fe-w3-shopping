@@ -25,9 +25,11 @@ const createLists = (href_url, img_url, title, info) => {
 fetch("http://localhost:3000/planningEvent.json")
   .then((res) => res.json())
   .then((data) => {
-    const event = data.event; // best100 event 상품
-    const mileageList = data.mileageList; // 캐러셀
-    const mallEventListProducts = data.mallEventList;
+    const { event, mileageList, mallEventList } = data;
+    console.log(mileageList, mallEventList);
+    // const event = data.event; // best100 event 상품
+    // const mileageList = data.mileageList; // 캐러셀
+    // const mallEventListProducts = data.mallEventList;
 
     // mileageList html 코드 만들기
     const carousel_panels = mileageList.reduce((acc, val) => {
@@ -38,13 +40,13 @@ fetch("http://localhost:3000/planningEvent.json")
 
     // mallEventListProducts html 코드 만들기
     let lists = "";
-    const mallEventListPanels = mallEventListProducts.reduce((acc, val, idx) => {
+    const mallEventListPanels = mallEventList.reduce((acc, val, idx) => {
       const { imgurl, linkurl, text, text2 } = val;
       if (!idx % 5) {
         if (idx) acc += createMallEventListPanel(lists);
         lists = "";
         lists += createLists(linkurl, imgurl, text, text2);
-      } else if (idx === mallEventListProducts.length - 1) {
+      } else if (idx === mallEventList.length - 1) {
         lists += createLists(linkurl, imgurl, text, text2);
         acc += createMallEventListPanel(lists);
       } else lists += createLists(linkurl, imgurl, text, text2);
