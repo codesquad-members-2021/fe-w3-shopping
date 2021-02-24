@@ -1,0 +1,229 @@
+body {
+  background-color: #f3f3f3;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header__container {
+  background-color: #fff;
+  box-sizing: border-box;
+  width: 100%;
+  height: 193px;
+  padding-top: 43px;
+  position: relative;
+}
+
+.header {
+  margin: 0 auto;
+  width: 845px;
+  height: 55px;
+}
+.header::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.header__logo {
+  float: left;
+  display: block;
+  cursor: pointer;
+}
+.header__logo img {
+  width: 119px;
+  height: auto;
+}
+.header__search {
+  float: left;
+  margin: 0 24px 0 30px;
+}
+
+.search__box {
+  box-sizing: border-box;
+  width: 670px;
+  height: 54px;
+  padding: 16px 60px 14px 30px;
+  border: 1px solid #cecfd1;
+  border-radius: 10px;
+  background-color: #fff;
+  position: relative;
+}
+.search__box input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 22px;
+  outline: none;
+}
+.search__box button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 52px;
+  height: 52px;
+}
+.search__box button .ico__search {
+  position: absolute;
+  top: 13px;
+  display: block;
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+  background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
+  background-size: 130px 90px;
+  left: 14px;
+  top: 15px;
+  width: 23px;
+  height: 23px;
+}
+
+.gnb {
+  width: 100%;
+  margin-top: 40px;
+  border-top: 1px solid #efefef;
+}
+.gnb__wrap {
+  width: 1280px;
+  margin: 0 auto;
+}
+.gnb__wrap::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.gnb__cate, .gnb__main, .gnb__word,
+.gnb li {
+  float: left;
+}
+.gnb__user {
+  float: right;
+}
+.gnb .txt_bar {
+  float: left;
+  width: 1px;
+  height: 18px;
+  margin-top: 18px;
+  background-color: #e3e3e3;
+}
+
+.gnb__cate > button {
+  display: block;
+  height: 54px;
+  line-height: 58px;
+  font-size: 16px;
+  letter-spacing: -0.04em;
+  color: #000;
+  position: relative;
+  width: 118px;
+  padding-left: 40px;
+  text-align: left;
+}
+.gnb__cate > button .ico__cate {
+  position: absolute;
+  top: 13px;
+  display: block;
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+  background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
+  background-size: 130px 90px;
+  left: 4px;
+  background-position: 0 -30px;
+}
+
+.gnb__main > li > a {
+  display: block;
+  height: 54px;
+  line-height: 58px;
+  font-size: 16px;
+  letter-spacing: -0.04em;
+  color: #000;
+  padding: 0 19px;
+  font-weight: 700;
+  color: #222;
+}
+
+.gnb__word > li > a {
+  display: block;
+  height: 54px;
+  line-height: 58px;
+  font-size: 16px;
+  letter-spacing: -0.04em;
+  color: #000;
+  padding: 0 14px;
+  font-weight: 700;
+  color: #888;
+}
+
+.gnb__user > li a {
+  display: block;
+  height: 54px;
+  line-height: 58px;
+  font-size: 16px;
+  letter-spacing: -0.04em;
+  color: #000;
+  position: relative;
+}
+.gnb__user > li .user__my {
+  width: 70px;
+  padding-left: 33px;
+}
+.gnb__user > li .user__prod {
+  width: 72px;
+  padding: 0 16px 0 34px;
+}
+
+.ico__login {
+  position: absolute;
+  top: 13px;
+  display: block;
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+  background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
+  background-size: 130px 90px;
+  left: 0;
+  background-position: -30px -30px;
+}
+
+.ico__prod {
+  position: absolute;
+  top: 13px;
+  display: block;
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+  background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
+  background-size: 130px 90px;
+  left: 0;
+  background-position: -60px -30px;
+}
+
+.ico__arrow {
+  position: absolute;
+  top: 13px;
+  display: block;
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+  background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
+  background-size: 130px 90px;
+  right: 6px;
+  top: 26px;
+  width: 8px;
+  height: 5px;
+  background-position: -60px -60px;
+}
+
+/*# sourceMappingURL=main.css.map */

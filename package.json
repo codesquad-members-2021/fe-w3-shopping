@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app",
-    "compile:sass": "node-sass src/style/main.scss src/style/shoppingHow.css -w",
-    "build:sass": "sass src/style/main.scss src/style/shoppingHow.css"
+    "watch:sass": "sass --watch public/style:public/style",
+    "build:sass": "sass public/style:public/style"
   },
   "repository": {
     "type": "git",

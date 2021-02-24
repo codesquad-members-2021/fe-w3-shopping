@@ -6,58 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>쇼핑하우</title>
     <link rel="stylesheet" href="style/reset.css"> 
+    <link rel="stylesheet" href="style/main.css"> 
 </head>
 <body>
     <div class="header__container">
 
-        <header>
+        <header class="header">
             <a href="#" class="header__logo">
                 <img src="//search1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/logo_shw.png"
                 alt = "쇼핑하우 by kakaocommerce">
             </a>
 
             <div class="header__search">
-                <form>
-                    <fieldset>
-                        <div class="search__box">
-                            <input>
-                            <button></button>
-                        </div>
-                    </fieldset>
-                </form>
+                <div class="search__box">
+                    <input type="text">
+                    <button>
+                        <span class="ico__search"></span>
+                    </button>
+                </div>
             </div> <!-- .header__search -->
         </header>
 
-        <nav>
-            <div class="gnb__cate">
-                <button>
-                    <span class="gnb__ico"></span>
-                    카테고리
-                </button>
-            </div>
-            <ul class="gnb__main">
-                <li><a href="#">핫딜</a></li>
-                <li><a href="#">베스트100</a></li>
-                <li><a href="#">할인특가</a></li>
-                <li><a href="#">기획전</a></li>
-            </ul>
-            <ul class="gnb__word">
-                <li><a href="#">#수능 선물</a></li>
-                <li><a href="#">#김치 냉장고</a></li>
-                <li><a href="#">#체험 가습기</a></li>
-                <li><a href="#">#구스다운</a></li>
-                <li><a href="#">#온수매트</a></li>
-            </ul>
-            <ul class="gnb__user">
-                <li><a href="#">
-                    <span class="gnb__ico"></span>
-                    로그인
-                </a></li>
-                <li><a href="#">
-                    <span class="gnb__ico"></span>
-                    최근본 상품
-                </a></li>
-            </ul>
+        <nav class="gnb">
+            <div class="gnb__wrap">
+                <div class="gnb__cate">
+                    <button>
+                        <span class="ico__cate"></span>
+                        카테고리
+                    </button>
+                </div>
+                <span class="txt_bar"></span>
+                <ul class="gnb__main">
+                    <li><a href="#">핫딜</a></li>
+                    <li><a href="#">베스트100</a></li>
+                    <li><a href="#">할인특가</a></li>
+                    <li><a href="#">기획전</a></li>
+                </ul>
+                <span class="txt_bar"></span>
+                <ul class="gnb__word">
+                    <li><a href="#">#수능 선물</a></li>
+                    <li><a href="#">#김치 냉장고</a></li>
+                    <li><a href="#">#체험 가습기</a></li>
+                    <li><a href="#">#구스다운</a></li>
+                    <li><a href="#">#온수매트</a></li>
+                </ul>
+                <ul class="gnb__user">
+                    <li><a class="user__my" href="#">
+                        <span class="ico__login"></span>
+                        MY 쇼핑
+                    </a></li>
+                    <li><a class="user__prod" href="#">
+                        <span class="ico__prod"></span>
+                        <span class="ico__arrow"></span>
+                        최근본 상품
+                    </a></li>
+                </ul>
+            </div> <!-- .gnb__wrap-->
         </nav>
 
     </div> <!-- .header__container -->
