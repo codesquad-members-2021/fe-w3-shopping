@@ -20,15 +20,16 @@ export class CarouselMaker {
 }
 
 export class CarouselCtrl {
-   constructor(prev, next, area) {
+   constructor(prev, next, area, status) {
       this.prev = prev;
       this.next = next;
       this.area = area;
+      this.status = status;
       this.init();
    }
 
-   classClear() {
-      if (this.area.classList.contains("moveLeft")) this.area.classList.remove('moveLeft');
+   classCheck() {
+      if (this.area.classList.contains("moveLeft")) this.area.classList.replace('moveLeft');
       if (this.area.classList.contains("moveRight")) this.area.classList.remove('moveRight');
    }
 
@@ -36,29 +37,35 @@ export class CarouselCtrl {
       let firstDiv = _.$All('.slide_panel')[0];
       let lastDiv = _.$All('.slide_panel')[2];
       this.area.insertBefore(lastDiv, firstDiv)
-      this.classClear()
    }
 
    moveChildToLast() {
       let firstDiv = _.$All('.slide_panel')[0];
       this.area.insertBefore(firstDiv, null)
-      this.classClear()
    }
 
    moveRight() {
       this.area.classList.add('moveRight');
-      this.moveChildToLast();
+      // this.moveChildToLast();
    }
 
    moveLeft() {
-      console.log('파라미터가 아닌, 여기서 바로 this.area를 가져오면 왜 undefined였을까?')
-      this.area.classList.add('moveLeft');
-      this.moveChildToLast()
+      if (this.area.classList.contains("moveRight")) this.area.classList.replace('moveLeft')
+      else this.area.classList.add('moveLeft');
+      this.moveChildToLast();
+      //!console.log('파라미터가 아닌, 여기서 바로 this.area를 가져오면 왜 undefined였을까?')
    }
-
 
    init() {
       this.prev.addEventListener('click', () => this.moveRight(this.area));
       this.next.addEventListener('click', () => this.moveLeft(this.area));
+
+      // this.next.addEventListener('click', () => {
+      //    new Promise(resolve => {
+      //       resolve(this.moveLeft(this.area))
+      //    }).then(() => this.moveChildToFirst(this.area))
+      // })
    }
 }
+
+//!메소드간의 연결성을 지우는 방법->현재는 promise로 설정해봤음->트랜지션이 구현안되는 에러(clearClass가 바로실행되지 않아야함).
