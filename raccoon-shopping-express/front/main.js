@@ -1,20 +1,12 @@
-fetch('http://localhost:3000/api/mileageList')
-  .then((response) => response.json())
-  .then((data) => {
-    setMileageEventContents(data);
-    return data;
-  })
-  .then((status) => console.log('Request successful', status.code))
-  .catch((error) => console.log('Request failed', error));
+const url = {
+  mileageList: 'http://localhost:3000/api/mileageList',
+  mallEventList: 'http://localhost:3000/api/mallEventList',
+  hotDealList: 'http://localhost:3000/api/hotDealList',
+  shoppingPartner: 'http://localhost:3000/api/shoppingPartner',
+};
 
-fetch('http://localhost:3000/api/mallEventList')
-  .then((response) => response.json())
-  .then((data) => {
-    getMallEventContentLists(data);
-    return data;
-  })
-  .then((status) => console.log('Request successful', status.code))
-  .catch((error) => console.log('Request failed', error));
+const REQUEST_SUCESS = 'Request successful';
+const REQUEST_FAILED = 'Request failed';
 
 const $mileageEventSlide = document.querySelector('.event--slide');
 const $mileageSlidePage = document.querySelector('#mileageSlidePage');
@@ -24,6 +16,46 @@ const $nextEventButton = document.querySelector('.slide--button--next');
 const $mallEventList = document.querySelector('#mallEventList');
 const $topMileageSlide = document.querySelector('#topMileageSlide');
 const $mallEventSlide = document.querySelector('#mallEventSlide');
+
+class FetchAPI {
+  init() {
+    this.mileageList();
+    this.mallEventList();
+    this.hotDealList();
+  }
+  mileageList = () =>
+    fetch(url.mileageList)
+      .then((response) => response.json())
+      .then((data) => {
+        setMileageEventContents(data);
+        return data;
+      })
+      .then((status) => console.log(REQUEST_SUCESS, status.code))
+      .catch((error) => console.log(REQUEST_FAILED, error));
+
+  mallEventList = () =>
+    fetch(url.mallEventList)
+      .then((response) => response.json())
+      .then((data) => {
+        // getMallEventContentLists(data);
+        return data;
+      })
+      .then((status) => console.log(REQUEST_SUCESS, status.code))
+      .catch((error) => console.log(REQUEST_FAILED, error));
+
+  hotDealList = () =>
+    fetch(url.hotDealList)
+      .then((response) => response.json())
+      .then((data) => {
+        getHotDealLists(data.hotdealList);
+        return data;
+      })
+      .then((status) => console.log(REQUEST_SUCESS, status.code))
+      .catch((error) => console.log(REQUEST_FAILED, error));
+}
+
+const fetchAPI = new FetchAPI();
+fetchAPI.init();
 
 class EventSlider {
   constructor(target) {
@@ -35,13 +67,12 @@ class EventSlider {
   addEvent() {
     // 여기에서 this: EventSlider 객체
     // this.target: $mileageSlider
-    console.log(this, this.target);
+
     this.target.addEventListener('mouseover', this.overEventSlider.bind(this));
-    this.target.addEventListener('mouseout', (e) => this.outEventSlider(e));
-    this.target.addEventListener('click', (e) => this.clickEventSlider(e));
+    this.target.addEventListener('mouseout', this.outEventSlider.bind(this));
+    this.target.addEventListener('click', this.clickEventSlider.bind(this));
   }
   overEventSlider(e) {
-    console.log(this, e.target);
     if (e.target.classList.contains('adela') || e.target.getAttribute('data-index')) {
       this.pageHover(e);
     }
@@ -114,35 +145,6 @@ class EventSlider {
 
 const eventSliderListener = new EventSlider($mileageEventSlide);
 eventSliderListener.init();
-/*
-$mileageEventSlide.addEventListener('mouseover', eventSliderListener.overEventSlider);
-$mileageEventSlide.addEventListener('mouseout', eventSliderListener.outEventSlider);
-$mileageEventSlide.addEventListener('click', eventSliderListener.clickEventSlider);
-*/
-function overEventSlider(e) {
-  if (e.target.classList.contains('adela') || e.target.getAttribute('data-index')) {
-    pageHover(e);
-  }
-  $prevEventButton.querySelector('.ico--prev').classList.replace('ico--prev', 'ico--prev__slide--hover');
-  $nextEventButton.querySelector('.ico--next').classList.replace('ico--next', 'ico--next__slide--hover');
-}
-
-function outEventSlider() {
-  $prevEventButton.querySelector('.ico--prev__slide--hover').classList.replace('ico--prev__slide--hover', 'ico--prev');
-  $nextEventButton.querySelector('.ico--next__slide--hover').classList.replace('ico--next__slide--hover', 'ico--next');
-}
-
-function clickEventSlider(e) {
-  const isClickPrev = () => e.target.classList.contains('slide--button--prev') || e.target.classList.contains('ico--prev__slide--hover');
-  const isClickNext = () => e.target.classList.contains('slide--button--next') || e.target.classList.contains('ico--next__slide--hover');
-
-  if (isClickPrev()) {
-    clickPrev();
-  }
-  if (isClickNext()) {
-    clickNext();
-  }
-}
 
 // slide 내부 동적으로 그려보기
 
@@ -178,6 +180,7 @@ function getMallEventContents(jsonData) {
 
 function getMallEventContentLists(jsonData) {
   console.log(jsonData.mallEventList[0]);
+  // foreach / reduce
   const imgurl = jsonData.mallEventList.map((el) => el.imgurl);
   const linkurl = jsonData.mallEventList.map((el) => el.linkurl);
   const text1 = jsonData.mallEventList.map((el) => el.text1);
@@ -200,4 +203,74 @@ function getMallEventContentLists(jsonData) {
   >
 </li>
   `;
+}
+
+class HotDealSection {
+  draw() {}
+  getHotDealLists() {}
+}
+
+const $hotDealWrapper = document.querySelector('#hot-deal__wrapper');
+
+function getHotDealLists(data) {
+  return getHotDealTitle(data);
+}
+
+function getHotDealTitle(data) {
+  return $hotDealWrapper.querySelector('.section--hot-deal').insertAdjacentHTML(
+    'afterbegin',
+    `
+    <div class="title__hot-deal"><h3 class="title--txt">품절주의! 역대급 핫딜</h3></div>
+      ${getHotDealContents(data)}
+    </div>
+`
+  );
+}
+
+function getHotDealContents(data) {
+  return `
+  <div class="contents--item">
+    <ul class="list--item _GL">
+    ${getHotDealItems(data)}
+    </ul>
+  </div>
+  `;
+}
+
+function getHotDealItems(data) {
+  let items = data.reduce((lists, list) => {
+    let percent = '%';
+    if (list.discount === undefined) {
+      list.discount = '';
+      percent = '';
+    }
+    if (list.maxPrice === undefined) {
+      list.maxPrice = '';
+    }
+
+    const { contentseq, linkUrl, imageUrl, title, minPrice, discount, maxPrice } = list;
+
+    lists += `
+    <li class=${contentseq}>
+      <a href=${linkUrl} class="link--product _GC_">
+        <span class="hot-deal--thumb">
+          <img src=${imageUrl} class="image-group" alt="">
+        </span>
+        <span class="screen-out">제품명</span>
+          <strong class="info--title">${title}</strong>
+        <span class="detail--price">
+          <span class="info--discount">
+            <span class="screen-out">할인가</span>
+            <span class="txt--discount">${minPrice}<span class="txt--unit">원</span></span>
+            <span class="screen-out">할인율</span>
+            <span class="txt--percent">${discount}<span class="txt--unit">${percent}</span>
+          </span>
+        </span>
+        <span class="screen-out">정가</span>
+        <span class="txt--price">${maxPrice}<span class="screen-out">원</span></span></span>
+      </a>
+    </li>`;
+    return lists;
+  }, '');
+  return items;
 }
