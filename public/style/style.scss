@@ -182,19 +182,32 @@ body {
                 width: 32rem;
                 display: flex;
                 overflow: hidden;
-                
-                .slide-img{
-                    padding: 0 2rem;
-                    transform: translate3d(0,0,0);
-                    transition: transform .5s ease-in
-                }
-
-                // .slide-move {
-                //     transform: translate3d(-35rem ,0 ,0);
-                //  }
             }
             
+            .main-top-slide-container {
+                position: relative;
+                left: -115%;
+                display: flex;
+                padding: 0 2rem;
+                transform: translate3d(0,0,0);
+                transition: transform 300ms ease-in-out;
+            }
 
+            .slide-img {
+                padding: 0 2rem;
+            }
+            
+            .slide-move-right {
+                transform: translate3d(-36rem ,0 ,0);
+             }
+
+             .slide-move-left {
+                transform: translate3d(36rem ,0 ,0);
+             }
+
+             .slide-move-duration-zero {
+                 transition-duration: 0ms;
+             }
 
             .main-top-slide-select{
                 bottom: 3rem;
@@ -221,12 +234,20 @@ body {
             }
 
             h6 {
-                font-weight: bold;
+                font-weight: $small-img-title-font-weight;
+                font-size: $small-img-title-font-size;
+                overflow: $small-img-font-overflow;
+                text-overflow: $small-img-font-text-overflow;
+                white-space: $small-img-font-white-space;
             }
+
             p {
                 padding-top: 0.5rem;
-                font-size: 0.7rem;
-                color:$main-grey-color
+                color:$main-grey-color;
+                font-size: $small-img-p-font-size;
+                overflow: $small-img-font-overflow;
+                text-overflow: $small-img-font-text-overflow;
+                white-space: $small-img-font-white-space;
             }
 
             img {
@@ -289,13 +310,20 @@ body {
             padding: $small-img-padding;
 
             h6 {
-                font-weight: bold;
+                font-weight: $small-img-title-font-weight;
+                font-size: $small-img-title-font-size;
+                overflow: $small-img-font-overflow;
+                text-overflow: $small-img-font-text-overflow;
+                white-space: $small-img-font-white-space;
             }
             
             p {
                 padding-top: 0.5rem;
-                font-size: 0.7rem;
-                color:$main-grey-color
+                color:$main-grey-color;
+                font-size: $small-img-p-font-size;
+                overflow: $small-img-font-overflow;
+                text-overflow: $small-img-font-text-overflow;
+                white-space: $small-img-font-white-space;
             }
         }
 
