@@ -19,13 +19,15 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+var server = http.createServer(app); //express를 서버로 지정해주는 코드.
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(port, () => {
+  console.log(`Server Loaded! Refer to following port number => http://localhost:${port}`);
+}); //노드는 전부 비동기! 렌더링이 되면 terminal에 위 메세지가 출력된다.
 server.on('error', onError);
 server.on('listening', onListening);
 
