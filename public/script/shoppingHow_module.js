@@ -4,7 +4,8 @@ const ref = {
     bannerRef: {
         prevBtn: document.querySelector('.btn_prev'),
         nextBtn: document.querySelector('.btn_next'),
-        slideWrap: document.querySelector('.slide__wrap')
+        slideWrap: document.querySelector('.slide__wrap'),
+        pagingIcons: document.querySelectorAll('.ico_paging')
     }
 }
 
