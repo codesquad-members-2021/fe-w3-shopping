@@ -57,6 +57,15 @@ fieldset {
   text-indent: -9999px;
 }
 
+.link--product:hover {
+  img {
+    opacity: 0.75;
+  }
+  strong {
+    text-decoration: underline;
+  }
+}
+
 header {
   padding-top: 43px;
   min-width: 977px;
@@ -240,6 +249,10 @@ header {
         padding: 0 13px;
         color: #222;
         display: inline-block;
+      }
+
+      .link--item:hover {
+        color: #f65b3d;
       }
 
       @include link--common;
@@ -441,7 +454,17 @@ section {
                 top: 0px;
                 transform: translate3d(0px, 0px, 0px);
                 left: -514px;
-                width: 1542px;
+                width: 1551px;
+                &--click--prev {
+                  @extend .slide;
+                  transform: translate3d(514px, 0px, 0px);
+                  transition-duration: 300ms;
+                }
+                &--click--next {
+                  @extend .slide;
+                  transform: translate3d(-514px, 0px, 0px);
+                  transition-duration: 300ms;
+                }
                 .panel {
                   height: 100%;
                   overflow: hidden;
@@ -462,9 +485,6 @@ section {
               }
             }
 
-            .first {
-              margin-left: 0;
-            }
             .paging--bar {
               position: absolute;
               top: 283px;
@@ -480,7 +500,9 @@ section {
                 em.paging--button .page--number {
                   background-color: #000;
                 }
-
+                .first {
+                  margin-left: 0;
+                }
                 .paging--button {
                   display: inline;
                   float: left;
@@ -533,6 +555,14 @@ section {
                   left: 160px;
                   // background-position: -128px -335px;
                 }
+
+                .ico--prev__slide--hover {
+                  background-position: -60px 0;
+                  right: 160px;
+                }
+                .ico--prev__slide--hover:hover {
+                  background-position: -120px 0px;
+                }
               }
               .slide--button--next {
                 right: 44px;
@@ -541,6 +571,13 @@ section {
                   background-position: -30px 0;
                   right: 160px;
                   // background-position: -145px -335px;
+                }
+                .ico--next__slide--hover {
+                  background-position: -90px 0;
+                  right: 160px;
+                }
+                .ico--next__slide--hover:hover {
+                  background-position: -150px 0px;
                 }
               }
             }
@@ -559,6 +596,13 @@ section {
         .contents--item {
           float: left;
           z-index: 0;
+        }
+
+        .mall__event:hover {
+          .button-group {
+            opacity: 1;
+            transition: 0.4s;
+          }
         }
 
         .mall__event {
@@ -660,7 +704,6 @@ section {
           }
 
           .button-group {
-            // display: none;
             overflow: hidden;
             position: absolute;
             top: 50%;
@@ -669,7 +712,10 @@ section {
             height: 41px;
             margin-top: -58px;
             background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/specials/ico_eventlist_141110_v3.png) 0 -340px no-repeat;
+            opacity: 0;
+            transition: 0.4s;
           }
+
           .ico--home {
             width: 9px;
             height: 17px;
@@ -827,6 +873,38 @@ section {
                     text-align: left;
                   }
                 }
+              }
+            }
+          }
+          .more-item__container {
+            position: relative;
+            width: 1274px;
+            // box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ebebeb;
+            border: 1px solid #e4e4e4;
+            border-top: 0;
+            .more-item__button {
+              width: 100%;
+              height: 100%;
+              cursor: pointer;
+              span {
+                display: inline-block;
+                font-weight: 400;
+                color: #333;
+              }
+            }
+
+            &:hover {
+              background: #e5e5e5;
+              transition: 0.4s;
+              span {
+                font-weight: 500;
+                transition: 0.4s;
+                color: #333;
               }
             }
           }
