@@ -135,6 +135,7 @@ const init = () => {
       setTimeout(() => {
         const list = panel.querySelectorAll('.panel__item');
         panel.insertBefore(list[list.length - 1], list[0]);
+        pagingHover.insertBefore(pagingHover.firstElementChild, null);
         panel.classList.remove('transition-on', 'move-prev');
       }, 300);
     }
@@ -143,6 +144,7 @@ const init = () => {
       setTimeout(() => {
         const list = panel.querySelectorAll('.panel__item');
         panel.insertBefore(list[0], null);
+        pagingHover.insertBefore(pagingHover.lastElementChild, pagingHover.firstElementChild);
         panel.classList.remove('transition-on', 'move-next');
       }, 300);
     }
@@ -178,20 +180,17 @@ const init = () => {
   moreBoxButton.addEventListener('click', () => getBox());
   pagingArrow.addEventListener('click', ({ target }) => moveCarousel(target));
   let themePagingInterval = null;
-  let mousedownDuration = null;
   themePagingArrow.addEventListener('mousedown', ({ target }) => {
-    mousedownDuration = new Date();
     themePagingInterval = setInterval(() => {
-      mousedownDuration = new Date();
       handleThemeCarousel(target, 2);
+      target.dataset.moved = '1';
     }, 2000);
   });
   themePagingArrow.addEventListener('mouseup', ({ target }) => {
-    const now = new Date();
-    if(now - mousedownDuration < 500) {
+    if(!target.dataset.moved) {
       handleThemeCarousel(target);
     }
-    mousedownDuration = null;
+    delete target.dataset.moved;
     clearInterval(themePagingInterval);
   });
   getBoxLength();
