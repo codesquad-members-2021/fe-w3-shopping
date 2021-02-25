@@ -18,12 +18,12 @@ class BannerPresentational {
         <div class="wrapper">
           <div class="contents left"> 
             <a href="#"> 
-              <img src=${this.imgSrc} />
+              <img src="${this.imgSrc}" />
             </a>
           </div>
           <div class="contents right"> 
             <img src="http://shop4.daumcdn.net/shophow/sib/0_210219175151_tbehDsXzWnJKZNGWJxRuYhONIcINMfri" /> <!-- 임시 -->
-            <div id="banner-slide"> </div>
+            <div id="banner-slide"></div>
           </div>
         </div>
       </div>

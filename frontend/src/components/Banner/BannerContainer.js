@@ -24,9 +24,7 @@ class BannerContainer {
     this.resetState();
     
     API.get.bannerInfo().then((data) => {
-      this.setState({ 
-        fixedImage: data.event.imgurl
-      });
+      this.setState({ fixedImage: data.event.imgurl });
     });
   }
   
