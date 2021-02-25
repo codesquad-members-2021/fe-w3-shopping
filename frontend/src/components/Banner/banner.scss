@@ -1,0 +1,22 @@
+.banner {
+  display: flex;
+  justify-content: center;
+  
+  .wrapper {
+    margin-top: 19px;
+    box-sizing: border-box;
+    border: 1px solid #e4e4e4; // 변수로 뺄 수 있을 듯
+    
+    // contents-flex-box
+    .contents {
+      // width: 485px;
+      // height: 340px;
+      
+      .left, .right {
+        width: 100%;
+        display: flex;
+      }
+    }
+    
+  }
+}
