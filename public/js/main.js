@@ -10,9 +10,21 @@ class Slider {
   }
 
   clickArrowBtnHandler(e) {
-    // anchor tag 눌림 방지
-    e.preventDefault();
-    console.log('버튼이 클릭되었습니다.');
+    const slideImgs = document.querySelectorAll('.slide-img');
+    const imgContainer = document.querySelector('.main-top-slide-imgs');
+
+    if (e.target.closest('.arrow-btn-right')) {
+      slideImgs.forEach((img) => {
+        img.classList.add('slide-move');
+      });
+    }
+
+    if (e.target.closest('.arrow-btn-left')) {
+      console.log('왼쪽 버튼클릭');
+      slideImgs.forEach((img) => {
+        img.style.transform = 'translate3d(35rem,0,0)';
+      });
+    }
   }
 }
 
