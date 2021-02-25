@@ -1,14 +1,33 @@
-import Model from './Model.js';
-import View from './View.js';
+import LoadDataManager from './LoadDataManager.js';
+import LoadView from './LoadView.js';
 import _ from './util.js';
-// const leftTopImg = document.querySelector('.main__first_line__left__box > img');
-// const rightTopImg = document.querySelectorAll('.main__first_line__right__box >div> img');
+
 
 window.addEventListener('DOMContentLoaded', () => {
 
-  const url = 'https://shoppinghow.kakao.com/v1.0/shophow/top/planningEvent.json?_=1614072773662';
+  const mainImgJsonUrl = 'https://shoppinghow.kakao.com/v1.0/shophow/top/planningEvent.json?';
+  const moreImgJsonUrl = 'https://shoppinghow.kakao.com/v1/event/homecontents.json?page=1&countPerPage=20&min_num=0';
+  const loadDataManager = new LoadDataManager({ mainImgJsonUrl, moreImgJsonUrl });
 
-  const model = new Model({ url });
+  const leftTopImg = _.$('._left_top_image');
+  const rightTopImgs = _.$All('._right_top_image');
+  const middleImgs = _.$All('._middle_image');
+  const bottomImgs = _.$All('._bottom_image');
+  const moreDataButton = _.$('._more_data_button');
+  const mainLeftButton = _.$('._main_left_button');
+  const mainRightButton = _.$('._main_right_button');
+  const threeImgBox = _.$('._three_image_box');
 
-  const view = new View({ model });
+  const nodeObj = {
+    leftTopImg,
+    rightTopImgs,
+    middleImgs,
+    bottomImgs,
+    moreDataButton,
+    mainLeftButton,
+    mainRightButton,
+    threeImgBox
+  }
+
+  const loadView = new LoadView({ loadDataManager }, nodeObj);
 })
