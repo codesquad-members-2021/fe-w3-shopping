@@ -155,7 +155,7 @@ main {
       width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-rows: 340px auto 300px;
     }
     .section_best {
       width: 510px;
@@ -239,9 +239,36 @@ main {
       .section_products_list {
         display: flex;
         li {
-          width: 256px;
+          border: 0.1px solid#e2e2e2;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          width: 254.5px;
           height: 318px;
           padding: 21px 27px;
+
+          .ellipsis {
+            margin-top: 10px;
+            display: inline-block;
+            width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: bold;
+            font-size: 14px;
+          }
+          span {
+            font-size: 11px;
+          }
+          .span_theme {
+            width: 31px;
+            margin-top: 11px;
+            padding-left: 3px;
+            font-size: 12px;
+            border: 1px solid #ff713d;
+            border-radius: 4px;
+            color: #ff713d;
+          }
         }
 
         img {

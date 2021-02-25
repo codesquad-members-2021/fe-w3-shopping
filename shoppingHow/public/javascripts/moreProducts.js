@@ -18,7 +18,12 @@ makeHTML();
 function getHtmlWithData(datas) {
   let string = "";
   for (let i = 0; i < 5; i++) {
-    string += `<li><img src="${datas[i].eventContent.imgurl}"></img></li>`;
+    string += `<li>
+    <img src="${datas[i].eventContent.imgurl}"></img>
+    <span class="ellipsis">${datas[i].eventContent.title}</span>
+    <span>${datas[i].eventContent.subtitle}</span>
+    <span class="span_theme">테마</span>
+    </li>`;
   }
   return string;
 }
