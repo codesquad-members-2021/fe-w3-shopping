@@ -2,28 +2,27 @@ import {
    _
 } from "./util.js";
 
-import {
-   CarouselMaker
-} from "./carousel.js";
-
-
-
 export class LoaderFromJson {
    constructor(url, requestInfo) {
       this.requestInfo = requestInfo;
       this.init(url);
+      this.imgurlArr = [];
    }
 
    populateSlideDiv(parsedData) {
-      let imgurlArr = [];
+      let titleArr = [];
+      let descArr = [];
+
       parsedData.forEach(el => {
          let [title, desc, imgurl] = el;
-         if (imgurl) imgurlArr.push(imgurl);
+         if (title) titleArr.push(title);
+         if (desc) descArr.push(desc);
+         if (imgurl) this.imgurlArr.push(imgurl);
       })
-      return new CarouselMaker(imgurlArr);
    }
 
    dataParsing(data) {
+
       return data.map(el => {
          let title = el.text;
          let desc = el.text2;
@@ -35,6 +34,7 @@ export class LoaderFromJson {
    }
 
    init(link) {
+
       fetch(link)
          .then((response) => {
             return response.json();

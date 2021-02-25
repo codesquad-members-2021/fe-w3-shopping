@@ -3,56 +3,53 @@ import {
 } from "./util.js";
 
 export class CarouselMaker {
-   constructor(imgurl) {
-      this.init(imgurl)
+   constructor(imgurlArr) {
+      this.init(imgurlArr)
    }
 
-   insertToFirstCloneTpl(imgurl) {
-
+   insertToFirstCloneTpl(imgurlArr) {
       const slideDiv = document.createElement('div');
       slideDiv.className = 'slide_panel';
       slideDiv.id = 'last_clone';
       slideDiv.innerHTML =
          `<a href="#">
-               <img src="${imgurl[0]}"></img>
+               <img src="${imgurlArr[0]}"></img>
             </a>`;
       const slideArea = _.$('.slide_second_position');
       slideArea.insertAdjacentElement('afterBegin', slideDiv);
    }
 
-   insertToLastCloneTpl(imgurl) {
+   insertToLastCloneTpl(imgurlArr) {
       const slideDiv = document.createElement('div');
       slideDiv.className = 'slide_panel';
       slideDiv.id = 'first_clone';
       slideDiv.innerHTML =
          `<a href="#">
-               <img src="${imgurl[imgurl.length-1]}"></img>
+               <img src="${imgurlArr[imgurlArr.length-1]}"></img>
             </a>`;
       const slideArea = _.$('.slide_second_position');
       slideArea.insertAdjacentElement('beforeEnd', slideDiv);
    }
 
-   makeBasicTpl(imgurl) {
+   makeBasicTpl(imgurlArr) {
       const slideArea = _.$('.slide_second_position');
-      for (let i = 0; i < imgurl.length; i++) {
+      for (let i = 0; i < imgurlArr.length; i++) {
          const slideDiv = document.createElement('div');
          slideDiv.className = 'slide_panel';
-         if (i === 1) slideDiv.classList.add('visible');
          slideDiv.innerHTML =
             `<a href="#">
-               <img src="${imgurl[i]}"></img>
+               <img src="${imgurlArr[i]}"></img>
             </a>`
          slideArea.insertAdjacentElement('afterBegin', slideDiv);
       }
    }
 
-   init(imgurl) {
-      console.log(imgurl)
+   init(imgurlArr) {
       new Promise(resolve => {
-         resolve(this.makeBasicTpl(imgurl))
+         resolve(this.makeBasicTpl(imgurlArr))
       }).then(() => {
-         this.insertToFirstCloneTpl(imgurl)
-         this.insertToLastCloneTpl(imgurl)
+         this.insertToFirstCloneTpl(imgurlArr)
+         this.insertToLastCloneTpl(imgurlArr)
       });
    }
 }
@@ -86,7 +83,6 @@ export class CarouselCtrl {
          let lastImg = _.$('#first_clone');
          let firstImg = _.$('#last_clone');
 
-         console.log(count, this.area.childNodes, lastImg)
          if (this.area.childNodes[count] === lastImg) {
             count = 1;
             this.area.style.transform = `translate(${-size*count}px)`;
