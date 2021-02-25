@@ -13,8 +13,10 @@ $icon_url : url(https://shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/n
 $icon2_url : url(https://shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/img_home_150131.png);
 $icon_size : 130px 90px;
 $nav_font_size : 16px;
-$img_test: url(https://shop1.daumcdn.net/shophow/sib/0_210219175816_BLrjXAFKSXpUoiPzkxzQFtLjJkHixbZX);
 
+* {
+    border : 1px solid red;
+}
 
 .hide {
     display: none !important;
