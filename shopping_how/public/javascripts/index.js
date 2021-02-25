@@ -1,14 +1,14 @@
-import Painter from "./painter.js";
+import { FileReader } from "./painter.js";
 
 class Main {
-    constructor(painter){
-        this.painter = painter;
+    constructor(fileReader){
+        this.fileReader = fileReader;
         this.init()
     }
     init(){
-        this.painter.renderUI();
+        this.fileReader.getFileData();
     }
 }
 
-const PAINTER = new Painter();
-const MAIN = new Main(PAINTER);
+const FILEREADER = new FileReader();
+const MAIN = new Main(FILEREADER);
