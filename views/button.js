@@ -2,7 +2,6 @@ const TRANS_RIGHT = "trans_right";
 const TRANS_LEFT = "trans_left";
 const ON = "on";
 const carouselSlide = document.querySelector(".carousel_slide");
-const carouselImg = document.querySelectorAll(".items");
 const RIGHT = document.querySelector(".right_button"); 
 const LEFT = document.querySelector(".left_button");
 
