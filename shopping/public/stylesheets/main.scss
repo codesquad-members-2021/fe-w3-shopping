@@ -7,11 +7,20 @@ $logoImg_height: 51px;
 $nav_height: 56px;
 $content_side_padding: 15%;
 $search_color: #cecfd1;
+$bg_color : #f3f3f3;
 $gray_font: #888;
 $icon_url : url(https://shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png);
+$icon2_url : url(https://shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/img_home_150131.png);
 $icon_size : 130px 90px;
 $nav_font_size : 16px;
 
+* {
+    border : 1px solid red;
+}
+
+.hide {
+    display: none !important;
+}
 
 
 ul, li {
@@ -132,6 +141,7 @@ button, input {
         }
     }
 
+    
 
 
 
@@ -195,7 +205,6 @@ button, input {
 
 
 .main {
-    background-color: #f3f3f3;
     display: flex;
     flex-direction: column;
     align-items: center;
