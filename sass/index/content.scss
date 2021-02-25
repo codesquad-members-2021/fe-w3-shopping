@@ -12,7 +12,7 @@
     width: $default-width;
     margin: $auto;
 
-    &__event {
+    &__main {
         display: flex;
         border: 1px solid $lightGray;
         background-color: $white;
@@ -32,17 +32,26 @@
 
         &__carousel {
             @extend .col-6;
-            height: 340px;
-            position: relative;
 
-            .carousel {
+            position: relative;
+            height: 340px;
+            overflow: hidden;
+
+            .slide {
                 @extend .max-WH-auto;
-                @extend .flex-center;
+                position: relative;
+
                 width: 485px;
                 margin: $auto;
+                height: inherit;
+                overflow: hidden;                
+
+                .item {
+                    position: absolute;                    
+                }
             }
 
-            .carousel__paging {
+            .paging {
                 position: absolute;
                 text-align: center;
 
@@ -126,6 +135,7 @@
             background-color: $white;
             margin: $auto;
             border: 1px solid $lightGray;
+            position: relative;
 
             ul {
                 display: flex;
@@ -138,6 +148,29 @@
                         border-right: none;
                     }
                 }
+            }
+        }
+
+        .carousel__special {
+            top: 50%;
+            margin-top: -20px;
+            position: absolute;
+
+            width: 41px;
+            height: 41px;
+
+            background-position: 0 -40px;
+            background-color: black;
+            opacity: 0.5;
+
+            &--prev {
+                @extend .carousel__special;
+                left: 1px;
+            }
+
+            &--next {
+                @extend .carousel__special;
+                right: 1px;
             }
         }
     }

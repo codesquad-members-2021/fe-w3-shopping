@@ -18,7 +18,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .carousel__paging__inner, .content__event__carousel .carousel, .content__event__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
+.flex-center, .content__main__carousel .paging__inner, .content__main__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +48,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .carousel__paging__inner, .content__event__carousel .carousel, .content__event__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
+.flex-center, .content__main__carousel .paging__inner, .content__main__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,38 +62,46 @@ a {
 .col-1 {
   width: 10%;
 }
+
 .col-2 {
   width: 20%;
 }
+
 .col-3 {
   width: 30%;
 }
-.col-4, .content__event__one {
+
+.col-4, .content__main__one {
   width: 40%;
 }
+
 .col-5 {
   width: 50%;
 }
-.col-6, .content__event__carousel {
+
+.col-6, .content__main__carousel {
   width: 60%;
 }
+
 .col-7 {
   width: 70%;
 }
+
 .col-8 {
   width: 80%;
 }
+
 .col-9 {
   width: 90%;
 }
 
-.max-WH-auto, .content__event__carousel .carousel, .content__event__one a, .view-li a img, .content__hot__carousel ul li a img, .content__more__view ul li a img {
+.max-WH-auto, .content__main__carousel .slide, .content__main__one a, .view-li a img, .content__hot__carousel ul li a img, .content__more__view ul li a img {
   max-width: 100%;
   max-height: 100%;
 }
 
 .view-li, .content__hot__carousel ul li, .content__more__view ul li {
-  height: 260px;
+  height: 276px;
   padding: 21px 27px;
   border-bottom: 0 none;
   text-align: left;
@@ -132,7 +140,15 @@ a {
   display: block;
 }
 .icon__carousel, .i-slide__paging--next, .i-slide__paging--prev {
-  background: url("/images/img_home_150131.png") no-repeat;
+  background: url("/images/img_home.png") no-repeat;
+  display: block;
+}
+.icon__comm2, .i-theme {
+  background: url("/images/ico_comm2.gif") no-repeat;
+  display: block;
+}
+.icon__special, .i-slide__special--next, .i-slide__special--prev {
+  background: url("/images/img_special.png") no-repeat;
   display: block;
 }
 
@@ -145,10 +161,22 @@ a {
   height: 28px;
 }
 
+.w-10, .i-slide__special--next, .i-slide__special--prev {
+  width: 10px;
+}
 .w-23, .i-slide__paging--next, .i-slide__paging--prev {
   width: 23px;
 }
+.w-31, .i-theme {
+  width: 31px;
+}
 
+.h-17, .i-slide__special--next, .i-slide__special--prev {
+  height: 17px;
+}
+.h-18, .i-theme {
+  height: 18px;
+}
 .h-45, .i-slide__paging--next, .i-slide__paging--prev {
   height: 45px;
 }
@@ -167,6 +195,18 @@ a {
 }
 .i-slide__paging--next {
   background-position: -30px 0px;
+}
+.i-slide__special--prev {
+  margin: 12px auto;
+  background-position: -110px -100px;
+}
+.i-slide__special--next {
+  margin: 12px auto;
+  background-position: -150px -100px;
+}
+.i-theme {
+  background-position: 0 -850px;
+  margin: 8px 4px 0 0;
 }
 
 body {
@@ -188,7 +228,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .carousel__paging__inner, .content__event__carousel .carousel, .content__event__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
+.flex-center, .content__main__carousel .paging__inner, .content__main__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -342,7 +382,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .carousel__paging__inner, .content__event__carousel .carousel, .content__event__one a, .header__logo-search, .header__menu__wrapper .category button, .header__menu__wrapper ul, .header__menu__wrapper ul.list-usergroup li a {
+.flex-center, .content__main__carousel .paging__inner, .content__main__one a, .header__logo-search, .header__menu__wrapper .category button, .header__menu__wrapper ul, .header__menu__wrapper ul.list-usergroup li a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -372,7 +412,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .carousel__paging__inner, .content__event__carousel .carousel, .content__event__one a, .header__logo-search, .header__menu__wrapper .category button, .header__menu__wrapper ul, .header__menu__wrapper ul.list-usergroup li a {
+.flex-center, .content__main__carousel .paging__inner, .content__main__one a, .header__logo-search, .header__menu__wrapper .category button, .header__menu__wrapper ul, .header__menu__wrapper ul.list-usergroup li a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -386,38 +426,46 @@ a {
 .col-1 {
   width: 10%;
 }
+
 .col-2 {
   width: 20%;
 }
+
 .col-3 {
   width: 30%;
 }
-.col-4, .content__event__one {
+
+.col-4, .content__main__one {
   width: 40%;
 }
+
 .col-5 {
   width: 50%;
 }
-.col-6, .content__event__carousel {
+
+.col-6, .content__main__carousel {
   width: 60%;
 }
+
 .col-7 {
   width: 70%;
 }
+
 .col-8 {
   width: 80%;
 }
+
 .col-9 {
   width: 90%;
 }
 
-.max-WH-auto, .content__event__carousel .carousel, .content__event__one a, .view-li a img, .content__hot__carousel ul li a img, .content__more__view ul li a img {
+.max-WH-auto, .content__main__carousel .slide, .content__main__one a, .view-li a img, .content__hot__carousel ul li a img, .content__more__view ul li a img {
   max-width: 100%;
   max-height: 100%;
 }
 
 .view-li, .content__hot__carousel ul li, .content__more__view ul li {
-  height: 260px;
+  height: 276px;
   padding: 21px 27px;
   border-bottom: 0 none;
   text-align: left;
@@ -457,53 +505,60 @@ a {
 .header + .content {
   margin-top: 19px;
 }
-.content__event {
+.content__main {
   display: flex;
   border: 1px solid #f1f1f1;
   background-color: #fff;
 }
-.content__event__one {
+.content__main__one {
   height: 340px;
   border-right: 1px solid #f1f1f1;
 }
-.content__event__one a {
+.content__main__one a {
   width: 100%;
   margin: 0 auto;
 }
-.content__event__carousel {
-  height: 340px;
+.content__main__carousel {
   position: relative;
+  height: 340px;
+  overflow: hidden;
 }
-.content__event__carousel .carousel {
+.content__main__carousel .slide {
+  position: relative;
   width: 485px;
   margin: 0 auto;
+  height: inherit;
+  overflow: hidden;
 }
-.content__event__carousel .carousel__paging {
+.content__main__carousel .slide .item {
+  position: absolute;
+}
+.content__main__carousel .paging {
   position: absolute;
   text-align: center;
   top: 283px;
   left: 0;
   width: 100%;
 }
-.content__event__carousel .carousel__paging__inner {
+.content__main__carousel .paging__inner {
   margin: 0 auto;
 }
-.content__event__carousel .carousel__paging__inner span {
+.content__main__carousel .paging__inner span {
   display: inline-block;
   padding: 0px 10px;
   margin: 0 2px;
   height: 5px;
   background-color: #ccc;
 }
-.content__event__carousel .carousel__paging__inner span.current {
+.content__main__carousel .paging__inner span.current {
   background-color: #333;
 }
-.content__event__carousel .carousel__paging--prev {
+.content__main__carousel .paging--prev {
   position: absolute;
   left: 52px;
   top: -146px;
 }
-.content__event__carousel .carousel__paging--next {
+.content__main__carousel .paging--next {
   position: absolute;
   right: 52px;
   top: -146px;
@@ -542,6 +597,7 @@ a {
   background-color: #fff;
   margin: 0 auto;
   border: 1px solid #f1f1f1;
+  position: relative;
 }
 .content__hot__carousel ul {
   display: flex;
@@ -552,6 +608,22 @@ a {
 }
 .content__hot__carousel ul li:last-child {
   border-right: none;
+}
+.content__hot .carousel__special, .content__hot .carousel__special--next, .content__hot .carousel__special--prev {
+  top: 50%;
+  margin-top: -20px;
+  position: absolute;
+  width: 41px;
+  height: 41px;
+  background-position: 0 -40px;
+  background-color: black;
+  opacity: 0.5;
+}
+.content__hot .carousel__special--prev {
+  left: 1px;
+}
+.content__hot .carousel__special--next {
+  right: 1px;
 }
 
 /*# sourceMappingURL=index.css.map */

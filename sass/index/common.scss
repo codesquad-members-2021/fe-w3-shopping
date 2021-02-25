@@ -1,61 +1,28 @@
-@import "./root.scss";
-$oneWidth: 10%;
+@import './root.scss';
 
-.col {
-    &-1 {
-        width: $oneWidth * 1;
+@for $i from 1 through 9 {
+    .col-#{$i} {
+        width: $oneWidth * $i;
     }
-
-    &-2 {
-        width: $oneWidth * 2;
-    }
-
-    &-3 {
-        width: $oneWidth * 3;
-    }
-
-    &-4 {
-        width: $oneWidth * 4;
-    }
-
-    &-5 {
-        width: $oneWidth * 5;
-    }
-
-    &-6 {
-        width: $oneWidth * 6;
-    }
-
-    &-7 {
-        width: $oneWidth * 7;
-    }
-
-    &-8 {
-        width: $oneWidth * 8;
-    }
-
-    &-9 {
-        width: $oneWidth * 9;
-    }    
 }
 
 .max-WH {
     &-auto {
         max-width: 100%;
-        max-height: 100%; 
+        max-height: 100%;
     }
 }
 
 // li 태그용 Style (@extend 함)
 // (content__more__view & content__hot__carousel의 ul 안에서 사용)
 .view-li {
-    height: 260px; // 276이였음
+    height: 276px;
     padding: 21px 27px;
     border-bottom: 0 none;
     text-align: left;
     line-height: 14px;
     letter-spacing: -1px;
-    
+
     a {
         display: block;
         img {
