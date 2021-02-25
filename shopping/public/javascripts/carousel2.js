@@ -20,17 +20,6 @@ export default function setSecondCarousel(slideContents, prevButton, nextButton,
   let currSlide = slideContents[currIndex];
   currSlide.classList.add("content_active");
 
-  //   nextButton.addEventListener("click", () => {
-  //     if (currIndex <= slideLen - 1) {
-  //       slideList.style.transition = `${slideSpeed}ms`;
-  //       slideList.style.transform = `translateX(-${slideWidth * (currIndex + 1)}px)`;
-  //     }
-
-  //     currSlide.classList.remove("content_active");
-  //     currSlide = slideContents[++currIndex];
-  //     currSlide.classList.add("content_active");
-  //   });
-
   let isPressed = false;
   let longTimerForNext;
   let longTimerForPrev;
