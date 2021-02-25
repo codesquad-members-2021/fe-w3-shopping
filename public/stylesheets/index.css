@@ -18,7 +18,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .paging__inner, .content__event__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
+.flex-center, .content__main__carousel .paging__inner, .content__main__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +48,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .paging__inner, .content__event__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
+.flex-center, .content__main__carousel .paging__inner, .content__main__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,7 +71,7 @@ a {
   width: 30%;
 }
 
-.col-4, .content__event__one {
+.col-4, .content__main__one {
   width: 40%;
 }
 
@@ -79,7 +79,7 @@ a {
   width: 50%;
 }
 
-.col-6, .content__event__carousel {
+.col-6, .content__main__carousel {
   width: 60%;
 }
 
@@ -95,7 +95,7 @@ a {
   width: 90%;
 }
 
-.max-WH-auto, .content__event__carousel .slide, .content__event__one a, .view-li a img, .content__hot__carousel ul li a img, .content__more__view ul li a img {
+.max-WH-auto, .content__main__carousel .slide, .content__main__one a, .view-li a img, .content__hot__carousel ul li a img, .content__more__view ul li a img {
   max-width: 100%;
   max-height: 100%;
 }
@@ -228,7 +228,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .paging__inner, .content__event__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
+.flex-center, .content__main__carousel .paging__inner, .content__main__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -382,7 +382,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .paging__inner, .content__event__one a, .header__logo-search, .header__menu__wrapper .category button, .header__menu__wrapper ul, .header__menu__wrapper ul.list-usergroup li a {
+.flex-center, .content__main__carousel .paging__inner, .content__main__one a, .header__logo-search, .header__menu__wrapper .category button, .header__menu__wrapper ul, .header__menu__wrapper ul.list-usergroup li a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -412,7 +412,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .paging__inner, .content__event__one a, .header__logo-search, .header__menu__wrapper .category button, .header__menu__wrapper ul, .header__menu__wrapper ul.list-usergroup li a {
+.flex-center, .content__main__carousel .paging__inner, .content__main__one a, .header__logo-search, .header__menu__wrapper .category button, .header__menu__wrapper ul, .header__menu__wrapper ul.list-usergroup li a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -435,7 +435,7 @@ a {
   width: 30%;
 }
 
-.col-4, .content__event__one {
+.col-4, .content__main__one {
   width: 40%;
 }
 
@@ -443,7 +443,7 @@ a {
   width: 50%;
 }
 
-.col-6, .content__event__carousel {
+.col-6, .content__main__carousel {
   width: 60%;
 }
 
@@ -459,7 +459,7 @@ a {
   width: 90%;
 }
 
-.max-WH-auto, .content__event__carousel .slide, .content__event__one a, .view-li a img, .content__hot__carousel ul li a img, .content__more__view ul li a img {
+.max-WH-auto, .content__main__carousel .slide, .content__main__one a, .view-li a img, .content__hot__carousel ul li a img, .content__more__view ul li a img {
   max-width: 100%;
   max-height: 100%;
 }
@@ -505,69 +505,60 @@ a {
 .header + .content {
   margin-top: 19px;
 }
-.content__event {
+.content__main {
   display: flex;
   border: 1px solid #f1f1f1;
   background-color: #fff;
 }
-.content__event__one {
+.content__main__one {
   height: 340px;
   border-right: 1px solid #f1f1f1;
 }
-.content__event__one a {
+.content__main__one a {
   width: 100%;
   margin: 0 auto;
 }
-.content__event__carousel {
+.content__main__carousel {
   position: relative;
   height: 340px;
   overflow: hidden;
 }
-.content__event__carousel .slide {
+.content__main__carousel .slide {
   position: relative;
   width: 485px;
   margin: 0 auto;
   height: inherit;
   overflow: hidden;
 }
-.content__event__carousel .slide .item, .content__event__carousel .slide .item--third, .content__event__carousel .slide .item--second, .content__event__carousel .slide .item--first {
+.content__main__carousel .slide .item {
   position: absolute;
 }
-.content__event__carousel .slide .item--first {
-  transform: translate3d(0%, 0, 0);
-}
-.content__event__carousel .slide .item--second {
-  transform: translate3d(100%, 0, 0);
-}
-.content__event__carousel .slide .item--third {
-  transform: translate3d(200%, 0, 0);
-}
-.content__event__carousel .paging {
+.content__main__carousel .paging {
   position: absolute;
   text-align: center;
   top: 283px;
   left: 0;
   width: 100%;
 }
-.content__event__carousel .paging__inner {
+.content__main__carousel .paging__inner {
   margin: 0 auto;
 }
-.content__event__carousel .paging__inner span {
+.content__main__carousel .paging__inner span {
   display: inline-block;
   padding: 0px 10px;
   margin: 0 2px;
   height: 5px;
   background-color: #ccc;
 }
-.content__event__carousel .paging__inner span.current {
+.content__main__carousel .paging__inner span.current {
   background-color: #333;
 }
-.content__event__carousel .paging--prev {
+.content__main__carousel .paging--prev {
   position: absolute;
   left: 52px;
   top: -146px;
 }
-.content__event__carousel .paging--next {
+.content__main__carousel .paging--next {
   position: absolute;
   right: 52px;
   top: -146px;

@@ -6,5 +6,5 @@ const dataManager = new DataManager();
 new IndexControl(
     dataManager, 
     '.content__more', 
-    '.content__event__carousel'   
+    '.content__main__carousel'   
 ).init();

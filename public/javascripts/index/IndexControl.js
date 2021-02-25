@@ -5,15 +5,15 @@ class IndexControl {
     /**
      * @param {DataManager} dataManager
      */
-    constructor(dataManager, moreWrapSelector, eventCarouselWrapper) {        
+    constructor(dataManager, moreWrapSelector, mainCarouselWrapper) {        
         this.dataManager = dataManager;
         this.moreWrapper = _.$(moreWrapSelector);
-        this.eventCarouselWrapper = _.$(eventCarouselWrapper);
+        this.mainCarouselWrapper = _.$(mainCarouselWrapper);
     }
 
     init() {
         this._setMoreWrapperClickEvent(this.moreWrapper);        
-        this._setEventCarouselClickEvent(this.eventCarouselWrapper);
+        this._setMainCarouselClickEvent(this.mainCarouselWrapper);
 
         this._createMoreViewItems(_.$('.content__more__btn', this.moreWrapper));
     }
@@ -90,28 +90,62 @@ class IndexControl {
     // --
 
 
-    // [2] 상단 캐러샐 (content__event__carousel) 이벤트 등록
-    _setEventCarouselClickEvent(eventCarouselWrapper) {
-        _.addEvent(eventCarouselWrapper, 'click', (e) => this._eventCarouselClickEventHandler(e));
+    // [2] 상단 캐러샐 (content__main__carousel) 이벤트 등록 (이전, 다음)
+    _setMainCarouselClickEvent(mainCarouselWrapper) {
+        _.addEvent(mainCarouselWrapper, 'click', (e) => this._mainCarouselClickEventHandler(e));
     }    
 
-    _eventCarouselClickEventHandler(e) {
+    _mainCarouselClickEventHandler(e) {
         const { target } = e;
-        
-        if (_.closestSelector(target, '.paging--prev')) {
-            // 왼쪽으로..
-
-
-        } else if (_.closestSelector(target, '.paging--next')) {
-            // 오른쪽으로..
-            const itemList = Array.from(_.$All('.slide > div', this.eventCarouselWrapper));
-            itemList.forEach((item, i) => {
-                console.log(item.style.transform)
-                console.log(_.getAttr(item, 'transform'));
-            })
-        }
+        const pagingBtn = _.closestSelector(target, '.paging--prev') || _.closestSelector(target, '.paging--next');
+        this._updateEventCarouseAnimation(pagingBtn);
     }
 
+    // 상단 캐러셀 동작 (이전, 다음 btn)
+    _updateEventCarouseAnimation(pagingBtn) {
+        if (!pagingBtn) return;
+        const exType = pagingBtn.className.indexOf('prev') > -1 ? 'prev' : 'next';
+        const itemList = Array.from(_.$All('.slide > .item', this.mainCarouselWrapper));
+        
+        itemList.forEach((item, i) => {                
+            const minus = (item.style.transform.indexOf('-') > -1) ? true : false;
+            const tmp = item.style.transform.match(/([0-9]+%)/g)[0];
+            let transformX = minus ? `-${tmp}` : tmp;
+            let flag = false;
+            
+            if (exType === 'prev') {
+                switch (transformX) {
+                    case '-100%':   
+                        transformX = '0%';  
+                        break;                    
+                    case '0%':
+                        transformX = '100%'; 
+                        break;
+                    case '100%': 
+                        transformX = '-100%';   
+                        flag = true;
+                        break;
+                    default:    break;
+                }
+            } else {
+                switch (transformX) {
+                    case '-100%': 
+                        transformX = '100%';    
+                        flag = true;
+                        break;                   
+                    case '0%': 
+                        transformX = '-100%';
+                        break;                   
+                    case '100%': 
+                        transformX = '0%';
+                        break;                   
+                    default:    break;
+                }
+            }
+            item.style.transition = flag ? 'opacity 0.4s' : 'transform 0.4s';
+            item.style.transform = `translate3d(${transformX}, 0, 0)`;            
+        })
+    }
 }
 
 export default IndexControl;

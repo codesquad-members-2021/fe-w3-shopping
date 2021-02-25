@@ -12,7 +12,7 @@
     width: $default-width;
     margin: $auto;
 
-    &__event {
+    &__main {
         display: flex;
         border: 1px solid $lightGray;
         background-color: $white;
@@ -32,13 +32,13 @@
 
         &__carousel {
             @extend .col-6;
-            
+
             position: relative;
             height: 340px;
             overflow: hidden;
 
             .slide {
-                @extend .max-WH-auto;                
+                @extend .max-WH-auto;
                 position: relative;
 
                 width: 485px;
@@ -48,23 +48,8 @@
 
                 .item {
                     position: absolute;                    
-                    &--first {
-                        @extend .item;
-                        transform: translate3d(0%, 0, 0);
-                    }
-
-                    &--second {
-                        @extend .item;
-                        transform: translate3d(100%, 0, 0);
-                    }
-
-                    &--third {
-                        @extend .item;
-                        transform: translate3d(200%, 0, 0);
-                    }
                 }
             }
-
 
             .paging {
                 position: absolute;
