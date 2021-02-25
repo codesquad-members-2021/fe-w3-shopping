@@ -1,56 +1,31 @@
-const SHOWING_CLASS = "showing";
-const carouselSlide = document.querySelector(".carousel_slide")
-const slide_ITEM = document.querySelectorAll(".items");
-const RIGHT = document.querySelector(".right"); 
-const LEFT = document.querySelector(".left");
+const TRANS_RIGHT = "trans_right";
+const TRANS_LEFT = "trans_left";
+const ON = "on";
+const carouselSlide = document.querySelector(".carousel_slide");
+const carouselImg = document.querySelectorAll(".items");
+const RIGHT = document.querySelector(".right_button"); 
+const LEFT = document.querySelector(".left_button");
 
-console.log(slide_ITEM.length)
 let counter = 1;
-const size = slide_ITEM[0].clientWidth;
+const size = carouselImg[0].clientWidth;
 
-carouselSlide.style.transform = 'translateX('+ (-size*counter) + 'px)';
-
-RIGHT.addEventListener("click", () => {
-    if(counter >= slide_ITEM.length - 1) return;
-    carouselSlide.style.transition = "transform 0.4s ease-in-out";
-    counter++;
-    carouselSlide.style.transform = 'translateX('+ (-size*counter) + 'px)';
+RIGHT.addEventListener('click', () => {
+    carouselSlide.classList.add(TRANS_RIGHT);
+    carouselSlide.classList.add(ON);
+    setTimeout(() => {
+        carouselSlide.classList.remove(ON);
+        carouselSlide.classList.remove(TRANS_RIGHT);        
+        carouselSlide.insertBefore(carouselSlide.firstElementChild, null);
+    },300)
 });
+
 
 LEFT.addEventListener("click", () => {
-    if(counter <= 0) return;
-    carouselSlide.style.transition = "transform 0.4s ease-in-out";
-    counter--;
-    carouselSlide.style.transform = 'translateX('+ (-size*counter) + 'px)';
+    carouselSlide.classList.add(TRANS_LEFT);
+    carouselSlide.classList.add(ON);
+    setTimeout(() => {
+        carouselSlide.classList.remove(ON);
+        carouselSlide.classList.remove(TRANS_LEFT);        
+        carouselSlide.insertBefore(carouselSlide.lastElementChild,carouselSlide.firstElementChild);
+    },300)
 });
-
-carouselSlide.addEventListener("transitionend", () => {
-    if(slide_ITEM[counter].id === "lastClone") {
-        carouselSlide.style.transition = "none";
-        counter = slide_ITEM.length - 2;
-        carouselSlide.style.transform = 'translateX('+ (-size*counter) + 'px)';
-    }
-    if(slide_ITEM[counter].id === "firstClone") {
-        carouselSlide.style.transition = "none";
-        counter = slide_ITEM.length - counter;
-        carouselSlide.style.transform = 'translateX('+ (-size*counter) + 'px)';
-    }
-});
-
-
-
-// const slide = () => {
-//     const currentslide = document.querySelector(SHOWING_CLASS);
-    
-//     if(currentslide) {
-//         currentslide.classList.remove(SHOWING_CLASS);
-//         const nextslide = currentslide.nextElementSibling;
-//         if(nextslide) {
-//             nextslide.classList.add(SHOWING_CLASS);
-//         } else {
-//             firstslide.classList.add(SHOWING_CLASS);    
-//         }
-//     } else {
-//         firstslide.classList.add(SHOWING_CLASS);
-//     }
-// }

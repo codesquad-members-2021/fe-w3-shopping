@@ -25,62 +25,84 @@
         width:509px;
         height:340px;
     }
-
-    .carousel_slide {
-        display: flex;
-        width: 485px;
-        overflow: hidden;
-        img {
-            width: 485px;
-            height: 340px; 
-        }
-    }
     
-    .slider {
+    .slider_box {
         position:relative;
         width:770px;
-        border-left: 1px solid #cdcdcd;;
+        border-left: 1px solid #cdcdcd;
 
-        .button{
-            position: absolute;
-            top:35%;
-            width: 63px;
-            height: 85px;
-            background-color: transparent;
-            outline: none;
-            border: none;
-            // background-color: red;
-            text-align: -webkit-center;
-            cursor: pointer;
-            &:active {
-                transform: translateY(2px);
+        .slider {
+            display: flex;
+            justify-content: center;
+            width:485px;
+            overflow: hidden;
+    
+            .carousel_slide {
+               display: flex;
+                width: 1455px;
             }
-        }
 
-        .left {
-            @extend .button;
-            left:50px;
- 
-            .left_button {
-                width: 23px;
-                height: 45px;
-                background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/img_home_150131.png) no-repeat;
-                background-position: 0 0;
+            .trans_right {
+                transform: translateX(-485px);
+            }
+            .trans_left {
+                transform: translateX(485px);
+            }
+
+            .on {
+                transition: transform 0.3s ease-in-out;
+            }
+            
+            // .trans {
+            //     transition : transform 0.3s ease-in-out;
+            // }
+
+            .items {
+                width: 485px;
+                height: 340px;
+            }
+
+            .button{
+                position: absolute;
+                top:35%;
+                width: 63px;
+                height: 85px;
+                background-color: transparent;
+                outline: none;
+                border: none;
+                // background-color: red;
+                text-align: -webkit-center;
+                cursor: pointer;
+                &:active {
+                    transform: translateY(2px);
                 }
-            }        
-        }
-
-        .right {
-            @extend .button;
-            right: 50px;
-
-            .right_button {
-                width: 23px;
-                height: 45px;
-                background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/img_home_150131.png) no-repeat;
-                background-position: -30px 0;
             }
-        }
+    
+            .left {
+                @extend .button;
+                left:50px;
+     
+                .left_button {
+                    width: 23px;
+                    height: 45px;
+                    background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/img_home_150131.png) no-repeat;
+                    background-position: 0 0;
+                    }
+                }        
+            }
+    
+            .right {
+                @extend .button;
+                right: 50px;
+    
+                .right_button {
+                    width: 23px;
+                    height: 45px;
+                    background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/img_home_150131.png) no-repeat;
+                    background-position: -30px 0;
+                }
+            }
+    }
 }
 
 .top_imglist {
