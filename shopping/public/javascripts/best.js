@@ -13,7 +13,7 @@ class Best {
 
     loadRandomImage() {
         const RandomNum = this.getRandomNum(0, 2);
-        let item = fetch("http://localhost:3000/homeData.json")
+        fetch("http://localhost:3000/homeData.json")
         .then(response => response.json())
         .then(json => this.renderImage(json.bestList[RandomNum].imgurl));
     }
