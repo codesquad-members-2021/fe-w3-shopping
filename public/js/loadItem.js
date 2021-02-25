@@ -12,14 +12,20 @@ export class LoadItem {
     fetch(`${this.host}:${this.port}/${this.path}/${this.#planningEventJSON}`)
       .then((response) => response.json())
       .then((json) => {
-        const urls = this.getSlideImgURL(json);
-        this.insertSlideTemplate(urls);
+        const slideURL = this.getSlideImgURL(json);
+        const eventProducts = this.getEventProductList(json);
+        this.insertSlideTemplate(slideURL);
+        this.insertSecondLineTemplate(eventProducts);
       })
       .catch((error) => console.log('에러입니다', error));
   }
 
   getSlideImgURL(json) {
     return json.mileageList.map((list) => list.imgurl);
+  }
+
+  getEventProductList(json) {
+    return json.mallEventList.map((list) => list);
   }
 
   insertSlideTemplate(urls) {
@@ -34,5 +40,26 @@ export class LoadItem {
     `
       );
     });
+  }
+
+  insertSecondLineTemplate(eventProducts) {
+    const mainTopSecondLine = document.querySelector(
+      '.main-top-article-secondline'
+    );
+
+    for (let i = 0; i < 5; i += 1) {
+      mainTopSecondLine.insertAdjacentHTML(
+        'beforeend',
+        `<li class="main-top-article-sec-imgs">
+      <a class="main-top-sec-img" href="#"
+        ><img src="${eventProducts[i].imgurl}" alt="${eventProducts[i].dataseq}"
+      /></a>
+      <div class="main-top-article-description">
+        <h6>${eventProducts[i].text}</h6>
+        <p>${eventProducts[i].text2}</p>
+      </div>
+    </li>`
+      );
+    }
   }
 }
