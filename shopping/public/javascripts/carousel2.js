@@ -1,8 +1,15 @@
-export default function setSecondCarousel(slideContents, prevButton, nextButton, slideList) {
-  const slideLen = slideContents.length;
-  const startNum = 5;
-  const slideSpeed = 300;
-  const slideWidth = 252;
+import { carouselState, transitionSlideList, transformSlideList } from "./slide.js";
+
+export default function setSecondCarousel(carouselMaterials, needPagination = false) {
+  const { slideContents, buttons, slideList, slideWidth, startNum } = carouselMaterials;
+
+  const prevButton = Object.values(buttons).find((button) => button.classList.contains("btn_prev"));
+  const nextButton = Object.values(buttons).find((button) => button.classList.contains("btn_next"));
+
+  // const slideLen = slideContents.length;
+  // const startNum = 5;
+  // const slideSpeed = 300;
+  // const slideWidth = 252;
 
   let firstChild = slideList.firstElementChild;
   //   console.log(firstChild);

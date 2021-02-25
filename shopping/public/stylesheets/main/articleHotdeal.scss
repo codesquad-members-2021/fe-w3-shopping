@@ -36,16 +36,9 @@
     font-size: 30px;
     color: map-get($color-palette, default-border-color);
 
-    .btn_hotDeal_prev {
+    .btn_hotDeal {
       padding: 1em;
       background-color: map-get($color-palette, button_background);
-    }
-
-    .btn_hotDeal_next {
-      padding: 1em;
-      background-color: rgba(0, 0, 0, 0.5);
-      background-color: map-get($color-palette, button_background);
-      // border: 1px solid teal;
     }
   }
 

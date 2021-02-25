@@ -74,6 +74,7 @@
           background-color: map-get($color-palette, num_page-color);
 
           .num_page {
+            cursor: pointer;
             display: block;
             width: 15px;
             height: 5px;

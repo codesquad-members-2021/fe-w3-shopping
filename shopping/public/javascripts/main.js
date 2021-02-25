@@ -1,8 +1,8 @@
 // import { createEventItem, setMileageListHtml, setMallEventListHtml } from "./articleTop/panels.js";
-import createCarousel from "./slide.js";
+import { createCarousel } from "./slide.js";
 // import { processDataToHtmlContents, setPaginationHtml } from "./htmlCodes.js";
 import { createEventItem, setMileageListHtml, setPaginationHtml, setMallEventListHtml } from "./htmlCodes.js";
-import setSecondCarousel from "./carousel2.js";
+// import setSecondCarousel from "./carousel2.js";
 
 const mallEventSlide = document.querySelector("#mallEventSlide");
 const slideList = document.querySelector(".slide_list");
@@ -52,7 +52,14 @@ fetch(urls.mileageList)
       const buttons = document.querySelectorAll(".btn_slide");
       const slideWidth = 485;
       const slideSpeed = 300;
-      createCarousel(res, buttons, slideList, slideWidth, slideSpeed);
+      const carouselMaterials = {
+        slideContents: res,
+        buttons,
+        slideList,
+        slideWidth,
+        startNum: 0,
+      };
+      createCarousel(carouselMaterials, slideSpeed, true);
     });
   });
 
@@ -111,11 +118,20 @@ fetch(urls.homeContents)
     hotDealItemHtml.innerHTML = totalHtml;
 
     const slideContents = document.querySelectorAll(".list_hotDeal");
-    const prevButton = document.querySelector(".btn_hotDeal_prev");
-    const nextButton = document.querySelector(".btn_hotDeal_next");
+    const buttons = document.querySelectorAll(".btn_hotDeal");
+    // const prevButton = document.querySelector(".btn_hotDeal_prev");
+    // const nextButton = document.querySelector(".btn_hotDeal_next");
     const slideList = document.querySelector(".content_hotDeal");
+    const carouselMaterials = {
+      slideContents,
+      buttons,
+      slideList,
+      slideWidth: 252,
+      startNum: 5,
+    };
+    createCarousel(carouselMaterials, 300, false, true);
 
-    setSecondCarousel(slideContents, prevButton, nextButton, slideList);
+    // setSecondCarousel(slideContents, prevButton, nextButton, slideList);
   });
 
 function numberWithCommas(x) {
