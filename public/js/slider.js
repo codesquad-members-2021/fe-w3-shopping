@@ -4,7 +4,7 @@ export class Slider {
   }
 
   onEvents() {
-    this.silder.addEventListener('click', this.clickArrowBtnHandler);
+    this.silder.addEventListener('click', this.clickArrowBtnHandler.bind(this));
   }
 
   slideAutomatically() {
@@ -21,19 +21,34 @@ export class Slider {
   }
 
   clickArrowBtnHandler(e) {
-    const slideImgs = document.querySelectorAll('.slide-img');
+    const slider = document.querySelector('.main-top-slide-container');
 
     if (e.target.closest('.arrow-btn-right')) {
-      slideImgs.forEach((img, i) => {
-        img.classList.add(`slide-move`);
-      });
+      this.rightArrowClicked(slider);
+    } else if (e.target.closest('.arrow-btn-left')) {
+      this.leftArrowClicked(slider);
     }
+  }
 
-    if (e.target.closest('.arrow-btn-left')) {
-      console.log('왼쪽 버튼클릭');
-      slideImgs.forEach((img) => {
-        img.style.transform = 'translate3d(35rem,0,0)';
-      });
-    }
+  rightArrowClicked(slider) {
+    slider.classList.add(`slide-move-right`);
+    slider.ontransitionend = () => {
+      slider.classList.add('slide-move-duration-zero');
+      slider.classList.remove(`slide-move-right`);
+      const temp = slider.removeChild(slider.firstElementChild);
+      slider.insertAdjacentElement('beforeend', temp);
+    };
+    slider.classList.remove('slide-move-duration-zero');
+  }
+
+  leftArrowClicked(slider) {
+    slider.classList.add(`slide-move-left`);
+    slider.ontransitionend = () => {
+      slider.classList.add('slide-move-duration-zero');
+      slider.classList.remove(`slide-move-left`);
+      const temp = slider.removeChild(slider.lastElementChild);
+      slider.insertAdjacentElement('afterbegin', temp);
+    };
+    slider.classList.remove('slide-move-duration-zero');
   }
 }
