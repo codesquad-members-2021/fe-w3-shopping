@@ -34,12 +34,12 @@ fetch('https://shoppinghow.kakao.com/v1.0/shophow/top/planningEvent.json?_=16142
     hotDealSlide.init();
   });
 
-//더보기
-// fetch('http://localhost:8080/moreItem')
-//   .then((res) => res.json())
-//   .then((res) => {
-//     const { contents: moreData } = res;
-//     const parsedMoreData = moreParser(moreData);
-//     const more = new More(parsedMoreData, moreSelectors);
-//     more.init();
-//   });
+// 더보기;
+fetch('http://localhost:8080/moreItem')
+  .then((res) => res.json())
+  .then((res) => {
+    const { contents: moreData } = res;
+    const parsedMoreData = moreParser(moreData);
+    const more = new More(parsedMoreData, moreSelectors);
+    more.init();
+  });
