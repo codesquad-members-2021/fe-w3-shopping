@@ -17,7 +17,7 @@ export const makeMoreList = ({ imgurl, title, info }) => `
 </li>                        
 `;
 
-export const makeMoreText = (now, total) => `
+export const makeMoreBtn = (now, total) => `
 <span>더보기</span>
 <span class="more-index">(${now}/${total})</span>
 <span><i class="fas fa-angle-down"></i></span>

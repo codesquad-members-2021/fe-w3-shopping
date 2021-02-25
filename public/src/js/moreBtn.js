@@ -1,15 +1,15 @@
-import { makeMoreList } from './htmlTemplate.js';
+import { makeMoreList, makeMoreBtn } from './htmlTemplate.js';
 
 class More {
   constructor(data, { container, moreBtn }) {
     this.data = data;
-    this.currentData = 0; //this.data의 몇번째 데이터까지 렌더링돼있나 확인
+    this.currentData = 5; //this.data의 몇번째 데이터까지 렌더링돼있나 확인
+    this.maxData = 5;
     this.totalData = data.length;
     this.container = container;
     this.moreBtn = moreBtn;
   }
   init() {
-    console.log('?');
     this.splitData();
     this.render();
   }
@@ -28,12 +28,17 @@ class More {
     this.data = splitedData;
   }
   getMoreListHTML() {
-    const moreListHTML = this.data[0].reduce((acc, cur) => acc + makeMoreList(cur), '');
+    const currentIndex = Math.floor(this.currentData / this.maxData);
+    const moreListHTML = this.data[currentIndex].reduce((acc, cur) => acc + makeMoreList(cur), '');
     return moreListHTML;
   }
   render() {
     const moreListHTML = this.getMoreListHTML();
     this.container.innerHTML = moreListHTML;
+    this.renderMoreBtn();
+  }
+  renderMoreBtn() {
+    this.moreBtn.innerHTML = makeMoreBtn(this.currentData, this.totalData);
   }
 }
 
