@@ -1,18 +1,18 @@
 const createEventItem = (data) => {
   const { linkurl, imgurl } = data;
-  return `<a href="${linkurl}"><img src="${imgurl}"/></a>`;
+  return /*html*/ `<a href="${linkurl}"><img src="${imgurl}"/></a>`;
 };
 
 const createMallEventListPanel = (lists) => {
-  return `<div class="panel"><ul class="list_item">${lists}</ul></div>`;
+  return /*html*/ `<div class="panel"><ul class="list_item">${lists}</ul></div>`;
 };
 
 const createMileageListPanel = (href_url, img_url) => {
-  return `<div class="slide_content"><a href="${href_url}"><img src="${img_url}"></a></div>`;
+  return /*html*/ `<div class="slide_content"><a href="${href_url}"><img src="${img_url}"></a></div>`;
 };
 
 const createLists = (href_url, img_url, title, info) => {
-  return `<li class="_GI_">
+  return /*html*/ `<li class="_GI_">
         <a href="${href_url}">
           <span class="info_thumb">
             <img src="${img_url}" alt="" />
@@ -22,6 +22,31 @@ const createLists = (href_url, img_url, title, info) => {
           <span class="ico_comm2 ico_theme">테마</span>
         </a>
       </li>`;
+};
+
+const createHotDeal = (contents) => {
+  let i = 0;
+  let hotDealHtml;
+  Object.entries(contents).forEach((value, key) => {
+    const currProducts = value[1].eventProducts;
+    hotDealHtml = currProducts.reduce((acc, val) => {
+      const { imageurl, produrl, prodname, mprice } = val;
+      acc += `<li class="_GI_" data-id="${i++}">
+      <a href="${produrl}">
+        <span class="thumb_hotdeal">
+          <img src="${imageurl}" alt="" />
+        </span>
+        <strong class="title_g">${prodname}</strong>
+        <span class="detail_price">${numberWithCommas(mprice)}
+          <span class="price_unit">원</span>
+        </span>
+      </a>
+    </li>`;
+      return acc;
+    }, ``);
+    // console.log(totalHtml);
+  });
+  return `<ul class="list_hotDeal">${hotDealHtml}</ul>`;
 };
 
 const setMileageListHtml = (array) => array.reduce((acc, val) => acc + createMileageListPanel(val.linkurl, val.imgurl), ``);
@@ -44,14 +69,6 @@ const setMallEventListHtml = (array) => {
   }, ``);
 };
 
-// function processDataToHtmlContents(data) {
-//   const { mileageList, mallEventList, event } = data;
-//   const eventItem = createEventItem(event.linkurl, event.imgurl);
-//   const mileageListPanels = setMileageListHtml(mileageList);
-//   const mallEventListPanels = setMallEventListHtml(mallEventList);
-//   return [eventItem, mileageListPanels, mallEventListPanels];
-// }
-
 function createPagnationHtml(slideLen, startNum) {
   return new Promise((resolve, reject) => {
     const pageChild = [...Array(slideLen).keys()].reduce((acc, val) => acc + `<span class="btn_paging ${val === startNum ? "dot_active" : ""}" data-index="${val}"><span class="num_page"></span></span>`, ``);
@@ -70,4 +87,8 @@ function setPaginationHtml(pagination) {
   });
 }
 
-export { createEventItem, setMileageListHtml, setPaginationHtml, setMallEventListHtml };
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+export { createEventItem, setMileageListHtml, setPaginationHtml, setMallEventListHtml, createHotDeal };

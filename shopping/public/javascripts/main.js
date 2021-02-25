@@ -1,8 +1,7 @@
-// import { createEventItem, setMileageListHtml, setMallEventListHtml } from "./articleTop/panels.js";
-import { createCarousel } from "./slide.js";
-// import { processDataToHtmlContents, setPaginationHtml } from "./htmlCodes.js";
-import { createEventItem, setMileageListHtml, setPaginationHtml, setMallEventListHtml } from "./htmlCodes.js";
-// import setSecondCarousel from "./carousel2.js";
+// import api from "./api.js";
+import { carouselState, longClickState } from "./carousel/states.js";
+import { createEventItem, setMileageListHtml, setPaginationHtml, setMallEventListHtml, createHotDeal } from "./htmlCodes.js";
+import Carousel from "./carousel/carousel.js";
 
 const mallEventSlide = document.querySelector("#mallEventSlide");
 const slideList = document.querySelector(".slide_list");
@@ -21,54 +20,38 @@ const insertContentsIntoHtmls = (...htmls) => (...contents) => {
   htmls.forEach((html, index) => (html.innerHTML = contents[index]));
 };
 
-// fetch("http://localhost:3000/planningEvent.json")
-//   .then((res) => res.json())
-//   .then((data) => processDataToHtmlContents(data))
-//   .then((contents) => {
-//     insertContentsIntoHtmls(eventItemHtml, slideList, mallEventSlide)(contents);
-//     setPaginationHtml(pagination).then((res) => {
-//       console.log(res);
-//       const buttons = document.querySelectorAll(".btn_slide");
-//       const slideWidth = 485;
-//       const slideSpeed = 300;
-//       createCarousel(res, buttons, slideList, slideWidth, slideSpeed);
-//     });
-//   })
-//   .catch((err) => console.log(err));
-
-fetch(urls.event)
-  .then((res) => res.json())
-  .then((data) => {
-    const eventItem = createEventItem(data);
-    insertContentsIntoHtmls(eventItemHtml)(eventItem);
+function setCarousel(slideContents, buttonClassName, specifics, startNum) {
+  return new Promise((resolve, reject) => {
+    const buttons = document.querySelectorAll(`.${buttonClassName}`);
+    const { slideList, slideWidth } = specifics;
+    const carouselMaterials = { slideContents, buttons, slideList, slideWidth, startNum };
+    resolve(carouselMaterials);
   });
+}
 
-fetch(urls.mileageList)
-  .then((res) => res.json())
-  .then((data) => {
-    const mileageListPanels = setMileageListHtml(data);
-    insertContentsIntoHtmls(slideList)(mileageListPanels);
-    setPaginationHtml(pagination).then((res) => {
-      const buttons = document.querySelectorAll(".btn_slide");
-      const slideWidth = 485;
-      const slideSpeed = 300;
-      const carouselMaterials = {
-        slideContents: res,
-        buttons,
-        slideList,
-        slideWidth,
-        startNum: 0,
-      };
-      createCarousel(carouselMaterials, slideSpeed, true);
+const top_specifics = { slideList, slideWidth: 485 };
+
+const api = (url) => fetch(url).then((res) => res.json());
+
+const setHtmls = (fn1, fn2) => (arg1, arg2) => {
+  const result = fn1(arg1);
+  fn2(arg2)(result);
+};
+
+const eventItem = api(urls.event).then((data) => setHtmls(createEventItem, insertContentsIntoHtmls)(data, eventItemHtml));
+
+const mileageItems = api(urls.mileageList).then((data) => {
+  setHtmls(setMileageListHtml, insertContentsIntoHtmls)(data, slideList);
+  setPaginationHtml(pagination)
+    .then((contents) => setCarousel(contents, "btn_slide", top_specifics, 0))
+    .then((materials) => {
+      const state = Object.assign({}, carouselState);
+      const topCarousel = new Carousel(state);
+      topCarousel.create(materials, 300, true, false);
     });
-  });
+});
 
-fetch(urls.mallEventList)
-  .then((res) => res.json())
-  .then((data) => {
-    const initialMallEventListPanels = setMallEventListHtml(data);
-    insertContentsIntoHtmls(mallEventSlide)(initialMallEventListPanels);
-  });
+const mallEventItems = api(urls.mallEventList).then((data) => setHtmls(setMallEventListHtml, insertContentsIntoHtmls)(data, mallEventSlide));
 
 const moreButton = document.querySelector("#mallEventList_more");
 moreButton.addEventListener("click", () => {
@@ -85,12 +68,30 @@ moreButton.addEventListener("click", () => {
 });
 
 // hotdeal 불러오기
+const hotDealItemHtml = document.querySelector(".content_hotDeal");
+
+// const hotDealItemList = api(urls.homeContents).then((data) => {
+//   // console.log(data.contents);
+//   // console.log(createHotDeal(data.contents));
+//   const hotdealList = document.querySelector(".content_hotDeal");
+//   setHtmls(createHotDeal, insertContentsIntoHtmls)(data.contents, hotdealList);
+//   // console.log(hotdealList);
+//   const hotdeal_specifics = { slideList: hotdealList, slideWidth: 252 };
+//   const slideContents = document.querySelectorAll(".list_hotDeal");
+//   setCarousel(slideContents, "btn_hotDeal", hotdeal_specifics, 5).then((materials) => {
+//     const c_state = Object.assign({}, carouselState);
+//     const l_state = Object.assign({}, longClickState);
+//     const hotdealCarousel = new Carousel(c_state, l_state);
+//     hotdealCarousel.create(materials, 300, false, true);
+//   });
+// });
+
+// Refactoring...
 
 fetch(urls.homeContents)
   .then((res) => res.json())
   .then((data) => {
     // console.log(data.contents);
-    const hotDealItemHtml = document.querySelector(".content_hotDeal");
     const hotDealContents = data.contents;
     let totalHtml = "";
     let i = 0;
@@ -119,19 +120,19 @@ fetch(urls.homeContents)
 
     const slideContents = document.querySelectorAll(".list_hotDeal");
     const buttons = document.querySelectorAll(".btn_hotDeal");
-    // const prevButton = document.querySelector(".btn_hotDeal_prev");
-    // const nextButton = document.querySelector(".btn_hotDeal_next");
-    const slideList = document.querySelector(".content_hotDeal");
+    const hotdealList = document.querySelector(".content_hotDeal");
     const carouselMaterials = {
       slideContents,
       buttons,
-      slideList,
+      slideList: hotdealList,
       slideWidth: 252,
       startNum: 5,
     };
-    createCarousel(carouselMaterials, 300, false, true);
+    const c_state = Object.assign(carouselState);
+    const l_state = Object.assign(longClickState);
+    const hotdealCarousel = new Carousel(c_state, l_state);
 
-    // setSecondCarousel(slideContents, prevButton, nextButton, slideList);
+    hotdealCarousel.create(carouselMaterials, 300, false, true);
   });
 
 function numberWithCommas(x) {

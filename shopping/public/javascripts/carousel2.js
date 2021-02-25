@@ -1,4 +1,4 @@
-import { carouselState, transitionSlideList, transformSlideList } from "./slide.js";
+import { carouselState, transitionSlideList, transformSlideList } from "./createCarousel.js";
 
 export default function setSecondCarousel(carouselMaterials, needPagination = false) {
   const { slideContents, buttons, slideList, slideWidth, startNum } = carouselMaterials;
