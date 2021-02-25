@@ -33,58 +33,41 @@
         &__carousel {
             @extend .col-6;
             
-            // -- 시험중
-            position: relative; 
+            position: relative;
             height: 340px;
+            overflow: hidden;
+            padding: 0 auto;
 
-            &__wrap {
-                // @extend .col-6;
-                height: inherit;
-                overflow: hidden;
-                position: relative;                
-                margin: 0 auto;
+            .slide {
+                @extend .max-WH-auto;                
+                position: relative;
 
-                .slide {
-                    @extend .max-WH-auto;
-                    @extend .flex-center;
-                    width: 485px;
-                    margin: $auto;
-
-                    /*
-                    // position: relative;
-                    // top: 0px;
-                    // transform: translate3d(0px, 0px, 0px);
-                    // left: -514px;
-                    // width: 1542px;
-                    */
-                }
-            }
-
-            .panel {
-                height: 100%;
-                overflow: hidden;
-                display: inline-block;
-                transform: translate3d(0px, 0px, 0px);
-                width: 100%;
-
-                a {
-                    display: block;
-                    position: relative;
-                    width: 484px;
-                    margin: 0 auto;
-                }
-            }  
-            // --------------
-            
-    
-            .carousel {
-                @extend .max-WH-auto;
-                @extend .flex-center;
                 width: 485px;
                 margin: $auto;
+                height: inherit;
+                overflow: hidden;                
+
+                .item {
+                    position: absolute;                    
+                    &--first {
+                        @extend .item;
+                        transform: translate3d(0%, 0, 0);
+                    }
+
+                    &--second {
+                        @extend .item;
+                        transform: translate3d(100%, 0, 0);
+                    }
+
+                    &--third {
+                        @extend .item;
+                        transform: translate3d(200%, 0, 0);
+                    }
+                }
             }
 
-            .carousel__paging {
+
+            .paging {
                 position: absolute;
                 text-align: center;
 
@@ -188,13 +171,13 @@
             top: 50%;
             margin-top: -20px;
             position: absolute;
-            
+
             width: 41px;
             height: 41px;
 
             background-position: 0 -40px;
             background-color: black;
-            opacity: 0.5;            
+            opacity: 0.5;
 
             &--prev {
                 @extend .carousel__special;
@@ -205,7 +188,6 @@
                 @extend .carousel__special;
                 right: 1px;
             }
-            
         }
     }
 }

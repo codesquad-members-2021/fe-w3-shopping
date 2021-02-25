@@ -18,7 +18,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .carousel__paging__inner, .content__event__carousel .carousel, .content__event__carousel__wrap .slide, .content__event__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
+.flex-center, .content__event__carousel .paging__inner, .content__event__carousel .carousel, .content__event__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +48,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .carousel__paging__inner, .content__event__carousel .carousel, .content__event__carousel__wrap .slide, .content__event__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
+.flex-center, .content__event__carousel .paging__inner, .content__event__carousel .carousel, .content__event__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,7 +95,7 @@ a {
   width: 90%;
 }
 
-.max-WH-auto, .content__event__carousel .carousel, .content__event__carousel__wrap .slide, .content__event__one a, .view-li a img, .content__hot__carousel ul li a img, .content__more__view ul li a img {
+.max-WH-auto, .content__event__carousel .carousel, .content__event__carousel .slide, .content__event__one a, .view-li a img, .content__hot__carousel ul li a img, .content__more__view ul li a img {
   max-width: 100%;
   max-height: 100%;
 }
@@ -228,7 +228,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .carousel__paging__inner, .content__event__carousel .carousel, .content__event__carousel__wrap .slide, .content__event__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
+.flex-center, .content__event__carousel .paging__inner, .content__event__carousel .carousel, .content__event__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -382,7 +382,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .carousel__paging__inner, .content__event__carousel .carousel, .content__event__carousel__wrap .slide, .content__event__one a, .header__logo-search, .header__menu__wrapper .category button, .header__menu__wrapper ul, .header__menu__wrapper ul.list-usergroup li a {
+.flex-center, .content__event__carousel .paging__inner, .content__event__carousel .carousel, .content__event__one a, .header__logo-search, .header__menu__wrapper .category button, .header__menu__wrapper ul, .header__menu__wrapper ul.list-usergroup li a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -412,7 +412,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .carousel__paging__inner, .content__event__carousel .carousel, .content__event__carousel__wrap .slide, .content__event__one a, .header__logo-search, .header__menu__wrapper .category button, .header__menu__wrapper ul, .header__menu__wrapper ul.list-usergroup li a {
+.flex-center, .content__event__carousel .paging__inner, .content__event__carousel .carousel, .content__event__one a, .header__logo-search, .header__menu__wrapper .category button, .header__menu__wrapper ul, .header__menu__wrapper ul.list-usergroup li a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -459,7 +459,7 @@ a {
   width: 90%;
 }
 
-.max-WH-auto, .content__event__carousel .carousel, .content__event__carousel__wrap .slide, .content__event__one a, .view-li a img, .content__hot__carousel ul li a img, .content__more__view ul li a img {
+.max-WH-auto, .content__event__carousel .carousel, .content__event__carousel .slide, .content__event__one a, .view-li a img, .content__hot__carousel ul li a img, .content__more__view ul li a img {
   max-width: 100%;
   max-height: 100%;
 }
@@ -521,23 +521,27 @@ a {
 .content__event__carousel {
   position: relative;
   height: 340px;
-}
-.content__event__carousel__wrap {
-  height: inherit;
   overflow: hidden;
-  position: relative;
-  margin: 0 auto;
+  padding: 0 auto;
 }
-.content__event__carousel__wrap .slide {
+.content__event__carousel .slide {
+  position: relative;
   width: 485px;
   margin: 0 auto;
-  /*
-  // position: relative;
-  // top: 0px;
-  // transform: translate3d(0px, 0px, 0px);
-  // left: -514px;
-  // width: 1542px;
-  */
+  height: inherit;
+  overflow: hidden;
+}
+.content__event__carousel .slide .item, .content__event__carousel .slide .item--third, .content__event__carousel .slide .item--second, .content__event__carousel .slide .item--first {
+  position: absolute;
+}
+.content__event__carousel .slide .item--first {
+  transform: translate3d(0%, 0, 0);
+}
+.content__event__carousel .slide .item--second {
+  transform: translate3d(100%, 0, 0);
+}
+.content__event__carousel .slide .item--third {
+  transform: translate3d(200%, 0, 0);
 }
 .content__event__carousel .panel {
   height: 100%;
@@ -556,32 +560,32 @@ a {
   width: 485px;
   margin: 0 auto;
 }
-.content__event__carousel .carousel__paging {
+.content__event__carousel .paging {
   position: absolute;
   text-align: center;
   top: 283px;
   left: 0;
   width: 100%;
 }
-.content__event__carousel .carousel__paging__inner {
+.content__event__carousel .paging__inner {
   margin: 0 auto;
 }
-.content__event__carousel .carousel__paging__inner span {
+.content__event__carousel .paging__inner span {
   display: inline-block;
   padding: 0px 10px;
   margin: 0 2px;
   height: 5px;
   background-color: #ccc;
 }
-.content__event__carousel .carousel__paging__inner span.current {
+.content__event__carousel .paging__inner span.current {
   background-color: #333;
 }
-.content__event__carousel .carousel__paging--prev {
+.content__event__carousel .paging--prev {
   position: absolute;
   left: 52px;
   top: -146px;
 }
-.content__event__carousel .carousel__paging--next {
+.content__event__carousel .paging--next {
   position: absolute;
   right: 52px;
   top: -146px;
