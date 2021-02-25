@@ -5,7 +5,8 @@ const ref = {
         prevBtn: document.querySelector('.btn_prev'),
         nextBtn: document.querySelector('.btn_next'),
         slideWrap: document.querySelector('.slide__wrap'),
-        pagingIcons: document.querySelectorAll('.ico_paging')
+        pagingList: document.querySelectorAll('.ico_paging'),
+        pagingIcons: document.querySelectorAll('.num_page')
     }
 }
 
