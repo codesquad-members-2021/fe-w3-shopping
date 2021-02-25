@@ -1,14 +1,10 @@
-import { makeSlideItem } from './htmlTemplate.js';
-import { domSelect } from './util.js';
-import { CLASS_LIST } from './data.js';
+import { makeSlideItem } from './util/htmlTemplate.js';
+import { domSelect } from './util/util.js';
+import { CLASS_LIST } from './util/data.js';
 
 class Slide {
-  constructor({ container, slideList, pagingBtn }) {
-    this.data = [
-      'http://shop3.daumcdn.net/shophow/sib/0_210219175556_BtjOWRoiPbsVXvlYusgFvjboDPXRIBQD',
-      'https://shop3.daumcdn.net/shophow/sib/0_210219175609_PZjbWVyRtwcxTlShApbdyOenwLaYCOhs',
-      'http://shop1.daumcdn.net/shophow/sib/0_210219175602_vRyGDQxWDethcelhYcMmXKXpgLqlAIAj'
-    ];
+  constructor(data, { container, slideList, pagingBtn }) {
+    this.data = data;
     this.currentData = this.data[Math.floor(this.data.length / 2)]; //data 가운데 값이 default
     this.originData = [...this.data];
     this.container = container;
@@ -17,23 +13,26 @@ class Slide {
     this.pagingBtns = domSelect('.btn-paging', true, pagingBtn);
   }
   init() {
+    this.render();
     this.checkPagingBtn();
     this.onEvent();
   }
   onEvent() {
     this.container.addEventListener('click', this.handleClick.bind(this));
+    this.slideList.addEventListener('transitionend', this.handleTransitionEnd.bind(this));
     this.pagingBtn.addEventListener('mouseover', this.handleMouseOver.bind(this));
   }
   handleClick({ target: { classList } }) {
     if (this.isPrevBtn(classList)) {
       this.slidePrev();
       this.checkPagingBtn();
-      setTimeout(this.render.bind(this), 300);
     } else if (this.isNextBtn(classList)) {
       this.slideNext();
       this.checkPagingBtn();
-      setTimeout(this.render.bind(this), 300);
     }
+  }
+  handleTransitionEnd() {
+    this.render();
   }
   //prettier-ignore
   handleMouseOver({ target: { dataset: { index } } }) {
@@ -47,12 +46,6 @@ class Slide {
   isNextBtn(classList) {
     return classList.contains('btn-next') || classList.contains('fa-chevron-right');
   }
-  setPrevData() {
-    this.data.unshift(this.data.pop());
-  }
-  setNextData() {
-    this.data.push(this.data.shift());
-  }
   slidePrev() {
     this.setSlideAnimation({ moveX: 515, transition: 'all 0.3s' });
     this.setPrevData();
@@ -63,6 +56,13 @@ class Slide {
     this.setNextData();
     this.setCurrentData();
   }
+  setPrevData() {
+    this.data.unshift(this.data.pop());
+  }
+  setNextData() {
+    this.data.push(this.data.shift());
+  }
+  //currentData에 this.data의 가운데 값을 비교해서 적용시켜주기
   setCurrentData() {
     const midIdx = Math.floor(this.data.length / 2);
     this.currentData = this.data[midIdx];
@@ -75,12 +75,13 @@ class Slide {
     const slideHTML = this.data.reduce((acc, cur) => acc + makeSlideItem(cur), '');
     return slideHTML;
   }
+  //변경된 data를 기반으로 list를 중앙으로 옮기면서 렌더링하기
   render() {
     this.setSlideAnimation({ moveX: 0 });
     const slideHTML = this.getSlideHTML();
     this.slideList.innerHTML = slideHTML;
   }
-  //slide의 가운데 값을 비교해 paging버튼 체크해주기
+  //slide의 가운데 값(currentData)을 비교해 paging버튼 체크해주기
   checkPagingBtn() {
     const { CURRENT_PAGE } = CLASS_LIST;
     const currentIdx = this.originData.indexOf(this.currentData);
@@ -100,7 +101,7 @@ class Slide {
     this.checkPagingBtn();
     this.render();
   }
-  //주어진 index를 중앙으로 Data정렬
+  //주어진 index의 값이 data의 중앙값(화면에 보여지는 부분)이 되게 data정렬
   setDataByIndex(index) {
     const midIdx = Math.floor(this.data.length / 2);
     while (this.data[midIdx] !== this.originData[index]) {
@@ -108,5 +109,4 @@ class Slide {
     }
   }
 }
-
 export default Slide;
