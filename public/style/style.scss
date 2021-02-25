@@ -138,10 +138,13 @@ body {
         display: flex;
         flex-direction: column;
         background-color: $main-white-color;
+        border: 1px solid #e4e4e4;
 
         .main-top-article-fristline {
             display: flex;
             justify-content: center;
+            border-collapse: collapse;
+            border-bottom: 1px solid #e4e4e4;
 
             .slide {
                 display: flex;
@@ -226,11 +229,13 @@ body {
         .main-top-article-secondline {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-evenly;
+            justify-content: space-between;
 
             .main-top-article-sec-imgs {
                 width: $small-img-size-width;
-                padding: $small-img-padding;
+                padding: 1.5rem;
+                border-right: 1px solid #e4e4e4;
+                border-bottom: 1px solid #e4e4e4;
             }
 
             h6 {
