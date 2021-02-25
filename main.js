@@ -4,6 +4,7 @@ const moreBoxButton = document.getElementById('moreBoxButton');
 const viewBoxCount = document.getElementById('viewBoxCount');
 const totalBoxCount = document.getElementById('totalBoxCount');
 const boxTarget = document.getElementById('boxTarget');
+const bestItemTarget = document.getElementById('bestItemTarget');
 const pagingArrow = document.getElementById('pagingArrow');
 const pagingHover = document.getElementById('pagingHover');
 const panel = document.querySelector('.panel');
@@ -43,6 +44,20 @@ const init = () => {
     const data = await api.getItem('carousel');
     console.log(data);
   }
+
+  const getBest = async () => {
+    const data = await api.getItem('best');
+    if(data && !data.error) {
+      renderBest(data);
+    } else {
+      console.log(data.error || '서버와 연결이 끊겼어요.');
+    }
+  };
+
+  const getEvent = async () => {
+    const data = await api.getItem('event');
+    console.log(data);
+  };
   
   const setTotalBoxCount = length => {
     if(length)
@@ -65,6 +80,11 @@ const init = () => {
       `
     , '');
     boxTarget.insertAdjacentHTML('beforeend', str);
+  }
+
+  const renderBest = ({prefix, list}) => {
+    str = `<a class="carousel__item"><img src="${prefix}${list[0].src}"></a>`;
+    bestItemTarget.insertAdjacentHTML('beforeend', str);
   }
   
   const checkMoreButton = () => {
@@ -101,7 +121,6 @@ const init = () => {
         list[list.length - 1].src = tmp;
         panel.classList.remove('transition-on', 'move-next')
       }, 300);
-
     }
   }
 
@@ -109,6 +128,8 @@ const init = () => {
   pagingArrow.addEventListener('click', ({ target }) => moveCarousel(target));
   getBoxLength();
   getBox();
+  getBest();
+  getEvent();
   getThemeCarousel();
 }
 
