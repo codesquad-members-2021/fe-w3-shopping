@@ -16,7 +16,12 @@ li {
   list-style: none;
 }
 
+body {
+  background: #f3f3f3;
+}
+
 header {
+  background: #fff;
   width: 100vw;
   height: 193px;
   padding-top: 43px;
@@ -73,7 +78,6 @@ header {
         height: 100%;
         display: flex;
         font-size: 16px;
-
         align-items: center;
         .category {
           width: 122px;
@@ -142,11 +146,12 @@ header {
 main {
   width: 100vw;
   .main_wrapper {
+    background: #fff;
     width: 1274px;
     margin: 0 auto;
+
     .main_container {
       width: 100%;
-
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
@@ -155,11 +160,17 @@ main {
       width: 510px;
       height: 340px;
       padding: 0 12.5px;
+      border: 2px solid #e2e2e2;
+
+      img {
+        height: 330px;
+      }
     }
     .section_themes {
       width: 764px;
       height: 340px;
       position: relative;
+      border: 2px solid #e2e2e2;
       .slide_box {
         position: relative;
         width: 514px;
@@ -170,8 +181,9 @@ main {
       .slide_paging {
         .prev_button {
           position: absolute;
-          left: 0;
+          left: 5%;
           top: 36%;
+          opacity: 0.6;
           font-size: 60px;
           color: #dedede;
           font-weight: lighter;
@@ -179,11 +191,16 @@ main {
 
         .next_button {
           position: absolute;
-          right: 0;
+          right: 5%;
+          opacity: 0.6;
           top: 36%;
           font-size: 60px;
           font-weight: lighter;
           color: #dedede;
+        }
+
+        button:hover {
+          opacity: 1;
         }
 
         .slide_paging_square {
@@ -207,10 +224,12 @@ main {
       }
     }
     .section_products {
+      border: 2px solid #e2e2e2;
       grid-column: 1/3;
       grid-row: 2/3;
     }
     .section_categories {
+      border: 2px solid #e2e2e2;
       grid-column: 1/3;
     }
   }
