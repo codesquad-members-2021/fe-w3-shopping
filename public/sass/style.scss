@@ -70,11 +70,9 @@ nav {
   }
   .nav__category {
     flex-grow: 0.1;
-    // margin-left: 20px;
   }
   .special-menu {
     flex-grow: 0.2;
-    // margin-left: 20px;
   }
   .hash-tag {
     flex-grow: 0.2;
@@ -94,9 +92,6 @@ nav {
 
 .main-banner {
   background-color: rosybrown;
-  // height: 300px;
-  // display: flex;
-  // justify-content: space-between;
   position: relative;
   padding: 0 40px;
   .main-banner__static {
@@ -105,14 +100,40 @@ nav {
     //   pa
   }
   .main-banner__slide {
-    // flex-grow: 0.8;
     background-color: red;
-    // padding: 0 60px;
-    // display: flex;
-    // justify-content: space-between;
+    padding: 0 60px;
+    height: 340px;
+    width: 600px;
+    overflow: hidden;
     position: absolute;
-    display: flex;
-    justify-content: flex-start;
+    left: 400px;
+    .slide-bundle {
+      display: flex;
+      position: absolute;
+      justify-content: flex-start;
+      background-color: greenyellow;
+    }
+    .slide-bundle li {
+      margin: 0 30px;
+    }
+    .slide-bundle.active {
+      transform: translate3d(485px, 0, 0);
+    }
+    .slide-bundle.left {
+      transform: translate3d(-485px, 0, 0);
+    }
+    .slide__right {
+      position: absolute;
+      left: 590px;
+      top: 50%;
+      z-index: 1;
+    }
+    .slide__left {
+      position: absolute;
+      left: -20;
+      top: 50%;
+      z-index: 1;
+    }
   }
 }
 // #main {

@@ -80,9 +80,39 @@ nav .add-on .add-on__login li {
 }
 .main-banner .main-banner__slide {
   background-color: red;
+  padding: 0 60px;
+  height: 340px;
+  width: 600px;
+  overflow: hidden;
   position: absolute;
+  left: 400px;
+}
+.main-banner .main-banner__slide .slide-bundle {
   display: flex;
+  position: absolute;
   justify-content: flex-start;
+  background-color: greenyellow;
+}
+.main-banner .main-banner__slide .slide-bundle li {
+  margin: 0 30px;
+}
+.main-banner .main-banner__slide .slide-bundle.active {
+  transform: translate3d(485px, 0, 0);
+}
+.main-banner .main-banner__slide .slide-bundle.left {
+  transform: translate3d(-485px, 0, 0);
+}
+.main-banner .main-banner__slide .slide__right {
+  position: absolute;
+  left: 590px;
+  top: 50%;
+  z-index: 1;
+}
+.main-banner .main-banner__slide .slide__left {
+  position: absolute;
+  left: -20;
+  top: 50%;
+  z-index: 1;
 }
 
 /*# sourceMappingURL=style.css.map */
