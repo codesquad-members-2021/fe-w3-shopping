@@ -1,4 +1,26 @@
 {
+  "best" : {
+    "prefix" : "//shop4.daumcdn.net/shophow/sib/",
+    "list" : [
+      {
+        "src" : "0_210219174849_FwZShCdZPYIPpJmvgEiGWverDgJVqrrq"
+      }
+    ]
+  },
+  "event" : {
+    "prefix" : "//shop3.daumcdn.net/shophow/sib/",
+    "list" : [
+      {
+        "src" : "0_210219175556_BtjOWRoiPbsVXvlYusgFvjboDPXRIBQD"
+      },
+      {
+        "src" : "0_210219175609_PZjbWVyRtwcxTlShApbdyOenwLaYCOhs"
+      },
+      {
+        "src" : "0_210219175602_vRyGDQxWDethcelhYcMmXKXpgLqlAIAj"
+      }
+    ]
+  },
   "carousel" : {
     "prefix" : "http://shop1.daumcdn.net/thumb/S318x318/",
     "list" : [
