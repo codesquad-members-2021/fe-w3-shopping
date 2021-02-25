@@ -24,15 +24,15 @@ class IndexControl {
     
     _clickEventHandler(e) {
         const { target } = e;
-        const targetClassName = target.className;
+        const targetClassName = `.${target.className}`;
         if (!targetClassName) return;
 
-        const node = _.closestClassName(target, targetClassName);
-        const bFlag = node === target && node.className === targetClassName;
-
+        const node = _.closestSelector(target, targetClassName);
+        const bFlag = node === target && `.${node.className}` === targetClassName;
+        
         if (bFlag) {
             switch (targetClassName) {
-                case 'content__more__btn': {                                                            
+                case '.content__more__btn': {                                                            
                     this._createMoreViewItems(target);                                         
                     break;
                 }
@@ -64,6 +64,7 @@ class IndexControl {
                 const spanBold = this._createTagAndTextClassName('span', title, 'txt-bold');
                 const spanInfo = this._createTagAndTextClassName('span', subtitle, 'txt-info');
                 const spanTheme = _.createElement('span');
+                _.classAdd(spanTheme, "i-theme");                
         
                 _.appendChildren(a, img, div);
                 _.appendChildren(div, spanBold, spanInfo, spanTheme);

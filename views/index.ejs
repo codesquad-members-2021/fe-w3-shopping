@@ -8,8 +8,7 @@
 
     <body>
         <div class="all-wrapper">
-
-            <div class="header">    
+            <div class="header">
                 <div class="header__logo-search">
                     <div class="logo">
                         <a href="/">
@@ -80,49 +79,57 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>   
+                    </div>
                 </div>
             </div>
 
             <div class="content">
-
-                <div class="content__event">                    
+                <div class="content__event">
                     <div class="content__event__one">
-                        <a href="/">  
-                            <img src="/images/car_best.png"/>                            
+                        <a href="/">
+                            <img src="/images/car_best.png" />
                         </a>
                     </div>
 
                     <div class="content__event__carousel">
-                        
-                        <div class="carousel">                                                       
-                            <img src="/images/coffee_twig.png"/>  <!-- 임시, 추후 삭제 -->    
-                            <!-- 나중에 활성  -->
-                            <!-- width 초과하여야함
-                            <ul class="carousel__items">                                
-                                <li>1</li>
-                                <li>2</li>
-                                <li>3</li>
-                            </ul>
-                            -->
+                        <div class="content__event__carousel__wrap">
+
+                            <div class="slide">
+                                <div>
+                                <a aria-hidden="true" style="display: inline-block;">
+                                    <img src="/images/coffee_twig.png" />
+                                </a>
+                                <a  aria-hidden="false" style="display: inline-block;">
+                                    <img src="/images/coffee_twig.png" />
+                                </a>
+                                <a  aria-hidden="false" style="display: inline-block;">
+                                    <img src="/images/coffee_twig.png" />
+                                </a>
+                            </div>
+                                
+                                
+
+
+                                
+                            </div>
+                            
                         </div>
 
                         <div class="carousel__paging">
                             <span class="carousel__paging__inner">
                                 <span class="current"></span>
                                 <span></span>
-                                <span></span>                                
+                                <span></span>
                             </span>
-  
+
                             <button class="carousel__paging--prev">
                                 <span class="i-slide__paging--prev"></span>
                             </button>
                             <button class="carousel__paging--next">
                                 <span class="i-slide__paging--next"></span>
                             </button>
-
-                        </div>                        
-                    </div>                    
+                        </div>
+                    </div>
                 </div>
 
                 <div class="content__more">
@@ -140,39 +147,51 @@
                                     </div>
                                 </a>
                             </li>
-                             -->                          
-                        </ul>                        
+                             -->
+                        </ul>
                     </div>
 
-                    <button type="button" class="content__more__btn" value="1"></button>
+                    <button
+                        type="button"
+                        class="content__more__btn"
+                        value="1"
+                    ></button>
                 </div>
 
-                <div class="content__hot">                    
+                <div class="content__hot">
                     <p class="content__hot__info">지금뜨는 테마 카테고리</p>
 
                     <div class="content__hot__carousel">
                         <!-- 버튼 클릭당 2개의 아이템 이동, 보이는 최대 갯수 5개  -->
                         <ul>
-                            <% for(let i = 0; i < 5; i++) { %>                                
-                                <li>
-                                    <a href="/">
-                                        <img src="/images/itemsample2.jfif" />
-                                        <div>
-                                            <span class="txt-bold">테스트2-<%= (i+1) %></span>
-                                            <span class="txt-info">테스트2-<%= (i+1) %></span>
-                                            <span class="i-theme"></span>
-                                        </div>
-                                    </a>
-                                </li>
+                            <% for(let i = 0; i < 5; i++) { %>
+                            <li>
+                                <a href="/">
+                                    <img src="/images/itemsample2.jfif" />
+                                    <div>
+                                        <span class="txt-bold"
+                                            >테스트2-<%= (i+1) %></span
+                                        >
+                                        <span class="txt-info"
+                                            >테스트2-<%= (i+1) %></span
+                                        >
+                                        <span class="i-theme"></span>
+                                    </div>
+                                </a>
+                            </li>
                             <% } %>
                         </ul>
-                        <!-- <button class="carousel__prevBtn">◁</button> -->
-                        <!-- <button class="carousel__nextBtn">▷</button> -->
-                    </div>                                        
+
+                        <button class="carousel__special--prev">
+                            <span class="i-slide__special--prev"></span>
+                        </button>
+                        <button class="carousel__special--next">
+                            <span class="i-slide__special--next"></span>
+                        </button>
+                    </div>
                 </div>
-                
             </div>
         </div>
     </body>
-    <script type="module" src= "./javascripts/index.js"></script>
+    <script type="module" src="./javascripts/index.js"></script>
 </html>

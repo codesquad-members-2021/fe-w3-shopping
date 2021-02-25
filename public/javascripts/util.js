@@ -11,9 +11,7 @@ const _ = {
     setAttr: (target, strAttrName, strValue) => target.setAttribute(strAttrName, strValue),    
     getAttr: (target, strAttrName) => target.getAttribute(strAttrName),
     removeAttr: (target, strAttrName) => target.removeAttribute(strAttrName),
-    closestSelector: (target, strSelector) => target.closest(strSelector),
-    closestClassName: (target, className) => target.closest(`.${className}`),
-
+    closestSelector: (target, strSelector) => target.closest(strSelector),    
     appendChild: (target, child) => target.appendChild(child),
     appendChildren: (target, ...children) => children.forEach((child) => target.appendChild(child)),
 };

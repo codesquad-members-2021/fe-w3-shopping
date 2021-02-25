@@ -32,9 +32,51 @@
 
         &__carousel {
             @extend .col-6;
+            
+            // -- 시험중
+            position: relative; 
             height: 340px;
-            position: relative;
 
+            &__wrap {
+                // @extend .col-6;
+                height: inherit;
+                overflow: hidden;
+                position: relative;                
+                margin: 0 auto;
+
+                .slide {
+                    @extend .max-WH-auto;
+                    @extend .flex-center;
+                    width: 485px;
+                    margin: $auto;
+
+                    /*
+                    // position: relative;
+                    // top: 0px;
+                    // transform: translate3d(0px, 0px, 0px);
+                    // left: -514px;
+                    // width: 1542px;
+                    */
+                }
+            }
+
+            .panel {
+                height: 100%;
+                overflow: hidden;
+                display: inline-block;
+                transform: translate3d(0px, 0px, 0px);
+                width: 100%;
+
+                a {
+                    display: block;
+                    position: relative;
+                    width: 484px;
+                    margin: 0 auto;
+                }
+            }  
+            // --------------
+            
+    
             .carousel {
                 @extend .max-WH-auto;
                 @extend .flex-center;
@@ -126,6 +168,7 @@
             background-color: $white;
             margin: $auto;
             border: 1px solid $lightGray;
+            position: relative;
 
             ul {
                 display: flex;
@@ -139,6 +182,30 @@
                     }
                 }
             }
+        }
+
+        .carousel__special {
+            top: 50%;
+            margin-top: -20px;
+            position: absolute;
+            
+            width: 41px;
+            height: 41px;
+
+            background-position: 0 -40px;
+            background-color: black;
+            opacity: 0.5;            
+
+            &--prev {
+                @extend .carousel__special;
+                left: 1px;
+            }
+
+            &--next {
+                @extend .carousel__special;
+                right: 1px;
+            }
+            
         }
     }
 }
