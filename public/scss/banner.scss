@@ -1,0 +1,54 @@
+// banner - area_headtop
+.area_headtop {
+    display: inline-block;
+    // border:solid 1px;
+    width:843px;
+    .tit_shw {
+        display: inline-block;
+        margin-top: 4px;
+        a {
+            display: block;
+        }
+        #logo_shw{
+            width: 119px;
+            height: auto;
+        }
+    }
+    .wrap_shwsearch{
+        display: float;
+        float: right;
+        margin: 0 24px 0 30px;
+        z-index: 1060;
+    }// search box
+    .box_search {
+        width: 670px;
+        height: 54px;
+        border: 1px solid #cecfd1;
+        border-radius: 10px;
+        background-color: #fff;
+        box-sizing: border-box;
+        .input_box{
+            border: 0;
+            margin: 0 20px;
+            padding: 0;
+            height: 100%;
+            width: 570px;
+            float: left;
+            outline:none;
+            cursor: auto;
+        }
+        .btn_shwsearch {
+            margin: 0px;
+            padding: 0px;
+            width: 52px;
+            height: 52px;
+            background-color: transparent;
+            border: none;
+            outline:none;
+            cursor: pointer;
+        }
+        #ico_search {
+            margin:3px 0 0 3px;
+        }
+    }
+}
