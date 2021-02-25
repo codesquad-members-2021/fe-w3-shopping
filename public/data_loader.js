@@ -2,26 +2,39 @@ import {
    _
 } from "./util.js";
 
+import {
+   CarouselMaker
+} from "./carousel.maker.js";
+
+import {
+   BannerImg
+} from "./banner_img.js";
+
 export class LoaderFromJson {
-   constructor(url, requestInfo) {
+   constructor(url, requestInfo, value) {
       this.requestInfo = requestInfo;
+      this.value = value;
       this.init(url);
-      this.imgurlArr = [];
    }
 
-   populateSlideDiv(parsedData) {
+   populateDiv(parsedData) {
       let titleArr = [];
       let descArr = [];
+      let imgUrlArr = [];
 
       parsedData.forEach(el => {
          let [title, desc, imgurl] = el;
          if (title) titleArr.push(title);
          if (desc) descArr.push(desc);
-         if (imgurl) this.imgurlArr.push(imgurl);
+         if (imgurl) imgUrlArr.push(imgurl);
       })
+
+      if (this.value === 'carousel') return new CarouselMaker(imgUrlArr);
+      if (this.value === 'banner') return new BannerImg(imgUrlArr);
    }
 
    dataParsing(data) {
+      if (data.length == undefined) data = [data];
 
       return data.map(el => {
          let title = el.text;
@@ -33,15 +46,15 @@ export class LoaderFromJson {
       })
    }
 
-   init(link) {
+   init(url) {
 
-      fetch(link)
+      fetch(url)
          .then((response) => {
             return response.json();
          }).then((json) => {
             return this.dataParsing(json[this.requestInfo]);
          }).then((result) => {
-            this.populateSlideDiv(result);
+            this.populateDiv(result);
          })
    }
 }
