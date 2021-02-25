@@ -6,14 +6,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>쇼핑하우 클론</title>
   <link rel="stylesheet" type="text/css" href="css/index.css">
-  <script src="js/index.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" integrity="sha384-vuFJ2JiSdUpXLKGK+tDteQZBqNlMwAjhZ3TvPaDfN9QmbPb7Q8qUpbSNapQev3YF" crossorigin="anonymous"></script>
+  <script src="js/index.js" defer></script>
 </head>
 <body>
+  <!-- header -->
   <header class="header">
-    <div class="search-bar"></div>
-    <div class="nav-bar"></div>
+    <!-- logo & search bar -->
+    <div class="header__top">
+      <div class="header__top__logo">
+        <a href="/">
+          <img src="//search1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/logo_shw.png" class="img_g" alt="쇼핑하우 by kakaocommerce">
+        </a>
+      </div>
+      <div class="header__top__search-bar">
+        <input class="search-bar__input" placeholder="외장하드케이스"></input>
+        <button class="search-bar__button" type="submit">
+          <span class="search-bar__button__icon">
+            <i class="fas fa-search"></i>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- nav bar -->
+    <div class="header__nav-bar">
+      <div class="nav-bar__menus-container">
+        <div class="nav-bar__category">
+          <div class="category__icon">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="category__text">카테고리</div>
+        </div>
+        <ul class="nav-bar__main-menu">
+          <li class="main-menu__item">
+            <a href="">핫딜</a>
+          </li>
+          <li class="main-menu__item">
+            <a href="">베스트100</a>
+          </li>
+          <li class="main-menu__item">
+            <a href="">할인특가</a>
+          </li>
+          <li class="main-menu__item">
+            <a href="">기획전</a>
+          </li>
+        </ul>
+        <ul class="nav-bar__theme-menu">
+          <li class="theme-menu__item">
+            <a href="">#건강식품</a>
+          </li>
+          <li class="theme-menu__item">
+            <a href="">#제철음식</a>
+          </li>
+          <li class="theme-menu__item">
+            <a href="">#블루투스이어폰</a>
+          </li>
+          <li class="theme-menu__item">
+            <a href="">#커블체어</a>
+          </li>
+          <li class="theme-menu__item">
+            <a href="">#노트북</a>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-bar__user">
+        <ul class="nav-bar__user-menu">
+          <li class="user-menu__item">
+            <a href="">
+              <div class="login-container">
+                <div class="login__icon">
+                  <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="login__text">로그인</div>
+              </div>
+            </a>
+          </li>
+          <li class="user-menu__item">
+            <div class="recent-products-container">
+              <div class="recent-products__icon">
+                <i class="fas fa-file-alt"></i>
+              </div>
+              <div class="recent-products__text">최근본 상품</div>
+              <div class="recent-products__arrow">
+                <i class="fas fa-caret-down"></i>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   </header>
+
   <div class="main-contents-container">
+    <!-- section1. 기획전 모음 -->
     <section class="banner">
       <div class="banner__contents">
         <div class="banner__main-events">
@@ -22,31 +108,37 @@
               <img src="http://shop4.daumcdn.net/shophow/sib/0_210219174849_FwZShCdZPYIPpJmvgEiGWverDgJVqrrq" alt="home-interior-best">
             </a> 
           </div>
-          <div class="event-slide">
-            <div class="slide">
-              <div class="panel">
-                <a href="">
-                  <img src="" alt="">
-                </a>
-              </div>
-              <div class="panel">
-                <a href="">
-                  <img src="" alt="">
-                </a>
-              </div>
-              <div class="panel">
-                <a href="">
-                  <img src="" alt="">
-                </a>
+          <div class="event-slide-wrapper">
+            <div class="event-slide">
+              <div class="slide">
+                <div class="panel">
+                  <a href="">
+                    <img src="http://shop3.daumcdn.net/shophow/sib/0_210219175556_BtjOWRoiPbsVXvlYusgFvjboDPXRIBQD" alt="">
+                  </a>
+                </div>
+                <div class="panel">
+                  <a href="">
+                    <img src="http://shop3.daumcdn.net/shophow/sib/0_210219175609_PZjbWVyRtwcxTlShApbdyOenwLaYCOhs" alt="">
+                  </a>
+                </div>
+                <div class="panel">
+                  <a href="">
+                    <img src="http://shop1.daumcdn.net/shophow/sib/0_210219175602_vRyGDQxWDethcelhYcMmXKXpgLqlAIAj" alt="">
+                  </a>
+                </div>
               </div>
             </div>
             <div class="paging">
-              <button class="prev-btn"></button>
-              <button class="next-btn"></button>
+              <button class="prev-btn">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="next-btn">
+                <i class="fas fa-chevron-right"></i>
+              </button>
               <div class="current-page-mark">
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
+                <div></div>
+                <div></div>
+                <div></div>
               </div>
             </div>
           </div>

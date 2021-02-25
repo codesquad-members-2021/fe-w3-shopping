@@ -1,0 +1,86 @@
+@import 'variables.scss';
+
+.banner__main-events,
+.best100,
+.slide,
+.panel,
+.current-page-mark {
+  display: flex;
+}
+
+.banner__main-events {
+  width: 100%;
+  height: 340px;
+  border-bottom: 1px solid $light-gray1;
+
+  .best100 {
+    width: 40%;
+    justify-content: center;
+    overflow: hidden;
+    border-right: 1px solid $light-gray1;
+  }
+
+  .event-slide-wrapper {
+    width: 60%;
+  }
+}
+
+.event-slide {
+  margin: 0px 100px;
+  height: 100%;
+  overflow: hidden;
+
+  .slide {
+    position: relative;
+    left: -100%;
+    width: 300%;
+    height: 100%;
+    .panel {
+      width: 33.3333%;
+      justify-content: center;
+      align-items: center;
+    }
+    .panel a img {
+      height: 340px;
+    }
+  }
+}
+
+.paging {
+  position: relative;
+  button {
+    position: absolute;
+    top: -220px;
+    padding: 15px;
+    svg {
+      font-size: 60px;
+      color: $light-gray1;
+    }
+    svg:hover {
+      color: $medium-gray;
+    }
+  }
+  .prev-btn {
+    left: 40px;
+  }
+  .next-btn {
+    right: 40px;
+  }
+
+  .current-page-mark {
+    position: absolute;
+    top: -60px;
+    left: 330px;
+    div {
+      width: 15px;
+      height: 6px;
+      background-color: $light-gray2;
+      margin: 0px 2px;
+    }
+  }
+}
+
+.banner__sub-events {
+  width: 100%;
+  height: 320px;
+}
