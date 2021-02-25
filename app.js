@@ -1,48 +1,55 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var sassMiddleware = require('node-sass-middleware');
+//서버에서 사용하게 될 미들웨어
+/*-------express 객체 선언 부, 우리가 사용할 미들웨어를 비롯해 Express 제공 미들웨어 객체 선언------*/
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const sassMiddleware = require("node-sass-middleware");
+const cors = require("cors"); //여기
+//-------------------------------------------------------------------------------
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require("./routes/index"); // 라우터 선언
+const imageRouter = require("./routes/image");
 
-var app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
-app.use(logger('dev'));
+const app = express(); //미들웨어 등록을 위해 app 객체에 express 객체 등록
+// view engine setup : app.set 메서드를 통해 express 앱 설정
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+//-------------------------------------
+//미들웨어 등록 시작
+app.use(cors()); //인증추가
+app.use(logger("dev")); //미들웨어 이용 : 모든 서버로 들어노는 요청이 여길 지나가게
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(sassMiddleware({
-  src: path.join(__dirname, 'public'),
-  dest: path.join(__dirname, 'public'),
-  indentedSyntax: true, // true = .sass and false = .scss
-  sourceMap: true
-}));
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use(
+  sassMiddleware({
+    src: path.join(__dirname, "public"),
+    dest: path.join(__dirname, "public"),
+    indentedSyntax: true, // true = .sass and false = .scss
+    sourceMap: true,
+  })
+);
+app.use(express.static(path.join(__dirname, "public")));
+app.use("/", indexRouter);
+app.use("/image", imageRouter); // /image로 요청오면 imageRouter가 처리할거야??
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.error = req.app.get("env") === "development" ? err : {};
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render("error");
 });
+//미들웨어 등록 종료
 
-module.exports = app;
+module.exports = app; //app 객체 사용할 수 있도록 모듈에 등록함(export)
