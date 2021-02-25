@@ -1,11 +1,8 @@
 window.addEventListener("load", () => {
   const slideList = document.querySelector(".slide_list");
-  const slideContents = document.querySelectorAll(".slide_list li");
 
   const nextBtn = document.querySelector(".next_button");
   const prevBtn = document.querySelector(".prev_button");
-
-  console.log(slideContents);
 
   function loadItems() {
     let slideInnerHTML = "";
@@ -53,7 +50,6 @@ window.addEventListener("load", () => {
   });
 
   slideList.addEventListener("transitionend", function () {
-    console.log(counter);
     if (counter === 4) {
       slideList.style.transition = "none";
       counter = counter - 3;

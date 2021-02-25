@@ -198,6 +198,11 @@ main {
             padding: 0 6px;
             margin: 0 2px;
           }
+
+          .black {
+            background: black;
+            color: black;
+          }
         }
       }
     }
@@ -221,8 +226,4 @@ main {
       float: left;
     }
   }
-}
-
-.black {
-  background-color: black;
 }
