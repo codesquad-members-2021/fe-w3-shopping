@@ -9,6 +9,7 @@ export default class Slider {
   }
 
   init() {
+    this.transitionendEvent();
     this.clickEvent();
   }
 
@@ -16,12 +17,13 @@ export default class Slider {
     _.on(this.bannerBtns, "click", ({ target }) => {
       switch (target.className) {
         case "icon_slide prev":
-          this.transitionendEvent();
-          this.$slider.style.transform = "translate3d(484px, 0px, 0px)";
-          this.$slider.style.transitionDuration = "0ms";
+          this.$slider.removeAttribute("style");
+
+          this.$slider.style.transform = "translate3d(-484px, 0px, 0px)";
           break;
         case "icon_slide next":
-          this.$slider.style.transform = "translate3d(-484px, 0px, 0px)";
+          this.$slider.removeAttribute("style");
+          this.$slider.style.transform = "translate3d(484px, 0px, 0px)";
           break;
       }
     });
@@ -29,14 +31,18 @@ export default class Slider {
 
   transitionendEvent() {
     _.on(this.$slider, "transitionend", ({ target }) => {
-      let last = target.lastElementChild
-      target.insertBefore(last, target.childNodes[0]);
-      //this.$slider.insertBefore(
-      //  target.lastElementChild,
-      //  this.$slider.childNodes[0]
-      //);
+      switch (target.style.transform) {
+        case "translate3d(484px, 0px, 0px)":
+          target.insertBefore(target.lastElementChild, target.firstChild);
+          break;
+        case "translate3d(-484px, 0px, 0px)":
+          target.lastElementChild.insertAdjacentElement(
+            "afterend",
+            target.firstElementChild
+          );
+      }
+      this.$slider.style.transition = "none";
       this.$slider.style.transform = "translate3d(0px, 0px, 0px)";
-      this.$slider.style.transitionDuration = "300ms";
     });
   }
 

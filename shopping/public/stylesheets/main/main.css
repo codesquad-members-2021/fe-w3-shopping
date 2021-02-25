@@ -26,8 +26,6 @@
     width: 485px;
     height: 340px; }
     .main__banner__top .banner__right .banner__slider {
-      transition-duration: 300ms;
-      transform: translate3d(0px, 0px, 0px);
       display: flex;
       position: relative;
       top: 0px;
@@ -72,3 +70,11 @@
       background-color: #ccc; }
     .inner_paging span .selected {
       background-color: #000; }
+
+.transitiondefault {
+  transition-duration: 300ms;
+  transform: translate3d(0px, 0px, 0px); }
+
+.transitionLeft {
+  transition-duration: 0ms;
+  transform: translate3d(0px, 0px, 0px); }
