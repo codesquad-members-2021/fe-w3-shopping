@@ -1,21 +1,16 @@
-const url = {
-  mileageList: 'http://localhost:3000/api/mileageList',
-  mallEventList: 'http://localhost:3000/api/mallEventList',
-  hotDealList: 'http://localhost:3000/api/hotDealList',
-  shoppingPartner: 'http://localhost:3000/api/shoppingPartner',
-};
-
-const REQUEST_SUCESS = 'Request successful';
-const REQUEST_FAILED = 'Request failed';
-
-const $mileageEventSlide = document.querySelector('.event--slide');
-const $mileageSlidePage = document.querySelector('#mileageSlidePage');
-const $prevEventButton = document.querySelector('.slide--button--prev');
-const $nextEventButton = document.querySelector('.slide--button--next');
-
-const $mallEventList = document.querySelector('#mallEventList');
-const $topMileageSlide = document.querySelector('#topMileageSlide');
-const $mallEventSlide = document.querySelector('#mallEventSlide');
+import {
+  url,
+  REQUEST_SUCESS,
+  REQUEST_FAILED,
+  $mileageEventSlide,
+  $prevEventButton,
+  $nextEventButton,
+  $topMileageSlide,
+  $mileageSlidePage,
+  $mallEventList,
+  $mallEventSlide,
+  $hotDealWrapper,
+} from './const';
 
 class FetchAPI {
   init() {
@@ -47,7 +42,8 @@ class FetchAPI {
     fetch(url.hotDealList)
       .then((response) => response.json())
       .then((data) => {
-        getHotDealLists(data.hotdealList);
+        const hotDealSection = new HotDealSection(data);
+        hotDealSection.draw();
         return data;
       })
       .then((status) => console.log(REQUEST_SUCESS, status.code))
@@ -206,71 +202,78 @@ function getMallEventContentLists(jsonData) {
 }
 
 class HotDealSection {
-  draw() {}
-  getHotDealLists() {}
-}
+  constructor(data, initial, more) {
+    this.data = data;
+    this.initial = initial;
+    this.more = more;
+  }
 
-const $hotDealWrapper = document.querySelector('#hot-deal__wrapper');
+  draw() {
+    this.getHotDealLists();
+  }
 
-function getHotDealLists(data) {
-  return getHotDealTitle(data);
-}
+  moreListDraw() {
+    this.getHotDealContents();
+  }
 
-function getHotDealTitle(data) {
-  return $hotDealWrapper.querySelector('.section--hot-deal').insertAdjacentHTML(
-    'afterbegin',
-    `
-    <div class="title__hot-deal"><h3 class="title--txt">품절주의! 역대급 핫딜</h3></div>
-      ${getHotDealContents(data)}
-    </div>
-`
-  );
-}
+  getHotDealLists() {
+    return this.getHotDealTitle();
+  }
+  getHotDealTitle() {
+    return $hotDealWrapper.querySelector('.section--hot-deal').insertAdjacentHTML(
+      'afterbegin',
+      `
+      <div class="title__hot-deal"><h3 class="title--txt">품절주의! 역대급 핫딜</h3></div>
+      <div class="contents--item">
+        ${this.getHotDealContents()}
+      </div>
+      </div>
+  `
+    );
+  }
+  getHotDealContents() {
+    return `
+      <ul class="list--item _GL">
+      ${this.getHotDealItems()}
+      </ul>
+    
+    `;
+  }
+  getHotDealItems() {
+    let items = this.data.hotdealList.reduce((lists, list) => {
+      let percent = '%';
+      if (list.discount === undefined) {
+        list.discount = '';
+        percent = '';
+      }
+      if (list.maxPrice === undefined) {
+        list.maxPrice = '';
+      }
 
-function getHotDealContents(data) {
-  return `
-  <div class="contents--item">
-    <ul class="list--item _GL">
-    ${getHotDealItems(data)}
-    </ul>
-  </div>
-  `;
-}
+      const { contentseq, linkUrl, imageUrl, title, minPrice, discount, maxPrice } = list;
 
-function getHotDealItems(data) {
-  let items = data.reduce((lists, list) => {
-    let percent = '%';
-    if (list.discount === undefined) {
-      list.discount = '';
-      percent = '';
-    }
-    if (list.maxPrice === undefined) {
-      list.maxPrice = '';
-    }
-
-    const { contentseq, linkUrl, imageUrl, title, minPrice, discount, maxPrice } = list;
-
-    lists += `
-    <li class=${contentseq}>
-      <a href=${linkUrl} class="link--product _GC_">
-        <span class="hot-deal--thumb">
-          <img src=${imageUrl} class="image-group" alt="">
-        </span>
-        <span class="screen-out">제품명</span>
-          <strong class="info--title">${title}</strong>
-        <span class="detail--price">
-          <span class="info--discount">
-            <span class="screen-out">할인가</span>
-            <span class="txt--discount">${minPrice}<span class="txt--unit">원</span></span>
-            <span class="screen-out">할인율</span>
-            <span class="txt--percent">${discount}<span class="txt--unit">${percent}</span>
+      lists += `
+      <li class=${contentseq}>
+        <a href=${linkUrl} class="link--product _GC_">
+          <span class="hot-deal--thumb">
+            <img src=${imageUrl} class="image-group" alt="">
           </span>
-        </span>
-        <span class="screen-out">정가</span>
-        <span class="txt--price">${maxPrice}<span class="screen-out">원</span></span></span>
-      </a>
-    </li>`;
-    return lists;
-  }, '');
-  return items;
+          <span class="screen-out">제품명</span>
+            <strong class="info--title">${title}</strong>
+          <span class="detail--price">
+            <span class="info--discount">
+              <span class="screen-out">할인가</span>
+              <span class="txt--discount">${minPrice}<span class="txt--unit">원</span></span>
+              <span class="screen-out">할인율</span>
+              <span class="txt--percent">${discount}<span class="txt--unit">${percent}</span>
+            </span>
+          </span>
+          <span class="screen-out">정가</span>
+          <span class="txt--price">${maxPrice}<span class="screen-out">원</span></span></span>
+        </a>
+      </li>`;
+      return lists;
+    }, '');
+    return items;
+  }
 }
