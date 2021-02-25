@@ -13,16 +13,8 @@ class BannerContainer {
 
     // 상태
     this.fixedImage = "";
-    
-    // 배너 캐로셀 initialize
-    // this.carouselImages = [];
-    // let $target = this.$BannerPresentational.$target.querySelector("#banner-slide");
-    // this.bannerCarouselContainer = new BannerCarouselContainer({ $target, state });
-    // console.log(data.mallEventList.slice(0,10));
-    // carouselImages: data.mileageList
-
+  
     this.init();
-    window.bc = this;
   }
 
   init() {
