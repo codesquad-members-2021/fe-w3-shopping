@@ -9,7 +9,7 @@ class Header {
     }
 
     toggleHastag() {
-        if(this.nav.offsetWidth < 1500) {
+        if(this.nav.offsetWidth < 1550) {
             this.hashtag.classList.add("hide");
         } else {
             this.hashtag.classList.remove("hide");
