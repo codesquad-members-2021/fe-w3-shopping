@@ -6,6 +6,16 @@ export class LoadItem {
     this.host = 'http://localhost';
     this.port = 3000;
     this.path = 'data';
+    this.count = 5;
+  }
+
+  onEvents() {
+    const showMoreBtn = document.querySelector('.show-btn');
+    showMoreBtn.addEventListener('click', this.clickBtnHandler.bind(this));
+  }
+
+  clickBtnHandler() {
+    this.showImgs();
   }
 
   showImgContents() {
@@ -16,6 +26,8 @@ export class LoadItem {
         const eventProducts = this.getEventProductList(json);
         this.insertSlideTemplate(slideURL);
         this.insertSecondLineTemplate(eventProducts);
+        this.insertThemeCategoryTemplate(eventProducts);
+        this.showImgs();
       })
       .catch((error) => console.log('에러입니다', error));
   }
@@ -42,24 +54,54 @@ export class LoadItem {
     });
   }
 
+  showImgs() {
+    const mainTopSecondLine = document.querySelectorAll(
+      '.main-top-article-sec-imgs.img-visibility-hidden'
+    );
+    for (let i = 0; i < 5; i += 1) {
+      mainTopSecondLine[i]?.classList.remove('img-visibility-hidden');
+    }
+  }
+
   insertSecondLineTemplate(eventProducts) {
     const mainTopSecondLine = document.querySelector(
       '.main-top-article-secondline'
     );
 
-    for (let i = 0; i < 5; i += 1) {
+    eventProducts.forEach((url) => {
       mainTopSecondLine.insertAdjacentHTML(
         'beforeend',
-        `<li class="main-top-article-sec-imgs">
+        `<li class="main-top-article-sec-imgs img-visibility-hidden">
       <a class="main-top-sec-img" href="#"
-        ><img src="${eventProducts[i].imgurl}" alt="${eventProducts[i].dataseq}"
+        ><img src="${url.imgurl}" alt="${url.dataseq}"
       /></a>
       <div class="main-top-article-description">
-        <h6>${eventProducts[i].text}</h6>
-        <p>${eventProducts[i].text2}</p>
+        <h6>${url.text}</h6>
+        <p>${url.text2}</p>
       </div>
     </li>`
       );
-    }
+    });
+  }
+
+  insertThemeCategoryTemplate(eventProducts) {
+    const themeCategoryImgs = document.querySelector(
+      '.main-theme-category-lists'
+    );
+
+    eventProducts.forEach((url) => {
+      themeCategoryImgs.insertAdjacentHTML(
+        'beforeend',
+        `<li class="main-theme-category-list">
+        <a class="main-theme-cateogry-img" href="#"
+          ><img src="${url.imgurl}" alt="${url.dataseq}"
+        /></a>
+        <div class="main-theme-category-description">
+          <h6>${url.text}</h6>
+          <p>${url.text2}</p>
+        </div>
+      </li>`
+      );
+    });
   }
 }
