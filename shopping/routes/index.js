@@ -5,7 +5,9 @@ const fs = require("fs");
 
 router.use(express.json());
 router.use(cors());
+
 const planningEvent = JSON.parse(fs.readFileSync("./data/planningEvent.json"));
+
 let mallEventListIndex = 0;
 
 router.get("/event.json", function (req, res, next) {
@@ -31,11 +33,8 @@ router.get("/homeContents.json", function (req, res, next) {
 });
 
 /* GET home page. */
-// router.get("/", function (req, res, next) {
-// res.render("index", { title: "Adela" });
-// const { data } = global;
-// res.send(data);
-// res.render("index", test("Express", "../data/user.json"));
-// });
+router.get("/", function (req, res, next) {
+  res.render("index", { title: "Adela" });
+});
 
 module.exports = router;
