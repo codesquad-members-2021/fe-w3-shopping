@@ -156,6 +156,25 @@ button, input {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 10%;
+}
+
+.big_contents {
+  display: flex;
+  flex-direction: row;
+}
+
+.small_contents {
+  display: flex;
+  flex-direction: column;
+}
+.small_contents .item_list {
+  display: flex;
+  flex-direction: row;
+}
+.small_contents .item_list .item_list_img {
+  width: 200px;
+  height: 200px;
 }
 
 /*# sourceMappingURL=main.css.map */
