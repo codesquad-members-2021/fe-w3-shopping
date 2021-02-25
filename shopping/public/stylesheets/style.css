@@ -231,10 +231,6 @@ header {
   transition-duration: 300ms;
   transform: translate3d(0px, 0px, 0px); }
 
-.transitionLeft {
-  transition-duration: 0ms;
-  transform: translate3d(0px, 0px, 0px); }
-
 body {
   height: 500vh;
   background-color: #f3f3f3;
