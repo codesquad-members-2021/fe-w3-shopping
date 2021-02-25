@@ -117,13 +117,88 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/sample.js":[function(require,module,exports) {
-// const el = document.querySelector('#staticUI');
-// const imgurl = "http://localhost:8080/rightpannel2.9749f624.png";
-// fetch(imgurl).then(function () {
-//     el.insertAdjacentHTML("beforeend", `<img src="${imgurl}">`)
-// })
-},{}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+})({"js/carouselUI.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var CarouselUI = /*#__PURE__*/function () {
+  function CarouselUI() {
+    _classCallCheck(this, CarouselUI);
+
+    this.el = document.querySelector('.carouselUI');
+    this.imgurl__a = "http://localhost:8080/rightpannel1.05c10acb.png";
+    this.imgurl__b = "http://localhost:8080/rightpannel2.9749f624.png";
+    this.imgurl__c = "http://localhost:8080/rightpannel3.a20f5d1e.png";
+    this.classCnt = 1;
+  }
+
+  _createClass(CarouselUI, [{
+    key: "makeImageDOM",
+    value: function makeImageDOM(img) {
+      this.el.insertAdjacentHTML("beforeend", "<div id=\"img".concat(this.classCnt++, "\" class=\"carouselUI--img\"><img src=\"").concat(img, "\" /></div>"));
+    }
+  }, {
+    key: "insertDOM",
+    value: function insertDOM() {
+      fetch(this.imgurl__a).then(fetch(this.imgurl__b)).then(fetch(this.imgurl__c)).then(this.makeImageDOM(this.imgurl__a)).then(this.makeImageDOM(this.imgurl__b)).then(this.makeImageDOM(this.imgurl__c)).then(console.log(this.classCnt));
+    }
+  }]);
+
+  return CarouselUI;
+}();
+
+exports.default = CarouselUI;
+},{}],"js/carouselUI-Manager.js":[function(require,module,exports) {
+"use strict";
+
+var _carouselUI = _interopRequireDefault(require("./carouselUI"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var carouselUI = new _carouselUI.default();
+carouselUI.insertDOM();
+
+var testFn = function testFn() {
+  var leftBtn = document.querySelector('.carouselUI--leftBtn');
+  var rightBtn = document.querySelector('.carouselUI--rightBtn');
+  var el1 = document.querySelector("#img1");
+  var el2 = document.querySelector("#img2");
+  var el3 = document.querySelector("#img3");
+  var x = 0;
+  leftBtn.addEventListener('click', function () {
+    x -= 485;
+    el1.style.transform = "translate3d(".concat(x, "px,0px,0px)");
+    el2.style.transform = "translate3d(".concat(x, "px,0px,0px)");
+    el3.style.transform = "translate3d(".concat(x, "px,0px,0px)");
+
+    if (x == -970) {
+      x = 485;
+    }
+  });
+  rightBtn.addEventListener('click', function () {
+    if (x == 970) {
+      x = -485;
+    }
+
+    x += 485;
+    el1.style.transform = "translate3d(".concat(x, "px,0px,0px)");
+    el2.style.transform = "translate3d(".concat(x, "px,0px,0px)");
+    el3.style.transform = "translate3d(".concat(x, "px,0px,0px)");
+  });
+};
+
+testFn();
+},{"./carouselUI":"js/carouselUI.js"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -151,7 +226,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52876" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49409" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -327,5 +402,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/sample.js"], null)
-//# sourceMappingURL=/sample.34cbf373.js.map
+},{}]},{},["../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/carouselUI-Manager.js"], null)
+//# sourceMappingURL=/carouselUI-Manager.6e615e8f.js.map

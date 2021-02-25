@@ -137,14 +137,13 @@ body {
   color: #333;
 }
 
-.item-display, .bottom-pannel--right, .bottom-pannel--left, .bottom-pannel, .top-pannel, .header__categori--mypage li, .header__categori--button button, .wrap-categori ul, .wrap-categori, .header__categori, .header__top--search, .header__top {
+.item-display, .bottom-pannel--right, .bottom-pannel--left, .bottom-pannel, .carouselUI, .wrap-carouselUI, .wrap-staticUI, .top-pannel, .header__categori--mypage li, .header__categori--button button, .wrap-categori ul, .wrap-categori, .header__categori, .header__top--search, .header__top, .contents {
   display: flex;
   align-items: center;
 }
 
-.button, .carouselUI--rightBtn button, .carouselUI--leftBtn button, .header__categori--button button, .header__top--search button {
-  border: none;
-  background-color: #fff;
+button:focus {
+  outline: none;
 }
 
 .bold-font, .header__categori--keywords, .header__top--search input {
@@ -164,6 +163,8 @@ body {
 
 /*-------------------여기까지 heade.scss 공통 클래스--------------------*/
 .contents {
+  flex-direction: column;
+  justify-content: center;
   padding-top: 19px;
   border-top: 2px solid gainsboro;
   background-color: #f3f3f3;
@@ -197,19 +198,21 @@ body {
   padding: 10px 60px 10px 30px;
 }
 .header__top--search button {
+  border: none;
+  background-color: #fff;
   margin: 3px 3px;
 }
 .header__categori {
+  justify-content: center;
   border-top: 1px solid #efefef;
   margin-top: 40px;
   height: 54px;
 }
 
-.wrap-categori {
-  margin: 0px 70px;
-}
 .header__categori--button button {
   width: 118px;
+  border: none;
+  background-color: #fff;
 }
 .header__categori--button span {
   padding: 4px 0px 0px 5px;
@@ -227,11 +230,10 @@ body {
 
 .header__categori--keywords {
   font-size: 16px;
-  padding: 0px 8px 0px 12px;
-  margin-right: 90px;
+  padding: 0px 14px;
 }
 .header__categori--keywords li {
-  padding: 0px 12px;
+  padding: 0px 14px;
 }
 
 .header__categori--mypage {
@@ -239,8 +241,8 @@ body {
   font-weight: 600;
   justify-content: space-between;
 }
-.header__categori--mypage li:nth-child(1) {
-  margin-right: 20px;
+.header__categori--mypage li {
+  padding-left: 34px;
 }
 .header__categori--mypage img {
   margin-right: 5px;
@@ -249,40 +251,65 @@ body {
 .pannel {
   background-color: #fff;
   border: 1px solid gainsboro;
-  margin: 0px 70px;
 }
 
-.staticUI {
+.wrap-staticUI {
+  box-sizing: border-box;
+  justify-content: center;
+  width: 510px;
   border-right: 1px solid gainsboro;
 }
 
 .wrap-carouselUI {
+  justify-content: center;
   position: relative;
-  width: 800px;
+  width: 763px;
 }
 
-.carouselUI img {
-  margin-left: 160px;
+.carouselUI {
+  width: 485px;
+  overflow: hidden;
+}
+
+.carouselUI--img {
+  transform: translate3d(0px, 0px, 0px);
+  transition: all 0.3s;
+}
+
+.test {
+  transform: translate3d();
 }
 
 .carouselUI--leftBtn {
   position: absolute;
   top: 40%;
-  left: 10%;
+  left: 5%;
 }
 .carouselUI--leftBtn button {
+  border: none;
+  background-color: #fff;
   font-size: 4rem;
   font-weight: lighter;
+  opacity: 0.1;
+}
+.carouselUI--leftBtn button:hover {
+  opacity: 1;
 }
 
 .carouselUI--rightBtn {
   position: absolute;
   top: 40%;
-  right: 10%;
+  right: 5%;
 }
 .carouselUI--rightBtn button {
+  border: none;
+  background-color: #fff;
   font-size: 4rem;
   font-weight: lighter;
+  opacity: 0.1;
+}
+.carouselUI--rightBtn button:hover {
+  opacity: 1;
 }
 
 .carouselUI--paging {
@@ -290,12 +317,21 @@ body {
   bottom: 5%;
   left: 45%;
 }
+.carouselUI--paging button {
+  border: none;
+  background-color: gainsboro;
+  width: 15px;
+  height: 5px;
+}
+.carouselUI--paging button:hover {
+  background-color: #333;
+}
 
 .bottom-pannel {
   border-top: 1px solid gainsboro;
 }
 .bottom-pannel li {
-  padding: 21px 21px;
+  padding: 21px 27px;
   border-right: 1px solid gainsboro;
 }
 .bottom-pannel img {

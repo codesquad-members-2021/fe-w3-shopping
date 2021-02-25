@@ -2,50 +2,74 @@ $pannel-border: 1px solid gainsboro;
 
 .pannel {
   background-color: #fff;
-  border: 1px solid gainsboro;
-  margin: 0px 70px;
+  border: $pannel-border;
 }
 
 .top-pannel {
   @extend .item-display;
 }
 
-.staticUI {
+.wrap-staticUI {
+  @extend .item-display;
+  box-sizing: border-box;
+  justify-content: center;
+  width: 510px;
   border-right: $pannel-border;
 }
 
 .wrap-carouselUI {
+  @extend .item-display;
+  justify-content: center;
   position: relative;
-  width: 800px;
+  width: 763px;
 }
 
 .carouselUI {
-  img {
-    margin-left: 160px;
-  }
+  @extend .item-display;
+  width: 485px;
+  overflow: hidden;
+}
+
+.carouselUI--img {
+  transform: translate3d(0px, 0px, 0px);
+  transition: all 0.3s;
+}
+
+.test {
+  transform: translate3d();
 }
 
 .carouselUI--leftBtn {
   position: absolute;
   top: 40%;
-  left: 10%;
+  left: 5%;
 
   button {
-    @extend .button;
+    @include button(none, #fff);
     font-size: 4rem;
     font-weight: lighter;
+    opacity: 0.1;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
 .carouselUI--rightBtn {
   position: absolute;
   top: 40%;
-  right: 10%;
+  right: 5%;
 
   button {
-    @extend .button;
+    @include button(none, #fff);
     font-size: 4rem;
     font-weight: lighter;
+    opacity: 0.1;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
@@ -53,6 +77,16 @@ $pannel-border: 1px solid gainsboro;
   position: absolute;
   bottom: 5%;
   left: 45%;
+
+  button {
+    @include button(none, gainsboro);
+    width: 15px;
+    height: 5px;
+
+    &:hover {
+      background-color: #333;
+    }
+  }
 }
 
 .bottom-pannel {
@@ -60,7 +94,7 @@ $pannel-border: 1px solid gainsboro;
   border-top: $pannel-border;
 
   li {
-    padding: 21px 21px;
+    padding: 21px 27px;
     border-right: $pannel-border;
   }
 

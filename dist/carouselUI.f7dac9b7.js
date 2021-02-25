@@ -117,12 +117,41 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/sample.js":[function(require,module,exports) {
-// const el = document.querySelector('#staticUI');
-// const imgurl = "http://localhost:8080/rightpannel2.9749f624.png";
-// fetch(imgurl).then(function () {
-//     el.insertAdjacentHTML("beforeend", `<img src="${imgurl}">`)
-// })
+})({"js/carouselUI.js":[function(require,module,exports) {
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var CarouselUI = /*#__PURE__*/function () {
+  function CarouselUI() {
+    _classCallCheck(this, CarouselUI);
+
+    this.el = document.querySelector('.carouselUI');
+    this.imgurl__a = "http://localhost:8080/rightpannel1.05c10acb.png";
+    this.imgurl__b = "http://localhost:8080/rightpannel2.9749f624.png";
+    this.imgurl__c = "http://localhost:8080/rightpannel3.a20f5d1e.png";
+    this.classCnt = 1;
+  }
+
+  _createClass(CarouselUI, [{
+    key: "makeImageDOM",
+    value: function makeImageDOM(img) {
+      this.el.insertAdjacentHTML("beforeend", "<div id=\"img".concat(this.classCnt++, "\" class=\"carouselUI--img\"><img src=\"").concat(img, "\" /></div>"));
+    }
+  }, {
+    key: "insertDOM",
+    value: function insertDOM() {
+      fetch(this.imgurl__a).then(fetch(this.imgurl__b)).then(fetch(this.imgurl__c)).then(this.makeImageDOM(this.imgurl__a)).then(this.makeImageDOM(this.imgurl__b)).then(this.makeImageDOM(this.imgurl__c)).then(console.log(this.classCnt));
+    }
+  }]);
+
+  return CarouselUI;
+}();
+
+var carouselUI = new CarouselUI();
+carouselUI.insertDOM();
 },{}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -151,7 +180,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52876" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49409" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -327,5 +356,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/sample.js"], null)
-//# sourceMappingURL=/sample.34cbf373.js.map
+},{}]},{},["../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/carouselUI.js"], null)
+//# sourceMappingURL=/carouselUI.f7dac9b7.js.map

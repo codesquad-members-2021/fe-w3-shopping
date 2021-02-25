@@ -13,9 +13,15 @@ body {
   align-items: center;
 }
 
-.button {
-  border: none;
-  background-color: #fff;
+@mixin button($border, $background-color) {
+  border: $border;
+  background-color: $background-color;
+}
+
+button {
+  &:focus {
+    outline: none;
+  }
 }
 
 .bold-font {
@@ -34,6 +40,9 @@ body {
 }
 /*-------------------여기까지 heade.scss 공통 클래스--------------------*/
 .contents {
+  @extend .item-display;
+  flex-direction: column;
+  justify-content: center;
   padding-top: 19px;
   border-top: 2px solid gainsboro;
   background-color: #f3f3f3;
