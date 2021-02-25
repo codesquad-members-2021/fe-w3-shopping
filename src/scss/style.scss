@@ -76,7 +76,7 @@ header {
   }
 }
 
-.wrap-body-sect {
+.body-sect-cont {
   @extend %debug-border-1;
   display: inline-block;
   width: 100%;
@@ -91,6 +91,7 @@ header {
   @for $i from 1 through $body-sect-cnt {
     .body-sect-#{$i} {
       @extend %debug-border-2;
+      max-width: $main-evt-img-w * 2;
       // width: 100%;
       display: inline-block;
       padding: 0;
@@ -100,7 +101,7 @@ header {
   }
 
   .body-sect-1 {
-    .wrap-main-evt {
+    .main-evt-cont {
       display: inline-block;
 
       > div {
@@ -109,37 +110,6 @@ header {
         width: $main-evt-img-w;
         height: $main-evt-img-h;
         padding: 0;
-      }
-    }
-
-    .evt-card-slide {
-      .evt-card-hori-list {
-        @extend %debug-border-0;
-        @extend %hori-list;
-
-        .evt-card-hori-list__item {
-          padding: 21px;
-          position: relative;
-
-          .item__link {
-            .item__link__img {
-              width: $evt-card-item-img-w;
-              height: $evt-card-item-img-h;
-            }
-  
-            .item__link__title {
-              
-            }
-  
-            .item__link__desc {
-  
-            }
-  
-            .item__link__tag {
-              
-            }
-          }
-        }
       }
     }
   }
@@ -156,6 +126,7 @@ header {
     transition-duration: 0;
 
     .page {
+      // display: inline-block;
       float: left;
       padding: 0;
       margin: 0;
@@ -211,7 +182,7 @@ header {
     }
 
     %page-ctrl__arrow-btn__icon {
-      @extend %debug-border-0;
+      // @extend %debug-border-0;
       display: inline-block;
       background-image: $ic-url;
       overflow: hidden;
@@ -238,6 +209,89 @@ header {
       .page-ctrl__right-btn__icon {
         @extend %page-ctrl__arrow-btn__icon;
         background-position: -145px -335px;
+      }
+    }
+  }
+}
+
+.evt-card-table {
+  display: block;
+  width: 100%;
+
+  .evt-card-list {
+    // @extend %debug-border-0;
+    @extend %hori-list;
+    display: inline-block;
+
+    @for $i from 3 through 5 {
+      &.item-cnt-#{$i} {
+        .evt-card-list__item {
+          width: 100% / $i;
+        }
+      }
+    }
+
+    .evt-card-list__item {
+      padding: 21px;
+      position: relative;
+      text-align: left;
+      background-color: $white;
+
+      .item__link {
+        width: 100%;
+
+        .item__link__thumb {
+          img {
+            max-width: 100%;
+          }
+        }
+
+        .item__link__title {
+          margin-top: 10px;
+          font-size: 14px;
+          font-weight: 800;
+          color: $black;
+        }
+
+        .item__link__desc {
+          font-size: 12px;
+          color: $gray;
+        }
+
+        .item__link__theme {
+          width: 31px;
+          height: 18px;
+          margin-top: 10px;
+          background: $ic-url2;
+          background-position: 0 -850px;
+        }
+      }
+    }
+  }
+
+  .evt-card-table__see-more-btn {
+    width: 100%;
+    padding: 14px 0;
+    border: 1px solid $gray;
+    border-top: none;
+    color: $black;
+    background-color: $lightgray;
+
+    &:hover {
+      background-color: $gray;
+    }
+
+    .main-txt {
+      font-size: 20px;
+
+      span {
+        font-size: 14px;
+        line-height: 26px;
+        vertical-align: top;
+      }
+  
+      .hilight-txt {
+        color: $redorange;
       }
     }
   }

@@ -5,11 +5,16 @@
   margin: 0;
   padding: 0;
   text-align: center;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
 
   li {
     @extend %debug-border-1;
     float: left;
-    position: relative;
     display: inline-block;
+    position: relative;
   }
 }

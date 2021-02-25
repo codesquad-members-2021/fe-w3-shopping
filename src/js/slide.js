@@ -1,4 +1,5 @@
 import { _ } from './util.js';
+import { createMainEvtCardElFrom } from './common-creator.js';
 
 // class ISlide {
   // constructor($target) {
@@ -43,13 +44,9 @@ export class MainEvtSlide {
   }
 
   createPageElFrom(json) {
-    const $ = document.createElement('DIV');
-    $.classList.add('page');
-    $.innerHTML =
-      `<a href="${json.linkurl}" class="main-evt__link">
-        <img src="${json.imgurl}" alt="Image not found"/>
-      </a>`;
-    return $;
+    const $page = createMainEvtCardElFrom(json);
+    $page.classList.add('page');
+    return $page;
   }
 
   createPageCtrlIdxBtn(idx) {
