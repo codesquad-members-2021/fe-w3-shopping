@@ -41,7 +41,9 @@ export class LoadItem {
   }
 
   insertSlideTemplate(urls) {
-    const mainTopSlideSection = document.querySelector('.main-top-slide-imgs');
+    const mainTopSlideSection = document.querySelector(
+      '.main-top-slide-container'
+    );
     urls.forEach((url, idx) => {
       mainTopSlideSection.insertAdjacentHTML(
         'beforeend',
