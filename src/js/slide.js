@@ -1,29 +1,33 @@
 import { _ } from './util.js';
 
-class ISlide {
-  constructor($target) {
-    [this.$pages, this.$ctrl] = _.$All('div', $target);
-  }
+// class ISlide {
+  // constructor($target) {
+    // this.$target = $target;
+    // [this.$pages, this.$pageCtrl] = _.$All('div', $target);
+  // }
 
-  createSlideElFrom(json) { throw new Error('Abstract method!'); }
+  // createSlideElFrom(json) { throw new Error('Abstract method!'); }
 
-  appendSlideElsToTarget() { throw new Error('Abstract method!'); }
-}
-
+  // appendSlideElsToTarget() { throw new Error('Abstract method!'); }
+// }
 
 /*
   COMMENT:
-    Later, the 'PageCtrl*' part maybe seperated from this.
+    Later, the codes for 'PageCtrl*' maybe seperated from this.
 */
-export class MainEvtSlide extends ISlide {
+export class MainEvtSlide {
   constructor($target, jsonList) {
-    super($target);
+    this.$target = $target;
+    [this.$pages, this.$pageCtrl] = $target.children;
     this.jsonList = jsonList;
+    this.currSelectedIdx = 0;
   }
 
   init() {
     this.appendPageEls();
     this.appendPageCtrl();
+    this.$pageCtrl.children[0].classList.add('select');
+    this.onEvents();
   }
 
   appendPageEls() {
@@ -32,14 +36,15 @@ export class MainEvtSlide extends ISlide {
 
   appendPageCtrl() {
     for (let i = 0; i < this.jsonList.length; i++)
-      this.$ctrl.appendChild(this.createPageCtrlIdxBtn());
+      this.$pageCtrl.appendChild(this.createPageCtrlIdxBtn(i));
 
-    this.$ctrl.appendChild(this.createPageCtrlLeftBtn());
-    this.$ctrl.appendChild(this.createPageCtrlRightBtn());
+    this.$pageCtrl.appendChild(this.createPageCtrlLeftBtn());
+    this.$pageCtrl.appendChild(this.createPageCtrlRightBtn());
   }
 
   createPageElFrom(json) {
     const $ = document.createElement('DIV');
+    $.classList.add('page');
     $.innerHTML =
       `<a href="${json.linkurl}" class="main-evt__link">
         <img src="${json.imgurl}" alt="Image not found"/>
@@ -47,9 +52,11 @@ export class MainEvtSlide extends ISlide {
     return $;
   }
 
-  createPageCtrlIdxBtn() {
+  createPageCtrlIdxBtn(idx) {
     const $ = document.createElement('DIV');
     $.classList.add('slide__page-ctrl__idx-btn');
+    $.setAttribute('data-index', idx);
+    $.innerHTML = `<div class="page-ctrl__idx-btn__bar"></div>`;
     return $;
   }
 
@@ -65,5 +72,49 @@ export class MainEvtSlide extends ISlide {
     $.classList.add('slide__page-ctrl__right-btn');
     $.innerHTML = `<div class="page-ctrl__right-btn__icon"></div>`;
     return $;
+  }
+
+  select(idx) {
+    if (this.currSelectedIdx === idx) 
+      return;
+
+    this.$pageCtrl.children[this.currSelectedIdx].classList.remove('select');
+    this.$pageCtrl.children[idx].classList.add('select');
+    
+    for (let idxDiff = idx - this.currSelectedIdx; idxDiff > 0; idxDiff--)
+      this.$pages.appendChild(this.$pages.removeChild(this.$pages.firstElementChild));
+    
+    for (let idxDiff = idx - this.currSelectedIdx; idxDiff < 0; idxDiff++)
+      this.$pages.insertBefore(this.$pages.removeChild(this.$pages.lastElementChild), this.$pages.firstElementChild);
+
+    this.currSelectedIdx = idx;
+  }
+
+  onEvents() {
+    this.$pages.addEventListener('transitionend', () => {
+      if (this.$pages.classList.contains('move-to-left')) {
+        this.select((this.currSelectedIdx + this.jsonList.length - 1) % this.jsonList.length);
+        this.$pages.classList.remove('move-to-left');
+      } else if (this.$pages.classList.contains('move-to-right')) {
+        this.select((this.currSelectedIdx + this.jsonList.length + 1) % this.jsonList.length);
+        this.$pages.classList.remove('move-to-right');
+      }
+    });
+
+    this.$pageCtrl.addEventListener('mouseover', ({target}) => {
+      if (!target.classList.contains('slide__page-ctrl__idx-btn'))
+        return;
+
+      this.select(target.dataset.index);
+      // TODO: arrow button hover effect
+    });
+
+    _.$('.slide__page-ctrl__left-btn', this.$pageCtrl).addEventListener('click', () => {
+      this.$pages.classList.add('move-to-left');
+    });
+
+    _.$('.slide__page-ctrl__right-btn', this.$pageCtrl).addEventListener('click', () => {
+      this.$pages.classList.add('move-to-right');
+    });
   }
 }

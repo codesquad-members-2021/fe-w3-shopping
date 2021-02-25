@@ -147,17 +147,28 @@ header {
 
 .main-evt-slide {
   position: relative;
-  // overflow: hidden;
+  overflow: hidden;
   
   .slide__pages {
     width: $main-evt-img-w * $main-evt-page-cnt;
-    height: $main-evt-img-h;
-    position: relative;
+    position: absolute;
+    left: -1 * $main-evt-img-w;
+    transition-duration: 0;
 
-    > div {
+    .page {
       float: left;
       padding: 0;
       margin: 0;
+    }
+
+    &.move-to-left {
+      transition-duration: 300ms;
+      transform: translateX($main-evt-img-w);
+    }
+  
+    &.move-to-right {
+      transition-duration: 300ms;
+      transform: translateX(-1 * $main-evt-img-w);
     }
   }
 
@@ -170,12 +181,26 @@ header {
     text-align: center;
 
     .slide__page-ctrl__idx-btn {
-      @extend %debug-border-1;
       display: inline-block;
-      width: 15px;
-      height: 5px;
+      padding: 6px 0;
       margin: 0 2px;
-      background-color: $gray;
+      position: relative;
+      top: -4px;
+      box-sizing: content-box;
+
+      &.select {
+        > .page-ctrl__idx-btn__bar {
+          background-color: $black;
+        }
+      }
+
+      .page-ctrl__idx-btn__bar {
+        // @extend %debug-border-1;
+        display: inline-block;
+        width: 15px;
+        height: 5px;
+        background-color: $gray;  
+      }
     }
 
     %page-ctrl__arrow-btn {
