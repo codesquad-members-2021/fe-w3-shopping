@@ -6,58 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>쇼핑하우</title>
     <link rel="stylesheet" href="style/reset.css"> 
+    <link rel="stylesheet" href="style/main.css"> 
+    <script defer type="module" src="script/shoppingHow_module.js"></script>
 </head>
 <body>
     <div class="header__container">
 
-        <header>
+        <header class="header">
             <a href="#" class="header__logo">
                 <img src="//search1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/logo_shw.png"
                 alt = "쇼핑하우 by kakaocommerce">
             </a>
 
             <div class="header__search">
-                <form>
-                    <fieldset>
-                        <div class="search__box">
-                            <input>
-                            <button></button>
-                        </div>
-                    </fieldset>
-                </form>
+                <div class="search__box">
+                    <input type="text">
+                    <button>
+                        <span class="ico__search"></span>
+                    </button>
+                </div>
             </div> <!-- .header__search -->
         </header>
 
-        <nav>
-            <div class="gnb__cate">
-                <button>
-                    <span class="gnb__ico"></span>
-                    카테고리
-                </button>
-            </div>
-            <ul class="gnb__main">
-                <li><a href="#">핫딜</a></li>
-                <li><a href="#">베스트100</a></li>
-                <li><a href="#">할인특가</a></li>
-                <li><a href="#">기획전</a></li>
-            </ul>
-            <ul class="gnb__word">
-                <li><a href="#">#수능 선물</a></li>
-                <li><a href="#">#김치 냉장고</a></li>
-                <li><a href="#">#체험 가습기</a></li>
-                <li><a href="#">#구스다운</a></li>
-                <li><a href="#">#온수매트</a></li>
-            </ul>
-            <ul class="gnb__user">
-                <li><a href="#">
-                    <span class="gnb__ico"></span>
-                    로그인
-                </a></li>
-                <li><a href="#">
-                    <span class="gnb__ico"></span>
-                    최근본 상품
-                </a></li>
-            </ul>
+        <nav class="gnb">
+            <div class="gnb__wrap">
+                <div class="gnb__cate">
+                    <button>
+                        <span class="ico__cate"></span>
+                        카테고리
+                    </button>
+                </div>
+                <span class="txt_bar"></span>
+                <ul class="gnb__main">
+                    <li><a href="#">핫딜</a></li>
+                    <li><a href="#">베스트100</a></li>
+                    <li><a href="#">할인특가</a></li>
+                    <li><a href="#">기획전</a></li>
+                </ul>
+                <span class="txt_bar"></span>
+                <ul class="gnb__word">
+                    <li><a href="#">#수능 선물</a></li>
+                    <li><a href="#">#김치 냉장고</a></li>
+                    <li><a href="#">#체험 가습기</a></li>
+                    <li><a href="#">#구스다운</a></li>
+                    <li><a href="#">#온수매트</a></li>
+                </ul>
+                <ul class="gnb__user">
+                    <li><a class="user__my" href="#">
+                        <span class="ico__login"></span>
+                        MY 쇼핑
+                    </a></li>
+                    <li><a class="user__prod" href="#">
+                        <span class="ico__prod"></span>
+                        <span class="ico__arrow"></span>
+                        최근본 상품
+                    </a></li>
+                </ul>
+            </div> <!-- .gnb__wrap-->
         </nav>
 
     </div> <!-- .header__container -->
@@ -67,27 +72,50 @@
 
         <div class="content__banner">
             <div class="banner__main">
-                <div><a href="#">
+                <div class="banner__event"><a href="#">
                     <img src="//shop4.daumcdn.net/shophow/sib/0_210219174849_FwZShCdZPYIPpJmvgEiGWverDgJVqrrq" alt="기획전 이벤트">
                 </a></div>
-                <div class="slide__cont">
+
+                <div class="banner__slide">
                     <ul class="slide__wrap">
-                        <li class="slide__list"><a href="#">
+                        <li class="slide__list" data-index="0"><a href="#">
                             <img src="//shop3.daumcdn.net/shophow/sib/0_210219175556_BtjOWRoiPbsVXvlYusgFvjboDPXRIBQD">
                         </a></li>
-                        <li class="slide__list"><a href="#">
+                        <li class="slide__list" data-index="1"><a href="#">
                             <img src="//shop3.daumcdn.net/shophow/sib/0_210219175609_PZjbWVyRtwcxTlShApbdyOenwLaYCOhs">
                         </a></li>
-                        <li class="slide__list"><a href="#">
+                        <li class="slide__list" data-index="2"><a href="#">
                             <img src="//shop1.daumcdn.net/shophow/sib/0_210219175602_vRyGDQxWDethcelhYcMmXKXpgLqlAIAj">
                         </a></li>
                     </ul>
-                </div> <!-- .slide__cont -->
-            </div>
+                    
+                    <div class="slide__paging">
+                        <div class="paging_wrap">
+                            <span class="ico_paging">
+                                <span class="num_page" data-index="0"></span>
+                            </span>
+                            <span class="ico_paging curr_page">
+                                <span class="num_page" data-index="1"></span>
+                            </span>
+                            <span class="ico_paging">
+                                <span class="num_page" data-index="2"></span>
+                            </span>
+                        </div>
+                        <button type="button" class="slide__btn btn_prev">
+                            <span class="slide__ico ico_prev">이전</span>
+                        </button>
+                        <button type="button" class="slide__btn btn_next">
+                            <span class="slide__ico ico_next">다음</span>
+                        </button>
+                    </div>
+                </div> <!-- .banner__slide -->
+                
 
-            <ul class="banner__list">
+            </div> <!-- .banner__main -->
+
+            <ul class="banner__list list__box">
                 <% for(let i = 0; i < 5; i++) { %>
-                    <li><a href="#">
+                    <li class="banner__item list__item"><a href="#">
                         <img src= <%= banner.mallEventList[i].imgurl %> alt= <%= banner.mallEventList[i].text %>>
                         <span class="list__title"><%= banner.mallEventList[i].text %></span>
                         <span class="list__des"><%= banner.mallEventList[i].text2 %></span>
@@ -97,13 +125,13 @@
             </ul>
         </div> <!-- .content__banner -->
 
-        <div class="showMore">더보기</div>
+        <div class="showMore">더보기(1/n건)</div>
 
-        <div class="content__theme ">
-            <h3>지금뜨는 테마 카테고리</h3>
-            <ul>
+        <div class="content__theme">
+            <h3 class="content__title">지금뜨는 테마 카테고리</h3>
+            <ul class="list__box">
                 <% for(let i = 0; i < 5; i++) { %>
-                    <li><a href="#">
+                    <li class="list__item"><a href="#">
                         <!-- 0 ~ 4번째까지 배너랑 겹쳐서 i + 5번째 해줌. -->
                         <img src= <%= contents.contents[i+5].eventContent.imgurl %> alt= <%= contents.contents[i+5].eventContent.title %>>
                         <span class="list__title"><%= contents.contents[i+5].eventContent.title %></span>
