@@ -26,15 +26,33 @@ const $mallEventSlide = document.querySelector('#mallEventSlide');
 
 $mileageEventSlide.addEventListener('mouseover', overEventSlider);
 $mileageEventSlide.addEventListener('mouseout', outEventSlider);
+$mileageEventSlide.addEventListener('click', clickEventSlider);
 
-function overEventSlider(e) {
+function overEventSlider() {
   $prevEventButton.querySelector('.ico--prev').classList.replace('ico--prev', 'ico--prev__slide--hover');
   $nextEventButton.querySelector('.ico--next').classList.replace('ico--next', 'ico--next__slide--hover');
 }
 
-function outEventSlider(e) {
+function outEventSlider() {
   $prevEventButton.querySelector('.ico--prev__slide--hover').classList.replace('ico--prev__slide--hover', 'ico--prev');
   $nextEventButton.querySelector('.ico--next__slide--hover').classList.replace('ico--next__slide--hover', 'ico--next');
+}
+
+function clickEventSlider(e) {
+  if (e.target.classList.contains('slide--button--prev') || e.target.classList.contains('ico--prev__slide--hover')) {
+    $topMileageSlide.classList.replace('slide', 'slide--click--prev');
+    setTimeout(() => {
+      $topMileageSlide.insertBefore($topMileageSlide.lastElementChild, $topMileageSlide.firstElementChild);
+      $topMileageSlide.classList.replace('slide--click--prev', 'slide');
+    }, 300);
+  }
+  if (e.target.classList.contains('slide--button--next') || e.target.classList.contains('ico--next__slide--hover')) {
+    $topMileageSlide.classList.replace('slide', 'slide--click--next');
+    setTimeout(() => {
+      $topMileageSlide.insertBefore($topMileageSlide.firstElementChild, null);
+      $topMileageSlide.classList.replace('slide--click--next', 'slide');
+    }, 300);
+  }
 }
 
 // slide 내부 동적으로 그려보기

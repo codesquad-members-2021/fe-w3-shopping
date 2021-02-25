@@ -455,6 +455,16 @@ section {
                 transform: translate3d(0px, 0px, 0px);
                 left: -514px;
                 width: 1551px;
+                &--click--prev {
+                  @extend .slide;
+                  transform: translate3d(514px, 0px, 0px);
+                  transition-duration: 300ms;
+                }
+                &--click--next {
+                  @extend .slide;
+                  transform: translate3d(-514px, 0px, 0px);
+                  transition-duration: 300ms;
+                }
                 .panel {
                   height: 100%;
                   overflow: hidden;
