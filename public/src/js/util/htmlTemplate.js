@@ -4,7 +4,7 @@ export const makeSlideItem = (imgurl) => `
 </div>
 `;
 
-export const makeMoreList = ({ imgurl, title, info }) => `
+export const makeItemList = ({ imgurl, title, info }) => `
 <li class='event-item'>
   <a href=''>
     <div class='item-img'>
