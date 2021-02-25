@@ -17,6 +17,7 @@ fetch('http://localhost:3000/api/mallEventList')
   .catch((error) => console.log('Request failed', error));
 
 const $mileageEventSlide = document.querySelector('.event--slide');
+const $mileageSlidePage = document.querySelector('#mileageSlidePage');
 const $prevEventButton = document.querySelector('.slide--button--prev');
 const $nextEventButton = document.querySelector('.slide--button--next');
 
@@ -39,18 +40,23 @@ function outEventSlider() {
 }
 
 function clickEventSlider(e) {
-  if (e.target.classList.contains('slide--button--prev') || e.target.classList.contains('ico--prev__slide--hover')) {
+  const clickPrev = () => e.target.classList.contains('slide--button--prev') || e.target.classList.contains('ico--prev__slide--hover');
+  const clickNext = () => e.target.classList.contains('slide--button--next') || e.target.classList.contains('ico--next__slide--hover');
+
+  if (clickPrev()) {
     $topMileageSlide.classList.replace('slide', 'slide--click--prev');
     setTimeout(() => {
       $topMileageSlide.insertBefore($topMileageSlide.lastElementChild, $topMileageSlide.firstElementChild);
       $topMileageSlide.classList.replace('slide--click--prev', 'slide');
+      $mileageSlidePage.insertBefore($mileageSlidePage.firstElementChild, null);
     }, 300);
   }
-  if (e.target.classList.contains('slide--button--next') || e.target.classList.contains('ico--next__slide--hover')) {
+  if (clickNext()) {
     $topMileageSlide.classList.replace('slide', 'slide--click--next');
     setTimeout(() => {
       $topMileageSlide.insertBefore($topMileageSlide.firstElementChild, null);
       $topMileageSlide.classList.replace('slide--click--next', 'slide');
+      $mileageSlidePage.insertBefore($mileageSlidePage.lastElementChild, $mileageSlidePage.firstElementChild);
     }, 300);
   }
 }

@@ -485,9 +485,6 @@ section {
               }
             }
 
-            .first {
-              margin-left: 0;
-            }
             .paging--bar {
               position: absolute;
               top: 283px;
@@ -503,7 +500,9 @@ section {
                 em.paging--button .page--number {
                   background-color: #000;
                 }
-
+                .first {
+                  margin-left: 0;
+                }
                 .paging--button {
                   display: inline;
                   float: left;
