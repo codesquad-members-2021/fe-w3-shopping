@@ -15,7 +15,10 @@ const moreBtn = domSelect('.more-text-container');
 const moreSelectors = { container: moreContainer, moreBtn };
 //핫딜 슬라이드 DOM
 const hotDealContainer = domSelect('.hot-deal__container');
-const hotDealSelector = { container: hotDealContainer };
+const hotDealSlideList = domSelect('.hot-deal-list');
+const hotDealBtn = domSelect('.hot-deal .slide-event__btn');
+const hotDealSelector = { container: hotDealContainer, slideList: hotDealSlideList, slideBtn: hotDealBtn };
+
 //슬라이더
 fetch('https://shoppinghow.kakao.com/v1.0/shophow/top/planningEvent.json?_=1614221190473')
   .then((res) => res.json())
