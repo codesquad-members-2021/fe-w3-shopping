@@ -2,5 +2,5 @@ export const slideParser = (data) => data.map((v) => v.imgurl);
 
 export const moreParser = (data) =>
   data.map((v) => {
-    return { imgurl: v.imgurl, title: v.text, info: v.text2 };
+    return { imgurl: v.eventContent.imgurl, title: v.eventContent.title, info: v.eventContent.subtitle };
   });

@@ -5,6 +5,10 @@ const path = require('path');
 const app = express();
 app.use(express.static(path.join(__dirname, 'public', 'dist')));
 
+app.get('/moreItem', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'data', 'homeContents.json'));
+});
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'dist', 'index.html'));
 });

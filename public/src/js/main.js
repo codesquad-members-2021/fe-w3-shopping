@@ -14,6 +14,7 @@ console.log(moreContainer);
 const moreBtn = domSelect('.more-text-container');
 const moreSelectors = { container: moreContainer, moreBtn };
 
+//슬라이더
 fetch('https://shoppinghow.kakao.com/v1.0/shophow/top/planningEvent.json?_=1614221190473')
   .then((res) => res.json())
   .then((res) => {
@@ -22,12 +23,17 @@ fetch('https://shoppinghow.kakao.com/v1.0/shophow/top/planningEvent.json?_=16142
     const parsedSlideData = slideParser(slideData);
     const slide = new Slide(parsedSlideData, slideSelectors);
     slide.init();
+  });
 
+//더보기
+fetch('http://localhost:8080/moreItem')
+  .then((res) => res.json())
+  .then((res) => {
+    const { contents: moreData } = res;
     const parsedMoreData = moreParser(moreData);
     const more = new More(parsedMoreData, moreSelectors);
     more.init();
-  })
-  .then(console.log);
+  });
 
 //HOT DEAL URL
 //https://shoppinghow.kakao.com/v1.0/shophow/top/hotdeal.json?_=1614229361861
