@@ -19,7 +19,7 @@
             <div class="area_headtop">
                 <!-- logo -->
                 <div class="tit_shw">
-                    <a href="">
+                    <a href="localhost:3000">
                         <img id="logo_shw" src="http://localhost:3000/images/logo_shw.png" alt="쇼핑하우 by kakaocommerce">
                     </a>
                 </div>
@@ -39,11 +39,14 @@
 
             <!-- nav -->
             <div class="area_shwgnb" id="kakaoGnb">
-                <div class="wrap_shwgnb">
+                <div class="wrap_shwgnb-left">
                     <div class="wrap-shwcate">
-                        <span class="ico_menu"><img src="http://localhost:3000/images/icon_menu.png" alt=""></span>
-                        <button type="button" class="categoryBtn">카테고리</button>
-                        <div class="categoryLayer"></div>
+                        <button type="button" class="categoryBtn">
+                            <span class="categoryTxt">카테고리</span>
+                            <span class="ico_view">
+                                <img class="ico_menu" src="http://localhost:3000/images/icon_menu.png" alt="">
+                            </span>
+                        </button>
                     </div>
                     <span class="txt_bar">|</span>
                     <ul class="list_shwgnb">
@@ -52,6 +55,7 @@
                         <li>할인특가</li>
                         <li>기획전</li>
                     </ul>
+                    <span class="txt_bar">|</span>
                     <ul class="list_kwrodgnb">
                         <li>#건강식품</li>
                         <li>#제철음식</li>
@@ -59,11 +63,13 @@
                         <li>#커블체어</li>
                         <li>#노트북</li>
                     </ul>
+                </div>
+                <div class="wrap_shwgnb-right">
                     <ul class="list_usergnb">
-                        <li id="loginWrap">
+                        <li class="loginWrap">
                             <a href="" class="loginBtn">
                                 <span class="ico_user"><img src="http://localhost:3000/images/icon_user.png" alt=""></span>
-                                <span>MY 쇼핑</span>
+                                <span>로그인</span>
                             </a>
                         </li>
                         <li class="area_rcntproducts">
@@ -74,11 +80,44 @@
                             </a>
                         </li>
                     </ul>
-
                 </div>
+            </div>
+            <div class="container"  id="userBtn">
+                <img class="popupImg" src="http://localhost:3000/images/popup.png" />
             </div>
         </div>
 
+        <!-- body -->
+        <div class="mainBanner">
+            <div class="cont_event">
+                <div class="cont_event-left">
+                    <a href="">
+                        <img src="http://localhost:3000/images/bannerLeft.png" alt="">
+                    </a>                        
+                </div>
+                <div class="cont_event-right">
+                    <button class="icon">
+                        <div class="arrowLeft"></div>
+                    </button>
+                    <a href="">
+                        <img src="http://localhost:3000/images/bannerRight.png" alt="">
+                    </a>  
+                    <button class="icon">
+                        <div class="arrowRight"></div>
+                    </button> 
+                </div>
+                <ul class="page_box-list">
+                    <li class="page_box-select"></li>
+                    <li class="page_box"></li>
+                    <li class="page_box"></li>
+                </ul>
+            </div>
+            <div class="mallEventList">
+
+            </div>
+        </div>
+
+        <!-- parter -->
         <div id="daumContent">
             <div id="cMain"></div>
             <div id="cEtc">
@@ -125,6 +164,7 @@
             </div>
         </div>
 
+        <!-- footer -->
         <div class="footer">
             <div class="footer_shw">
                 <h2 class="screen_out">서비스 이용정보</h2>
@@ -161,6 +201,7 @@
         </div>
 
     </div>
+    <script src="javascripts/popup.js"></script>
     <script src="javascripts/script.js"></script>
 </body>
 </html>
