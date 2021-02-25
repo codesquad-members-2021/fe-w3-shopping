@@ -35,8 +35,7 @@ export class Slider {
     slider.ontransitionend = () => {
       slider.classList.add('slide-move-duration-zero');
       slider.classList.remove(`slide-move-right`);
-      const temp = slider.removeChild(slider.firstElementChild);
-      slider.insertAdjacentElement('beforeend', temp);
+      slider.appendChild(slider.firstElementChild);
     };
     slider.classList.remove('slide-move-duration-zero');
   }
