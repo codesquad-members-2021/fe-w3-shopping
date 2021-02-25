@@ -1,7 +1,5 @@
-let data;
-const promise = fetch("http://localhost:3000/image")
-  .then(response => response.json())
-  .then(json => {
-    data = json;
-    console.log(data);
-  });
+import { runAPI } from "./api.js";
+import TopCarouselUI from "./TopCarouselUI.js";
+//runAPI();
+
+const topCarouselUI = new TopCarouselUI();
