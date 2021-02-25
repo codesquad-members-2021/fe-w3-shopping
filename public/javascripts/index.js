@@ -4,5 +4,7 @@ import DataManager from './index/DataManager.js';
 
 const dataManager = new DataManager();
 new IndexControl(
-    dataManager, '.content__more',    
+    dataManager, 
+    '.content__more', 
+    '.content__event__carousel'   
 ).init();

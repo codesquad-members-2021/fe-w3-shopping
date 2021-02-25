@@ -18,7 +18,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .paging__inner, .content__event__carousel .carousel, .content__event__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
+.flex-center, .content__event__carousel .paging__inner, .content__event__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +48,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .paging__inner, .content__event__carousel .carousel, .content__event__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
+.flex-center, .content__event__carousel .paging__inner, .content__event__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,7 +95,7 @@ a {
   width: 90%;
 }
 
-.max-WH-auto, .content__event__carousel .carousel, .content__event__carousel .slide, .content__event__one a, .view-li a img, .content__hot__carousel ul li a img, .content__more__view ul li a img {
+.max-WH-auto, .content__event__carousel .slide, .content__event__one a, .view-li a img, .content__hot__carousel ul li a img, .content__more__view ul li a img {
   max-width: 100%;
   max-height: 100%;
 }
@@ -228,7 +228,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .paging__inner, .content__event__carousel .carousel, .content__event__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
+.flex-center, .content__event__carousel .paging__inner, .content__event__one a, .header__menu__wrapper ul.list-usergroup li a, .header__menu__wrapper ul, .header__menu__wrapper .category button, .header__logo-search {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -382,7 +382,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .paging__inner, .content__event__carousel .carousel, .content__event__one a, .header__logo-search, .header__menu__wrapper .category button, .header__menu__wrapper ul, .header__menu__wrapper ul.list-usergroup li a {
+.flex-center, .content__event__carousel .paging__inner, .content__event__one a, .header__logo-search, .header__menu__wrapper .category button, .header__menu__wrapper ul, .header__menu__wrapper ul.list-usergroup li a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -412,7 +412,7 @@ a {
   color: #333;
 }
 
-.flex-center, .content__event__carousel .paging__inner, .content__event__carousel .carousel, .content__event__one a, .header__logo-search, .header__menu__wrapper .category button, .header__menu__wrapper ul, .header__menu__wrapper ul.list-usergroup li a {
+.flex-center, .content__event__carousel .paging__inner, .content__event__one a, .header__logo-search, .header__menu__wrapper .category button, .header__menu__wrapper ul, .header__menu__wrapper ul.list-usergroup li a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -459,7 +459,7 @@ a {
   width: 90%;
 }
 
-.max-WH-auto, .content__event__carousel .carousel, .content__event__carousel .slide, .content__event__one a, .view-li a img, .content__hot__carousel ul li a img, .content__more__view ul li a img {
+.max-WH-auto, .content__event__carousel .slide, .content__event__one a, .view-li a img, .content__hot__carousel ul li a img, .content__more__view ul li a img {
   max-width: 100%;
   max-height: 100%;
 }
@@ -522,7 +522,6 @@ a {
   position: relative;
   height: 340px;
   overflow: hidden;
-  padding: 0 auto;
 }
 .content__event__carousel .slide {
   position: relative;
@@ -542,23 +541,6 @@ a {
 }
 .content__event__carousel .slide .item--third {
   transform: translate3d(200%, 0, 0);
-}
-.content__event__carousel .panel {
-  height: 100%;
-  overflow: hidden;
-  display: inline-block;
-  transform: translate3d(0px, 0px, 0px);
-  width: 100%;
-}
-.content__event__carousel .panel a {
-  display: block;
-  position: relative;
-  width: 484px;
-  margin: 0 auto;
-}
-.content__event__carousel .carousel {
-  width: 485px;
-  margin: 0 auto;
 }
 .content__event__carousel .paging {
   position: absolute;

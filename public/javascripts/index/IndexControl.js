@@ -5,50 +5,37 @@ class IndexControl {
     /**
      * @param {DataManager} dataManager
      */
-    constructor(dataManager, moreWrapSelector) {
-        this.body = document.body;
+    constructor(dataManager, moreWrapSelector, eventCarouselWrapper) {        
         this.dataManager = dataManager;
         this.moreWrapper = _.$(moreWrapSelector);
-
-        this.moreView = _.$('.content__more__view', this.moreWrapper);        
+        this.eventCarouselWrapper = _.$(eventCarouselWrapper);
     }
 
     init() {
-        this._setClickEvent(this.body);        
+        this._setMoreWrapperClickEvent(this.moreWrapper);        
+        this._setEventCarouselClickEvent(this.eventCarouselWrapper);
+
         this._createMoreViewItems(_.$('.content__more__btn', this.moreWrapper));
     }
 
-    _setClickEvent(body) {
-        _.addEvent(body, 'click', (e) => this._clickEventHandler(e));
+    // [1] 더보기 Wrapper (content__more) Click 이벤트 등록 
+    _setMoreWrapperClickEvent(moreWrapper) {
+        _.addEvent(moreWrapper, 'click', (e) => this._moreWrapperClickEventHandler(e));
     }
     
-    _clickEventHandler(e) {
+    _moreWrapperClickEventHandler(e) {
         const { target } = e;
-        const targetClassName = `.${target.className}`;
-        if (!targetClassName) return;
+        const targetClassName = `.${target.className}`;                
 
-        const node = _.closestSelector(target, targetClassName);
-        const bFlag = node === target && `.${node.className}` === targetClassName;
-        
-        if (bFlag) {
-            switch (targetClassName) {
-                case '.content__more__btn': {                                                            
-                    this._createMoreViewItems(target);                                         
-                    break;
-                }
-                default:
-                    break;
-            }
-        }
+        if (targetClassName === '.content__more__btn')
+            this._createMoreViewItems(target);        
     }
     
-
     // 더보기 데이터가 들어갈 틀 생성
     async _createMoreViewItems(moreBtn) {
-
         try {            
             const moreData = await this.dataManager.getMoreData(moreBtn.value);            
-            const ul = _.$('ul', this.moreView);
+            const ul = _.$('ul',  _.$('.content__more__view', this.moreWrapper) );
             
             moreData.forEach((data, i) => {
                 const { eventContent: { title, subtitle, imgurl } } = data;
@@ -77,7 +64,15 @@ class IndexControl {
         } catch (error) {
             console.error(error.message);
         }
+    }
 
+    async _updateMoreBtnInnerText(moreBtn) {                
+        try {
+            const data = await this.dataManager.getAllMoreData();            
+            moreBtn.innerText = `더보기(${moreBtn.value * 5}/${data.length}건)`;
+        } catch (error) {
+            console.error(error.message);
+        }
     }
 
     _createTagAndSetAttribute(strTag, attrKey, attrValue) {        
@@ -95,15 +90,28 @@ class IndexControl {
     // --
 
 
-    async _updateMoreBtnInnerText(moreBtn) {                
-        try {
-            const data = await this.dataManager.getAllMoreData();            
-            moreBtn.innerText = `더보기(${moreBtn.value * 5}/${data.length}건)`;
-        } catch (error) {
-            console.error(error.message);
+    // [2] 상단 캐러샐 (content__event__carousel) 이벤트 등록
+    _setEventCarouselClickEvent(eventCarouselWrapper) {
+        _.addEvent(eventCarouselWrapper, 'click', (e) => this._eventCarouselClickEventHandler(e));
+    }    
+
+    _eventCarouselClickEventHandler(e) {
+        const { target } = e;
+        
+        if (_.closestSelector(target, '.paging--prev')) {
+            // 왼쪽으로..
+
+
+        } else if (_.closestSelector(target, '.paging--next')) {
+            // 오른쪽으로..
+            const itemList = Array.from(_.$All('.slide > div', this.eventCarouselWrapper));
+            itemList.forEach((item, i) => {
+                console.log(item.style.transform)
+                console.log(_.getAttr(item, 'transform'));
+            })
         }
     }
-    
+
 }
 
 export default IndexControl;
