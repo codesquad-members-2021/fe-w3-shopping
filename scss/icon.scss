@@ -1,11 +1,15 @@
 .icon {
-    background: url('/images/fe-w3-icon.png') no-repeat;
+    background: url('/images/icon1.png') no-repeat;
     background-size:130px 90px;
     display: block;
 }
 
 .icon2 {
-    background: url('/images/fe-w3-icon2.png') no-repeat;
+    background: url('/images/icon2.png') no-repeat;
+    display: block;
+}  
+.icon3 {
+    background: url('/images/icon3.png') no-repeat;
     display: block;
 }  
 
@@ -86,6 +90,12 @@
 
     }
     &-nextbtn2{
+        @extend .icon2, .wh-45;
+        background-position: -50px -55px;
+
+    }
+
+    &-themebtn{
         @extend .icon2, .wh-45;
         background-position: -50px -55px;
 

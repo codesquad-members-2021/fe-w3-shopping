@@ -70,9 +70,11 @@ main {
     background-color: white;
     @extend %light_boldLine;
 
-    &__zone.theme{
+    &__zone.theme__zone{
         margin-bottom: 100px;
-        padding:29px 4px 40px 4px;
+        // padding:29px 4px 40px 4px;
+        width:100%;
+        align-items: center;
     }
     &__zone{
         // padding: 10px 1px;
@@ -154,15 +156,13 @@ main {
 
 .prev-btn{
     position: relative;
-    top: 100px;
-    right: 1560px;
+    left:0;
     cursor: pointer;
 }
 
 .next-btn{
     position: relative;
-    top: 80px;
-    left: -100px;
+    right: 0;
     cursor: pointer;
 
 }

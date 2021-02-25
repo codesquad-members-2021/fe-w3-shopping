@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
-    "scss" :"node-sass --watch scss --output public/css",
+    "scss": "node-sass --watch scss --output public/css",
     "start": "concurrently -n 'dev,scss' -c 'bgGreen.bold,bgBlue.bold' 'npm run dev' 'npm run scss'"
   },
   "repository": {
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/ink-0/fe-w3-shopping#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.1"

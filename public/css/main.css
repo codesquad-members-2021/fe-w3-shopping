@@ -42,9 +42,10 @@ main {
 
 .item {
   background-color: white; }
-  .item__zone.theme {
+  .item__zone.theme__zone {
     margin-bottom: 100px;
-    padding: 29px 4px 40px 4px; }
+    width: 100%;
+    align-items: center; }
   .item__zone {
     display: flex;
     justify-content: space-between;
@@ -98,12 +99,10 @@ main {
 
 .prev-btn {
   position: relative;
-  top: 100px;
-  right: 1560px;
+  left: 0;
   cursor: pointer; }
 
 .next-btn {
   position: relative;
-  top: 80px;
-  left: -100px;
+  right: 0;
   cursor: pointer; }
