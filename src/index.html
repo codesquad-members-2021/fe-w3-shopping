@@ -8,48 +8,122 @@
     <link rel="stylesheet" href="./scss/styles.scss" />
   </head>
   <body>
-    <header id="header">
-      <div id="search">
-        <div id="logo">
+    <header class="header">
+      <div class="header__top">
+        <div class="header__top--logo">
           <img src="./img/logo_shw.png" />
         </div>
-        <div id="input">
+        <div class="header__top--search">
           <input type="text" placeholder="1. 가정용금고" />
+          <button><img src="./img/검색.png" /></button>
         </div>
       </div>
-      <div id="categori">
-        <div id="catagori__button">
-          <button>카테고리</button>
+
+      <div class="header__categori">
+        <div class="wrap-categori">
+          <div class="header__categori--button">
+            <button>
+              <img src="./img/카테고리.png" />
+              <span>카테고리</span>
+            </button>
+          </div>
+          <ul class="header__categori--list">
+            <li>핫딜</li>
+            <li>베스트100</li>
+            <li>할인특가</li>
+            <li>기획전</li>
+          </ul>
+          <ul class="header__categori--keywords">
+            <li>#건강식품</li>
+            <li>#제철음식</li>
+            <li>#블루투스이어폰</li>
+            <li>#커블체어</li>
+            <li>#노트북</li>
+          </ul>
+          <ul class="header__categori--mypage">
+            <li>
+              <span>
+                <img src="./img/내정보.png" />
+              </span>
+              <span>로그인</span>
+            </li>
+            <li>
+              <span>
+                <img src="./img/최근본상품.png" />
+              </span>
+              <span>최근본 상품 ▾</span>
+            </li>
+          </ul>
         </div>
-        <ul>
-          <li>핫딜</li>
-          <li>베스트100</li>
-          <li>할인특가</li>
-          <li>기획전</li>
-        </ul>
-        <ul>
-          <li>로그인</li>
-          <li>최근본 상품</li>
-        </ul>
       </div>
     </header>
-    <div class="pannel">
-      <div id="staticUI">
-        <img src="./img/leftpannel.png" />
-      </div>
-      <div id="CarouselUI">
-        <div>
-          <img src="./img/rightpannel1.png" />
-        </div>
-        <div>
-          <img src="./img/rightpannel2.png" />
-        </div>
-        <div>
-          <img src="./img/rightpannel3.png" />
-        </div>
-      </div>
-    </div>
 
-    <script src="./js/sample.js"></script>
+    <article class="contents">
+      <div class="pannel">
+        <div class="top-pannel">
+          <div class="wrap-staticUI">
+            <div class="staticUI">
+              <img src="./img/leftpannel.png" />
+            </div>
+          </div>
+
+          <div class="wrap-carouselUI">
+            <div class="carouselUI"></div>
+
+            <div class="carouselUI--leftBtn">
+              <button>〈</button>
+            </div>
+
+            <div class="carouselUI--rightBtn">
+              <button>〉</button>
+            </div>
+
+            <div class="carouselUI--paging">
+              <span><button></button></span>
+              <span><button></button></span>
+              <span><button></button></span>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-pannel">
+          <ul class="bottom-pannel--left">
+            <li>
+              <div><img src="./img/contents--1.jpeg" /></div>
+              <div class="list--name">제품 이름</div>
+              <div class="list--explain">제품 설명</div>
+              <div class="list--theme">테마</div>
+            </li>
+            <li>
+              <div><img src="./img/contents--2.jpeg" /></div>
+              <div class="list--name">제품 이름</div>
+              <div class="list--explain">제품 설명</div>
+              <div class="list--theme">테마</div>
+            </li>
+          </ul>
+          <ul class="bottom-pannel--right">
+            <li>
+              <div><img src="./img/contents--3.jpeg" /></div>
+              <div class="list--name">제품 이름</div>
+              <div class="list--explain">제품 설명</div>
+              <div class="list--theme">테마</div>
+            </li>
+            <li>
+              <div><img src="./img/contents--4.jpeg" /></div>
+              <div class="list--name">제품 이름</div>
+              <div class="list--explain">제품 설명</div>
+              <div class="list--theme">테마</div>
+            </li>
+            <li>
+              <div><img src="./img/contents--5.jpeg" /></div>
+              <div class="list--name">제품 이름</div>
+              <div class="list--explain">제품 설명</div>
+              <div class="list--theme">테마</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <script src="./js/carouselUI-Manager.js"></script>
   </body>
 </html>

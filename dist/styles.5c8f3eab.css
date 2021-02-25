@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html,
 body,
 div,
@@ -129,43 +130,239 @@ table {
   border-spacing: 0;
 }
 
-ul {
-  cursor: pointer;
+body {
+  font-size: 12px;
+  line-height: 1.5;
+  font-family: 돋움, dotum, sans-serif;
+  color: #333;
 }
 
-#header {
+.item-display, .bottom-pannel--right, .bottom-pannel--left, .bottom-pannel, .carouselUI, .wrap-carouselUI, .wrap-staticUI, .top-pannel, .header__categori--mypage li, .header__categori--button button, .wrap-categori ul, .wrap-categori, .header__categori, .header__top--search, .header__top, .contents {
   display: flex;
+  align-items: center;
+}
+
+button:focus {
+  outline: none;
+}
+
+.bold-font, .header__categori--keywords, .header__top--search input {
+  font-size: 20px;
+  font-weight: 700;
+  color: #939393;
+}
+
+.categori-border, .header__categori--list, .header__categori--button button {
+  border-right: 1px solid #efefef;
+}
+
+.header-img, .header__categori--mypage img, .header__categori--button img, .header__top--search button img {
+  width: 28px;
+  height: 28px;
+}
+
+/*-------------------여기까지 heade.scss 공통 클래스--------------------*/
+.contents {
   flex-direction: column;
+  justify-content: center;
+  padding-top: 19px;
+  border-top: 2px solid gainsboro;
+  background-color: #f3f3f3;
+}
+
+.header {
   padding-top: 43px;
 }
 
-#search {
-  display: flex;
+.header__top {
+  justify-content: center;
 }
 
-#categori {
-  display: flex;
+.header__top--logo img {
+  width: 119px;
+  height: 51px;
+}
+
+.header__top--search {
+  justify-content: space-between;
+  width: 670px;
+  height: 54px;
+  margin: 0px 30px;
+  border: 1px solid;
+  border-color: #cecfd1;
+  border-radius: 10px;
+}
+.header__top--search input {
+  border: none;
+  margin: 3px 3px;
+  padding: 10px 60px 10px 30px;
+}
+.header__top--search button {
+  border: none;
+  background-color: #fff;
+  margin: 3px 3px;
+}
+.header__categori {
+  justify-content: center;
+  border-top: 1px solid #efefef;
   margin-top: 40px;
+  height: 54px;
+}
+
+.header__categori--button button {
+  width: 118px;
+  border: none;
+  background-color: #fff;
+}
+.header__categori--button span {
+  padding: 4px 0px 0px 5px;
+  font-size: 16px;
+}
+
+.header__categori--list {
+  padding: 0px 8px 0px 12px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.header__categori--list li {
+  padding: 0px 19px;
+}
+
+.header__categori--keywords {
+  font-size: 16px;
+  padding: 0px 14px;
+}
+.header__categori--keywords li {
+  padding: 0px 14px;
+}
+
+.header__categori--mypage {
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: space-between;
+}
+.header__categori--mypage li {
+  padding-left: 34px;
+}
+.header__categori--mypage img {
+  margin-right: 5px;
 }
 
 .pannel {
-  display: flex;
-  padding-top: 19px;
+  background-color: #fff;
+  border: 1px solid gainsboro;
 }
 
-#CarouselUI {
-  display: flex;
+.wrap-staticUI {
+  box-sizing: border-box;
+  justify-content: center;
+  width: 510px;
+  border-right: 1px solid gainsboro;
+}
+
+.wrap-carouselUI {
+  justify-content: center;
   position: relative;
+  width: 763px;
 }
 
-#CarouselUI > div:nth-child(2) {
-  position: absolute;
-  left: 100px;
+.carouselUI {
+  width: 485px;
+  overflow: hidden;
 }
 
-#CarouselUI > div:nth-child(3) {
+.carouselUI--img {
+  transform: translate3d(0px, 0px, 0px);
+  transition: all 0.3s;
+}
+
+.test {
+  transform: translate3d();
+}
+
+.carouselUI--leftBtn {
   position: absolute;
-  left: 200px;
+  top: 40%;
+  left: 5%;
+}
+.carouselUI--leftBtn button {
+  border: none;
+  background-color: #fff;
+  font-size: 4rem;
+  font-weight: lighter;
+  opacity: 0.1;
+}
+.carouselUI--leftBtn button:hover {
+  opacity: 1;
+}
+
+.carouselUI--rightBtn {
+  position: absolute;
+  top: 40%;
+  right: 5%;
+}
+.carouselUI--rightBtn button {
+  border: none;
+  background-color: #fff;
+  font-size: 4rem;
+  font-weight: lighter;
+  opacity: 0.1;
+}
+.carouselUI--rightBtn button:hover {
+  opacity: 1;
+}
+
+.carouselUI--paging {
+  position: absolute;
+  bottom: 5%;
+  left: 45%;
+}
+.carouselUI--paging button {
+  border: none;
+  background-color: gainsboro;
+  width: 15px;
+  height: 5px;
+}
+.carouselUI--paging button:hover {
+  background-color: #333;
+}
+
+.bottom-pannel {
+  border-top: 1px solid gainsboro;
+}
+.bottom-pannel li {
+  padding: 21px 27px;
+  border-right: 1px solid gainsboro;
+}
+.bottom-pannel img {
+  width: 200px;
+  height: 200px;
+}
+
+.bottom-pannel--right {
+  justify-content: space-around;
+}
+.bottom-pannel--right li:nth-child(3) {
+  border-right: none;
+}
+
+.list--name {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 10px 0px 1px;
+}
+
+.list--explain {
+  font-weight: 300;
+}
+
+.list--theme {
+  border: 1px solid orange;
+  color: orange;
+  margin: 11px 4px 0px 0px;
+  padding: 2px 0px;
+  width: 31px;
+  text-align: center;
 }
 
 /*# sourceMappingURL=/styles.5c8f3eab.css.map */

@@ -1,0 +1,49 @@
+$border: 1px solid;
+$header-border: 1px solid #efefef;
+
+body {
+  font-size: 12px;
+  line-height: 1.5;
+  font-family: 돋움, dotum, sans-serif;
+  color: #333;
+}
+
+.item-display {
+  display: flex;
+  align-items: center;
+}
+
+@mixin button($border, $background-color) {
+  border: $border;
+  background-color: $background-color;
+}
+
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
+.bold-font {
+  font-size: 20px;
+  font-weight: 700;
+  color: #939393;
+}
+
+.categori-border {
+  border-right: $header-border;
+}
+
+.header-img {
+  width: 28px;
+  height: 28px;
+}
+/*-------------------여기까지 heade.scss 공통 클래스--------------------*/
+.contents {
+  @extend .item-display;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 19px;
+  border-top: 2px solid gainsboro;
+  background-color: #f3f3f3;
+}

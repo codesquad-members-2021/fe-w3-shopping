@@ -1,1 +1,0 @@
-document.addEventListener('click', () => console.log('클릭좀그만해'));
