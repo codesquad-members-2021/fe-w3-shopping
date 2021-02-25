@@ -6,45 +6,53 @@ import API from "../../util/api.js"; // root를 alias하는 방법을 찾아보�
 class BannerContainer {
   constructor({ $target }) {
     this.$target = $target;
-    this.$BannerPresentational = new BannerPresentational({ $target });
+    this.$BannerPresentational = null;
     
-    this.fixedImages = "";
-    this.carouselImages = [];
+    this.fixedImage = "";
+    
     // 배너 캐로셀 initialize
+    // this.carouselImages = [];
     // let $target = this.$BannerPresentational.$target.querySelector("#banner-slide");
     // this.bannerCarouselContainer = new BannerCarouselContainer({ $target, state });
+    // console.log(data.mallEventList.slice(0,10));
+    // carouselImages: data.mileageList
+
+    this.init();
   }
 
   init() {
     this.resetState();
-    // API에서 받아 옴.
-    API.get.banner((response) => {
-      // 받아와서
-      this.setState(response);
+    
+    API.get.bannerInfo().then((data) => {
+      this.setState({ 
+        fixedImage: data.event.imgurl
+      });
     });
   }
   
-  setState({ fixedImages, carouselImages }) {
-    if (this.fixedImages !== "" || this.carouselImages.length !== 0 ) {
+  setState({ fixedImage }) {
+    if (this.fixedImage !== "") {
       this.resetState();  
     }
-    this.setFixedImages(fixedImages);
-    this.setCarouselImages(carouselImages);
+    this.setFixedImages(fixedImage);
+    this.render();
   }
 
   resetState() {
-    this.fixedImages = "";
-    this.carouselImages = [];
+    this.fixedImage = "";
   }
 
-  setFixedImages(fixedImages) {
-    this.fixedImages = fixedImages;
+  setFixedImages(fixedImage) {
+    this.fixedImage = fixedImage;
   }
 
-  setCarouselImages(carouselImages) {
-    this.carouselImages = carouselImages;
-  }
+  // setCarouselImages(carouselImages) {
+  //   this.carouselImages = carouselImages;
+  // }
 
+  render() {
+    this.$BannerPresentational = new BannerPresentational({ $target: this.$target, fixedImage: this.fixedImage });
+  }
 }
 
 export default BannerContainer;

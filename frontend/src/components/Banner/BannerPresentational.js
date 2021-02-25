@@ -1,15 +1,15 @@
 import "./banner.scss";
 
 class BannerPresentational {
-  constructor({ $target }) {
+  constructor({ $target, ...props }) {
     this.$target = $target;
-
+    this.imgSrc = props.fixedImage;
+    
     this.init();
   }
 
   init() { 
     this.render();
-
   }
   
   render() {
@@ -18,11 +18,11 @@ class BannerPresentational {
         <div class="wrapper">
           <div class="contents left"> 
             <a href="#"> 
-              <img src="http://shop4.daumcdn.net/shophow/sib/0_210219175151_tbehDsXzWnJKZNGWJxRuYhONIcINMfri" />
+              <img src=${this.imgSrc} />
             </a>
           </div>
           <div class="contents right"> 
-            <img src="http://shop4.daumcdn.net/shophow/sib/0_210219175151_tbehDsXzWnJKZNGWJxRuYhONIcINMfri" />
+            <img src="http://shop4.daumcdn.net/shophow/sib/0_210219175151_tbehDsXzWnJKZNGWJxRuYhONIcINMfri" /> <!-- 임시 -->
             <div id="banner-slide"> </div>
           </div>
         </div>
