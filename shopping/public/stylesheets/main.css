@@ -1,4 +1,8 @@
 /* init */
+.hide {
+  display: none !important;
+}
+
 ul, li {
   list-style: none;
   display: inline;
@@ -145,7 +149,6 @@ button, input {
 }
 
 .main {
-  background-color: #f3f3f3;
   display: flex;
   flex-direction: column;
   align-items: center;
