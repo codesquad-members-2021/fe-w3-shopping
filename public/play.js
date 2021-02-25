@@ -6,7 +6,6 @@ import {
    LoaderFromJson
 } from "./data_loader.js";
 
-
 import {
    CarouselCtrl
 } from "./carousel.js";
@@ -19,8 +18,7 @@ function playCarousel() {
 }
 
 function btnCtrl() {
-   const slideArea = _.$('.slide'); //슬라이드될 영역, 그 안에 이미지 div가 존재한다.
-   console.log(slideArea)
+   const slideArea = _.$('.slide_second_position'); //슬라이드될 영역, 그 안에 이미지 div가 존재한다.
    const slideNextBtn = _.$(".slide_prev_main_next .next");
    const slidePrevBtn = _.$(".slide_prev_main_next .prev");
    return new CarouselCtrl(slidePrevBtn, slideNextBtn, slideArea);

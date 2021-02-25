@@ -4,18 +4,56 @@ import {
 
 export class CarouselMaker {
    constructor(imgurl) {
-      this.makeBasicTpl(imgurl);
+      this.init(imgurl)
+   }
+
+   insertToFirstCloneTpl(imgurl) {
+
+      const slideDiv = document.createElement('div');
+      slideDiv.className = 'slide_panel';
+      slideDiv.id = 'last_clone';
+      slideDiv.innerHTML =
+         `<a href="#">
+               <img src="${imgurl[0]}"></img>
+            </a>`;
+      const slideArea = _.$('.slide_second_position');
+      slideArea.insertAdjacentElement('afterBegin', slideDiv);
+   }
+
+   insertToLastCloneTpl(imgurl) {
+      const slideDiv = document.createElement('div');
+      slideDiv.className = 'slide_panel';
+      slideDiv.id = 'first_clone';
+      slideDiv.innerHTML =
+         `<a href="#">
+               <img src="${imgurl[imgurl.length-1]}"></img>
+            </a>`;
+      const slideArea = _.$('.slide_second_position');
+      slideArea.insertAdjacentElement('beforeEnd', slideDiv);
    }
 
    makeBasicTpl(imgurl) {
-      const slideDiv = document.createElement('div');
-      slideDiv.className = 'slide_panel';
-      slideDiv.innerHTML =
-         `<a href="#">
-            <img src="${imgurl}"></img>
-         </a>`
-      const slideArea = _.$('.slide');
-      slideArea.insertAdjacentElement('afterBegin', slideDiv);
+      const slideArea = _.$('.slide_second_position');
+      for (let i = 0; i < imgurl.length; i++) {
+         const slideDiv = document.createElement('div');
+         slideDiv.className = 'slide_panel';
+         if (i === 1) slideDiv.classList.add('visible');
+         slideDiv.innerHTML =
+            `<a href="#">
+               <img src="${imgurl[i]}"></img>
+            </a>`
+         slideArea.insertAdjacentElement('afterBegin', slideDiv);
+      }
+   }
+
+   init(imgurl) {
+      console.log(imgurl)
+      new Promise(resolve => {
+         resolve(this.makeBasicTpl(imgurl))
+      }).then(() => {
+         this.insertToFirstCloneTpl(imgurl)
+         this.insertToLastCloneTpl(imgurl)
+      });
    }
 }
 
@@ -24,47 +62,42 @@ export class CarouselCtrl {
       this.prev = prev;
       this.next = next;
       this.area = area;
-      this.status = status;
       this.init();
    }
 
-   classCheck() {
-      if (this.area.classList.contains("moveLeft")) this.area.classList.replace('moveLeft');
-      if (this.area.classList.contains("moveRight")) this.area.classList.remove('moveRight');
-   }
-
-   moveChildToFirst() {
-      let firstDiv = _.$All('.slide_panel')[0];
-      let lastDiv = _.$All('.slide_panel')[2];
-      this.area.insertBefore(lastDiv, firstDiv)
-   }
-
-   moveChildToLast() {
-      let firstDiv = _.$All('.slide_panel')[0];
-      this.area.insertBefore(firstDiv, null)
-   }
-
-   moveRight() {
-      this.area.classList.add('moveRight');
-      // this.moveChildToLast();
-   }
-
-   moveLeft() {
-      if (this.area.classList.contains("moveRight")) this.area.classList.replace('moveLeft')
-      else this.area.classList.add('moveLeft');
-      this.moveChildToLast();
-      //!console.log('파라미터가 아닌, 여기서 바로 this.area를 가져오면 왜 undefined였을까?')
-   }
-
    init() {
-      this.prev.addEventListener('click', () => this.moveRight(this.area));
-      this.next.addEventListener('click', () => this.moveLeft(this.area));
+      let count = 1;
+      let size = 485;
+      this.area.style.transform = `translate(${-size*count}px)`;
 
-      // this.next.addEventListener('click', () => {
-      //    new Promise(resolve => {
-      //       resolve(this.moveLeft(this.area))
-      //    }).then(() => this.moveChildToFirst(this.area))
-      // })
+      this.prev.addEventListener('click', () => {
+         count--;
+         this.area.style.transform = `translate(${-size*count}px)`;
+         this.area.style.transition = 'transform 0.4s';
+      });
+
+      this.next.addEventListener('click', () => {
+         count++;
+         this.area.style.transform = `translate(${-size*count}px)`;
+         this.area.style.transition = 'transform 0.4s';
+      })
+
+      this.area.addEventListener('transitionend', () => {
+         let lastImg = _.$('#first_clone');
+         let firstImg = _.$('#last_clone');
+
+         console.log(count, this.area.childNodes, lastImg)
+         if (this.area.childNodes[count] === lastImg) {
+            count = 1;
+            this.area.style.transform = `translate(${-size*count}px)`;
+            this.area.style.transition = 'none';
+         }
+         if (this.area.childNodes[count] === firstImg) {
+            count = this.area.childNodes.length - 2;
+            this.area.style.transform = `translate(${-size*count}px)`;
+            this.area.style.transition = 'none';
+         };
+      })
    }
 }
 

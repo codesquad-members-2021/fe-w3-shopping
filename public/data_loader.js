@@ -15,10 +15,12 @@ export class LoaderFromJson {
    }
 
    populateSlideDiv(parsedData) {
+      let imgurlArr = [];
       parsedData.forEach(el => {
          let [title, desc, imgurl] = el;
-         if (imgurl) new CarouselMaker(imgurl);
+         if (imgurl) imgurlArr.push(imgurl);
       })
+      return new CarouselMaker(imgurlArr);
    }
 
    dataParsing(data) {
