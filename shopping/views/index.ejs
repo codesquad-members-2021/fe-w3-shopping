@@ -13,7 +13,8 @@
 <body>
   <header>
     <div class="header__searchbar">
-      <img class="header__searchbar__img" src="https://search1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/logo_shw.png">
+      <img class="header__searchbar__img"
+        src="https://search1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/logo_shw.png">
       <input type="text">
     </div>
     <div class="header__keywords"></div>
@@ -22,8 +23,9 @@
         <div>
           <span class="icon ico_menu">펼치기</span>
         </div>
-        <span>카테고리</span>
+        카테고리
       </div>
+      <div class="bar"></div>
 
       <ul class="header__navbar__hotDeal">
         <li>핫딜</li>
@@ -39,33 +41,101 @@
         <li>#온수매트</li>
       </ul>
       <ul class="header__navbar__login">
-        <li>
-          <span class="ico_shwgnb ico_user"></span>
+        <li class="navber__login__login">
+          <span class="icon ico_user"></span>
           로그인
         </li>
-        <li>
-          <span class="ico_shwgnb ico_products"></span>
+        <li class="navber__login__lastItem">
+          <span class="icon ico_products"></span>
           최근본 상품
-          <span class="ico_shwgnb ico_arrow"> 펼치기</span>
+          <span class="icon ico_arrow"> 펼치기</span>
         </li>
 
       </ul>
     </div>
   </header>
   <section class="main_section">
-    <div class="main__banner">
-      <div class="main__banner__top"></div>
-      <ul class="shoppinglists">
-        <li class="shoppinglist"></li>
-        <li class="shoppinglist"></li>
-        <li class="shoppinglist"></li>
-        <li class="shoppinglist"></li>
-      </ul>
+    <div class="main__banner layer1">
+      <div class="main__banner__top layer1">
+        <div class="banner__left">
+          <img src="<%= event.event.imgurl %>">
+        </div>
+        <div class="banner__right">
+          <div class="banner__slider layer2 transitiondefault">
+            <div class="panel">
+              <img src="<%= event.mileageList[0].imgurl %>">
+            </div>
+            <div class="panel">
+              <img src="<%= event.mileageList[1].imgurl %>">
+            </div>
+            <div class="panel">
+              <img src="<%= event.mileageList[2].imgurl %>">
+            </div>
+          </div>
+          <div class="banner__right__btns">
+            <button class="icon_slide prev"></button>
+            <span class="inner_paging">
+              <span>
+                <div class="num_page selected">0</div>
+              </span>
+              <span>
+                <div class="num_page unselected">1</div>
+              </span>
+              <span>
+                <div class="num_page unselected">2</div>
+              </span>
+          
+            </span>
+            <button class="icon_slide next"></button>
+          </div>
+        </div>
+      </div>
+      <ul class="shoppinglists layer1">
+        <li class="shoppinglist">
+          <img src="<%= event.mallEventList[0].imgurl%>">
+          <strong>
+            <%= event.mallEventList[0].text %>
+          </strong>
+          <span>
+            <%= event.mallEventList[0].text2 %>
+          </span>
+        </li>
+        <li class="shoppinglist">
+          <img src="<%= event.mallEventList[1].imgurl%>">
+          <strong>
+            <%= event.mallEventList[1].text %>
+          </strong>
+          <span>
+            <%= event.mallEventList[1].text2 %>
+          </span>
+        </li>
+        <li class="shoppinglist">
+          <img src="<%= event.mallEventList[2].imgurl%>">
+          <strong>
+            <%= event.mallEventList[2].text %>
+          </strong>
+          <span>
+            <%= event.mallEventList[2].text2 %>
+          </span>
+        </li>
+        <li class="shoppinglist">
+          <img src="<%= event.mallEventList[3].imgurl%>">
+          <strong>
+            <%= event.mallEventList[3].text %>
+          </strong>
+          <span>
+            <%= event.mallEventList[3].text2 %>
+          </span>
+        </li>
+      </ul> 
     </div>
   </section>
   <section class="hotDeal_section"></section>
   <section class="keywords_section"></section>
   <footer></footer>
+  <script type="module" src="./javascripts/utils.js"></script>
+  <script type="module" src="./javascripts/slider.js"></script>
+  <script type="module" src="./javascripts/main.js"></script>
 </body>
 
 </html>

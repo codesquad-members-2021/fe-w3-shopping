@@ -1,7 +1,60 @@
+.layer1 {
+  z-index: 1; }
+
+.layer2 {
+  z-index: -1; }
+
 .icon {
   background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
-  background-size: 130px 90px; }
+  background-size: 130px 90px;
+  font-size: 0;
+  position: absolute;
+  top: 13px;
+  width: 28px;
+  height: 28px; }
 
-.ico_menu {
-  left: 4px;
-  background-position: 0 -30px; }
+.icon_slide {
+  display: inline-block;
+  overflow: hidden;
+  width: 15px;
+  height: 25px;
+  font-size: 0;
+  line-height: 0;
+  background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/img_home_150131.png) no-repeat;
+  text-indent: -9999px; }
+
+.bar {
+  float: left;
+  width: 1px;
+  height: 18px;
+  margin-top: 18px;
+  background-color: #e3e3e3; }
+
+.shoppinglists {
+  float: left;
+  overflow: hidden;
+  width: 1275px;
+  background-color: #fff; }
+
+.shoppinglist {
+  float: left;
+  width: 200px;
+  height: 276px;
+  padding: 21px;
+  border-bottom: 0 none;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-right: 1px solid rgba(0, 0, 0, 0.05); }
+  .shoppinglist img {
+    width: 200px;
+    aspect-ratio: auto 200 / 200;
+    height: 200px; }
+  .shoppinglist strong {
+    display: block;
+    overflow: hidden;
+    margin: 10px 1px;
+    font-size: 14px;
+    white-space: nowrap; }
+  .shoppinglist span {
+    display: block;
+    color: #888;
+    font-size: 12px; }
