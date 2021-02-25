@@ -59,6 +59,11 @@ table {
   width: 119px;
   height: auto;
 }
+.area_headtop .tit_shw #logo_shw:hover {
+  transform: translate3d(100px, 0, 0) skew(45deg) rotate(23deg);
+  width: 100px;
+  transition-duration: 1s;
+}
 .area_headtop .wrap_shwsearch {
   display: float;
   float: right;
@@ -253,7 +258,7 @@ table {
   width: 15px;
   height: 5px;
 }
-.mainBanner .cont_event .page_box-list .page_box-select {
+.mainBanner .cont_event .page_box-list .select {
   background-color: black;
   margin: 0 2px;
   width: 15px;
@@ -336,6 +341,55 @@ table {
   visibility: hidden;
   z-index: 100;
   cursor: pointer;
+}
+
+.slider__item {
+  display: none;
+}
+
+.showing {
+  display: block;
+}
+
+.slider2 {
+  overflow: hidden;
+  width: 485px;
+  margin-left: 485px;
+}
+.slider2 .slider_wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: solid 1px salmon;
+  align-items: center;
+  width: 485px;
+  margin-left: calc(50% - 242px);
+}
+.slider2 .slider_wrap:hover {
+  transform: translate3d(485px, 0, 0);
+  transition: transform 2s;
+}
+
+.slider_active {
+  transform: translate3d(485px, 0, 0);
+  transition: transform 2s;
+}
+
+.subBanner {
+  position: relative;
+}
+.subBanner #left2 {
+  position: absolute;
+  background-color: black;
+}
+.subBanner #right2 {
+  position: absolute;
+  background-color: black;
+  left: 1500px;
+}
+
+.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=index.css.map */
