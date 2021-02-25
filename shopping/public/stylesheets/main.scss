@@ -1,8 +1,12 @@
 @import "./vars.scss";
 @import "./main/articleTop.scss";
 @import "./main/articleHotdeal.scss";
+@import "./main/articleKeyword.scss";
+@import "./main/articleHow.scss";
+@import "./main/etc.scss";
 
-main {
+main,
+footer {
   padding: 0 $padding-for-left-right;
   background-color: map-get($color-palette, default-border-color);
   font-size: map-get($font-size, content);
@@ -16,17 +20,27 @@ main {
   display: none;
 }
 
-.dot_active {
-  background-color: brown;
-}
-
 .main__article {
   width: 100%;
   background-color: #fff;
 
-  .article__keyword {
+  .title_info {
+    padding: 0.5em 1em;
+    font-size: 18px;
   }
 
-  .article__how {
+  .list_item {
+    // border: 1px solid red;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20%, auto));
+    min-height: 350px;
+    // border: 1px solid map-get($color-palette, top_border);
+
+    ._GI_ {
+      // background-color: teal;
+      padding: 20px 0;
+      // height: 100%;
+      border: 1px solid map-get($color-palette, top_border);
+    }
   }
 }

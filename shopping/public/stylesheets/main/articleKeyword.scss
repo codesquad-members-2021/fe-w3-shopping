@@ -1,0 +1,12 @@
+.article__keyword {
+  ul {
+    // border: 1px solid red;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

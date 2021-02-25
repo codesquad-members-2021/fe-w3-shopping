@@ -1,84 +1,170 @@
-export default function createCarousel(slideContents, buttons, slideList, width = undefined, speed = undefined) {
-  const slideWidth = width ? width : 400;
-  const slideSpeed = speed ? speed : 300;
+const carouselState = {
+  slideList: null,
+  currIndex: 0,
+  currSlide: null,
+  currDot: null,
+  slidePagination: null,
+  pageDots: null,
+};
+
+const longClickState = {
+  isPressed: false,
+  timer: {
+    next: null,
+    prev: null,
+  },
+  isMoved: {
+    next: false,
+    prev: false,
+  },
+};
+
+const setTotalWidthOnSlideList = (slideWidth, slideLen) => (carouselState.slideList.style.width = `${slideWidth * (slideLen + 2)}px`);
+
+const cloneFirstLastChildren = (slideList) => {
+  return new Promise((resolve, reject) => {
+    const firstChild = slideList.firstElementChild;
+    const lastChild = slideList.lastElementChild;
+    const clonedFirst = firstChild.cloneNode(true);
+    const clonedLast = lastChild.cloneNode(true);
+    resolve({ clonedFirst, clonedLast });
+  });
+};
+
+const addClonedChildren = (children) => {
+  const { clonedFirst, clonedLast } = children;
+  carouselState.slideList.appendChild(clonedFirst);
+  carouselState.slideList.insertBefore(clonedLast, carouselState.slideList.firstElementChild);
+};
+
+const transformSlideList = (slideWidth, value) => (carouselState.slideList.style.transform = `translateX(-${slideWidth * value}px)`);
+
+const transitionSlideList = (ms) => (carouselState.slideList.style.transition = `${ms}ms`);
+
+const moveSlide = (itemCnt, slideMaterials, isNext, isPagination) => (...conditions) => {
+  const { slideSpeed, slideWidth, slideLen, slideContents } = slideMaterials;
+
+  if (conditions[0]) {
+    transitionSlideList(slideSpeed);
+    transformSlideList(slideWidth, isNext ? carouselState.currIndex + 2 + (itemCnt > 1 ? 1 : 0) : carouselState.currIndex + (itemCnt > 1 ? -1 : 0));
+  }
+
+  if (conditions[1]) {
+    if (itemCnt <= 1) {
+      setTimeout(() => {
+        transitionSlideList(0);
+        transformSlideList(slideWidth, isNext ? 1 : slideLen);
+      }, slideSpeed);
+    }
+    carouselState.currIndex = isNext ? -1 : slideLen;
+  }
+
+  carouselState.currSlide.classList.remove("slide_active");
+  if (isPagination) {
+    const currIndexStandard = isNext ? -1 : slideLen;
+    const newIndex = isNext ? slideLen - 1 : 0;
+    carouselState.pageDots[carouselState.currIndex === currIndexStandard ? newIndex : carouselState.currIndex].classList.remove("dot_active");
+  }
+  carouselState.currSlide = slideContents[isNext ? (carouselState.currIndex += itemCnt > 1 ? 2 : 1) : (carouselState.currIndex -= itemCnt > 1 ? 2 : 1)];
+  carouselState.currSlide.classList.add("slide_active");
+  if (isPagination) carouselState.pageDots[carouselState.currIndex].classList.add("dot_active");
+};
+
+const paginationEvent = (slideMaterials, { target }) => {
+  const { slideSpeed, slideWidth, slideLen, slideContents } = slideMaterials;
+  carouselState.currDot = document.querySelector(".dot_active");
+  carouselState.currDot.classList.remove("dot_active");
+
+  const thisNode = target.parentNode;
+  carouselState.currDot = thisNode;
+  thisNode.classList.add("dot_active");
+
+  carouselState.currSlide.classList.remove("slide_active");
+  carouselState.currIndex = Number(thisNode.getAttribute("data-index"));
+
+  carouselState.currSlide = slideContents[carouselState.currIndex];
+  carouselState.currSlide.classList.add("slide_active");
+  transitionSlideList(slideSpeed);
+  transformSlideList(slideWidth, carouselState.currIndex + 1);
+};
+
+const setInitalCarouselState = (startNum, slideContents) => {
+  carouselState.currIndex = startNum;
+  carouselState.currSlide = slideContents[carouselState.currIndex];
+  carouselState.currSlide.classList.add("slide_active");
+};
+
+const createCarousel = (carouselMaterials, speed, needPagination = false, longClick = false) => {
+  const { slideContents, buttons, slideList, slideWidth, startNum } = carouselMaterials;
+  carouselState.slideList = slideList;
+
+  const slideSpeed = speed;
   const prevButton = Object.values(buttons).find((button) => button.classList.contains("btn_prev"));
   const nextButton = Object.values(buttons).find((button) => button.classList.contains("btn_next"));
   const slideLen = slideContents.length;
-  const startNum = 0;
-  const pageDots = document.querySelectorAll(".btn_paging");
 
-  slideList.style.width = `${slideWidth * (slideLen + 2)}px`;
+  if (needPagination) {
+    carouselState.slidePagination = document.querySelector(".slide_pagination");
+    carouselState.pageDots = document.querySelectorAll(".btn_paging");
+  }
 
-  let firstChild = slideList.firstElementChild;
-  let lastChild = slideList.lastElementChild;
-  let clonedFirst = firstChild.cloneNode(true);
-  let clonedLast = lastChild.cloneNode(true);
+  setTotalWidthOnSlideList(slideWidth, slideLen);
+  // Add cloned slides
+  cloneFirstLastChildren(carouselState.slideList).then((children) => addClonedChildren(children));
+  transformSlideList(slideWidth, startNum + 1);
+  setInitalCarouselState(startNum, slideContents);
 
-  // add cloned slides
-  slideList.appendChild(clonedFirst);
-  slideList.insertBefore(clonedLast, slideList.firstElementChild);
+  const slideMaterials = { slideSpeed, slideWidth, slideLen, slideContents };
 
-  slideList.style.transform = `translateX(-${slideWidth * (startNum + 1)}px)`;
-
-  let currIndex = startNum;
-  let currSlide = slideContents[currIndex];
-  currSlide.classList.add("slide_active");
-
-  nextButton.addEventListener("click", () => {
-    if (currIndex <= slideLen - 1) {
-      slideList.style.transition = slideSpeed + "ms";
-      slideList.style.transform = `translateX(-${slideWidth * (currIndex + 2)}px)`;
-    }
-    if (currIndex === slideLen - 1) {
-      setTimeout(() => {
-        slideList.style.transition = "0ms";
-        slideList.style.transform = `translateX(-${slideWidth}px)`;
-      }, slideSpeed);
-      currIndex = -1;
-    }
-    currSlide.classList.remove("slide_active");
-    pageDots[currIndex === -1 ? slideLen - 1 : currIndex].classList.remove("dot_active");
-    currSlide = slideContents[++currIndex];
-    currSlide.classList.add("slide_active");
-    pageDots[currIndex].classList.add("dot_active");
-  });
-
-  prevButton.addEventListener("click", () => {
-    if (currIndex >= 0) {
-      slideList.style.transition = slideSpeed + "ms";
-      slideList.style.transform = `translateX(-${slideWidth * currIndex}px)`;
-    }
-
-    if (currIndex === 0) {
-      setTimeout(() => {
-        slideList.style.transition = "0ms";
-        slideList.style.transform = `translateX(-${slideWidth * slideLen}px)`;
-      }, slideSpeed);
-      currIndex = slideLen;
-    }
-    currSlide.classList.remove("slide_active");
-    pageDots[currIndex === slideLen ? 0 : currIndex].classList.remove("dot_active");
-    currSlide = slideContents[--currIndex];
-    currSlide.classList.add("slide_active");
-    pageDots[currIndex].classList.add("dot_active");
-  });
-
-  let currDot;
-  pageDots.forEach((dot, i) => {
-    dot.addEventListener("click", (e) => {
-      e.preventDefault();
-      currDot = document.querySelector(".dot_active");
-      currDot.classList.remove("dot_active");
-
-      currDot = this;
-      this.classList.add("dot_active");
-
-      currSlide.classList.remove("slide_active");
-      currIndex = Number(this.getAttribute("data-index"));
-      currSlide = slideContents[currIndex];
-      currSlide.classList.add("slide_active");
-      slideList.style.transition = `${slideSpeed}ms`;
-      slideList.style.transform = `translateX(-${slideWidth * (currIndex + 1)}px)`;
+  if (!longClick) {
+    // button도 이벤트 위임 시도해보아야함
+    nextButton.addEventListener("click", () => {
+      moveSlide(1, slideMaterials, true, true)(carouselState.currIndex <= slideLen - 1, carouselState.currIndex === slideLen - 1);
     });
-  });
-}
+
+    prevButton.addEventListener("click", () => {
+      moveSlide(1, slideMaterials, false, true)(carouselState.currIndex >= 0, carouselState.currIndex === 0);
+    });
+  }
+
+  if (longClick) {
+    nextButton.addEventListener("mouseup", () => {
+      if (longClickState.isPressed) clearInterval(longClickState.timer.next);
+      if (!longClickState.isMoved.next) moveSlide(1, slideMaterials, true, false)(carouselState.currIndex <= slideLen - 1, carouselState.currIndex === slideLen - 1);
+      longClickState.isPressed = false;
+      longClickState.isMoved.next = false;
+    });
+
+    nextButton.addEventListener("mousedown", () => {
+      longClickState.isPressed = true;
+      // console.log(Date.now());
+      longClickState.timer.next = setInterval(() => {
+        moveSlide(2, slideMaterials, true, false)(carouselState.currIndex <= slideLen - 1, carouselState.currIndex === slideLen - 1);
+        longClickState.isMoved.next = true;
+      }, 2000);
+    });
+
+    prevButton.addEventListener("mouseup", () => {
+      if (longClickState.isPressed) clearInterval(longClickState.timer.prev);
+      if (!longClickState.isMoved.prev) moveSlide(1, slideMaterials, false, false)(carouselState.currIndex >= 0, carouselState.currIndex === 0);
+      longClickState.isPressed = false;
+      longClickState.isMoved.prev = false;
+    });
+
+    prevButton.addEventListener("mousedown", () => {
+      longClickState.isPressed = true;
+      longClickState.timer.prev = setInterval(() => {
+        moveSlide(2, slideMaterials, false, false)(carouselState.currIndex >= 0, carouselState.currIndex === 0);
+        longClickState.isMoved.prev = true;
+      }, 2000);
+    });
+  }
+
+  if (needPagination) {
+    carouselState.slidePagination.addEventListener("click", (e) => {
+      paginationEvent(slideMaterials, e);
+    });
+  }
+};
+
+export { createCarousel, carouselState, transitionSlideList, transformSlideList };

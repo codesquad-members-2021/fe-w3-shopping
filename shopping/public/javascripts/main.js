@@ -1,7 +1,8 @@
 // import { createEventItem, setMileageListHtml, setMallEventListHtml } from "./articleTop/panels.js";
-import createCarousel from "./slide.js";
+import { createCarousel } from "./slide.js";
 // import { processDataToHtmlContents, setPaginationHtml } from "./htmlCodes.js";
 import { createEventItem, setMileageListHtml, setPaginationHtml, setMallEventListHtml } from "./htmlCodes.js";
+// import setSecondCarousel from "./carousel2.js";
 
 const mallEventSlide = document.querySelector("#mallEventSlide");
 const slideList = document.querySelector(".slide_list");
@@ -51,7 +52,14 @@ fetch(urls.mileageList)
       const buttons = document.querySelectorAll(".btn_slide");
       const slideWidth = 485;
       const slideSpeed = 300;
-      createCarousel(res, buttons, slideList, slideWidth, slideSpeed);
+      const carouselMaterials = {
+        slideContents: res,
+        buttons,
+        slideList,
+        slideWidth,
+        startNum: 0,
+      };
+      createCarousel(carouselMaterials, slideSpeed, true);
     });
   });
 
@@ -88,7 +96,7 @@ fetch(urls.homeContents)
     let i = 0;
     Object.entries(hotDealContents).forEach((value, key) => {
       const currProducts = value[1].eventProducts;
-      let hotDealHtml = `<ul class="list_item">`;
+      let hotDealHtml = `<ul class="list_hotDeal">`;
       hotDealHtml += currProducts.reduce((acc, val) => {
         const { imageurl, produrl, prodname, mprice } = val;
         acc += `<li class="_GI_" data-id="${i++}">
@@ -97,7 +105,7 @@ fetch(urls.homeContents)
             <img src="${imageurl}" alt="" />
           </span>
           <strong class="title_g">${prodname}</strong>
-          <span class="detail_price">${mprice}
+          <span class="detail_price">${numberWithCommas(mprice)}
             <span class="price_unit">원</span>
           </span>
         </a>
@@ -108,4 +116,24 @@ fetch(urls.homeContents)
       totalHtml += hotDealHtml;
     });
     hotDealItemHtml.innerHTML = totalHtml;
+
+    const slideContents = document.querySelectorAll(".list_hotDeal");
+    const buttons = document.querySelectorAll(".btn_hotDeal");
+    // const prevButton = document.querySelector(".btn_hotDeal_prev");
+    // const nextButton = document.querySelector(".btn_hotDeal_next");
+    const slideList = document.querySelector(".content_hotDeal");
+    const carouselMaterials = {
+      slideContents,
+      buttons,
+      slideList,
+      slideWidth: 252,
+      startNum: 5,
+    };
+    createCarousel(carouselMaterials, 300, false, true);
+
+    // setSecondCarousel(slideContents, prevButton, nextButton, slideList);
   });
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}

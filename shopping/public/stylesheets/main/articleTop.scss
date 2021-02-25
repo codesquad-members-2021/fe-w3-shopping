@@ -71,17 +71,19 @@
         .btn_paging {
           float: left;
           margin-left: 3px;
+          background-color: map-get($color-palette, num_page-color);
 
           .num_page {
+            cursor: pointer;
             display: block;
             width: 15px;
             height: 5px;
-            background-color: map-get($color-palette, num_page-color);
           }
         }
 
         .dot_active {
-          border: 1px solid black;
+          background-color: none;
+          background-color: black;
         }
       }
     }
@@ -123,30 +125,15 @@
       }
     }
 
-    .list_item {
-      // border: 1px solid red;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(20%, auto));
-      min-height: 350px;
-      // border: 1px solid map-get($color-palette, top_border);
-
-      ._GI_ {
-        // background-color: teal;
-        padding: 20px 0;
-        // height: 100%;
-        border: 1px solid map-get($color-palette, top_border);
-      }
-    }
-
-    .btn_g {
-      //   background-color: wheat;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      padding: 2em;
-    }
+    // .btn_g {
+    //   //   background-color: wheat;
+    //   position: absolute;
+    //   top: 50%;
+    //   transform: translateY(-50%);
+    //   background-color: rgba(0, 0, 0, 0.5);
+    //   color: white;
+    //   padding: 2em;
+    // }
 
     .btn_prev {
       left: 0;

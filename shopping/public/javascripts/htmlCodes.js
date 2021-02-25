@@ -1,5 +1,5 @@
 const createEventItem = (data) => {
-  const {linkurl, imgurl} = data
+  const { linkurl, imgurl } = data;
   return `<a href="${linkurl}"><img src="${imgurl}"/></a>`;
 };
 
@@ -44,13 +44,13 @@ const setMallEventListHtml = (array) => {
   }, ``);
 };
 
-function processDataToHtmlContents(data) {
-  const { mileageList, mallEventList, event } = data;
-  const eventItem = createEventItem(event.linkurl, event.imgurl);
-  const mileageListPanels = setMileageListHtml(mileageList);
-  const mallEventListPanels = setMallEventListHtml(mallEventList);
-  return [eventItem, mileageListPanels, mallEventListPanels];
-}
+// function processDataToHtmlContents(data) {
+//   const { mileageList, mallEventList, event } = data;
+//   const eventItem = createEventItem(event.linkurl, event.imgurl);
+//   const mileageListPanels = setMileageListHtml(mileageList);
+//   const mallEventListPanels = setMallEventListHtml(mallEventList);
+//   return [eventItem, mileageListPanels, mallEventListPanels];
+// }
 
 function createPagnationHtml(slideLen, startNum) {
   return new Promise((resolve, reject) => {

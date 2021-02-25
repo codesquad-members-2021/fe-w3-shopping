@@ -4,6 +4,7 @@ $color-palette: (
   searchBar-color: #d4d5d7,
   num_page-color: #ccc,
   top_border: #eaeaea,
+  button_background: rgba(0, 0, 0, 0.5),
 );
 
 $font-size: (
@@ -25,10 +26,8 @@ $slide_img: (
 
 $slide_img_total-width: (map-get($slide_img, width) * 5) px;
 
+$slide_hotdeal_img-width: 250px;
+$slide_hotdeal_total-width: ($slide_hotdeal_img-width + 2) * 5 - 1;
+
 $padding-height-size: 1.5em;
 $padding-for-left-right: 7%;
-
-// :export {
-//   slideWidth: map-get($slide_img, width);
-//   slideListWidth: $slide_img_total-width;
-// }

@@ -1,0 +1,21 @@
+.article__how {
+  .content_item {
+    background-color: map-get($color-palette, navbar-line-color);
+    padding: 3em;
+
+    .title_sub {
+      color: map-get($font-color, title);
+    }
+
+    .item_how {
+      width: 100%;
+      //   border: 1px solid red;
+      margin-bottom: 1em;
+    }
+  }
+
+  ul {
+    margin-top: 1em;
+    background-color: white;
+  }
+}

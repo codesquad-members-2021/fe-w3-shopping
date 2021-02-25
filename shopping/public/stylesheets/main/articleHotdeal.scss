@@ -1,59 +1,75 @@
 @import "./vars.scss";
 
 .article__hotDeal {
-  .title_info {
-    margin-left: 1em;
-    font-size: 18px;
+  .section__hotDeal {
+    position: relative;
+    background-color: map-get($color-palette, num_page-color);
+    padding-bottom: 10em;
   }
 
   .hotDeal__container {
-    position: relative;
-    width: 100%;
+    background-color: white;
+    // border: 1px solid blue;
+    // max-width: $slide_hotdeal_total-width;
+    width: $slide_hotdeal_total-width;
     height: 351px;
     overflow: hidden;
+    display: flex;
+    margin: auto;
   }
 
   .content_hotDeal {
-    background-color: paleturquoise;
-    display: table;
+    // background-color: paleturquoise;
+    width: 100%;
+    display: flex;
   }
 
   .buttons_hotDeal {
-    background-color: teal;
+    // background-color: teal;
+    // height: 45px;
     display: flex;
     justify-content: space-between;
     position: absolute;
-    top: 1%;
+    top: 50%;
+    transform: translateY(-50%);
     width: 100%;
+    font-size: 30px;
+    color: map-get($color-palette, default-border-color);
+
+    .btn_hotDeal {
+      padding: 1em;
+      background-color: map-get($color-palette, button_background);
+    }
   }
 
   ul {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: space-between;
     float: left;
-    width: 100%;
-    height: 351px;
 
     li {
-      width: 100%;
       border: 1px solid map-get($color-palette, top_border);
       display: flex;
       text-align: center;
+      width: $slide_hotdeal_img-width;
     }
 
     a {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      width: 100%;
     }
 
     img {
+      margin-top: 1em;
       width: 80%;
     }
 
     strong {
       margin: 0 1em;
       font-size: map-get($font-size, title);
+      color: map-get($font-color, title);
     }
 
     .detail_price {
