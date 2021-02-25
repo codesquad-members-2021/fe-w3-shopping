@@ -1,4 +1,21 @@
-fetch('http://localhost:3000/data/1')
-  .then((response) => response.json())
-  .then((json) => console.log(json))
-  .catch((error) => console.log('에러입니다', error));
+import { LoadItem } from './loadItem.js';
+import { Slider } from './slider.js';
+
+const loadItems = () => {
+  const loadItem = new LoadItem();
+  loadItem.showImgContents();
+  loadItem.onEvents();
+};
+
+const excuteSlide = () => {
+  const slider = new Slider();
+  slider.onEvents();
+  slider.slideAutomatically();
+};
+
+const main = () => {
+  loadItems();
+  excuteSlide();
+};
+
+main();
