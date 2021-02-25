@@ -1,13 +1,16 @@
 import '../scss/style.scss';
 
-const SERVER = 'http://localhost';
+import { _ } from './util.js';
+import { MainEvtSlide } from './slide.js';
+
+const DOMAIN = 'http://localhost';
 const PORT = 3000;
+const SERVER = `${DOMAIN}:${PORT}/`;
 
-const requestURL = `${SERVER}:${PORT}/`;
-const homeContentsJSON = 'json/homeContents.json';
-const planningEventJSON = 'json/planningEvent.json';
-
-// fetch(requestURL + planningEventJSON)
-//   .then((res) => res.json())
-//   .then((json) => console.log(JSON.stringify(json)))
-//   .catch(console.error);
+fetch(SERVER + 'json/planningEvent.json')
+  .then((res) => res.json())
+  .then((json) => {
+    const slide = new MainEvtSlide(_.$('.main-evt-slide'), json.mileageList);
+    slide.init();
+  })
+  .catch(console.error);
