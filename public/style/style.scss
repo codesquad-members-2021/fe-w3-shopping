@@ -212,6 +212,7 @@ body {
 
         .main-top-article-secondline {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-evenly;
 
             .main-top-article-sec-imgs {
@@ -231,6 +232,13 @@ body {
             img {
                 width: $small-img-size-height;
                 height: $small-img-size-height;
+            }
+
+            .img-visibility-hidden {
+                width: 0;
+                height: 0;
+                visibility: hidden;
+                will-change: opacity;
             }
         }
     }
@@ -266,12 +274,14 @@ body {
             display: flex;
             align-items: center;
             position: relative;
+            overflow: hidden;
         }
 
         .main-theme-category-lists {
-            width: 100%;
+            padding: 0 1.5rem;
             display: flex;
-            justify-content: space-evenly;
+            transform: translate3d(0,0,0);
+            transition: transform 0.7s linear;
         }
 
         .main-theme-category-list {
