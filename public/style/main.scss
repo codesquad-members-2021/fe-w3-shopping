@@ -37,9 +37,10 @@ button {
 
 a {
     text-decoration: none;
+    color: #333;
 }
-// ===============================
 
+// ============ HEADER ==============
 .header__container {
     background-color: #fff;
     box-sizing: border-box;
@@ -47,6 +48,7 @@ a {
     height: 193px;
     padding-top: 43px;
     position: relative;
+    box-shadow: 0 1px rgb(0 0 0 / 16%);
 }
 .header {
     margin: 0 auto;
@@ -194,4 +196,229 @@ a {
     width: 8px;
     height: 5px;
     background-position: -60px -60px;
+}
+
+// ============ BANNER ==============
+
+.content__container {
+    width: 1276px;
+    margin: 0 auto;
+    padding-top: 19px;
+    .content__banner {
+        width: 1274px;
+        overflow: hidden;
+        margin: 0 auto;
+        border: 1px solid #e4e4e4;
+        border-bottom: 0 none; // .banner__list에서
+    }
+}
+
+.banner__main {
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid #f1f1f1;
+    background-color: #fff;
+    &::after {
+        @include float_parent;
+    }
+    .banner__event {
+        float: left;
+        width: 510px;
+        height: 340px;
+        a {
+            display: block;
+            width: 484px;
+            margin: 0 auto;
+            img {
+                width: 485px;
+                height: 340px;
+            }
+        }
+    }
+    .banner__slide {
+        float: left;
+        width: 763px;
+        height: 340px;
+        border-left: 1px solid #f1f1f1;
+        background-color: #fff;
+        overflow: hidden;
+        position: relative;
+    }
+}
+.slide__wrap {
+    width: 300%;
+    margin-left: -100%;
+    &::after {
+        @include float_parent;
+    }
+    .slide__list {
+        float: left;
+        width: calc(100% / 3);
+    }
+}
+.slide__list > a {
+    display: block;
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.slide__paging {
+    position: absolute;
+    top: 283px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    clear: both;
+    div {
+        display: inline-block;
+        margin: 0 auto;
+        // text-align: center;
+        &::after {
+            @include float_parent;
+        }
+    }
+}
+
+.ico_paging {
+    display: inline;
+    float: left;
+    width: 15px;
+    height: 5px;
+    margin-left: 3px;
+    padding: 5px 0;
+    .num_page {
+        display: block;
+        background-color: #ccc;
+        width: 15px;
+        height: 5px;
+    }
+}
+.curr_page {
+    .num_page {
+        background-color: #000;
+    }
+}
+
+.slide__btn {
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    width: 63px;
+    height: 85px;
+    top: -160px;
+    &.btn_prev {
+        left: 44px;
+        background-position: -128px -335px;
+    }
+    &.btn_next {
+        right: 44px;
+        background-position: -145px -335px;
+    }
+    .slide__ico {
+        display: inline-block;
+        overflow: hidden;
+        font-size: 0;
+        background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/img_home_150131.png)
+            no-repeat;
+        text-indent: -9999px;
+        width: 23px;
+        height: 45px;
+        &.ico_prev {
+            background-position: 0 0;
+            left: 160px;
+        }
+        &.ico_next {
+            background-position: -30px 0;
+            right: 160px;
+        }
+    }
+}
+
+// ============ CONTENT ==============
+
+.showMore {
+    width: 1274px;
+    height: 60px;
+    border: 1px solid #e4e4e4;
+    margin-top: 11px;
+    background-color: #e9e9e9;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+}
+
+.content__title {
+    height: 24px;
+    margin: 11px;
+    font-size: 22px;
+    color: #000;
+    letter-spacing: -2px;
+}
+
+.list__box {
+    width: 1274px;
+    height: 318px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid #e4e4e4;
+    background-color: #fff;
+    .list__item {
+        float: left;
+        overflow: hidden;
+        border-right: 1px solid #f1f1f1;
+        line-height: 14px;
+        letter-spacing: -1px;
+        text-align: left;
+        border-bottom: 0 none;
+        width: 200px;
+        height: 276px;
+        padding: 21px 27px;
+        a {
+            display: block;
+            overflow: hidden;
+            img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    }
+    .list__item:first-child {
+        width: 201px;
+    }
+    .list__item:last-child {
+        padding: 21px 26px 21px 27px;
+        border-right: 0 none;
+    }
+}
+.banner__list {
+    border: none;
+    border-bottom: 1px solid #e4e4e4;
+}
+.list__title {
+    display: block;
+    margin: 10px 0 1px;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: bold;
+    white-space: nowrap; // 한 줄로 계속
+    text-overflow: ellipsis; // 말줄임...표시
+}
+.list__des {
+    display: block;
+    font-size: 12px;
+}
+.list__theme {
+    display: block;
+    overflow: hidden;
+    // html에서는 span요소의 text로 테마라고 써서 알아볼 수 있게 하고
+    // css에서는 안 보이게 indent로 밀어버리기
+    text-indent: -9999px;
+    width: 31px;
+    height: 18px;
+    margin: 11px 4px 0 0;
+    background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/img/ico_comm2_150514.gif)
+        no-repeat;
+    background-position: 0 -850px;
 }

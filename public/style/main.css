@@ -10,6 +10,7 @@ button {
 
 a {
   text-decoration: none;
+  color: #333;
 }
 
 .header__container {
@@ -19,6 +20,7 @@ a {
   height: 193px;
   padding-top: 43px;
   position: relative;
+  box-shadow: 0 1px rgba(0, 0, 0, 0.16);
 }
 
 .header {
@@ -224,6 +226,233 @@ a {
   width: 8px;
   height: 5px;
   background-position: -60px -60px;
+}
+
+.content__container {
+  width: 1276px;
+  margin: 0 auto;
+  padding-top: 19px;
+}
+.content__container .content__banner {
+  width: 1274px;
+  overflow: hidden;
+  margin: 0 auto;
+  border: 1px solid #e4e4e4;
+  border-bottom: 0 none;
+}
+
+.banner__main {
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid #f1f1f1;
+  background-color: #fff;
+}
+.banner__main::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.banner__main .banner__event {
+  float: left;
+  width: 510px;
+  height: 340px;
+}
+.banner__main .banner__event a {
+  display: block;
+  width: 484px;
+  margin: 0 auto;
+}
+.banner__main .banner__event a img {
+  width: 485px;
+  height: 340px;
+}
+.banner__main .banner__slide {
+  float: left;
+  width: 763px;
+  height: 340px;
+  border-left: 1px solid #f1f1f1;
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide__wrap {
+  width: 300%;
+  margin-left: -100%;
+}
+.slide__wrap::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.slide__wrap .slide__list {
+  float: left;
+  width: calc(100% / 3);
+}
+
+.slide__list > a {
+  display: block;
+}
+.slide__list > a img {
+  display: block;
+  margin: 0 auto;
+}
+
+.slide__paging {
+  position: absolute;
+  top: 283px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  clear: both;
+}
+.slide__paging div {
+  display: inline-block;
+  margin: 0 auto;
+}
+.slide__paging div::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.ico_paging {
+  display: inline;
+  float: left;
+  width: 15px;
+  height: 5px;
+  margin-left: 3px;
+  padding: 5px 0;
+}
+.ico_paging .num_page {
+  display: block;
+  background-color: #ccc;
+  width: 15px;
+  height: 5px;
+}
+
+.curr_page .num_page {
+  background-color: #000;
+}
+
+.slide__btn {
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  width: 63px;
+  height: 85px;
+  top: -160px;
+}
+.slide__btn.btn_prev {
+  left: 44px;
+  background-position: -128px -335px;
+}
+.slide__btn.btn_next {
+  right: 44px;
+  background-position: -145px -335px;
+}
+.slide__btn .slide__ico {
+  display: inline-block;
+  overflow: hidden;
+  font-size: 0;
+  background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/img_home_150131.png) no-repeat;
+  text-indent: -9999px;
+  width: 23px;
+  height: 45px;
+}
+.slide__btn .slide__ico.ico_prev {
+  background-position: 0 0;
+  left: 160px;
+}
+.slide__btn .slide__ico.ico_next {
+  background-position: -30px 0;
+  right: 160px;
+}
+
+.showMore {
+  width: 1274px;
+  height: 60px;
+  border: 1px solid #e4e4e4;
+  margin-top: 11px;
+  background-color: #e9e9e9;
+  text-align: center;
+  line-height: 60px;
+  cursor: pointer;
+}
+
+.content__title {
+  height: 24px;
+  margin: 11px;
+  font-size: 22px;
+  color: #000;
+  letter-spacing: -2px;
+}
+
+.list__box {
+  width: 1274px;
+  height: 318px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #e4e4e4;
+  background-color: #fff;
+}
+.list__box .list__item {
+  float: left;
+  overflow: hidden;
+  border-right: 1px solid #f1f1f1;
+  line-height: 14px;
+  letter-spacing: -1px;
+  text-align: left;
+  border-bottom: 0 none;
+  width: 200px;
+  height: 276px;
+  padding: 21px 27px;
+}
+.list__box .list__item a {
+  display: block;
+  overflow: hidden;
+}
+.list__box .list__item a img {
+  width: 200px;
+  height: 200px;
+}
+.list__box .list__item:first-child {
+  width: 201px;
+}
+.list__box .list__item:last-child {
+  padding: 21px 26px 21px 27px;
+  border-right: 0 none;
+}
+
+.banner__list {
+  border: none;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.list__title {
+  display: block;
+  margin: 10px 0 1px;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.list__des {
+  display: block;
+  font-size: 12px;
+}
+
+.list__theme {
+  display: block;
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 31px;
+  height: 18px;
+  margin: 11px 4px 0 0;
+  background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/img/ico_comm2_150514.gif) no-repeat;
+  background-position: 0 -850px;
 }
 
 /*# sourceMappingURL=main.css.map */

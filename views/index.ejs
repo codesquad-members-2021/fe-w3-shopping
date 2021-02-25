@@ -71,10 +71,10 @@
 
         <div class="content__banner">
             <div class="banner__main">
-                <div><a href="#">
+                <div class="banner__event"><a href="#">
                     <img src="//shop4.daumcdn.net/shophow/sib/0_210219174849_FwZShCdZPYIPpJmvgEiGWverDgJVqrrq" alt="기획전 이벤트">
                 </a></div>
-                <div class="slide__cont">
+                <div class="banner__slide">
                     <ul class="slide__wrap">
                         <li class="slide__list"><a href="#">
                             <img src="//shop3.daumcdn.net/shophow/sib/0_210219175556_BtjOWRoiPbsVXvlYusgFvjboDPXRIBQD">
@@ -86,12 +86,31 @@
                             <img src="//shop1.daumcdn.net/shophow/sib/0_210219175602_vRyGDQxWDethcelhYcMmXKXpgLqlAIAj">
                         </a></li>
                     </ul>
-                </div> <!-- .slide__cont -->
+                    <div class="slide__paging">
+                        <div class="">
+                            <span class="ico_paging">
+                                <span class="num_page"></span>
+                            </span>
+                            <span class="ico_paging curr_page">
+                                <span class="num_page"></span>
+                            </span>
+                            <span class="ico_paging">
+                                <span class="num_page"></span>
+                            </span>
+                        </div>
+                        <button type="button" class="slide__btn btn_prev">
+                            <span class="slide__ico ico_prev">이전</span>
+                        </button>
+                        <button type="button" class="slide__btn btn_next">
+                            <span class="slide__ico ico_next">다음</span>
+                        </button>
+                    </div>
+                </div> <!-- .banner__slide -->
             </div>
 
-            <ul class="banner__list">
+            <ul class="banner__list list__box">
                 <% for(let i = 0; i < 5; i++) { %>
-                    <li><a href="#">
+                    <li class="banner__item list__item"><a href="#">
                         <img src= <%= banner.mallEventList[i].imgurl %> alt= <%= banner.mallEventList[i].text %>>
                         <span class="list__title"><%= banner.mallEventList[i].text %></span>
                         <span class="list__des"><%= banner.mallEventList[i].text2 %></span>
@@ -101,13 +120,13 @@
             </ul>
         </div> <!-- .content__banner -->
 
-        <div class="showMore">더보기</div>
+        <div class="showMore">더보기(1/n건)</div>
 
-        <div class="content__theme ">
-            <h3>지금뜨는 테마 카테고리</h3>
-            <ul>
+        <div class="content__theme">
+            <h3 class="content__title">지금뜨는 테마 카테고리</h3>
+            <ul class="list__box">
                 <% for(let i = 0; i < 5; i++) { %>
-                    <li><a href="#">
+                    <li class="list__item"><a href="#">
                         <!-- 0 ~ 4번째까지 배너랑 겹쳐서 i + 5번째 해줌. -->
                         <img src= <%= contents.contents[i+5].eventContent.imgurl %> alt= <%= contents.contents[i+5].eventContent.title %>>
                         <span class="list__title"><%= contents.contents[i+5].eventContent.title %></span>
