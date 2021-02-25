@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slide_box {
+            width: 400px;
+            overflow: hidden;
+        }
+        
+        .slide_content {
+            float: left;
+            width: 400px;
+            height: 400px;
+            background-color: gray;
+        }
+        
+        .slide_pagination {
+            position: absolute;
+            left: 50%;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .slide_pagination .dot {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin: 0 5px;
+            background: #ddd;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        
+        .slide_pagination .dot.dot_active {
+            background: #333;
+        }
+        
+        .slide_pagination .dot a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="slide_box">
+
+        <div class="slide_list">
+            <div class="slide_content slide01">
+                <img src="./img/sl1.png" alt="">
+            </div>
+            <div class="slide_content slide02">
+                <img src="./img/sl2.png" alt="">
+            </div>
+            <div class="slide_content slide03">
+                <img src="./img/sl3.png" alt="">
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="slide_btn_box">
+        <button type="button" class="slide_btn_prev">Prev</button>
+        <button type="button" class="slide_btn_next">Next</button>
+    </div>
+
+    <ul class="slide_pagination"></ul>
+
+
+
+
+    <script>
+        const slideList = document.querySelector('.slide_list'); // Slide parent dom
+        const slideContents = document.querySelectorAll('.slide_content'); // each slide dom
+        const slideBtnNext = document.querySelector('.slide_btn_next'); // next button
+        const slideBtnPrev = document.querySelector('.slide_btn_prev'); // prev button
+        const slideLen = slideContents.length; // slide length
+        const pagination = document.querySelector('.slide_pagination');
+
+        const slideWidth = 400; // slide width
+        const slideSpeed = 300; // slide speed
+
+        const startNum = 0; // initial slide index (0 ~ 4)
+        slideList.style.width = slideWidth * (slideLen + 2) + "px"; // slideList의 width // 앞뒤로 두개
+
+        // Copy first and last slide
+        let firstChild = slideList.firstElementChild;
+        let lastChild = slideList.lastElementChild;
+        let clonedFirst = firstChild.cloneNode(true);
+        let clonedLast = lastChild.cloneNode(true);
+
+        // Add copied Slides
+        slideList.appendChild(clonedFirst);
+        slideList.insertBefore(clonedLast, slideList.firstElementChild);
+
+        slideList.style.transform = "translate3d(-" + (slideWidth * (startNum + 1)) + "px, 0px, 0px)"; //시작위치
+
+
+        let curIndex = 0; // current slide index (except copied slide)
+        let curSlide = slideContents[curIndex]; // current slide dom
+        curSlide.classList.add('slide_active');
+
+        /** Next Button Event */
+        slideBtnNext.addEventListener('click', function() {
+            if (curIndex <= 2) {
+                slideList.style.transition = slideSpeed + "ms";
+                slideList.style.transform = "translate3d(-" + (slideWidth * (curIndex + 2)) + "px, 0px, 0px)";
+                console.log(curIndex)
+            }
+            if (curIndex === 2) {
+                setTimeout(function() {
+                    slideList.style.transition = "0ms";
+                    slideList.style.transform = "translate3d(-" + slideWidth + "px, 0px, 0px)";
+                }, slideSpeed);
+                curIndex = -1;
+            }
+            curSlide.classList.remove('slide_active');
+            curSlide = slideContents[++curIndex];
+            curSlide.classList.add('slide_active');
+            console.log(curIndex)
+
+
+
+        });
+        /** Prev Button Event */
+        slideBtnPrev.addEventListener('click', function() {
+            if (curIndex >= 0) {
+                slideList.style.transition = slideSpeed + "ms";
+                slideList.style.transform = "translate3d(-" + (slideWidth * curIndex) + "px, 0px, 0px)";
+                console.log(curIndex)
+            }
+            if (curIndex === 0) {
+                setTimeout(function() {
+                    slideList.style.transition = "0ms";
+                    slideList.style.transform = "translate3d(-" + (slideWidth * 3) + "px, 0px, 0px)";
+                }, slideSpeed);
+                curIndex = 3;
+            }
+            curSlide.classList.remove('slide_active');
+            curSlide = slideContents[--curIndex];
+            curSlide.classList.add('slide_active');
+            console.log(curIndex)
+
+
+
+        });
+    </script>
+</body>
+
+</html>
