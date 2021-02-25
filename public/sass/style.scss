@@ -94,18 +94,25 @@ nav {
 
 .main-banner {
   background-color: rosybrown;
-  height: 300px;
-  display: flex;
-  justify-content: space-between;
-  padding: 40px 40px;
+  // height: 300px;
+  // display: flex;
+  // justify-content: space-between;
+  position: relative;
+  padding: 0 40px;
   .main-banner__static {
     background-color: yellow;
+    position: absolute;
     //   pa
   }
   .main-banner__slide {
-    flex-grow: 0.6;
+    // flex-grow: 0.8;
     background-color: red;
-    padding: 0 60px;
+    // padding: 0 60px;
+    // display: flex;
+    // justify-content: space-between;
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
   }
 }
 // #main {

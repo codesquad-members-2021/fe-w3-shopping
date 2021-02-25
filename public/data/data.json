@@ -1,24 +1,35 @@
 {
     "items": [
       {
-        "special": "best100",
-        "category": "fasion",
-        "image": "../images/main-static.jpeg"
-      },
-      {
-        "special": "exhibitions",
+        "special": "best-100",
+        "type": "main-static",
         "category": "home-appliances",
-        "image": "../images/pink_t.png"
+        "image": "../images/static1.png",
+        "className": "static__image"
+      },
+      {
+        "special": "super-deal",
+        "type": "main-slide",
+        "title" : "g-market",
+        "category": "home-appliances",
+        "image": "../images/slide1.png",
+        "className": "slide__image"
       },
       {
         "special": "exhibitions",
+        "type": "main-slide",
+        "title": "new-york",
         "category": "computer",
-        "image": "../images/pink_t.png"
+        "image": "../images/slide2.png",
+        "className": "slide__image"
       },
       {
         "special": "exhibitions",
+        "type": "main-slide",
+        "title": "diy-furniture",
         "category": "life",
-        "image": "../images/pink_t.png"
+        "image": "../images/slide3.png",
+        "className": "slide__image"
       }
     ]
   }

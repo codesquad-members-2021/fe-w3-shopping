@@ -71,18 +71,18 @@ nav .add-on .add-on__login li {
 
 .main-banner {
   background-color: rosybrown;
-  height: 300px;
-  display: flex;
-  justify-content: space-between;
-  padding: 40px 40px;
+  position: relative;
+  padding: 0 40px;
 }
 .main-banner .main-banner__static {
   background-color: yellow;
+  position: absolute;
 }
 .main-banner .main-banner__slide {
-  flex-grow: 0.7;
   background-color: red;
-  padding: 0 60px;
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
 }
 
 /*# sourceMappingURL=style.css.map */
