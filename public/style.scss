@@ -1,5 +1,4 @@
 @import "reset.css";
-@import "carousel.scss";
 
 $menu_interval: .5rem;
 $color-emphasis: #f9624c;
@@ -44,8 +43,9 @@ p {
    padding: 0;
 }
 
-.head {
+.header {
    background-color: $color-background-white;
+   border-bottom: 1.5px solid $color-css-grey;   
 }
 
 .area_headtop{
@@ -162,10 +162,6 @@ p {
 
 /*body*/
 
-.body{ 
-   border-top: 1.5px solid $color-css-grey;
-}
-
 .section_top{
    background-color: $color-background-white;
    margin-top: 30px;
@@ -187,15 +183,22 @@ p {
    padding:0 30px;
 }
 
+
 .slide{
    width: 485px;
    display: flex;
    overflow: hidden;
 }
 
+.slide_second_position{
+   display: flex;
+}
+
+
 .slide_prev_main_next{
    display: flex;
    button {
+      z-index:9999;
       margin: 0 35px;
       border:none;
    }

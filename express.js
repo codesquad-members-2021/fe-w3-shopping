@@ -2,7 +2,6 @@ const express = require("express");
 const hbs = require("express-handlebars");
 
 const server = express();
-const eventData = require("./db/planningEvent.json")
 
 server.engine("hbs", hbs({
    extname: "hbs",
@@ -16,11 +15,11 @@ server.set("view engine", "hbs");
 
 //Middleware: 모든요청이 use를 거쳐야한다.
 //static->txt파일을 읽어올 때 사용한다.
+
 server.use(express.static(__dirname + "/public"))
 server.get("/", (req, res) => {
    res.status(200).render("index", {
-      message: "hello junamee",
-      eventData
+      message: "hello junamee"
    })
 });
 
