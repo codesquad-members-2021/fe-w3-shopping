@@ -22,11 +22,10 @@ export class Slider {
 
   clickArrowBtnHandler(e) {
     const slideImgs = document.querySelectorAll('.slide-img');
-    const imgContainer = document.querySelector('.main-top-slide-imgs');
 
     if (e.target.closest('.arrow-btn-right')) {
-      slideImgs.forEach((img) => {
-        img.classList.add('slide-move');
+      slideImgs.forEach((img, i) => {
+        img.classList.add(`slide-move`);
       });
     }
 
