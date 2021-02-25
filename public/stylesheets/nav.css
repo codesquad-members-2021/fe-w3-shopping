@@ -1,0 +1,108 @@
+.area_shwgnb {
+  width: 100%;
+  height: 54px;
+  display: flex;
+  margin-top: 40px;
+  border-top: 1px solid #efefef;
+  box-shadow: 0 1px rgba(0, 0, 0, 0.16);
+  justify-content: space-between;
+}
+.area_shwgnb .wrap_shwgnb-left {
+  display: flex;
+  align-items: center;
+  margin-left: 295px;
+}
+.area_shwgnb .wrap_shwgnb-left .wrap-shwcate .categoryBtn {
+  position: relative;
+  width: 122px;
+  padding: 0;
+  align-items: center;
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  line-height: 54px;
+  margin-left: -24px;
+  margin-top: -6px;
+  cursor: pointer;
+}
+.area_shwgnb .wrap_shwgnb-left .wrap-shwcate .categoryBtn:focus {
+  outline: none;
+}
+.area_shwgnb .wrap_shwgnb-left .wrap-shwcate .categoryTxt {
+  margin-right: -3px;
+  margin-top: 6px;
+}
+.area_shwgnb .wrap_shwgnb-left .wrap-shwcate .ico_view {
+  top: 17px;
+  left: 28px;
+  position: absolute;
+  height: 28px;
+  overflow: hidden;
+}
+.area_shwgnb .wrap_shwgnb-left .wrap-shwcate .ico_menu {
+  vertical-align: middle;
+}
+.area_shwgnb .wrap_shwgnb-left .wrap-shwcate .ico_menu:hover {
+  margin-top: -56px;
+}
+.area_shwgnb .wrap_shwgnb-left .txt_bar {
+  margin: 0 22px;
+  color: #e3e3e3;
+}
+.area_shwgnb .wrap_shwgnb-left .list_shwgnb {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+.area_shwgnb .wrap_shwgnb-left .list_shwgnb li {
+  margin: 0 8px;
+  font-weight: bold;
+  letter-spacing: -0.08em;
+}
+.area_shwgnb .wrap_shwgnb-left .list_kwrodgnb {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+.area_shwgnb .wrap_shwgnb-left .list_kwrodgnb li {
+  margin: 0 8px;
+  font-weight: bold;
+  color: #888888;
+  letter-spacing: -0.08em;
+}
+.area_shwgnb .wrap_shwgnb-right {
+  margin-right: 295px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+}
+.area_shwgnb .wrap_shwgnb-right .list_usergnb {
+  display: flex;
+}
+.area_shwgnb .wrap_shwgnb-right .list_usergnb .loginWrap {
+  margin-right: 15px;
+}
+.area_shwgnb .wrap_shwgnb-right .list_usergnb .ico_user {
+  vertical-align: middle;
+}
+.area_shwgnb .wrap_shwgnb-right .list_usergnb .ico_products {
+  vertical-align: middle;
+}
+.area_shwgnb .wrap_shwgnb-right .list_usergnb .loginBtn {
+  text-decoration: none;
+}
+.area_shwgnb .wrap_shwgnb-right .list_usergnb .productBtn {
+  text-decoration: none;
+}
+
+.categoryLayer {
+  visibility: hidden;
+}
+
+.categoryLayer:hover {
+  visibility: visible;
+}
+
+/*# sourceMappingURL=nav.css.map */
