@@ -11,7 +11,7 @@ class DataManager {
                     if (res.ok) {
                         res.json().then((data) => resolve(data));
                     } else {
-                        reject(new Error('error'));
+                        reject(new Error('Server Error'));
                     }
                 },
                 (error) => {
@@ -23,7 +23,7 @@ class DataManager {
 
     getAllMoreData() {
         const url = `http://localhost:3001/api/moreData`;
-        return this._fetchData(url);        
+        return this._fetchData(url);
     }
 
     /**
@@ -31,7 +31,7 @@ class DataManager {
      */
     getMoreData(pageIdx) {
         const url = `http://localhost:3001/api/moreData/${pageIdx}`;
-        return this._fetchData(url);        
+        return this._fetchData(url);
     }
 }
 
