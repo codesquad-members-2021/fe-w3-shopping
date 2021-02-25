@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  outline: red;
 }
 
 button,
@@ -160,7 +161,7 @@ main {
       width: 510px;
       height: 340px;
       padding: 0 12.5px;
-      border: 2px solid #e2e2e2;
+      border: 0.1px #e2e2e2 solid;
 
       img {
         height: 330px;
@@ -170,7 +171,7 @@ main {
       width: 764px;
       height: 340px;
       position: relative;
-      border: 2px solid #e2e2e2;
+      border: 0.1px solid #e2e2e2;
       .slide_box {
         position: relative;
         width: 514px;
@@ -224,9 +225,30 @@ main {
       }
     }
     .section_products {
-      border: 2px solid #e2e2e2;
+      width: 100%;
+      border: 0.1px solid #e2e2e2;
       grid-column: 1/3;
       grid-row: 2/3;
+
+      .section_products_seeMore {
+        width: 100%;
+        background-color: #e9e9e9;
+        height: 55px;
+        font-size: 16px;
+      }
+      .section_products_list {
+        display: flex;
+        li {
+          width: 256px;
+          height: 318px;
+          padding: 21px 27px;
+        }
+
+        img {
+          width: 200px;
+          height: 200px;
+        }
+      }
     }
     .section_categories {
       border: 2px solid #e2e2e2;
