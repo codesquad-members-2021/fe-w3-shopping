@@ -28,7 +28,7 @@ class BannerPresentational {
           </div>
           <div class="contents right"> 
             <img src="http://shop4.daumcdn.net/shophow/sib/0_210219175151_tbehDsXzWnJKZNGWJxRuYhONIcINMfri" /> <!-- 임시 -->
-            <div id="banner-slide"></div>
+            <div id="banner-carousel"></div>
           </div>
         </div>
       </div>

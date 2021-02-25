@@ -7,13 +7,18 @@ class BannerContainer {
   constructor({ $target }) {
     this.$target = $target;
     this.$BannerPresentational = null;
-
-    // for caching
-    this.$cached = {};
+    this.$BannerCarousel = document.createElement("div");
+    this.$BannerCarousel.class = "banner-carousel";
+    
+    this.$cached = {}; // for caching DOM
 
     // 상태
     this.fixedImage = "";
-  
+    this.bannerCarouselContainer = null;
+    
+    // let $target = this.$BannerPresentational.$target.querySelector("#banner-slide");
+    // new BannerCarouselContainer({ $target: this.$BannerCarousel, carouselImages: data.mileageList });
+
     this.init();
   }
 
@@ -38,10 +43,7 @@ class BannerContainer {
 
   // 최적화 영역
   isMemorable(nextProp) {
-    if (!this.$cached.hasOwnProperty(nextProp)) {
-      return true;
-    }
-    return false;
+    return !this.$cached.hasOwnProperty(nextProp) ? true : false;
   }
 
   isCacheHit(prop) {
@@ -54,13 +56,10 @@ class BannerContainer {
 
 
   render() { 
-    if (this.$BannerPresentational === null) { // initial render
+    if (this.$BannerPresentational === null || this.isMemorable(this.fixedImage)) {
       this.$BannerPresentational = new BannerPresentational({ $target: this.$target, fixedImage: this.fixedImage });
-    }
-    else if (this.isMemorable(this.fixedImage)) {  // cache not hit 
-      this.$BannerPresentational = new BannerPresentational({ $target: this.$target, fixedImage: this.fixedImage });
-    }
-    else { // cache hit
+      // this.$BannerPresentational.$Banner.querySelector("#banner-carousel").appendChild(this.$BannerCarousel); // 배너 캐로셀 추가 예정
+    } else { // cache hit
       this.$BannerPresentational = this.isCacheHit(this.fixedImage);
       this.$target.innerHTML = "";
       this.$BannerPresentational.reRender();
