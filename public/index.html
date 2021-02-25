@@ -6,10 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>쇼핑하우 클론</title>
   <link rel="stylesheet" type="text/css" href="css/index.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" integrity="sha384-vuFJ2JiSdUpXLKGK+tDteQZBqNlMwAjhZ3TvPaDfN9QmbPb7Q8qUpbSNapQev3YF" crossorigin="anonymous"></script>
   <script src="js/index.js"></script>
 </head>
 <body>
+  <!-- header -->
   <header class="header">
+    <!-- logo & search bar -->
     <div class="header__top">
       <div class="header__top__logo">
         <a href="/">
@@ -19,14 +22,20 @@
       <div class="header__top__search-bar">
         <input class="search-bar__input" placeholder="외장하드케이스"></input>
         <button class="search-bar__button" type="submit">
-          <span class="search-bar__button__icon"></span>
+          <span class="search-bar__button__icon">
+            <i class="fas fa-search"></i>
+          </span>
         </button>
       </div>
     </div>
+
+    <!-- nav bar -->
     <div class="header__nav-bar">
       <div class="nav-bar__menus-container">
         <div class="nav-bar__category">
-          <div class="category__icon"></div>
+          <div class="category__icon">
+            <i class="fas fa-bars"></i>
+          </div>
           <div class="category__text">카테고리</div>
         </div>
         <ul class="nav-bar__main-menu">
@@ -66,23 +75,31 @@
           <li class="user-menu__item">
             <a href="">
               <div class="login-container">
-                <div class="login__icon"></div>
+                <div class="login__icon">
+                  <i class="fas fa-user-circle"></i>
+                </div>
                 <div class="login__text">로그인</div>
               </div>
             </a>
           </li>
           <li class="user-menu__item">
             <div class="recent-products-container">
-              <div class="recent-products__icon"></div>
+              <div class="recent-products__icon">
+                <i class="fas fa-file-alt"></i>
+              </div>
               <div class="recent-products__text">최근본 상품</div>
-              <div class="recent-products__arrow"></div>
+              <div class="recent-products__arrow">
+                <i class="fas fa-caret-down"></i>
+              </div>
             </div>
           </li>
         </ul>
       </div>
     </div>
   </header>
+
   <div class="main-contents-container">
+    <!-- section1. 기획전 모음 -->
     <section class="banner">
       <div class="banner__contents">
         <div class="banner__main-events">
