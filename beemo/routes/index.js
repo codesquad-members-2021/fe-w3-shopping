@@ -1,10 +1,10 @@
-var express = require('express');
+import express from 'express';
 var router = express.Router();
-const path = require('path');
+import path from 'path';
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('main');
 });
 
-module.exports = router;
+export default router;
