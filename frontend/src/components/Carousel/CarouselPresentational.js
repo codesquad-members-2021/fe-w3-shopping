@@ -1,3 +1,5 @@
+import './carousel.scss';
+
 // 부모 클래스
 class CarouselPresentational {
   constructor({ $target, images }) {

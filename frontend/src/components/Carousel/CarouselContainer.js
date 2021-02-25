@@ -55,6 +55,10 @@ class CarouselContainer {
     }
     this.images = images;
   }
+
+  // render() {
+  //   this.$target.append
+  // }
 }
 
 export default CarouselContainer;
