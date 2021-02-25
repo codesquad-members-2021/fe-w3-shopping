@@ -43,34 +43,22 @@
   </header>
   <main class="col-10">
     <section class="col-10 special-section">
-      <div class="col-4 carousel-none">
-        <a class="carousel__item">
-          <img src="images/m1.png">
-        </a>
-      </div>
-      <div class="col-6 carousel">
-        <div class="carousel__box">
-          <div class="panel">
-            <a class="panel__item">
-              <img src="images/c1.png">
-            </a>
-            <a class="panel__item">
-              <img class="active" src="images/c2.png">
-            </a>
-            <a class="panel__item">
-              <img src="images/c3.png">
-            </a>
-          </div>
+      <div class="col-10">
+        <div class="col-4 carousel-none" id="bestItemTarget">
         </div>
-        <div class="carousel__paging">
-          <div class="paging-arrow" id="pagingArrow">
-            <div class="paging-arrow__left" data-arrow="prev"></div>
-            <div class="paging-arrow__right" data-arrow="next"></div>
+        <div class="col-6 carousel">
+          <div class="carousel__box">
+            <div class="panel" id="eventItemTarget">
+            </div>
           </div>
-          <div class="paging-hover" id="pagingHover">
-            <div class="paging-hover__button active" data-index="1"></div>
-            <div class="paging-hover__button" data-index="2"></div>
-            <div class="paging-hover__button" data-index="0"></div>
+          <div class="carousel__paging">
+            <div class="paging-arrow" id="pagingArrow">
+              <div class="paging-arrow__left" data-arrow="prev"></div>
+              <div class="paging-arrow__right" data-arrow="next"></div>
+            </div>
+            <div class="paging-hover" id="pagingHover">
+              <div class="paging-hover__button active"></div><div class="paging-hover__button"></div><div class="paging-hover__button" ></div>
+            </div>
           </div>
         </div>
       </div>
@@ -90,37 +78,15 @@
     <section class="col-10 box-section">
       <h2 class="section-title">지금뜨는 테마 카테고리</h2>
       <div class="col-10">
-        <div class="col-10 grid box">
-          <a class="box__item" href="">
-            <img class="box__item__img" src="./images/more-test.jpg" alt="">
-            <span class="box__item__title">도시적인 미니멀 스타일 킨더살몬</span>
-            <span class="box__item__content">깔끔한 데일리룩을 위한 브랜드</span>
-            <span class="box__item__tag">테마</span>
-          </a>
-          <a class="box__item" href="">
-            <img class="box__item__img" src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FW10820502125.jpg%3Fut%3D20201018174348&scode=talkgift" alt="">
-            <span class="box__item__title">3만원 미만 화상캠</span>
-            <span class="box__item__content">언택트 시대 필수품! 화상 웹캠</span>
-            <span class="box__item__tag">테마</span>
-          </a>
-          <a class="box__item" href="">
-            <img class="box__item__img" src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FW12080125312.jpg%3Fut%3D20210126062957&scode=talkgift" alt="">
-            <span class="box__item__title">매력 넘치는 브랜드 어프어프</span>
-            <span class="box__item__content">귀엽고 특이한 디자인으로 모아봤어요.</span>
-            <span class="box__item__tag">테마</span>
-          </a>
-          <a class="box__item" href="">
-            <img class="box__item__img" src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop1.daumcdn.net%2Fshophow%2Fp%2FH11823491111.jpg%3Fut%3D20210106074230&scode=talkgift" alt="">
-            <span class="box__item__title">클래식한 분위기, 라코스테</span>
-            <span class="box__item__content">남녀공용 라코스테 가디건 한눈에 모아보기</span>
-            <span class="box__item__tag">테마</span>
-          </a>
-          <a class="box__item" href="">
-            <img class="box__item__img" src="//shop1.daumcdn.net/shophow/c/image/content/set/ad8255/20210219151935378_56095" alt="">
-            <span class="box__item__title">반려동물 브랜드전</span>
-            <span class="box__item__content">건강한 반려동물을 위한 필수품</span>
-            <span class="box__item__tag">테마</span>
-          </a>
+        <div class="col-10 box box-carousel">
+          <div class="col-10 box-carousel__items" id="themeTarget">
+          </div>
+          <div class="box-paging">
+            <div class="box-paging__arrow" id="themePagingArrow">
+              <div class="box-paging__arrow__left" data-arrow="prev"></div>
+              <div class="box-paging__arrow__right" data-arrow="next"></div>
+            </div>
+          </div>
         </div>
       </div>   
     </section>

@@ -3,7 +3,7 @@ body {
 }
 
 main {
-  padding: 0 10vw;
+  padding: 0 7vw;
   padding-top: 2vh;
   margin-top: 1px;
   margin-bottom: 5vh;
@@ -22,8 +22,10 @@ main {
       position: relative;
       width: 490px;
       text-align: center;
+      margin: 0 auto;
     }
     &__paging {
+      height: 0;
       .paging-arrow {
         position: absolute;
         width: 100%;
@@ -34,6 +36,7 @@ main {
           left: 5.5vw;
           cursor: pointer;
           padding: 25px;
+          opacity: 0.6;
           &::before {
             content: "";
             border-left: 1px solid #333;
@@ -50,11 +53,14 @@ main {
             top: 21px;
             transform: rotate(-45deg);
           }
+          &:hover {
+            opacity: 1;
+          }
         }
         &__right {
           position: absolute;
           left: initial;
-          right: 5.5vw;
+          right: 3.5vw;
           transform: rotate(180deg);
         }
       }
@@ -62,6 +68,7 @@ main {
         text-align: center;
         position: relative;
         top: -6vh;
+        font-size: 0;
         cursor: default;
         &__button {
           display: inline-block;
@@ -69,6 +76,7 @@ main {
           height: 5px;
           background-color: #ccc;
           transition: background-color 0.3s linear;
+          margin: 0 3px;
           &.active {
             background-color: #000;
           }
