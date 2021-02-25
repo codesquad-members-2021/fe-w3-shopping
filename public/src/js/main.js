@@ -1,6 +1,6 @@
+import { domSelect } from './util/util.js';
+import { moreParser, slideParser } from './util/parser.js';
 import Slide from './slide.js';
-import { domSelect } from './util.js';
-import { moreParser, slideParser } from './parser.js';
 import More from './moreBtn.js';
 
 //슬라이드 DOM

@@ -1,6 +1,6 @@
-import { makeSlideItem } from './htmlTemplate.js';
-import { domSelect } from './util.js';
-import { CLASS_LIST } from './data.js';
+import { makeSlideItem } from './util/htmlTemplate.js';
+import { domSelect } from './util/util.js';
+import { CLASS_LIST } from './util/data.js';
 
 class Slide {
   constructor(data, { container, slideList, pagingBtn }) {

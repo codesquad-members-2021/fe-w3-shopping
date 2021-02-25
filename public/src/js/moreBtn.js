@@ -1,4 +1,4 @@
-import { makeMoreList, makeMoreBtn, ul } from './htmlTemplate.js';
+import { makeMoreList, makeMoreBtn, ul } from './util/htmlTemplate.js';
 
 class More {
   constructor(data, { container, moreBtn }) {
