@@ -186,12 +186,12 @@ body {
                 .slide-img{
                     padding: 0 2rem;
                     transform: translate3d(0,0,0);
-                    transition: transform .5s ease-in;
+                    transition: transform .5s ease-in
                 }
 
-                .slide-move {
-                    transform: translate3d(-35rem ,0 ,0);
-                 }
+                // .slide-move {
+                //     transform: translate3d(-35rem ,0 ,0);
+                //  }
             }
             
 
