@@ -1,7 +1,6 @@
 * {
   padding: 0;
   margin: 0;
-  outline: 1px solid salmon;
   box-sizing: border-box;
 }
 
@@ -191,10 +190,10 @@ main {
           position: absolute;
           bottom: 20%;
           font-size: 1px;
-          color: #808080;
+          color: #a7a7a7;
           left: 46%;
-          .page {
-            background: #808080;
+          li {
+            background: #a7a7a7;
             display: inline;
             padding: 0 6px;
             margin: 0 2px;
@@ -222,4 +221,8 @@ main {
       float: left;
     }
   }
+}
+
+.black {
+  background-color: black;
 }

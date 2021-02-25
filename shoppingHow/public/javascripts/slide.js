@@ -1,39 +1,68 @@
-function loadItems() {
-  let carouseldatas = {};
-  let slideContents = "";
-  document.querySelector(".slide_list").innerHTML = "";
-  fetch("http://localhost:3000/planningEvent.json")
-    .then((response) => response.json())
-    .then((data) => {
-      datas = data.mileageList;
-      datas.forEach(
-        (data) => (slideContents += `<li><img src=${data.imgurl}></img></li>`)
-      );
-
-      document.querySelector(".slide_list").innerHTML = slideContents;
-    });
-}
-
-loadItems();
-
-let nextButton = document.querySelector(".next_button");
-
 window.addEventListener("load", () => {
-  move();
-});
+  const slideList = document.querySelector(".slide_list");
+  const slideContents = document.querySelectorAll(".slide_list li");
 
-function move() {
-  let ul = document.querySelector(".slide_list");
-  let curIndex = 0;
-  setInterval(function () {
-    ul.style.transition = "0.2s";
-    ul.style.transform =
-      "translate3d(-" + 514 * (curIndex + 1) + "px, 0px, 0px)";
+  const nextBtn = document.querySelector(".next_button");
+  const prevBtn = document.querySelector(".prev_button");
 
-    curIndex++;
+  console.log(slideContents);
 
-    if (curIndex === 2) {
-      curIndex = -1;
+  function loadItems() {
+    let slideInnerHTML = "";
+    document.querySelector(".slide_list").innerHTML = "";
+    fetch("http://localhost:3000/planningEvent.json")
+      .then((response) => response.json())
+      .then((data) => {
+        datas = data.mileageList;
+        datas.forEach(
+          (data) =>
+            (slideInnerHTML += `<li><img class="slide_item" src=${data.imgurl}></img></li>`)
+        );
+
+        slideList.innerHTML =
+          copyLastSlide(datas) + slideInnerHTML + copyFirstSlide(datas);
+      });
+  }
+
+  loadItems();
+
+  const copyFirstSlide = (datas) => {
+    return `<li><img class="slide_item" id="firstSlide" src=${datas[0].imgurl}></img></li>`;
+  };
+  //transition 부드럽게 보이기위해 하나 더 추가
+  const copyLastSlide = (datas) => {
+    return `<li><img class="slide_item" id="lastSlide" src=${datas[2].imgurl}></img></li>`;
+  };
+
+  let counter = 1;
+  const size = 514;
+
+  slideList.style.transform = "translateX(" + -size * counter + "px)";
+
+  nextBtn.addEventListener("click", () => {
+    if (counter >= 4) return;
+    slideList.style.transition = "transform 0.3s ease-in-out";
+    counter++;
+    slideList.style.transform = "translateX(" + -size * counter + "px)";
+  });
+  prevBtn.addEventListener("click", () => {
+    if (counter <= 0) return;
+    slideList.style.transition = "transform 0.3s ease-in-out";
+    counter--;
+    slideList.style.transform = "translateX(" + -size * counter + "px)";
+  });
+
+  slideList.addEventListener("transitionend", function () {
+    console.log(counter);
+    if (counter === 4) {
+      slideList.style.transition = "none";
+      counter = counter - 3;
+      slideList.style.transform = "translateX(" + -size * counter + "px)";
     }
-  }, 1000);
-}
+    if (counter === 0) {
+      slideList.style.transition = "none";
+      counter = counter + 3;
+      slideList.style.transform = "translateX(" + -size * counter + "px)";
+    }
+  });
+});
