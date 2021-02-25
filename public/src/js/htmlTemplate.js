@@ -17,8 +17,10 @@ export const makeMoreList = ({ imgurl, title, info }) => `
 </li>                        
 `;
 
-export const makeMoreBtn = (now, total) => `
-<span>더보기</span>
+export const makeMoreBtn = ({ now, total, fold = false }) => `
+<span>${fold ? '접기' : '더보기'}</span>
 <span class="more-index">(${now}/${total})</span>
-<span><i class="fas fa-angle-down"></i></span>
+<span><i class="fas fa-angle-${fold ? 'up' : 'down'}"></i></span>
 `;
+
+export const ul = ({ value, classes }) => `<ul class='${classes.join(' ')}'>${value}</ul>`;

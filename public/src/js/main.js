@@ -3,16 +3,16 @@ import { domSelect } from './util.js';
 import { moreParser, slideParser } from './parser.js';
 import More from './moreBtn.js';
 
-const banner = domSelect('.banner');
 //슬라이드 DOM
 const slideContainer = domSelect('.slide');
 const slideList = domSelect('.slide-list');
 const pagingBtn = domSelect('.slide-event__paging');
 const slideSelectors = { container: slideContainer, slideList, pagingBtn };
 //더보기 DOM
-const moreItemContainer = domSelect('.event-item-list');
+const moreContainer = domSelect('.more-container');
+console.log(moreContainer);
 const moreBtn = domSelect('.more-text-container');
-const moreSelectors = { container: moreItemContainer, moreBtn };
+const moreSelectors = { container: moreContainer, moreBtn };
 
 fetch('https://shoppinghow.kakao.com/v1.0/shophow/top/planningEvent.json?_=1614221190473')
   .then((res) => res.json())

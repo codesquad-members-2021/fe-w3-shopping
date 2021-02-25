@@ -1,4 +1,4 @@
-import { makeMoreList, makeMoreBtn } from './htmlTemplate.js';
+import { makeMoreList, makeMoreBtn, ul } from './htmlTemplate.js';
 
 class More {
   constructor(data, { container, moreBtn }) {
@@ -11,13 +11,22 @@ class More {
   }
   init() {
     this.splitData();
-    this.render();
+    this.renderInit();
+    this.onEvent();
   }
   onEvent() {
-    this.moreBtn.addEventListener('click', handleClick.bind(this));
+    this.moreBtn.addEventListener('click', this.handleClick.bind(this));
   }
   handleClick() {
-    //if currentData / totalData 비교해서
+    const currentIndex = Math.floor(this.currentData / this.maxData) - 1;
+    const nextData = this.data[currentIndex + 1];
+    if (nextData) {
+      this.currentData += nextData.length;
+      this.renderMore();
+    } else {
+      this.currentData = 5;
+      this.renderInit();
+    }
   }
   //this.data를 화면에 따라 5개씩 잘라 2차원배열
   splitData() {
@@ -28,17 +37,27 @@ class More {
     this.data = splitedData;
   }
   getMoreListHTML() {
-    const currentIndex = Math.floor(this.currentData / this.maxData);
-    const moreListHTML = this.data[currentIndex].reduce((acc, cur) => acc + makeMoreList(cur), '');
+    const currentIndex = Math.floor(this.currentData / this.maxData) - 1;
+    const moreItemsHTML = this.data[currentIndex].reduce((acc, cur) => acc + makeMoreList(cur), '');
+    const moreListHTML = ul({ value: moreItemsHTML, classes: ['event-item-list'] });
     return moreListHTML;
   }
-  render() {
+  renderInit() {
     const moreListHTML = this.getMoreListHTML();
     this.container.innerHTML = moreListHTML;
     this.renderMoreBtn();
   }
+  renderMore() {
+    const moreListHTML = this.getMoreListHTML();
+    this.container.innerHTML += moreListHTML;
+    this.renderMoreBtn();
+  }
   renderMoreBtn() {
-    this.moreBtn.innerHTML = makeMoreBtn(this.currentData, this.totalData);
+    if (this.currentData < this.totalData) {
+      this.moreBtn.innerHTML = makeMoreBtn({ now: this.currentData, total: this.totalData });
+    } else {
+      this.moreBtn.innerHTML = makeMoreBtn({ now: this.currentData, total: this.totalData, fold: true });
+    }
   }
 }
 
