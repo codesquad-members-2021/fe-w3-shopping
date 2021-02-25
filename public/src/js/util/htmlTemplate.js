@@ -6,7 +6,7 @@ export const makeSlideItem = (imgurl) => `
 
 export const makeItemList = ({ imgurl, title, info }) => `
 <li class='event-item'>
-  <a href=''>
+  <a href='#'>
     <div class='item-img'>
       <img src="${imgurl}"/>
     </div>

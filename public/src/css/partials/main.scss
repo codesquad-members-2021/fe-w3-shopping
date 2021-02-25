@@ -4,7 +4,6 @@
   height: 330px;
   padding: 21px 27px;
   border-right: 1px solid #f1f1f1;
-  float: left;
   a {
     width: 200px;
     display: flex;
@@ -48,7 +47,7 @@ main {
   background-color: #f3f3f3;
   padding: 0 300px;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 50px;
 }
 
 //이벤트 배너
@@ -186,20 +185,54 @@ main {
 
 //hot theme
 .hot-deal {
+  position: relative;
   margin-top: 50px;
   h3 {
     font-size: 1.5rem;
     font-weight: 400;
     margin: 10px 0;
   }
-  ul {
-    display: flex;
+  .hot-deal__container {
+    height: 333px;
+    position: relative;
     border: 1px solid #e4e4e4;
     background-color: #fff;
     overflow: hidden;
-    li {
-      flex: 1;
-      @include itemBox();
+    z-index: 90;
+    ul {
+      left: -521.2px;
+      position: absolute;
+      white-space: nowrap;
+      display: flex;
+      li {
+        @include itemBox();
+        width: 260.6px;
+      }
+    }
+  }
+
+  .slide-event {
+    z-index: 100;
+    width: 100%;
+    // height: 100%;
+    position: absolute;
+    left: 0;
+    top: 180px;
+    .slide-event__btn {
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      & > div {
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        line-height: 25px;
+        color: #fff;
+        background-color: #000;
+        border-radius: 3px;
+        opacity: 0.3;
+        cursor: pointer;
+      }
     }
   }
 }
