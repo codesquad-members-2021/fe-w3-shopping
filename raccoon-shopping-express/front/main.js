@@ -25,11 +25,100 @@ const $mallEventList = document.querySelector('#mallEventList');
 const $topMileageSlide = document.querySelector('#topMileageSlide');
 const $mallEventSlide = document.querySelector('#mallEventSlide');
 
-$mileageEventSlide.addEventListener('mouseover', overEventSlider);
+class EventSlider {
+  constructor(target) {
+    this.target = target;
+  }
+  init() {
+    if (this.target) this.addEvent();
+  }
+  addEvent() {
+    // 여기에서 this: EventSlider 객체
+    // this.target: $mileageSlider
+    console.log(this, this.target);
+    this.target.addEventListener('mouseover', this.overEventSlider.bind(this));
+    this.target.addEventListener('mouseout', (e) => this.outEventSlider(e));
+    this.target.addEventListener('click', (e) => this.clickEventSlider(e));
+  }
+  overEventSlider(e) {
+    console.log(this, e.target);
+    if (e.target.classList.contains('adela') || e.target.getAttribute('data-index')) {
+      this.pageHover(e);
+    }
+    $prevEventButton.querySelector('.ico--prev').classList.replace('ico--prev', 'ico--prev__slide--hover');
+    $nextEventButton.querySelector('.ico--next').classList.replace('ico--next', 'ico--next__slide--hover');
+  }
 
-$mileageEventSlide.addEventListener('mouseout', outEventSlider);
-$mileageEventSlide.addEventListener('click', clickEventSlider);
+  outEventSlider() {
+    $prevEventButton.querySelector('.ico--prev__slide--hover').classList.replace('ico--prev__slide--hover', 'ico--prev');
+    $nextEventButton.querySelector('.ico--next__slide--hover').classList.replace('ico--next__slide--hover', 'ico--next');
+  }
 
+  clickPrev() {
+    $topMileageSlide.classList.replace('slide', 'slide--click--prev');
+    setTimeout(() => {
+      $topMileageSlide.insertBefore($topMileageSlide.lastElementChild, $topMileageSlide.firstElementChild);
+      $topMileageSlide.classList.replace('slide--click--prev', 'slide');
+      this.pagePrev();
+    }, 300);
+  }
+  clickNext() {
+    $topMileageSlide.classList.replace('slide', 'slide--click--next');
+    setTimeout(() => {
+      $topMileageSlide.insertBefore($topMileageSlide.firstElementChild, null);
+      $topMileageSlide.classList.replace('slide--click--next', 'slide');
+      this.pageNext();
+    }, 300);
+  }
+
+  clickEventSlider(e) {
+    const isClickPrev = () => e.target.classList.contains('slide--button--prev') || e.target.classList.contains('ico--prev__slide--hover');
+    const isClickNext = () => e.target.classList.contains('slide--button--next') || e.target.classList.contains('ico--next__slide--hover');
+
+    if (isClickPrev()) {
+      this.clickPrev();
+    }
+    if (isClickNext()) {
+      this.clickNext();
+    }
+  }
+
+  pagePrev() {
+    $mileageSlidePage.insertBefore($mileageSlidePage.firstElementChild, null);
+  }
+
+  pageNext() {
+    $mileageSlidePage.insertBefore($mileageSlidePage.lastElementChild, $mileageSlidePage.firstElementChild);
+  }
+
+  pageHoverPrev() {
+    $topMileageSlide.insertBefore($topMileageSlide.lastElementChild, $topMileageSlide.firstElementChild);
+    this.pagePrev();
+  }
+
+  pageHoverNext() {
+    $topMileageSlide.insertBefore($topMileageSlide.firstElementChild, null);
+    this.pageNext();
+  }
+
+  pageHover(e) {
+    if (e.target.classList.contains('first')) return;
+    if (e.target.getAttribute('data-index') === '1') {
+      this.pageHoverNext();
+    }
+    if (e.target.getAttribute('data-index') === '2') {
+      this.pageHoverPrev();
+    }
+  }
+}
+
+const eventSliderListener = new EventSlider($mileageEventSlide);
+eventSliderListener.init();
+/*
+$mileageEventSlide.addEventListener('mouseover', eventSliderListener.overEventSlider);
+$mileageEventSlide.addEventListener('mouseout', eventSliderListener.outEventSlider);
+$mileageEventSlide.addEventListener('click', eventSliderListener.clickEventSlider);
+*/
 function overEventSlider(e) {
   if (e.target.classList.contains('adela') || e.target.getAttribute('data-index')) {
     pageHover(e);
@@ -52,52 +141,6 @@ function clickEventSlider(e) {
   }
   if (isClickNext()) {
     clickNext();
-  }
-}
-
-function clickPrev() {
-  $topMileageSlide.classList.replace('slide', 'slide--click--prev');
-  setTimeout(() => {
-    $topMileageSlide.insertBefore($topMileageSlide.lastElementChild, $topMileageSlide.firstElementChild);
-    $topMileageSlide.classList.replace('slide--click--prev', 'slide');
-    pagePrev();
-  }, 300);
-}
-
-function clickNext() {
-  $topMileageSlide.classList.replace('slide', 'slide--click--next');
-  setTimeout(() => {
-    $topMileageSlide.insertBefore($topMileageSlide.firstElementChild, null);
-    $topMileageSlide.classList.replace('slide--click--next', 'slide');
-    pageNext();
-  }, 300);
-}
-
-function pagePrev() {
-  $mileageSlidePage.insertBefore($mileageSlidePage.firstElementChild, null);
-}
-
-function pageNext() {
-  $mileageSlidePage.insertBefore($mileageSlidePage.lastElementChild, $mileageSlidePage.firstElementChild);
-}
-
-function pageHoverPrev() {
-  $topMileageSlide.insertBefore($topMileageSlide.lastElementChild, $topMileageSlide.firstElementChild);
-  pagePrev();
-}
-
-function pageHoverNext() {
-  $topMileageSlide.insertBefore($topMileageSlide.firstElementChild, null);
-  pageNext();
-}
-
-function pageHover(e) {
-  if (e.target.classList.contains('first')) return;
-  if (e.target.getAttribute('data-index') === '1') {
-    pageHoverNext();
-  }
-  if (e.target.getAttribute('data-index') === '2') {
-    pageHoverPrev();
   }
 }
 
