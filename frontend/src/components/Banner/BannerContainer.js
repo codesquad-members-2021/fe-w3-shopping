@@ -7,7 +7,11 @@ class BannerContainer {
   constructor({ $target }) {
     this.$target = $target;
     this.$BannerPresentational = null;
-    
+
+    // for caching
+    this.$cached = {};
+
+    // 상태
     this.fixedImage = "";
     
     // 배너 캐로셀 initialize
@@ -18,39 +22,59 @@ class BannerContainer {
     // carouselImages: data.mileageList
 
     this.init();
+    window.bc = this;
   }
 
   init() {
-    this.resetState();
-    
     API.get.bannerInfo().then((data) => {
       this.setState({ fixedImage: data.event.imgurl });
     });
   }
   
+  // 상태 업데이트 영역
   setState({ fixedImage }) {
-    if (this.fixedImage !== "") {
-      this.resetState();  
-    }
     this.setFixedImages(fixedImage);
     this.render();
-  }
-
-  resetState() {
-    this.fixedImage = "";
+    if (this.isMemorable(fixedImage)) {
+      this.loadIntoCache({ prop: this.fixedImage, $dom: this.$BannerPresentational });
+    }
   }
 
   setFixedImages(fixedImage) {
     this.fixedImage = fixedImage;
   }
 
-  // setCarouselImages(carouselImages) {
-  //   this.carouselImages = carouselImages;
-  // }
-
-  render() {
-    this.$BannerPresentational = new BannerPresentational({ $target: this.$target, fixedImage: this.fixedImage });
+  // 최적화 영역
+  isMemorable(nextProp) {
+    if (!this.$cached.hasOwnProperty(nextProp)) {
+      return true;
+    }
+    return false;
   }
+
+  isCacheHit(prop) {
+    return this.$cached[prop];
+  }
+  
+  loadIntoCache({prop, $dom}) {
+    this.$cached[prop] = $dom;
+  }
+
+
+  render() { 
+    if (this.$BannerPresentational === null) { // initial render
+      this.$BannerPresentational = new BannerPresentational({ $target: this.$target, fixedImage: this.fixedImage });
+    }
+    else if (this.isMemorable(this.fixedImage)) {  // cache not hit 
+      this.$BannerPresentational = new BannerPresentational({ $target: this.$target, fixedImage: this.fixedImage });
+    }
+    else { // cache hit
+      this.$BannerPresentational = this.isCacheHit(this.fixedImage);
+      this.$target.innerHTML = "";
+      this.$BannerPresentational.reRender();
+    }
+  }
+  
 }
 
 export default BannerContainer;

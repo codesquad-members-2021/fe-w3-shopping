@@ -3,12 +3,17 @@ import "./banner.scss";
 class BannerPresentational {
   constructor({ $target, ...props }) {
     this.$target = $target;
+    this.$Banner = document.createElement("div");
+    this.$Banner.className = "banner";
+    
+    // props
     this.imgSrc = props.fixedImage;
     
     this.init();
   }
 
   init() { 
+    this.$target.innerHTML = ""; // 먼저 타겟을 지우고 나서 렌더 진행
     this.render();
   }
   
@@ -27,8 +32,13 @@ class BannerPresentational {
           </div>
         </div>
       </div>
-    `
-    this.$target.insertAdjacentHTML('beforeend', $Banner);
+    `;
+    this.$Banner.insertAdjacentHTML('beforeend', $Banner); // string -> HTMLDOMElement
+    this.$target.appendChild(this.$Banner); // DOM -> DOM
+  }
+
+  reRender(){ 
+    this.$target.appendChild(this.$Banner); // DOM -> DOM
   }
 }
 
