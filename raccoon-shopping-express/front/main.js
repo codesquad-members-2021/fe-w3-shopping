@@ -22,7 +22,8 @@ class FetchAPI {
     fetch(url.mileageList)
       .then((response) => response.json())
       .then((data) => {
-        setMileageEventContents(data);
+        const mileageEventCarousel = new MileageEventCarousel(data);
+        mileageEventCarousel.setMileageEventContents();
         return data;
       })
       .then((status) => console.log(REQUEST_SUCESS, status.code))
@@ -142,30 +143,31 @@ class EventSlider {
 const eventSliderListener = new EventSlider($mileageEventSlide);
 eventSliderListener.init();
 
-// slide 내부 동적으로 그려보기
-
-function setMileageEventContents(contents) {
-  $topMileageSlide.insertAdjacentHTML('afterbegin', getMileageEventContents(contents));
-}
-
-function getMileageEventContents(jsonData) {
-  const imgurlArr = jsonData.mileageList.map((el) => el.imgurl);
-  const linkurlArr = jsonData.mileageList.map((el) => el.linkurl);
-
-  let panelDiv = ``;
-  for (let i = 0; i < imgurlArr.length; i++) {
-    panelDiv += `
-    <div class="panel">
-    <a href="${linkurlArr[i]}" class="link--event"
-      ><img src="${imgurlArr[i]}" width="485" height="340" class="img_g" alt=""
-    /></a>
-    </div>`;
+class MileageEventCarousel {
+  constructor(data) {
+    this.data = data;
   }
+  setMileageEventContents() {
+    $topMileageSlide.insertAdjacentHTML('afterbegin', this.getMileageEventContents());
+  }
+  getMileageEventContents() {
+    const imgurlArr = this.data.mileageList.map((el) => el.imgurl);
+    const linkurlArr = this.data.mileageList.map((el) => el.linkurl);
 
-  return panelDiv;
+    let panelDiv = ``;
+    for (let i = 0; i < imgurlArr.length; i++) {
+      panelDiv += `
+      <div class="panel">
+      <a href="${linkurlArr[i]}" class="link--event"
+        ><img src="${imgurlArr[i]}" width="485" height="340" class="img_g" alt=""
+      /></a>
+      </div>`;
+    }
+    return panelDiv;
+  }
 }
 
-function getMallEventContents(jsonData) {
+function getMallEventPanel() {
   return `
 <div class="panel" aria-hidden="true">
 <ul class="list--item">
@@ -174,9 +176,7 @@ function getMallEventContents(jsonData) {
 `;
 }
 
-function getMallEventContentLists(jsonData) {
-  console.log(jsonData.mallEventList[0]);
-  // foreach / reduce
+function getMallEventItem(data) {
   const imgurl = jsonData.mallEventList.map((el) => el.imgurl);
   const linkurl = jsonData.mallEventList.map((el) => el.linkurl);
   const text1 = jsonData.mallEventList.map((el) => el.text1);
