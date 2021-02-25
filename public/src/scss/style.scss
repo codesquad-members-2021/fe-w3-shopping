@@ -1,8 +1,4 @@
-.scssTest {
-  $size: 100px;
-  .box {
-    width: $size;
-    height: $size;
-    background-color: tomato;
-  }
+.app {
+  background: tomato;
+  height: 50px;
 }

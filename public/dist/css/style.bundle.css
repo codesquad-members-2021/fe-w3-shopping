@@ -1,7 +1,6 @@
-.scssTest .box {
-  width: 100px;
-  height: 100px;
-  background-color: tomato;
+.app {
+  background: tomato;
+  height: 50px;
 }
 
 /*# sourceMappingURL=style.bundle.css.map*/
