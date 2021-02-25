@@ -5,6 +5,11 @@
   padding: 21px 27px;
   border-right: 1px solid #f1f1f1;
   float: left;
+  a {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+  }
   img {
     width: 200px;
     height: 200px;
@@ -13,12 +18,17 @@
     font-size: 0.8rem;
     font-weight: 600;
     margin: 10px 0 7px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
   .item-info {
     font-size: 0.8rem;
     opacity: 0.7;
     line-height: 15px;
     margin-bottom: 9px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .item-theme {
     width: 31px;

@@ -11,6 +11,8 @@ const pagingBtn = domSelect('.slide-event__paging');
 const slideSelectors = { container: slideContainer, slideList, pagingBtn };
 //더보기 DOM
 const moreItemContainer = domSelect('.event-item-list');
+const moreBtn = domSelect('.more-text-container');
+const moreSelectors = { container: moreItemContainer, moreBtn };
 
 fetch('https://shoppinghow.kakao.com/v1.0/shophow/top/planningEvent.json?_=1614221190473')
   .then((res) => res.json())
@@ -22,6 +24,10 @@ fetch('https://shoppinghow.kakao.com/v1.0/shophow/top/planningEvent.json?_=16142
     slide.init();
 
     const parsedMoreData = moreParser(moreData);
-    const more = new More(parsedMoreData, { container: moreItemContainer });
+    const more = new More(parsedMoreData, moreSelectors);
     more.init();
-  });
+  })
+  .then(console.log);
+
+//HOT DEAL URL
+//https://shoppinghow.kakao.com/v1.0/shophow/top/hotdeal.json?_=1614229361861

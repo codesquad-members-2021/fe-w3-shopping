@@ -1,8 +1,10 @@
-export const makeSlideItem = (imgurl) => `<div class="slide-item">
-                                    <img src="${imgurl}"/>
-                                </div>`;
+export const makeSlideItem = (imgurl) => `
+<div class="slide-item">
+    <img src="${imgurl}"/>
+</div>
+`;
 
-export const makeEventItem = ({ imgurl, title, info }) => `
+export const makeMoreList = ({ imgurl, title, info }) => `
 <li class='event-item'>
   <a href=''>
     <div class='item-img'>
@@ -13,4 +15,10 @@ export const makeEventItem = ({ imgurl, title, info }) => `
     <div class='item-theme'>테마</div>
   </a>
 </li>                        
+`;
+
+export const makeMoreText = (now, total) => `
+<span>더보기</span>
+<span class="more-index">(${now}/${total})</span>
+<span><i class="fas fa-angle-down"></i></span>
 `;
