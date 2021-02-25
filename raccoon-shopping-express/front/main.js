@@ -33,7 +33,7 @@ class FetchAPI {
     fetch(url.mallEventList)
       .then((response) => response.json())
       .then((data) => {
-        // getMallEventContentLists(data);
+        const mallEventSection = new MallEventSection(data);
         return data;
       })
       .then((status) => console.log(REQUEST_SUCESS, status.code))
@@ -50,9 +50,6 @@ class FetchAPI {
       .then((status) => console.log(REQUEST_SUCESS, status.code))
       .catch((error) => console.log(REQUEST_FAILED, error));
 }
-
-const fetchAPI = new FetchAPI();
-fetchAPI.init();
 
 class EventSlider {
   constructor(target) {
@@ -140,9 +137,6 @@ class EventSlider {
   }
 }
 
-const eventSliderListener = new EventSlider($mileageEventSlide);
-eventSliderListener.init();
-
 class MileageEventCarousel {
   constructor(data) {
     this.data = data;
@@ -165,40 +159,6 @@ class MileageEventCarousel {
     }
     return panelDiv;
   }
-}
-
-function getMallEventPanel() {
-  return `
-<div class="panel" aria-hidden="true">
-<ul class="list--item">
-</ul>
-</div>
-`;
-}
-
-function getMallEventItem(data) {
-  const imgurl = jsonData.mallEventList.map((el) => el.imgurl);
-  const linkurl = jsonData.mallEventList.map((el) => el.linkurl);
-  const text1 = jsonData.mallEventList.map((el) => el.text1);
-  const text2 = jsonData.mallEventList.map((el) => el.text2);
-
-  let lists = ``;
-  for (let i = 0; i < imgurl.list; i++) {}
-  return `
-  <li class="goods">
-  <a href="" class="link--product"
-    ><span class="info--thumb"
-      ><img
-        src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop1.daumcdn.net%2Fshophow%2Fp%2FF11929626306.jpg%3Fut%3D20210114041340&amp;scode=talkgift"
-        width="200"
-        height="200"
-        class="imgage--top"
-        alt="안전을 생각한다면, 창문 잠금장치" /></span
-    ><strong class="info--title">안전을 생각한다면, 창문 잠금장치</strong><span class="info--txt">침입은 물론 낙하사고 예방해요</span
-    ><span class="ico--background2 ico--theme">테마</span></a
-  >
-</li>
-  `;
 }
 
 class HotDealSection {
@@ -276,4 +236,91 @@ class HotDealSection {
     }, '');
     return items;
   }
+
+  getHotDealItem(list) {
+    const { contentseq, linkUrl, imageUrl, title, minPrice, discount, maxPrice } = list;
+    return `
+    <li class=${contentseq}>
+      <a href=${linkUrl} class="link--product _GC_">
+        <span class="hot-deal--thumb">
+          <img src=${imageUrl} class="image-group" alt="">
+        </span>
+        <span class="screen-out">제품명</span>
+          <strong class="info--title">${title}</strong>
+        <span class="detail--price">
+          <span class="info--discount">
+            <span class="screen-out">할인가</span>
+            <span class="txt--discount">${minPrice}<span class="txt--unit">원</span></span>
+            <span class="screen-out">할인율</span>
+            <span class="txt--percent">${discount}<span class="txt--unit">${percent}</span>
+          </span>
+        </span>
+        <span class="screen-out">정가</span>
+        <span class="txt--price">${maxPrice}<span class="screen-out">원</span></span></span>
+      </a>
+    </li>`;
+  }
+
+  getHotDealItemList(repeat) {
+    let itemList = ``;
+    for (let i = 0; i < repeat; i++) {
+      itemList += this.getHotDealItem();
+    }
+    return itemList;
+  }
+}
+
+const fetchAPI = new FetchAPI();
+const eventSliderListener = new EventSlider($mileageEventSlide);
+
+fetchAPI.init();
+eventSliderListener.init();
+
+class MallEventSection {
+  constructor(data) {
+    this.data = data;
+  }
+
+  getMallEventPanel() {
+    return `
+    <div class="panel" aria-hidden="true">
+    <ul class="list--item">
+    </ul>
+    </div>
+    `;
+  }
+  getMallEventItem() {
+    const $listItem = document.querySelector('.list--item');
+  }
+  pushItemData() {}
+  mallEventCarousel() {}
+}
+
+function getMallEventPanel() {
+  return `
+<div class="panel" aria-hidden="true">
+<ul class="list--item">
+</ul>
+</div>
+`;
+}
+
+function getMallEventItem(list) {
+  const { dataseq, imgurl, text, text2, linkurl } = list;
+
+  return `
+  <li class=${dataseq}>
+  <a href="${linkurl} class="link--product"
+    ><span class="info--thumb"
+      ><img
+        src=${imgurl}
+        width="200"
+        height="200"
+        class="imgage--top"
+        alt=${text} /></span
+    ><strong class="info--title">${text}</strong><span class="info--txt">${text2}</span
+    ><span class="ico--background2 ico--theme">테마</span></a
+  >
+</li>
+  `;
 }
