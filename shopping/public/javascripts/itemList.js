@@ -13,8 +13,8 @@ class itemList {
 
     loadRandomImage() {
         for (let i = 0; i < 5; i++) {
-
-            fetch("http://localhost:3000/homeData.json")
+            const URL = "http://localhost:3000/homeData.json"
+            fetch(URL)
                 .then(response => response.json())
                 .then(json => {
                     const data = json.mallEventList;
