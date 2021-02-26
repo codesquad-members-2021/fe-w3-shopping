@@ -13,17 +13,16 @@
     }
 }
 
-// li 태그용 Style (@extend 함)
-// (content__more__view & content__hot__carousel의 ul 안에서 사용)
+// content__more__view의 ul의 li 태그용 Style (@extend 함)
 .view-li {
-    height: 276px;
-    padding: 21px 27px;
+    height: auto;
     border-bottom: 0 none;
     text-align: left;
     line-height: 14px;
     letter-spacing: -1px;
 
     a {
+        padding: 21px 27px;
         display: block;
         img {
             @extend .max-WH-auto;

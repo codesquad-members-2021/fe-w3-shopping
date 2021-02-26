@@ -63,7 +63,7 @@ a {
   width: 10%;
 }
 
-.col-2 {
+.col-2, .content__hot__carousel ul li {
   width: 20%;
 }
 
@@ -101,14 +101,14 @@ a {
 }
 
 .view-li, .content__hot__carousel ul li, .content__more__view ul li {
-  height: 276px;
-  padding: 21px 27px;
+  height: auto;
   border-bottom: 0 none;
   text-align: left;
   line-height: 14px;
   letter-spacing: -1px;
 }
 .view-li a, .content__hot__carousel ul li a, .content__more__view ul li a {
+  padding: 21px 27px;
   display: block;
 }
 .view-li a img:hover, .content__hot__carousel ul li a img:hover, .content__more__view ul li a img:hover {
@@ -427,7 +427,7 @@ a {
   width: 10%;
 }
 
-.col-2 {
+.col-2, .content__hot__carousel ul li {
   width: 20%;
 }
 
@@ -465,14 +465,14 @@ a {
 }
 
 .view-li, .content__hot__carousel ul li, .content__more__view ul li {
-  height: 276px;
-  padding: 21px 27px;
+  height: auto;
   border-bottom: 0 none;
   text-align: left;
   line-height: 14px;
   letter-spacing: -1px;
 }
 .view-li a, .content__hot__carousel ul li a, .content__more__view ul li a {
+  padding: 21px 27px;
   display: block;
 }
 .view-li a img:hover, .content__hot__carousel ul li a img:hover, .content__more__view ul li a img:hover {
@@ -598,16 +598,17 @@ a {
   margin: 0 auto;
   border: 1px solid #f1f1f1;
   position: relative;
+  overflow: hidden;
 }
 .content__hot__carousel ul {
   display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+  left: -1px;
 }
 .content__hot__carousel ul li {
-  display: inline-block;
+  flex: 0 0 auto;
   border-right: 1px solid #f1f1f1;
-}
-.content__hot__carousel ul li:last-child {
-  border-right: none;
 }
 .content__hot .carousel__special, .content__hot .carousel__special--next, .content__hot .carousel__special--prev {
   top: 50%;

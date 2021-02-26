@@ -136,17 +136,19 @@
             margin: $auto;
             border: 1px solid $lightGray;
             position: relative;
+            overflow: hidden;
 
             ul {
                 display: flex;
+                flex-wrap: nowrap;                
+                position: relative;
+                left: -1px;
+                                          
                 li {
-                    display: inline-block;
+                    @extend .col-2;
                     @extend .view-li;
-                    border-right: 1px solid $lightGray;
-
-                    &:last-child {
-                        border-right: none;
-                    }
+                    flex: 0 0 auto;                    
+                    border-right: 1px solid $lightGray;                    
                 }
             }
         }
