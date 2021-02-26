@@ -5,6 +5,7 @@ class Header {
     }
 
     eventHandler() {
+        window.addEventListener('load', this.toggleHastag.bind(this));
         window.addEventListener('resize', this.toggleHastag.bind(this));
     }
 
