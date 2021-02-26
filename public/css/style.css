@@ -106,13 +106,19 @@ nav .add-on .add-on__login li {
 .main-banner .main-banner__slide .slide-bundle li:nth-child(3) {
   margin-right: 100px;
 }
-.main-banner .main-banner__slide .slide-bundle.active {
+.main-banner .main-banner__slide .slide-bundle.right {
   transform: translate3d(585px, 0, 0);
   transition: transform 0.5s;
 }
 .main-banner .main-banner__slide .slide-bundle.left {
   transform: translate3d(-585px, 0, 0);
   transition: transform 0.5s;
+}
+.main-banner .main-banner__slide .slide-bundle.over-right {
+  transform: translate3d(585px, 0, 0);
+}
+.main-banner .main-banner__slide .slide-bundle.over-left {
+  transform: translate3d(-585px, 0, 0);
 }
 .main-banner .main-banner__slide .slide__right {
   position: absolute;
@@ -125,6 +131,27 @@ nav .add-on .add-on__login li {
   left: 50px;
   top: 50%;
   z-index: 2;
+}
+.main-banner .main-banner__slide .slide__under-btn1,
+.main-banner .main-banner__slide .slide__under-btn2,
+.main-banner .main-banner__slide .slide__under-btn3 {
+  width: 15px;
+  height: 5px;
+  background-color: #ccc;
+}
+.main-banner .main-banner__slide .slide__under-btn1:hover,
+.main-banner .main-banner__slide .slide__under-btn2:hover,
+.main-banner .main-banner__slide .slide__under-btn3:hover {
+  background-color: black;
+}
+.main-banner .main-banner__slide .slide__under-bundle {
+  display: flex;
+  justify-content: space-between;
+  width: 55px;
+  position: absolute;
+  z-index: 3;
+  top: 300px;
+  left: 45%;
 }
 
 /*# sourceMappingURL=style.css.map */
