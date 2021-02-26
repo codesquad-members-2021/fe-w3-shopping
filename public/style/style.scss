@@ -212,22 +212,29 @@ body {
                  transition-duration: 0ms;
              }
 
-            .main-top-slide-select{
+            .main-top-slide-select {
                 bottom: 3rem;
                 position: absolute;
 
-                li {
-                    display: inline-block;
-                    width: 0.2rem;
-                    height: 0.5rem;
-                    padding: 0 0.5rem;
-                    background-color: $main-grey-color;
-                }
+           
+                    
             }
 
+            .page-btn {
+                display: inline-block;
+                width: 0.2rem;
+                height: 0.5rem;
+                padding: 0 0.5rem;
+                background-color: $main-grey-color;
+                cursor: pointer;
+            }
+
+            .active,
             .page-btn:hover {
                 background-color: $main-black-color;
             }
+
+            
         }
 
         .main-top-article-secondline {
