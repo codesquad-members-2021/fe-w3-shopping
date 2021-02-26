@@ -4,15 +4,17 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "start_parcel": "parcel ./views/index.html --open"
+    "start_parcel": "parcel ./public/HTML/index.html --open"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "sass": "^1.32.8"
