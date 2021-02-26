@@ -19,8 +19,8 @@
             <div class="area_headtop">
                 <!-- logo -->
                 <div class="tit_shw">
-                    <a href="localhost:3000">
-                        <img id="logo_shw" src="http://localhost:3000/images/logo_shw.png" alt="쇼핑하우 by kakaocommerce">
+                    <a href="">
+                        <img id="logo_shw" src="images/logo_shw.png" alt="쇼핑하우 by kakaocommerce">
                     </a>
                 </div>
 
@@ -30,7 +30,7 @@
                         <input type="text" class="input_box" name="">
                         <button type="submit" class="btn_shwsearch">
                             <span class="ico_shwsearch">
-                                <img id="ico_search" src="http://localhost:3000/images/icon_search.png" alt="검색 아이콘">
+                                <img id="ico_search" src="images/icon_search.png" alt="검색 아이콘">
                             </span>
                         </button>
                     </div>
@@ -44,7 +44,7 @@
                         <button type="button" class="categoryBtn">
                             <span class="categoryTxt">카테고리</span>
                             <span class="ico_view">
-                                <img class="ico_menu" src="http://localhost:3000/images/icon_menu.png" alt="">
+                                <img class="ico_menu" src="images/icon_menu.png" alt="">
                             </span>
                         </button>
                     </div>
@@ -68,22 +68,22 @@
                     <ul class="list_usergnb">
                         <li class="loginWrap">
                             <a href="" class="loginBtn">
-                                <span class="ico_user"><img src="http://localhost:3000/images/icon_user.png" alt=""></span>
+                                <span class="ico_user"><img src="images/icon_user.png" alt=""></span>
                                 <span>로그인</span>
                             </a>
                         </li>
                         <li class="area_rcntproducts">
                             <a href="" class="productBtn">
-                                <span class="ico_products"><img src="http://localhost:3000/images/icon_products.png" alt=""></span>
+                                <span class="ico_products"><img src="images/icon_products.png" alt=""></span>
                                 최근 본 상품
-                                <span class="ico_arrow"><img src="http://localhost:3000/images/icon_arrow.png" alt=""></span>
+                                <span class="ico_arrow"><img src="/images/icon_arrow.png" alt=""></span>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="container"  id="userBtn">
-                <img class="popupImg" src="http://localhost:3000/images/popup.png" />
+                <img class="popupImg" src="images/popup.png" />
             </div>
         </div>
 
@@ -92,22 +92,30 @@
             <div class="cont_event">
                 <div class="cont_event-left">
                     <a href="">
-                        <img src="http://localhost:3000/images/bannerLeft.png" alt="">
+                        <img src="images/bannerLeft.png" alt="">
                     </a>                        
                 </div>
                 <div class="cont_event-right">
-                    <button class="icon">
+                    <button class="icon iconLeft">
                         <div class="arrowLeft"></div>
                     </button>
-                    <a href="">
-                        <img src="http://localhost:3000/images/bannerRight.png" alt="">
-                    </a>  
-                    <button class="icon">
+                    <div class="slider">
+                        <div class="slider__item showing">
+                            <img src="images/bannerRight1.png" alt="">
+                        </div>
+                        <div class="slider__item ">
+                            <img src="images/bannerRight2.png" alt="">
+                        </div>
+                        <div class="slider__item">
+                            <img src="images/bannerRight3.png" alt="">
+                        </div>
+                    </div>
+                    <button class="icon iconRight">
                         <div class="arrowRight"></div>
                     </button> 
                 </div>
                 <ul class="page_box-list">
-                    <li class="page_box-select"></li>
+                    <li class="page_box select"></li>
                     <li class="page_box"></li>
                     <li class="page_box"></li>
                 </ul>
@@ -115,6 +123,33 @@
             <div class="mallEventList">
 
             </div>
+        </div>
+
+        <div class="subBanner">
+            <button class="icon iconLeft" id="left2">
+                <div class="arrowLeft"></div>
+            </button>
+            <ul class="slider2">
+                <div class="slider_wrap">
+                    <li class="slider2__item">
+                        <img src="images/bannerRight1.png" alt="">
+                    </li>
+                    <li class="slider2__item ">
+                        <img src="images/bannerRight2.png" alt="">
+                    </li>
+                    <li class="slider2__item">
+                        <img src="images/bannerRight3.png" alt="">
+                    </li>
+                </div>
+            </ul>
+            <button class="icon iconRight" id="right2">
+                <div class="arrowRight"></div>
+            </button> 
+            <ul class="page_box-list">
+                <li class="page_box select"></li>
+                <li class="page_box"></li>
+                <li class="page_box"></li>
+            </ul>
         </div>
 
         <!-- parter -->
@@ -203,5 +238,7 @@
     </div>
     <script src="javascripts/popup.js"></script>
     <script src="javascripts/script.js"></script>
+    <script src="javascripts/slider.js"></script>
+    <script src="javascripts/slider2.js"></script>
 </body>
 </html>

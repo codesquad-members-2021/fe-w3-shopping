@@ -15,7 +15,6 @@ $primary-color: #333;
     min-width: 977px;
 }
 
-
 .mainBanner{
     background-color: #f3f3f3;
     .cont_event{
@@ -54,7 +53,7 @@ $primary-color: #333;
                 width:15px;
                 height:5px;
             }
-            .page_box-select{
+            .select {
                 background-color: black;
                 margin: 0 2px;
                 width:15px;
@@ -143,3 +142,56 @@ $primary-color: #333;
     cursor:pointer;
 }
 
+.slider__item {
+    display: none;
+}
+
+.showing {
+    display: block;
+}
+
+.slider2{
+    overflow: hidden;
+    width:485px;
+    margin-left:485px;
+    .slider_wrap{
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        // overflow:hidden;
+        border: solid 1px salmon;
+        align-items: center;
+        width: 485px;
+        margin-left: calc(50% - 242px);
+    }
+    .slider_wrap:hover{
+        transform: translate3d(485px, 0, 0); 
+        transition: transform 2s;
+    }
+}
+.slider_active {
+    transform: translate3d(485px, 0, 0); 
+    transition: transform 2s;
+}
+
+
+// .slider2__item:hover{
+//     transform: translate3d(485px, 0, 0); 
+//     transition: transform 2s;
+// }
+.subBanner{
+    position :relative;
+    #left2{
+        position:absolute;
+        background-color:black;
+    }
+    #right2{
+        position:absolute;
+        background-color:black;
+        left: 1500px;
+    }
+}
+
+.hidden {
+    display:none;
+}

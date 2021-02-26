@@ -13,6 +13,11 @@
   width: 119px;
   height: auto;
 }
+.area_headtop .tit_shw #logo_shw:hover {
+  transform: translate3d(100px, 0, 0) skew(45deg) rotate(23deg);
+  width: 100px;
+  transition-duration: 1s;
+}
 .area_headtop .wrap_shwsearch {
   display: float;
   float: right;
