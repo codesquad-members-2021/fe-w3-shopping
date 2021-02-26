@@ -138,10 +138,13 @@ body {
         display: flex;
         flex-direction: column;
         background-color: $main-white-color;
+        border: 1px solid #e4e4e4;
 
         .main-top-article-fristline {
             display: flex;
             justify-content: center;
+            border-collapse: collapse;
+            border-bottom: 1px solid #e4e4e4;
 
             .slide {
                 display: flex;
@@ -182,51 +185,85 @@ body {
                 width: 32rem;
                 display: flex;
                 overflow: hidden;
-                
-                .slide-img{
-                    padding: 0 2rem;
-                    transform: translate3d(0,0,0);
-                    transition: transform .5s ease-in
-                }
-
-                // .slide-move {
-                //     transform: translate3d(-35rem ,0 ,0);
-                //  }
             }
             
+            .main-top-slide-container {
+                position: relative;
+                left: -115%;
+                display: flex;
+                padding: 0 2rem;
+                transform: translate3d(0,0,0);
+                transition: transform 300ms ease-in-out;
+            }
 
+            .slide-img {
+                padding: 0 2rem;
+            }
+            
+            .slide-move-right {
+                transform: translate3d(-36rem ,0 ,0);
+             }
 
-            .main-top-slide-select{
+             .slide-move-left {
+                transform: translate3d(36rem ,0 ,0);
+             }
+
+             .slide-move-duration-zero {
+                 transition-duration: 0ms;
+             }
+
+            .main-top-slide-select {
                 bottom: 3rem;
                 position: absolute;
 
-                li {
-                    display: inline-block;
-                    width: 0.2rem;
-                    height: 0.5rem;
-                    padding: 0 0.5rem;
-                    background-color: $main-grey-color;
-                }
+           
+                    
             }
+
+            .page-btn {
+                display: inline-block;
+                width: 0.2rem;
+                height: 0.5rem;
+                padding: 0 0.5rem;
+                background-color: $main-grey-color;
+                cursor: pointer;
+            }
+
+            .active,
+            .page-btn:hover {
+                background-color: $main-black-color;
+            }
+
+            
         }
 
         .main-top-article-secondline {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-evenly;
+            justify-content: space-between;
 
             .main-top-article-sec-imgs {
                 width: $small-img-size-width;
-                padding: $small-img-padding;
+                padding: 1.5rem;
+                border-right: 1px solid #e4e4e4;
+                border-bottom: 1px solid #e4e4e4;
             }
 
             h6 {
-                font-weight: bold;
+                font-weight: $small-img-title-font-weight;
+                font-size: $small-img-title-font-size;
+                overflow: $small-img-font-overflow;
+                text-overflow: $small-img-font-text-overflow;
+                white-space: $small-img-font-white-space;
             }
+
             p {
                 padding-top: 0.5rem;
-                font-size: 0.7rem;
-                color:$main-grey-color
+                color:$main-grey-color;
+                font-size: $small-img-p-font-size;
+                overflow: $small-img-font-overflow;
+                text-overflow: $small-img-font-text-overflow;
+                white-space: $small-img-font-white-space;
             }
 
             img {
@@ -289,13 +326,20 @@ body {
             padding: $small-img-padding;
 
             h6 {
-                font-weight: bold;
+                font-weight: $small-img-title-font-weight;
+                font-size: $small-img-title-font-size;
+                overflow: $small-img-font-overflow;
+                text-overflow: $small-img-font-text-overflow;
+                white-space: $small-img-font-white-space;
             }
             
             p {
                 padding-top: 0.5rem;
-                font-size: 0.7rem;
-                color:$main-grey-color
+                color:$main-grey-color;
+                font-size: $small-img-p-font-size;
+                overflow: $small-img-font-overflow;
+                text-overflow: $small-img-font-text-overflow;
+                white-space: $small-img-font-white-space;
             }
         }
 

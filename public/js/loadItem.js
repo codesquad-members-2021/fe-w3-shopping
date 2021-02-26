@@ -1,12 +1,6 @@
 export class LoadItem {
-  #planningEventJSON = 'planningEvent.json';
-  #homeContentsJSON = 'homeContents.json';
-
-  constructor() {
-    this.host = 'http://localhost';
-    this.port = 3000;
-    this.path = 'data';
-    this.count = 5;
+  constructor(rawData) {
+    this.rawData = rawData;
   }
 
   onEvents() {
@@ -18,30 +12,44 @@ export class LoadItem {
     this.showImgs();
   }
 
+  insertTemplates(slideURL, eventProducts) {
+    this.insertSlideTemplate(slideURL);
+    this.insertSecondLineTemplate(eventProducts);
+    this.insertThemeCategoryTemplate(eventProducts);
+  }
+
   showImgContents() {
-    fetch(`${this.host}:${this.port}/${this.path}/${this.#planningEventJSON}`)
-      .then((response) => response.json())
-      .then((json) => {
-        const slideURL = this.getSlideImgURL(json);
-        const eventProducts = this.getEventProductList(json);
-        this.insertSlideTemplate(slideURL);
-        this.insertSecondLineTemplate(eventProducts);
-        this.insertThemeCategoryTemplate(eventProducts);
+    this.rawData
+      .then((data) => {
+        const slideURL = this.getSlideImgURL(data);
+        const eventProducts = this.getEventProductList(data);
+        this.insertTemplates(slideURL, eventProducts);
         this.showImgs();
       })
-      .catch((error) => console.log('에러입니다', error));
+      .catch((error) => alert('에러입니다_loadItem.js 확인', error));
   }
 
-  getSlideImgURL(json) {
-    return json.mileageList.map((list) => list.imgurl);
+  showImgs() {
+    const mainTopSecondLine = document.querySelectorAll(
+      '.main-top-article-sec-imgs.img-visibility-hidden'
+    );
+    for (let i = 0; i < 5; i += 1) {
+      mainTopSecondLine[i]?.classList.remove('img-visibility-hidden');
+    }
   }
 
-  getEventProductList(json) {
-    return json.mallEventList.map((list) => list);
+  getSlideImgURL(data) {
+    return data.mileageList.map((list) => list.imgurl);
+  }
+
+  getEventProductList(data) {
+    return data.mallEventList.map((list) => list);
   }
 
   insertSlideTemplate(urls) {
-    const mainTopSlideSection = document.querySelector('.main-top-slide-imgs');
+    const mainTopSlideSection = document.querySelector(
+      '.main-top-slide-container'
+    );
     urls.forEach((url, idx) => {
       mainTopSlideSection.insertAdjacentHTML(
         'beforeend',
@@ -52,15 +60,6 @@ export class LoadItem {
     `
       );
     });
-  }
-
-  showImgs() {
-    const mainTopSecondLine = document.querySelectorAll(
-      '.main-top-article-sec-imgs.img-visibility-hidden'
-    );
-    for (let i = 0; i < 5; i += 1) {
-      mainTopSecondLine[i]?.classList.remove('img-visibility-hidden');
-    }
   }
 
   insertSecondLineTemplate(eventProducts) {
