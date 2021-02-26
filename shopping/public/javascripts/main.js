@@ -1,6 +1,5 @@
 import Slider from "./slider.js";
 import Morebtn from "./more.js";
-
 import _ from "./utils.js";
 const main = _.$(".main_section");
 const banner = _.$(".banner__right", main);
