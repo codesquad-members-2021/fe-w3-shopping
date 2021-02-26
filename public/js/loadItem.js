@@ -12,7 +12,7 @@ export class LoadItem {
     this.showImgs();
   }
 
-  insertTemplate(slideURL, eventProducts) {
+  insertTemplates(slideURL, eventProducts) {
     this.insertSlideTemplate(slideURL);
     this.insertSecondLineTemplate(eventProducts);
     this.insertThemeCategoryTemplate(eventProducts);
@@ -23,7 +23,7 @@ export class LoadItem {
       .then((data) => {
         const slideURL = this.getSlideImgURL(data);
         const eventProducts = this.getEventProductList(data);
-        this.insertSecondLineTemplate(slideURL, eventProducts);
+        this.insertTemplates(slideURL, eventProducts);
         this.showImgs();
       })
       .catch((error) => alert('에러입니다_loadItem.js 확인', error));
