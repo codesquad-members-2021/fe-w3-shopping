@@ -1,11 +1,14 @@
 .icon, .i-search, .i-category, .i-user, .i-cart, .i-down-arrow {
-  background: url("/images/fe-w3-icon.png") no-repeat;
+  background: url("/images/icon1.png") no-repeat;
   background-size: 130px 90px;
   display: block; }
 
-.icon2 {
-  background: url("/images/fe-w3-icon2.png") no-repeat;
-  background-size: 130px 90px;
+.icon2, .i-prevbtn, .i-nextbtn, .i-prevbtn2, .i-nextbtn2, .i-themebtn {
+  background: url("/images/icon2.png") no-repeat;
+  display: block; }
+
+.icon3 {
+  background: url("/images/icon3.png") no-repeat;
   display: block; }
 
 .wh-23, .i-search {
@@ -16,13 +19,17 @@
   width: 28px;
   height: 28px; }
 
-.w-23 {
+.wh-45, .i-prevbtn2, .i-nextbtn2, .i-themebtn {
+  width: 45px;
+  height: 45px; }
+
+.w-23, .i-prevbtn, .i-nextbtn {
   width: 23px; }
 
 .w-10, .i-down-arrow {
   width: 10px; }
 
-.h-45 {
+.h-45, .i-prevbtn, .i-nextbtn {
   height: 45px; }
 
 .h-10, .i-down-arrow {
@@ -39,3 +46,18 @@
 
 .i-down-arrow {
   background-position: -60px -60px; }
+
+.i-prevbtn {
+  background-position: 1px 0px; }
+
+.i-nextbtn {
+  background-position: -30px 0px; }
+
+.i-prevbtn2 {
+  background-position: 1px -55px; }
+
+.i-nextbtn2 {
+  background-position: -50px -55px; }
+
+.i-themebtn {
+  background-position: -50px -55px; }
