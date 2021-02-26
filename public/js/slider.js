@@ -23,12 +23,12 @@ export class Slider {
 
   clickArrowBtnHandler(e) {
     const slider = document.querySelector('.main-top-slide-container');
-    const dot = document.querySelector('.active');
+    const dotClicked = document.querySelector('.active');
 
     if (e.target.closest('.arrow-btn-right')) {
-      this.rightArrowClicked(slider, dot);
+      this.rightArrowClicked(slider, dotClicked);
     } else if (e.target.closest('.arrow-btn-left')) {
-      this.leftArrowClicked(slider, dot);
+      this.leftArrowClicked(slider, dotClicked);
     }
   }
 
@@ -71,7 +71,7 @@ export class Slider {
     }
   }
 
-  rightArrowClicked(slider, dot) {
+  rightArrowClicked(slider, dotClicked) {
     slider.classList.add(`slide-move-right`);
     slider.ontransitionend = () => {
       slider.classList.add('slide-move-duration-zero');
@@ -80,19 +80,19 @@ export class Slider {
     };
     slider.classList.remove('slide-move-duration-zero');
 
-    this.manipulateDotToRight(dot);
+    this.manipulateDotToRight(dotClicked);
   }
 
-  manipulateDotToRight(dot) {
-    if (dot.nextElementSibling) {
-      dot.nextElementSibling.classList.add('active');
+  manipulateDotToRight(dotClicked) {
+    if (dotClicked.nextElementSibling) {
+      dotClicked.nextElementSibling.classList.add('active');
     } else {
-      dot.parentNode.firstElementChild.classList.add('active');
+      dotClicked.parentNode.firstElementChild.classList.add('active');
     }
-    dot.classList.remove('active');
+    dotClicked.classList.remove('active');
   }
 
-  leftArrowClicked(slider, dot) {
+  leftArrowClicked(slider, dotClicked) {
     slider.classList.add(`slide-move-left`);
     slider.ontransitionend = () => {
       slider.classList.add('slide-move-duration-zero');
@@ -100,16 +100,16 @@ export class Slider {
       const temp = slider.removeChild(slider.lastElementChild);
       slider.insertAdjacentElement('afterbegin', temp);
     };
-    this.manipulateDotToLeft(dot);
+    this.manipulateDotToLeft(dotClicked);
     slider.classList.remove('slide-move-duration-zero');
   }
 
-  manipulateDotToLeft(dot) {
-    if (dot.previousElementSibling) {
-      dot.previousElementSibling.classList.add('active');
+  manipulateDotToLeft(dotClicked) {
+    if (dotClicked.previousElementSibling) {
+      dotClicked.previousElementSibling.classList.add('active');
     } else {
-      dot.parentNode.lastElementChild.classList.add('active');
+      dotClicked.parentNode.lastElementChild.classList.add('active');
     }
-    dot.classList.remove('active');
+    dotClicked.classList.remove('active');
   }
 }
