@@ -27,7 +27,10 @@ class itemList {
 
     fillItemUl(img, title, text) {
         const li = document.createElement("li");
-        li.innerHTML = `<img class = "item_list_img" src = ${img}> <br> ${title} <br> ${text}`
+        const div = document.createElement("div");
+        div.classList.add("item_wrapper");
+        li.appendChild(div);
+        div.innerHTML = `<img class = "item_list_img" src = ${img}><span class = "img_title">${title}</span><span class = "img_text">${text}</span>`
         this.itemUl.appendChild(li);
     }
 }
