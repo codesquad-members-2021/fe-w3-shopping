@@ -52,6 +52,7 @@ class Slide {
   }
   render() {
     this.setSlideAnimation({ moveX: 0, transition: '' });
+    console.log(this);
     const slideHTML = this.getSlideHTML();
     this.slideList.innerHTML = slideHTML;
   }
