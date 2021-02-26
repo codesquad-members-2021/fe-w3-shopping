@@ -74,14 +74,18 @@ export default class Carousel extends Slide {
 
       if (button.contains("btn_next")) {
         if (this.longClickState.isPressed) clearInterval(this.longClickState.timer.next);
-        if (!this.longClickState.isMoved.next) this.moveSlide(1)(slideMaterials, false, needPagination)(this.carouselState.currIndex >= 0, this.carouselState.currIndex === 0);
+        if (!this.longClickState.isMoved.next) {
+          this.moveSlide(1)(slideMaterials, false, needPagination)(this.carouselState.currIndex >= 0, this.carouselState.currIndex === 0);
+        }
         this.longClickState.isPressed = false;
         this.longClickState.isMoved.next = false;
       }
 
       if (button.contains("btn_prev")) {
         if (this.longClickState.isPressed) clearInterval(this.longClickState.timer.prev);
-        if (!this.longClickState.isMoved.prev) this.moveSlide(1)(slideMaterials, true, needPagination)(this.carouselState.currIndex <= slideLen - 1, this.carouselState.currIndex === slideLen - 1);
+        if (!this.longClickState.isMoved.prev) {
+          this.moveSlide(1)(slideMaterials, true, needPagination)(this.carouselState.currIndex <= slideLen - 1, this.carouselState.currIndex === slideLen - 1);
+        }
         this.longClickState.isPressed = false;
         this.longClickState.isMoved.prev = false;
       }
