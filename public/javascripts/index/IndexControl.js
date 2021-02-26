@@ -165,7 +165,7 @@ class IndexControl {
             else
                 item.style.transition = flag ? 'opacity 0.4s' : 'transform 0.4s';
 
-            item.style.transform = `translate3d(${transformX}, 0, 0)`;
+            item.style.transform = `translateX(${transformX})`;
         });
     }
 
