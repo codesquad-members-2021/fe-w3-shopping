@@ -103,7 +103,6 @@ $width : 970px;
         width: 485px*3;
         left: -485px;
         height: 340px;
-        overflow: hidden;
         .slide--item{
             display: inline-block;
         }
@@ -132,11 +131,18 @@ $width : 970px;
         border: none;
         height: 10px;
     }
+    .slide-on{
+        background-color: black;
+    }
+}
+.main__2nd-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-
-.main__2nd-content{
-    display: inline-flex;
+._2nd-content--list{
+    display: flex;
     width: $width;
     justify-content: space-between;
     background-color: white;
