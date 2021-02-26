@@ -282,6 +282,7 @@ section {
 }
 
 .other {
+  overflow: hidden;
   img {
     //일단 이렇게 테스트
     width: 100%;
@@ -335,11 +336,27 @@ section {
 }
 
 .left_move {
-  transform: translate3d(-515px, 0, 0);
+  transform: translate3d(-514px, 0, 0);
 }
 
 .right_move {
   transform: translate3d(514px, 0, 0);
+}
+
+.left_short_move {
+  transform: translate3d(254px, 0, 0);
+}
+
+.right_short_move {
+  transform: translate3d(-254px, 0, 0);
+}
+
+.left_long_move {
+  transform: translate3d(508px, 0, 0);
+}
+
+.right_long_move {
+  transform: translate3d(-508px, 0, 0);
 }
 
 .transition_on {
