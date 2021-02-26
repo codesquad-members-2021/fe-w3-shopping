@@ -42,7 +42,9 @@ export default class Component {
     if (shouldRender) this.render();
   }
   updateComponent() {}
-  getInheritances() {}
+  getInheritances() {
+    return {};
+  }
   getInnerHTML() {
     return this.$target.innerHTML;
   }

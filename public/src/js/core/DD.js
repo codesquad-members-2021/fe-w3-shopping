@@ -30,13 +30,14 @@ export default class DD {
     };
   }
   combineProps(componentName, newProps) {
-    this.inheritances[componentName] = {
-      ...this.inheritances[componentName],
+    this.inheritances[componentName].props = {
+      ...this.inheritances[componentName]?.props,
       ...newProps,
       ...{
         receiveComponentUpdateCall: this.receiveComponentUpdateCall.bind(this),
       },
     };
+    console.log("3", this.inheritances[componentName]);
   }
   setInheritances(inheritances) {
     this.inheritances = { ...this.inheritances, ...inheritances };

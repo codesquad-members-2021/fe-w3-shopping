@@ -11,17 +11,21 @@ export default class App extends DD {
   }
   mount() {
     const branch = this.branch.bind(this);
-    const headerProps = {
-      $target: this.$target.querySelector("#header"),
-      props: {},
-      name: "header",
+    const headerInheritance = {
+      header: {
+        $target: this.$target.querySelector("#header"),
+        props: {},
+        name: "header",
+      },
     };
+    this.setInheritances(headerInheritance);
+
     return branch(
       "header",
       Header,
-      headerProps,
-      ["searchBar", SearchBar, { props: { test2: "test2" } }],
-      ["menu", Menu, { props: { test3: "test3" } }]
+      {},
+      ["searchBar", SearchBar, { test2: "test2" }],
+      ["menu", Menu, { test3: "test3" }]
     );
   }
   didmount() {}
