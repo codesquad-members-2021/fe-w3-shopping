@@ -1,12 +1,6 @@
 export class LoadItem {
-  #planningEventJSON = 'planningEvent.json';
-  #homeContentsJSON = 'homeContents.json';
-
-  constructor() {
-    this.host = 'http://localhost';
-    this.port = 3000;
-    this.path = 'data';
-    this.count = 5;
+  constructor(rawData) {
+    this.rawData = rawData;
   }
 
   onEvents() {
@@ -19,25 +13,24 @@ export class LoadItem {
   }
 
   showImgContents() {
-    fetch(`${this.host}:${this.port}/${this.path}/${this.#planningEventJSON}`)
-      .then((response) => response.json())
-      .then((json) => {
-        const slideURL = this.getSlideImgURL(json);
-        const eventProducts = this.getEventProductList(json);
+    this.rawData
+      .then((data) => {
+        const slideURL = this.getSlideImgURL(data);
+        const eventProducts = this.getEventProductList(data);
         this.insertSlideTemplate(slideURL);
         this.insertSecondLineTemplate(eventProducts);
         this.insertThemeCategoryTemplate(eventProducts);
         this.showImgs();
       })
-      .catch((error) => console.log('에러입니다', error));
+      .catch((error) => alert('에러입니다_loadItem.js 확인', error));
   }
 
-  getSlideImgURL(json) {
-    return json.mileageList.map((list) => list.imgurl);
+  getSlideImgURL(data) {
+    return data.mileageList.map((list) => list.imgurl);
   }
 
-  getEventProductList(json) {
-    return json.mallEventList.map((list) => list);
+  getEventProductList(data) {
+    return data.mallEventList.map((list) => list);
   }
 
   insertSlideTemplate(urls) {

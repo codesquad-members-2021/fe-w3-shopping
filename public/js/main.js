@@ -1,8 +1,9 @@
+import { DataManager } from './dataManager.js';
 import { LoadItem } from './loadItem.js';
-import { Slider } from './slider.js';
+import { Slider } from './Slider.js';
 
-const loadItems = () => {
-  const loadItem = new LoadItem();
+const loadItems = (rawData) => {
+  const loadItem = new LoadItem(rawData);
   loadItem.showImgContents();
   loadItem.onEvents();
 };
@@ -14,7 +15,9 @@ const excuteSlide = () => {
 };
 
 const main = () => {
-  loadItems();
+  const dataManager = new DataManager();
+  const rawData = dataManager.responsedJSONData();
+  loadItems(rawData);
   excuteSlide();
 };
 
