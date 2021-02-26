@@ -1,7 +1,7 @@
 import Slide from "./slide.js";
 
 export default class Carousel extends Slide {
-  constructor(carouselState, longClickState = undefined) {
+  constructor(carouselState, longClickState) {
     super(carouselState, longClickState);
   }
 
@@ -98,7 +98,7 @@ export default class Carousel extends Slide {
         this.longClickState.timer.next = setInterval(() => {
           this.moveSlide(2, slideMaterials, true, needPagination, this.carouselState.currIndex <= slideLen - 1, this.carouselState.currIndex === slideLen - 1);
           this.longClickState.isMoved.next = true;
-        }, 2000);
+        }, 1800);
       });
 
       prevButton.addEventListener("mouseup", () => {
@@ -113,7 +113,7 @@ export default class Carousel extends Slide {
         this.longClickState.timer.prev = setInterval(() => {
           this.moveSlide(2, slideMaterials, false, needPagination, this.carouselState.currIndex >= 0, this.carouselState.currIndex === 0);
           this.longClickState.isMoved.prev = true;
-        }, 2000);
+        }, 1800);
       });
     }
 
