@@ -6,7 +6,7 @@
 /*-------------------------------*/
 
 //변수 정의
-$background: #f3f3f3;
+$default-background: #f3f3f3;
 $full-width: 100vw;
 
 * {
@@ -43,10 +43,6 @@ li {
   /* opacity: 0 */
 }
 
-/*-------------------------------*/
-/*HEADER*/
-/*-------------------------------*/
-
 //mixin 정의
 @mixin centering {
   position: absolute;
@@ -70,9 +66,7 @@ li {
   font-size: 0;
   line-height: 0;
   text-indent: -9999px;
-  background-image: url("/images/icon.png");
   background-repeat: no-repeat;
-  background-size: 130px 90px;
   position: absolute;
 }
 
@@ -82,6 +76,25 @@ li {
   background-color: #e3e3e3;
   display: inline-block;
 }
+
+//extend 정의
+%icon-header {
+  position: absolute;
+  background-size: 130px 90px;
+  background-image: url("/images/icon.png");
+}
+
+%icon-body {
+  background-image: url("/images/icon_arrow.png");
+  font-size: 0;
+  line-height: 0;
+  width: 23px;
+  height: 45px;
+}
+
+/*-------------------------------*/
+/*HEADER*/
+/*-------------------------------*/
 
 //쇼핑하우 로고 & 검색창
 header {
@@ -245,6 +258,7 @@ header {
 //아이콘 모음
 .search-icon {
   @include icon;
+  @extend %icon-header;
   left: 14px;
   top: 15px;
   width: 23px;
@@ -253,6 +267,7 @@ header {
 
 .menu-icon {
   @include icon;
+  @extend %icon-header;
   left: -15px;
   background-position: 0 -30px;
   top: -8px;
@@ -271,6 +286,7 @@ header {
 
 .login-icon {
   @include icon;
+  @extend %icon-header;
   left: -4px;
   background-position: -30px -30px;
   top: -5px;
@@ -280,6 +296,7 @@ header {
 
 .recent-icon {
   @include icon;
+  @extend %icon-header;
   left: -4px;
   background-position: -60px -30px;
   top: -5px;
@@ -289,6 +306,7 @@ header {
 
 .arrow-icon {
   @include icon;
+  @extend %icon-header;
   right: 17px;
   top: 8px;
   width: 8px;
@@ -299,7 +317,7 @@ header {
 //바디
 .main,
 .hot-deal {
-  background-color: $background;
+  background-color: $default-background;
   position: relative;
 }
 
@@ -373,7 +391,7 @@ header {
     width: 100%;
     height: 200px;
     background-size: cover;
-    aspect-ratio: auto 200 / 200;
+    aspect-ratio: auto 200 / 200; //이미지나 동영상을 비율대로 줄이거나 늘리는 데 사용
   }
 
   .cell__product_name {
@@ -405,10 +423,72 @@ header {
   }
 }
 
+//작은 캐러셀
 .carousel1 {
-  // display: inline-block;
+  display: flex;
+  flex-direction: row;
+
+  .carousel__btn-container {
+    width: 125px;
+    display: absolute;
+
+    button {
+      position: relative;
+      border: 1px solid red;
+      top: 130px;
+      width: 63px;
+      height: 85px;
+      vertical-align: middle;
+      background-color: transparent;
+    }
+  }
+
+  .slide-window {
+    overflow: hidden; //이걸로 넘치는 걸 안보이게 함.
+    width: 514px;
+    height: 340px;
+    margin: 0 auto;
+    position: relative;
+  }
 }
 
+.icon-slide-prev {
+  @include icon;
+  @extend %icon-body;
+  background-position: 0 0;
+  top: 5px;
+  left: 30px;
+
+  &:hover {
+    background-position: -60px 0;
+  }
+}
+
+.icon-slide-next {
+  @include icon;
+  @extend %icon-body;
+  background-position: -30px 0;
+  top: 5px;
+  right: 30px;
+
+  &:hover {
+    background-position: -90px 0;
+  }
+}
+
+.slide {
+  position: relative;
+  height: 340px;
+  width: 1470px;
+  left: -484px;
+  // transition-duration: 0ms;
+  .panel {
+    display: inline-block;
+    width: 484px;
+  }
+}
+
+//더보기 버튼
 .btn_more_info {
   height: 100%;
   width: 100%;

@@ -56,11 +56,33 @@
     <section class="main">
       <div class="grid_container">
         <div class="cell upper-half__left">
-          <img src="/images/main-1.png" alt="main image1">
+          <%#img src="/images/main-1.png" alt="main image1"%>
         </div>
         <div class="cell upper-half__right">
           <div class="carousel1">
-            <img src="/images/main-2.png" alt="main image2" height="340" >
+            <div class="carousel__btn-container">
+              <button type="button" class="btn_prev" title="이전">
+                <span class="icon-slide-prev icon-prev"></span>
+              </button>
+            </div>
+            <div class="slide-window">
+              <ul class="slide">
+                <li class="panel panel_first">
+                  <img src="/images/main-2.png">
+                </li>
+                <li class="panel panel_second">
+                  <img src="/images/main-3.png">
+                </li>
+                <li class="panel panel_third">
+                  <img src="/images/main-4.png">
+                </li>
+              </ul>
+            </div>
+            <div class="carousel__btn-container">
+              <button type="button" class="btn_next" title="다음">
+                <span class="icon-slide-next icon-next"></span>
+              </button>
+            </div>
           </div>
         </div>
         <div class="cell"></div>
