@@ -1,4 +1,6 @@
 const moreData = require('../data/more.js');
+const planningData = require('../data/planningData.json').mallEventList;
+// https://shoppinghow.kakao.com/v1.0/shophow/top/planningEvent.json
 
 const express = require('express');
 const router = express.Router();
@@ -27,4 +29,20 @@ router.get('/moreData/:pageIdx', (req, res) => {
         res.status(500).json({err})
     }
 });
+
+/* 하단 캐러셀 데이터 가져오기 */
+router.get('/planning', (req, res) => {    
+    try {
+        const postData = planningData.slice(0, 10);
+        
+        if (!postData || postData.length <= 0) 
+            throw new Error('[!!] 하단 캐러셀 데이터가 존재하지 않습니다.');
+
+        res.status(200).json(postData);
+    } catch (err) {
+        res.status(500).json({err})
+    }
+});
+
+
 module.exports = router;

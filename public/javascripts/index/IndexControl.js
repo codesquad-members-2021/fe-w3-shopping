@@ -13,6 +13,8 @@ class IndexControl {
     }
 
     init() {
+        this._insertDataHotCarousel(this.hotCarouselWrapper);
+
         this._setMoreWrapperClickEvent(this.moreWrapper);
         this._setMainCarouselClickEvent(this.mainCarouselWrapper);
         this._setMainCarouselMouseoverEvent(this.mainCarouselWrapper);
@@ -98,7 +100,8 @@ class IndexControl {
     }
     // --
 
-    // [2-1] 상단 캐러샐 (content__main__carousel) 이벤트 등록 (이전, 다음)
+    // [2] 상단 캐러셀 (content__main__carousel)
+    // 상단 캐러셀 이벤트 등록 (이전, 다음)
     _setMainCarouselClickEvent(mainCarouselWrapper) {
         _.addEvent(mainCarouselWrapper, 'click', (e) =>
             this._mainCarouselClickEventHandler(e),
@@ -179,7 +182,7 @@ class IndexControl {
         _.classAdd(pagingInnerSpanList[animationItemIdx], 'current');
     }
 
-    // [2-2] 상단 캐러셀 mouseover 이벤트 등록
+    // 상단 캐러셀 mouseover 이벤트 등록
         // 작은 span (.paging__inner > span)에서 동작
     _setMainCarouselMouseoverEvent(mainCarouselWrapper) {
         _.addEvent(mainCarouselWrapper, 'mouseover', (e) => this._mainCarouselMouseoverEventHandler(e));        
@@ -206,7 +209,26 @@ class IndexControl {
         }
     }
     
-    // [3] 하단 캐러셀 관련        
+    // [3] 하단 캐러셀 (content__hot__carousel)
+    // 첫 로딩 시 하단 캐러셀에 들어갈 정보 서버에서 불러옴
+    _insertDataHotCarousel(hotCarouselWrapper) {
+        const itemList = Array.from(_.$All('ul > li', hotCarouselWrapper));
+        
+        this.dataManager.getHotCarouselData()
+            .then((planningData) => {
+                itemList.forEach((item, i) => {
+                    const img = _.$('a > img', item);
+                    const spanBold = _.$('.txt-bold', item);
+                    const spanInfo = _.$('.txt-info', item);
+                    _.setAttr(img, 'src', planningData[i].imgurl);                    
+                    _.appendChild(spanBold, _.createTextNode(planningData[i].text));
+                    _.appendChild(spanInfo, _.createTextNode(planningData[i].text2));                    
+                })
+            })
+            .catch((error) => console.error(error.message));          
+    }
+
+    // 하단 캐러셀 이벤트 등록 (mousedown) (이전, 다음)
     _setHotCarouselMousedownEvent(hotCarouselWrapper) {        
         _.addEvent(hotCarouselWrapper, 'mousedown', (e) =>
             this._hotCarouselMousedownEventHandler(e),
