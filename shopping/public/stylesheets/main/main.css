@@ -75,6 +75,7 @@
   transition-duration: 300ms;
   transform: translate3d(0px, 0px, 0px); }
 
-.transitionLeft {
-  transition-duration: 0ms;
-  transform: translate3d(0px, 0px, 0px); }
+.more_contents {
+  background-color: #ccc;
+  height: 54px;
+  width: 971px; }
