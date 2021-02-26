@@ -1,25 +1,53 @@
 export default class TopCarouselUI {
   constructor() {
-    this.$carouselContentNode = document.querySelector(".carousel-content");
-    this.$preBtn = document.querySelector("#paging-btn-prev");
-    this.$nextBtn = document.querySelector("#paging-btn-prev");
-    this.init();
-  }
-
-  movePanel() {
-    console.log(this.$carouselContentNode);
-    console.log(this.$carouselContentNode.firstElementChild);
-    //이벤트 타겟의 id가 preBtn이면?
-    //
-    //이미지를 왼쪽으로 옮긴다 어떻게? transition 0 -> 520으로 바꾼다
-    //translate3d(0px, 0, 0); ->  transform: translate3d(-520px, 0, 0);
-    // 천천히 가게한한다.
-  }
-
-  onEvent() {
-    this.$preBtn.addEventListener("click", this.movePanel.bind(this));
-  }
-  init() {
+    this.$carousel = document.querySelector(".item__carousel-wrap");
+    this.$carouselContents = document.querySelectorAll(".carousel-content");
+    this.$prevBtn = document.querySelector("#paging-btn-prev");
+    this.$nextBtn = document.querySelector("#paging-btn-next");
+    this.counter = 1;
+    this.size = this.$carouselContents[0].clientWidth;
     this.onEvent();
+  }
+  moveToOriginContent() {
+    switch (this.$carouselContents[this.counter].id) {
+      case "lastClone":
+        this.$carousel.style.transition = "none";
+        this.counter = this.$carouselContents.length - 2;
+        this.$carousel.style.transform =
+          "translateX(" + -this.size * this.counter + "px)";
+        break;
+      case "firstClone":
+        this.$carousel.style.transition = "none";
+        this.counter = this.$carouselContents.length - this.counter;
+        this.$carousel.style.transform =
+          "translateX(" + -this.size * this.counter + "px)";
+        break;
+    }
+  }
+
+  movePrevious() {
+    if (this.counter <= 0) return;
+    this.$carousel.style.transition = "transform 0.3s ease-in-out";
+    this.counter--;
+    this.$carousel.style.transform =
+      "translateX(" + -this.size * this.counter + "px)";
+    console.log(this.$carousel.style.transform);
+  }
+
+  moveNext() {
+    if (this.counter >= this.$carouselContents.length - 1) return;
+    this.$carousel.style.transition = "transform 0.3s ease-in-out";
+    this.counter++;
+    this.$carousel.style.transform =
+      "translateX(" + -this.size * this.counter + "px)";
+    console.log(this.$carousel.style.transform);
+  }
+  onEvent() {
+    this.$carousel.addEventListener(
+      "transitionend",
+      this.moveToOriginContent.bind(this)
+    );
+    this.$nextBtn.addEventListener("click", this.moveNext.bind(this));
+    this.$prevBtn.addEventListener("click", this.movePrevious.bind(this));
   }
 }

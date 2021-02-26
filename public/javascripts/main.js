@@ -1,5 +1,3 @@
-import { runAPI } from "./api.js";
-import TopCarouselUI from "./TopCarouselUI.js";
-//runAPI();
+import API from "./api.js";
 
-const topCarouselUI = new TopCarouselUI();
+const api = new API();
