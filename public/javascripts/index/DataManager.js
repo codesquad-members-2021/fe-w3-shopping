@@ -4,21 +4,11 @@ class DataManager {
     /**
      * @param {String} url
      */
-    _fetchData(url) {
-        return new Promise((resolve, reject) => {
-            fetch(url).then(
-                (res) => {
-                    if (res.ok) {
-                        res.json().then((data) => resolve(data));
-                    } else {
-                        reject(new Error('Server Error'));
-                    }
-                },
-                (error) => {
-                    reject(new Error(error.message));
-                },
-            );
-        });
+    _fetchData(url) {        
+        return fetch(url)
+            .then((res) => res.json())
+            .then((data) => data)
+            .catch((error) => console.error(error));
     }
 
     getAllMoreData() {
