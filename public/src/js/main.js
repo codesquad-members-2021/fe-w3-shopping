@@ -1,6 +1,6 @@
 import { domSelect, getData } from './util/util.js';
 import { moreParser, slideParser, hotDealParser } from './util/parser.js';
-import Slide from './slide.js';
+import BannerSlide from './bannerSlide.js';
 import More from './moreBtn.js';
 import HotDealSlide from './hotDealSlide.js';
 import { URL } from './util/data.js';
@@ -20,17 +20,18 @@ const hotDealSlideList = domSelect('.hot-deal-list');
 const hotDealBtn = domSelect('.hot-deal .slide-event__btn');
 
 const hotDealSelector = { container: hotDealContainer, slideList: hotDealSlideList, slideBtn: hotDealBtn };
+const hotDealAnimation = { oneStep: 260.6, transition: 'all 0.3s' };
 
 //슬라이더
 getData(URL.SLIDE).then((res) => {
   const { mileageList: slideData, mallEventList: hotDealData } = res;
 
   const parsedSlideData = slideParser(slideData);
-  const slide = new Slide(parsedSlideData, slideSelectors);
+  const slide = new BannerSlide(parsedSlideData, slideSelectors);
   slide.init();
 
   const parsedHotDealData = hotDealParser(hotDealData);
-  const hotDealSlide = new HotDealSlide(parsedHotDealData, hotDealSelector);
+  const hotDealSlide = new HotDealSlide(parsedHotDealData, hotDealSelector, hotDealAnimation);
   hotDealSlide.init();
 });
 
