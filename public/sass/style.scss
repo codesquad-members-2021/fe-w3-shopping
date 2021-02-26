@@ -93,11 +93,14 @@ nav {
 .main-banner {
   background-color: rosybrown;
   position: relative;
-  padding: 0 40px;
+  padding: 0 80px;
+  display: flex;
+  justify-self: center;
   // overflow: hidden;
   .main-banner__static {
     background-color: yellow;
     position: absolute;
+    left: 10%;
     // padding-right: 100px;
     display: inline-block;
   }
@@ -108,7 +111,7 @@ nav {
     width: 685px;
     margin-left: 500px;
     // z-index: 1;
-    // left: -100;
+    left: 4%;
     // height: 700px;
     overflow: hidden;
     // top: 30px;

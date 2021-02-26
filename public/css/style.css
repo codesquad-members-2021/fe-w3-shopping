@@ -72,11 +72,14 @@ nav .add-on .add-on__login li {
 .main-banner {
   background-color: rosybrown;
   position: relative;
-  padding: 0 40px;
+  padding: 0 80px;
+  display: flex;
+  justify-self: center;
 }
 .main-banner .main-banner__static {
   background-color: yellow;
   position: absolute;
+  left: 10%;
   display: inline-block;
 }
 .main-banner .main-banner__slide {
@@ -85,6 +88,7 @@ nav .add-on .add-on__login li {
   height: 340px;
   width: 685px;
   margin-left: 500px;
+  left: 4%;
   overflow: hidden;
   position: relative;
 }
