@@ -28,4 +28,5 @@ export default class Header extends Component {
   changeHeader(newHeader) {
     this.setState({ header: newHeader });
   }
+  static changeHeader
 }

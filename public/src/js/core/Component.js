@@ -1,5 +1,8 @@
 export default class Component {
   constructor({ $target, props, name }) {
+    // console.log($target);
+    // console.log(props);
+    // console.log(name);
     this.$target = $target;
     this.props = props;
     this.name = name;

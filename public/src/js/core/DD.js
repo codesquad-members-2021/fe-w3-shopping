@@ -1,33 +1,48 @@
 export default class DD {
   constructor($target) {
     this.$target = $target;
+    this.inheritances = {};
     this.familyTree = {};
     this.render();
   }
   render() {
     this.$target.innerHTML = this.getTemplate();
-    this.mount();
-    this.setFamilyTree();
+    this.familyTree = this.mount();
     this.didMount();
   }
-  createComponent(Constructor, $target, props = {}, child = null) {
-    const component = new Constructor($target, props);
-  }
-  setFamilyTree() {}
+
   getTemplate() {}
   mount() {}
   didMount() {}
   renderComponenets($component, $target) {
     $target.appendChild($component.$target);
   }
-  branch(componentName, component, props, ...children) {
-    component.setProps(
-      {
+  branch(componentName, Constructor, props, ...children) {
+    this.combineProps(componentName, props);
+    const component = new Constructor(this.getInheritances(componentName));
+    const inheritances = component.getInheritances();
+    this.setInheritances(inheritances);
+    return {
+      [componentName]: {
+        component,
+        children: children.map((child) => this.branch(...child)),
+      },
+    };
+  }
+  combineProps(componentName, newProps) {
+    this.inheritances[componentName] = {
+      ...this.inheritances[componentName],
+      ...newProps,
+      ...{
         receiveComponentUpdateCall: this.receiveComponentUpdateCall.bind(this),
       },
-      false
-    );
-    return { [componentName]: { component, props, children } };
+    };
+  }
+  setInheritances(inheritances) {
+    this.inheritances = { ...this.inheritances, ...inheritances };
+  }
+  getInheritances(componentName) {
+    return this.inheritances[componentName] ?? {};
   }
   receiveComponentUpdateCall(component) {
     const inheritances = component.getInheritances();
