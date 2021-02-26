@@ -12,7 +12,7 @@ export default class Carousel extends Slide {
     }, slideSpeed);
   }
 
-  moveSlide(itemCnt, slideMaterials, isNext, isPagination, ...conditions) {
+  moveSlide = (itemCnt) => (slideMaterials, isNext, isPagination) => (...conditions) => {
     const { slideSpeed, slideWidth, slideLen, slideContents } = slideMaterials;
 
     if (conditions[0]) {
@@ -37,7 +37,7 @@ export default class Carousel extends Slide {
     this.carouselState.currSlide.classList.add("slide_active");
 
     if (isPagination) this.carouselState.pageDots[this.carouselState.currIndex].classList.add("dot_active");
-  }
+  };
 
   movePagination(slideMaterials, { target }) {
     const { slideSpeed, slideWidth, slideContents } = slideMaterials;
@@ -57,11 +57,61 @@ export default class Carousel extends Slide {
     this.transform(slideWidth, this.carouselState.currIndex + 1);
   }
 
+  basicClickEvent(buttons, slideMaterials, needPagination) {
+    const { slideLen } = slideMaterials;
+
+    buttons.addEventListener("click", ({ target }) => {
+      const button = target.classList;
+      if (button.contains("btn_prev")) this.moveSlide(1)(slideMaterials, true, needPagination)(this.carouselState.currIndex <= slideLen - 1, this.carouselState.currIndex === slideLen - 1);
+      if (button.contains("btn_next")) this.moveSlide(1)(slideMaterials, false, needPagination)(this.carouselState.currIndex >= 0, this.carouselState.currIndex === 0);
+    });
+  }
+
+  longClickEvent(buttons, slideMaterials, needPagination) {
+    const { slideLen } = slideMaterials;
+    buttons.addEventListener("mouseup", ({ target }) => {
+      const button = target.classList;
+
+      if (button.contains("btn_next")) {
+        if (this.longClickState.isPressed) clearInterval(this.longClickState.timer.next);
+        if (!this.longClickState.isMoved.next) this.moveSlide(1)(slideMaterials, false, needPagination)(this.carouselState.currIndex >= 0, this.carouselState.currIndex === 0);
+        this.longClickState.isPressed = false;
+        this.longClickState.isMoved.next = false;
+      }
+
+      if (button.contains("btn_prev")) {
+        if (this.longClickState.isPressed) clearInterval(this.longClickState.timer.prev);
+        if (!this.longClickState.isMoved.prev) this.moveSlide(1)(slideMaterials, true, needPagination)(this.carouselState.currIndex <= slideLen - 1, this.carouselState.currIndex === slideLen - 1);
+        this.longClickState.isPressed = false;
+        this.longClickState.isMoved.prev = false;
+      }
+    });
+
+    buttons.addEventListener("mousedown", ({ target }) => {
+      const button = target.classList;
+
+      if (button.contains("btn_next")) {
+        this.longClickState.isPressed = true;
+        this.longClickState.timer.next = setInterval(() => {
+          this.moveSlide(2)(slideMaterials, false, needPagination)(this.carouselState.currIndex >= 0, this.carouselState.currIndex === 0);
+          this.longClickState.isMoved.next = true;
+        }, 1800);
+      }
+
+      if (button.contains("btn_prev")) {
+        this.longClickState.isPressed = true;
+        this.longClickState.timer.prev = setInterval(() => {
+          this.moveSlide(2)(slideMaterials, true, needPagination)(this.carouselState.currIndex <= slideLen - 1, this.carouselState.currIndex === slideLen - 1);
+          this.longClickState.isMoved.prev = true;
+        }, 1800);
+      }
+    });
+  }
+
   create(carouselMaterials, speed, needPagination = false, longClick = false) {
     const { slideContents, buttons, slideList, slideWidth, startNum } = carouselMaterials;
     this.carouselState.slideList = slideList;
-    const slideSpeed = speed;
-    const slideLen = slideContents.length;
+    const [slideSpeed, slideLen] = [speed, slideContents.length];
     if (needPagination) {
       this.carouselState.slidePagination = document.querySelector(".slide_pagination");
       this.carouselState.pageDots = document.querySelectorAll(".btn_paging");
@@ -79,54 +129,8 @@ export default class Carousel extends Slide {
     this.transform(slideWidth, startNum + 1);
     this.initCarouselState(startNum, slideContents);
 
-    if (!longClick) {
-      buttons.addEventListener("click", ({ target }) => {
-        const button = target.classList;
-        if (button.contains("btn_prev")) this.moveSlide(1, slideMaterials, true, needPagination, this.carouselState.currIndex <= slideLen - 1, this.carouselState.currIndex === slideLen - 1);
-        if (button.contains("btn_next")) this.moveSlide(1, slideMaterials, false, needPagination, this.carouselState.currIndex >= 0, this.carouselState.currIndex === 0);
-      });
-    }
-
-    if (longClick) {
-      buttons.addEventListener("mouseup", ({ target }) => {
-        const button = target.classList;
-
-        if (button.contains("btn_next")) {
-          if (this.longClickState.isPressed) clearInterval(this.longClickState.timer.next);
-          if (!this.longClickState.isMoved.next) this.moveSlide(1, slideMaterials, false, needPagination, this.carouselState.currIndex >= 0, this.carouselState.currIndex === 0);
-          this.longClickState.isPressed = false;
-          this.longClickState.isMoved.next = false;
-        }
-
-        if (button.contains("btn_prev")) {
-          if (this.longClickState.isPressed) clearInterval(this.longClickState.timer.prev);
-          if (!this.longClickState.isMoved.prev) this.moveSlide(1, slideMaterials, true, needPagination, this.carouselState.currIndex <= slideLen - 1, this.carouselState.currIndex === slideLen - 1);
-          this.longClickState.isPressed = false;
-          this.longClickState.isMoved.prev = false;
-        }
-      });
-
-      buttons.addEventListener("mousedown", ({ target }) => {
-        const button = target.classList;
-
-        if (button.contains("btn_next")) {
-          this.longClickState.isPressed = true;
-          this.longClickState.timer.next = setInterval(() => {
-            this.moveSlide(2, slideMaterials, false, needPagination, this.carouselState.currIndex >= 0, this.carouselState.currIndex === 0);
-            this.longClickState.isMoved.next = true;
-          }, 1800);
-        }
-
-        if (button.contains("btn_prev")) {
-          this.longClickState.isPressed = true;
-          this.longClickState.timer.prev = setInterval(() => {
-            this.moveSlide(2, slideMaterials, true, needPagination, this.carouselState.currIndex <= slideLen - 1, this.carouselState.currIndex === slideLen - 1);
-            this.longClickState.isMoved.prev = true;
-          }, 1800);
-        }
-      });
-    }
-
+    if (!longClick) this.basicClickEvent(buttons, slideMaterials, needPagination);
+    if (longClick) this.longClickEvent(buttons, slideMaterials, needPagination);
     if (needPagination) {
       this.carouselState.slidePagination.addEventListener("click", (e) => {
         this.movePagination(slideMaterials, e);
