@@ -1,25 +1,22 @@
-import {
-  url,
-  REQUEST_SUCESS,
-  REQUEST_FAILED,
-  $mileageEventSlide,
-  $prevEventButton,
-  $nextEventButton,
-  $topMileageSlide,
-  $mileageSlidePage,
-  $mallEventList,
-  $mallEventSlide,
-  $hotDealWrapper,
-} from './const';
+import { REQUEST_SUCESS, REQUEST_FAILED, $mileageEventSlide, $prevEventButton, $nextEventButton, $topMileageSlide, $mileageSlidePage, $mallEventList, $mallEventSlide, $hotDealWrapper } from './const';
 
 class FetchAPI {
+  constructor(unit) {
+    this.unit = unit;
+    this.url = {
+      mileageList: 'http://localhost:3000/api/mileageList',
+      mallEventList: 'http://localhost:3000/api/mallEventList',
+      hotDealList: 'http://localhost:3000/api/hotDealList',
+      shoppingPartner: 'http://localhost:3000/api/shoppingPartner',
+    };
+  }
   init() {
     this.mileageList();
     this.mallEventList();
     this.hotDealList();
   }
   mileageList = () =>
-    fetch(url.mileageList)
+    fetch(this.url.mileageList)
       .then((response) => response.json())
       .then((data) => {
         const mileageEventCarousel = new MileageEventCarousel(data);
@@ -30,7 +27,7 @@ class FetchAPI {
       .catch((error) => console.log(REQUEST_FAILED, error));
 
   mallEventList = () =>
-    fetch(url.mallEventList)
+    fetch(this.url.mallEventList)
       .then((response) => response.json())
       .then((data) => {
         const mallEventSection = new MallEventSection(data);
@@ -40,7 +37,7 @@ class FetchAPI {
       .catch((error) => console.log(REQUEST_FAILED, error));
 
   hotDealList = () =>
-    fetch(url.hotDealList)
+    fetch(this.url.hotDealList)
       .then((response) => response.json())
       .then((data) => {
         const hotDealSection = new HotDealSection(data);
