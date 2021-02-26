@@ -1,21 +1,21 @@
 const eventItem = (data) => {
   const { linkurl, imgurl } = data;
-  return /*html*/ `<a href="${linkurl}"><img src="${imgurl}"/></a>`;
+  return `<a href="${linkurl}"><img src="${imgurl}"/></a>`;
 };
 
 const mileageList = (href_url, img_url) => {
   // 3개 캐러셀 슬라이드
-  return /*html*/ `<div class="slide_content"><a href="${href_url}"><img src="${img_url}"></a></div>`;
+  return `<div class="slide_content"><a href="${href_url}"><img src="${img_url}"></a></div>`;
 };
 
 const mallEventList = (lists) => {
   // 더보기 제품들 목록
-  return /*html*/ `<div class="panel"><ul class="list_item">${lists}</ul></div>`;
+  return `<div class="panel"><ul class="list_item">${lists}</ul></div>`;
 };
 
 const mallEventItems = (href_url, img_url, title, info) => {
   // 더보기 제품들
-  return /*html*/ `<li class="_GI_">
+  return `<li class="_GI_">
         <a href="${href_url}">
           <span class="info_thumb">
             <img src="${img_url}" alt="" />

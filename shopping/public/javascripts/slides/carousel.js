@@ -62,8 +62,12 @@ export default class Carousel extends Slide {
 
     buttons.addEventListener("click", ({ target }) => {
       const button = target.classList;
-      if (button.contains("btn_prev")) this.moveSlide(1)(slideMaterials, true, needPagination)(this.carouselState.currIndex <= slideLen - 1, this.carouselState.currIndex === slideLen - 1);
-      if (button.contains("btn_next")) this.moveSlide(1)(slideMaterials, false, needPagination)(this.carouselState.currIndex >= 0, this.carouselState.currIndex === 0);
+      if (button.contains("btn_prev")) {
+        this.moveSlide(1)(slideMaterials, true, needPagination)(this.carouselState.currIndex <= slideLen - 1, this.carouselState.currIndex === slideLen - 1);
+      }
+      if (button.contains("btn_next")) {
+        this.moveSlide(1)(slideMaterials, false, needPagination)(this.carouselState.currIndex >= 0, this.carouselState.currIndex === 0);
+      }
     });
   }
 
