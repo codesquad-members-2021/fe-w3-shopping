@@ -19,7 +19,7 @@ app.set("view engine", "ejs");
 //-------------------------------------
 //미들웨어 등록 시작
 app.use(cors()); //인증추가
-app.use(logger("dev")); //미들웨어 이용 : 모든 서버로 들어노는 요청이 여길 지나가게
+app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -33,7 +33,7 @@ app.use(
 );
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
-app.use("/image", imageRouter); // /image로 요청오면 imageRouter가 처리할거야??
+app.use("/image", imageRouter); //
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
