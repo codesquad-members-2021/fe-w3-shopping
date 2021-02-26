@@ -7,6 +7,7 @@ class HotDealSlide {
     this.slideList = slideList;
     this.slideBtn = slideBtn;
     this.oneStep = 260.6;
+    this.slideTransition = 'all 0.3s';
     this.timer;
   }
   init() {
@@ -46,21 +47,21 @@ class HotDealSlide {
     return classList.contains('btn-next') || classList.contains('fa-chevron-right');
   }
   slidePrev() {
-    this.setSlideAnimation({ moveX: this.oneStep, transition: 'all 0.3s' });
+    this.setSlideAnimation({ moveX: this.oneStep, transition: this.slideTransition });
     this.setPrevData();
   }
   slideNext() {
-    this.setSlideAnimation({ moveX: this.oneStep * -1, transition: 'all 0.3s' });
+    this.setSlideAnimation({ moveX: this.oneStep * -1, transition: this.slideTransition });
     this.setNextData();
   }
   doubleSlidePrev() {
-    this.setSlideAnimation({ moveX: this.oneStep * 2, transition: 'all 0.3s' });
+    this.setSlideAnimation({ moveX: this.oneStep * 2, transition: this.slideTransition });
     for (let i = 0; i < 2; i++) {
       this.setPrevData();
     }
   }
   doubleSlideNext() {
-    this.setSlideAnimation({ moveX: this.oneStep * 2 * -1, transition: 'all 0.3s' });
+    this.setSlideAnimation({ moveX: this.oneStep * 2 * -1, transition: this.slideTransition });
     for (let i = 0; i < 2; i++) {
       this.setNextData();
     }
@@ -76,11 +77,11 @@ class HotDealSlide {
     return slideHTML;
   }
   render() {
-    this.setSlideAnimation({ moveX: 0 });
+    this.setSlideAnimation({ moveX: 0, transition: '' });
     const slideHTML = this.getSlideHTML();
     this.slideList.innerHTML = slideHTML;
   }
-  setSlideAnimation({ moveX, transition = '' }) {
+  setSlideAnimation({ moveX = 0, transition = '' }) {
     this.slideList.style.transition = transition;
     this.slideList.style.transform = `translate3d(${moveX}px, 0, 0)`;
   }

@@ -11,6 +11,8 @@ class Slide {
     this.slideList = slideList;
     this.pagingBtn = pagingBtn;
     this.pagingBtns = domSelect('.btn-paging', true, pagingBtn);
+    this.oneStep = 515;
+    this.slideTransition = 'all 0.3s';
   }
   init() {
     this.render();
@@ -47,12 +49,12 @@ class Slide {
     return classList.contains('btn-next') || classList.contains('fa-chevron-right');
   }
   slidePrev() {
-    this.setSlideAnimation({ moveX: 515, transition: 'all 0.3s' });
+    this.setSlideAnimation({ moveX: this.oneStep, transition: this.slideTransition });
     this.setPrevData();
     this.setCurrentData();
   }
   slideNext() {
-    this.setSlideAnimation({ moveX: -515, transition: 'all 0.3s' });
+    this.setSlideAnimation({ moveX: this.oneStep * -1, transition: this.slideTransition });
     this.setNextData();
     this.setCurrentData();
   }
@@ -67,7 +69,7 @@ class Slide {
     const midIdx = Math.floor(this.data.length / 2);
     this.currentData = this.data[midIdx];
   }
-  setSlideAnimation({ moveX, transition = '' }) {
+  setSlideAnimation({ moveX = 0, transition = '' }) {
     this.slideList.style.transition = transition;
     this.slideList.style.transform = `translate3d(${moveX}px, 0, 0)`;
   }
@@ -77,7 +79,7 @@ class Slide {
   }
   //변경된 data를 기반으로 list를 중앙으로 옮기면서 렌더링하기
   render() {
-    this.setSlideAnimation({ moveX: 0 });
+    this.setSlideAnimation({ moveX: 0, transition: '' }); //default값 설정했지만 의미때문에 파라미터 작성
     const slideHTML = this.getSlideHTML();
     this.slideList.innerHTML = slideHTML;
   }
