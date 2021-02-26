@@ -4,23 +4,29 @@ import SearchBar from "./components/SearchBar.js";
 import Menu from "./components/Menu.js";
 export default class App extends DD {
   getTemplate() {
-    return `
-        <header></header>
+    return /*html*/ `
+        <header id="header"></header>
         <main></main>
       `;
   }
   mount() {
-    const $header = new Header(document.createElement("div"), {});
-    const [searchBar, menu] = $header.getInheritances();
-    const $searchBar = new SearchBar(
-      document.createElement("div"),
-      searchBar.props
+    const branch = this.branch.bind(this);
+    const headerInheritance = {
+      header: {
+        $target: this.$target.querySelector("#header"),
+        props: {},
+        name: "header",
+      },
+    };
+    this.setInheritances(headerInheritance);
+
+    return branch(
+      "header",
+      Header,
+      {},
+      ["searchBar", SearchBar, { test2: "test2" }],
+      ["menu", Menu, { test3: "test3" }]
     );
-    const $menu = new Menu(document.createElement("div"), menu.props);
-    $header.setChildren({ searchBar: $searchBar, menu: $menu });
-    this.renderComponenet($searchBar, searchBar.target);
-    this.renderComponenet($menu, menu.target);
-    this.renderComponenet($header, this.$target.querySelector("header"));
   }
   didmount() {}
 }

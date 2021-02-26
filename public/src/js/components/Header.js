@@ -2,10 +2,10 @@ import Component from "../core/Component.js";
 export default class Header extends Component {
   setup() {
     this.state = { header: "Header" };
-    this.inheritances = {}
+    this.inheritances = {};
   }
   getTemplate() {
-    return `
+    return /*html*/ `
     <div class="header">
         <h1>${this.state.header}</h1>
         <div class="searchBar"></div>
@@ -16,15 +16,17 @@ export default class Header extends Component {
   getInheritances() {
     const $searchBar = this.$target.querySelector(".searchBar");
     const $menu = this.$target.querySelector(".menu");
-    return [
-      {
-        target: $searchBar,
+    return {
+      searchBar: {
+        $target: $searchBar,
         props: { changeHeader: this.changeHeader.bind(this) },
+        name: "searchBar",
       },
-      { target: $menu, props: {} },
-    ];
+      menu: { $target: $menu, props: {}, name: "menu" },
+    };
   }
   changeHeader(newHeader) {
     this.setState({ header: newHeader });
   }
+  static changeHeader
 }

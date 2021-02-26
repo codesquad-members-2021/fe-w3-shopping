@@ -1,4 +1,3 @@
-import { getBannerImage, getHotItemImage } from "./api/api.js";
 import App from "./App.js";
 
 // const box = document.querySelector(".box");

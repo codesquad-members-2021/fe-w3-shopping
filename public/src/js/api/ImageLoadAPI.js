@@ -14,13 +14,3 @@ export const getBannerImage = (bannerId) => {
 export const getHotItemImage = (itemId) => {
   return request(`/server_img/hotItem/${itemId}.jfif`);
 };
-
-
-export const getImage = (url) => {
-  return fetch(url)
-    .then((res) => {
-      if (!res.ok) return new Error(res.status);
-      return res;
-    })
-    .catch((err) => console.log(err));
-};
