@@ -609,7 +609,6 @@ section {
           #mall__event--slide {
             width: 1280px;
 
-            // 여기도 동적 할당
             .slide {
               position: relative;
               top: 0px;
@@ -617,6 +616,17 @@ section {
               // 여기 이상하게 틀어짐
               left: -1287px;
               width: 3849px;
+
+              &--click--prev {
+                @extend .slide;
+                transform: translate3d(255px, 0px, 0px);
+                transition-duration: 300ms;
+              }
+              &--click--next {
+                @extend .slide;
+                transform: translate3d(-255px, 0px, 0px);
+                transition-duration: 300ms;
+              }
               .panel {
                 height: 100%;
                 overflow: hidden;

@@ -329,3 +329,47 @@ class MallEventSection {
   pushItemData() {}
   mallEventCarousel() {}
 }
+
+const $buttonGroup = document.querySelectorAll('.button-group');
+class MallEventSlider {
+  constructor(target) {
+    this.target = target;
+  }
+  addEvent() {
+    this.target.forEach((el) => el.addEventListener('click', this.mallEventSlider.bind(this)));
+  }
+
+  mallEventSlider(e) {
+    const prev = () => e.currentTarget.classList.contains('button--prev');
+    const next = () => e.currentTarget.classList.contains('button--next');
+
+    if (prev()) {
+      this.clickPrev();
+    }
+    if (next()) {
+      this.clickNext();
+    }
+  }
+  clickPrev() {
+    const listItem = $mallEventSlide.querySelectorAll('.list--item');
+    $mallEventSlide.classList.replace('slide', 'slide--click--prev');
+    setTimeout(() => {
+      $mallEventSlide.insertBefore(listItem[0].lastElementChild, listItem[1].firstElementChild);
+      $mallEventSlide.insertBefore(listItem[1].lastElementChild, listItem[2].firstElementChild);
+      $mallEventSlide.insertBefore(listItem[2].lastElementChild, listItem[0].firstElementChild);
+      $mallEventSlide.classList.replace('slide--click--prev', 'slide');
+    }, 300);
+  }
+  clickNext() {
+    $mallEventSlide.classList.replace('slide', 'slide--click--next');
+    setTimeout(() => {
+      $mallEventSlide.insertBefore(listItem[1].firstElementChild, null);
+      $mallEventSlide.insertBefore(listItem[2].firstElementChild, null);
+      $mallEventSlide.insertBefore(listItem[0].firstElementChild, null);
+      $mallEventSlide.classList.replace('slide--click--next', 'slide');
+    }, 300);
+  }
+}
+
+const mallEventSlider = new MallEventSlider($buttonGroup);
+mallEventSlider.addEvent();
