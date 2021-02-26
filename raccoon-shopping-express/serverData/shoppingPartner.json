@@ -1,0 +1,527 @@
+{
+  "sohoPartnerList": [
+    {
+      "title": "추천소호몰",
+      "type": "soho",
+      "list": [
+        {
+          "name": "캔마트",
+          "link": "/go.daum?skey=PhRJfAckRegFcXMU1BLRCAGuvy1zKJ5fmXCIA8I33tnhxchCOvBfbrQxqT5aiRvL9usLLwd._u8mmOWJ5O-bI581CfdiHKIDZzn8Q5f66LwEHNDVpMzhm-M1_vH9f.UtS.O7n&val=hVQ00TjdHG37lkNCDGa3CpacpnCyoRJ-m41Q1U7kaXiL..H9pqt1hI4IXSu2tzYRT4bOQq4lZHH8M9ao0",
+          "shopid": "canmart"
+        },
+        {
+          "name": "21드레스룸",
+          "link": "/go.daum?skey=8IiA04QfklWVCNaljVKtEcZL5MfxY2yPN35rRemyjO.2-KfESh.HpJCFDftBg9wEApyLU9alduSyLKix5jgm4nxqlpZrPWIXTSugK57FEB3OjLpLcNXxfXhSMh6X1aTTYN1QHlA3.3fPwwPSSe2OIorPODQ00&val=g-A00kdX-qfeE5Ovx3K7s2Ppl5s6CEXpjeAParGeuS7RtN-B_ovWOT4DqzaguwHzVTxGUEymGHgugfDA0",
+          "shopid": "21dressroom"
+        },
+        {
+          "name": "칸투칸",
+          "link": "/go.daum?skey=_tLI0SQrcis2OPCpro2ZCV3LrPLyjPd4EPi_N483A.FZufXxqSw7l5NLfAdO9vdqprU8uO-Zxbo-FV4fhIlgNwCDFyI5-sGfEZOay6frCPR2ubOYs-LUw7P.kIqP9JkJsrQoa98PIqpU_yeVls5_UwG5Zaw00&val=3kA00Z6A17-m-DAslOs5.v.5WoUfBa92BI5GYltnYUqYAngvdDS2vA5rn.A38kpaM4FWKJm7WY5AqzeQ0",
+          "shopid": "no_kantukan"
+        },
+        {
+          "name": "조아맘",
+          "link": "/go.daum?skey=NLNTISKRQUedCPs5rnx_d7CLsmzbHDpJet2NN97Y8CtXz_mmkfa4tSMvY8C75CV57S_-icFlWUUquy9.3PMYpeJwKdam13JSTx-Acxy8KbPnuYVJ.XeKx2nG5PA15_gvckI6R&val=9Ww00LVQgl3b6EEuPOEWk_73lF5YYUGoCpDHTwXl4honIs.uNUnA5T_M5hzh2xWh3Of7eRNx9-wgmVaw0",
+          "shopid": "yamiyami"
+        },
+        {
+          "name": "애플라떼",
+          "link": "/go.daum?skey=l7ebfN_NFt.O_9VQEa93WZhqDQH12SwuKFjM84HkW.2ybGXJYfBYKFvFin3ZsxRjKSXkQYkw.iex6hhzoS6R24dlIONmNj_QtLhg5MgB6hYo-XnQfuc6TH6RiyhtIxo-QEsc8&val=rJQ00okdfUfw-eKn9zzFJG-J8x_rOrnXM3J9pPxfQo6oBdZswxcxHiTkFwWpJvL.RI1V55zrMwnc_Gwk0",
+          "shopid": "latte1004"
+        },
+        {
+          "name": "시크폭스",
+          "link": "/go.daum?skey=c7Tz6j8.GwXWBcVgaEFQptr4Za_i7mWPsrzOfxC47cAdi2JYc9XEVAdLCJEhDwhbzPAfY.D1dHFqYIXXQo6v9gvwJCfvprSxkPm5RMAUGRM9.jFia6TGU8JkOw59gpRZ6UH4N&val=RBg00H92WPuxINlT4_fVuqcAPknWGAftdGMjxSkIzkz6KiPQlzJwtKQEpF8Ch7kyqLuV.cqEZTEfcBIg0",
+          "shopid": "chicfox"
+        },
+        {
+          "name": "데일리룩",
+          "link": "/go.daum?skey=mcG90FOUfozkd2w-s3MWBLMjhBt.VIHiks4dh1Zz5WUr5RMtGOFKbeVWszx1ezc_gZfGQHbL8ybJ7W_EmZ3FR4gBTHkOc-ChoqGGYI6vlhffb4LBDFgR5uVbL7pkmNx281tqCCtEAZvKkhloV3DKJgsRKVA00&val=NPQ00QYNbGe.MKj1v-AKH5PeOm4Xw_REdJg48KK8Ulky29EII-Amy8Y.uZsgqKqHC18AOX29ed7Zy_9w0",
+          "shopid": "suzydks5406"
+        },
+        {
+          "name": "마이더스비",
+          "link": "/go.daum?skey=g-m4v2oivLaWCw3jIZQuhFHaL-s5gL.y2e93fvG4mf3YZA2e7ZsyjMVRb8EPOQpRPzpsAbKW_qsSTwB3pOAUgNsCSsIjY6yevxzWJQQNT8Ax1UQZgx8eydesM84PrU4dc3ATQ&val=UPA00fKsNK_6cRClQdRS2QuwEd_Vkyk9pO.DDWMQyZonMOOw6aKqttKHxsBgwkQjZXAJxDSdO1qV.QzQ0",
+          "shopid": "midasb"
+        },
+        {
+          "name": "스타일온미",
+          "link": "/go.daum?skey=wb6zvpCBskQBSeO5Wp9WP717O9Abp7_F26IoWXwYcbvuyu8ym2soBvaR7_cMIW68IVuQ7U2_jVekgvuUh6aIRIkuUi41qi4epQO29at9ebmWZK.ZLsyqa_mNKvvYDCLttz9-d&val=pVg00nTl9G-61uMBiVtrF997IekG9FlEYVUXC5Nyc5ePbLy-O._86MEVszcAmoezpI4i9_oIEY.NveFA0",
+          "shopid": "styleonme"
+        },
+        {
+          "name": "아이스탁몰",
+          "link": "/go.daum?skey=GBXA0Rn2mjuYugPVMKIYh9BFDxYyjpwAet8eKlIf5WYXIutQoxcjIzGhyEM3oET_bQOWVskHYpYZahAKEcN4Rgd.KoxaPF4mUyR6RYVTzfvIPoM9.Fi.ZljZWrQevVMnm2E-OmAv-G35VNO8OkU9mPLsz7A00&val=fVw00f36._Y_8FYECqNWbE4gXkZpy_T-c7qeV7rnSAzWXoIvq5qNMEPTyoUvy_6pdoMiAFncR5vOcMJU0",
+          "shopid": "cf_stock11"
+        },
+        {
+          "name": "쏘내추럴",
+          "link": "/go.daum?skey=HSy1QM6GGGfUM8os5KJ8wlnPOkH9j1TIUcGfORDKYJjIZn.jEtSpYcozrzf4qrEOsTF9uyS5Tcp2BmKsWvcGVFpLZtibW.LQdc7o6qV4EbKW7bAbojAyBA-MbBBZrouaD.hi7&val=iKg00xPSwYWAz_jyhfh7a1vBsxfSXusQZGSAA_koBiatuweFt7ts_u.hkGOGBzA81XHyrQ9lolVYv8iw0",
+          "shopid": "sonatural"
+        },
+        {
+          "name": "피핀",
+          "link": "/go.daum?skey=-jxsK7PYr14gg65YPVOYjFly-iWU8E5OZL7stJGDFVn.TcePKvzvn9TrxmpWGweAgAgg2I.h8uu_Q5CCKthNkx_pCGA-tkxyWx45-OB4SXBVk6NnrCJfroEaxP_qRe8oEmDTl&val=.Rw00Ze67-3hQ.6W7_oFMl-vlYV8e7CPdlG2uuzmP1s-3kJ7w62EiOvCq_Q2vgPJM7W-QjZmGrUJMmSE0",
+          "shopid": "pippin1"
+        },
+        {
+          "name": "핑크시슬리",
+          "link": "/go.daum?skey=2PU3-M15IQ9RLu1kvRxm7-btiGLYo9yGM3qzBPPPjXPXkC52PjM7TiOjbaFtr1oGJtBTvgdst3zKQsmcvRYPcIwRwkIDGQAyaiYjfyTcdWWHgjGGtGe7X_jnX_2qOaKBvpTwG&val=HCQ0046RAsS3T1FbuGBSeABx45RG1ESjz9nDx8V.V_EMMYViXVahHhC_eUT68n3XrcSTN.U1MJgsUYnY0",
+          "shopid": "pinksisly"
+        },
+        {
+          "name": "난닝구",
+          "link": "/go.daum?skey=UIi15SPH7qd8AeENwVM-ZshUq_eZ4rMNT9IiyU5hrgqL5F7TSpVlqVOd_XC8sr4dLwLoKuF6MvFtsOR7AO5AdpZYrbbbC4nRRM83j69xh7jGmt8xevuRVJiIFCiK-6utXLyvc&val=E3g00uW74OfutGptNETIT.POSVp_9eLJtP63AVk1S3qQmiig.EA3Iop9ODJrVuI2tf_fdCKVJUfage6Y0",
+          "shopid": "naning9"
+        },
+        {
+          "name": "아이뷰티랩",
+          "link": "/go.daum?skey=9nuc0hmt-FpHya5DT-B_5lrdgy5yLd3S484k7fLJBqpsiGwVkCW5svkkiQEz7ZPUPbjEDR_XXSadlxU_2v55KF1CcRMpmvyGhG272x3vM4piAfiTsmeymWd_EDiLgSgkRf.rJmwKzl.aSUS35sRthAuiIlg00&val=c6A00BYlN72I.jis_IF2mhAioWWF1GsgtF5tgyFPnqWN11UqONgNRnhPlaWZixiILO-XA1HqJCFiTS-50",
+          "shopid": "ibeautylab"
+        },
+        {
+          "name": "패션풀",
+          "link": "/go.daum?skey=QVOA01wuDFSvogOG7c128iSdZlt9hYr8R6kD.KoATR3E6KHEDxs2ZMLh.SbYJHOVMKkpB7vxK-JNN9c8H.oIOUTszU2FaQUfHz54BcyVNvHJt-U7aqJD2JWI8I1bSLqGBnjka_63OywA6f_6OaF8f5heedg00&val=l2w003GApqRL-ItmBq6d8coqj5oyhfWRJEBaEZwh2sSyAC3hj4ebS9XjLQRblDudcNEWYT7IEr1gkXaY0",
+          "shopid": "fashion-full"
+        },
+        {
+          "name": "도드리",
+          "link": "/go.daum?skey=1F2ystCErVFbq6dDrwjHlzUcfBVfVfKiWQ9pD4YOS2Cusppl3LzrsfIU5yP5N_8VPBCAK-hruX_fij8Xz2NNJ_h_Umlj8gMZD9Pp.xOaZ71lTI_YA4k-bWVcOKdhP_RMlE4kE&val=A-w00Jj1EG2.GxNM9Bx4-zqEVshC.foSsqOEnz5TgR1iUygwOwx6Xy4-cAJH8kHNUuArBAFD3oJmmyhk0",
+          "shopid": "dodry"
+        },
+        {
+          "name": "포렌코즈",
+          "link": "/go.daum?skey=chCc03ZIA21Ft5cr-e2s_OQ2mBBApP1_h59Hocjh6EGICycAEH6zP4nCjwCkKpp3jlDgursTeUJbLRTnpdG.q6xl9S-7WfKPy.D2WKF.p.2xT8qa_nLMyNwFGaT4t1M7DAdIsxdSmY5I.uwDbzHo_.vVx4Q00&val=4Bg00k53jB2oCSARCVYf2IhZfLTeTCsqbR.KXHworaaXf.JBpccqqJbEw58LTg5uxun9fPLIWQbpn.y50",
+          "shopid": "ap_forencos"
+        },
+        {
+          "name": "레미떼",
+          "link": "/go.daum?skey=ZO9RECPmtxwkhovH-XSw9wnGtlHwhtOqrwo_mA1dksc2xAPZN4N99.C7KeXc1etkTwxOBW9-tCDK8H_KFXK_w9E67dymFqhVXyMBqnpNh6yNCcM8TAoQAEhMHwCd4fXVO3PCg&val=vXA00hQ2Ay5Yh8jHyP7SaKfOwjdB98cs-OJX1dHo7c9i5ppPMC_omA73aqLQ_x8WyCh.BSn69XxXkRWY0",
+          "shopid": "min3111"
+        },
+        {
+          "name": "메이블루",
+          "link": "/go.daum?skey=Bb16O8.6rIT46kUQC5U_x9e.oUoNN7da8m8hCNMg9l6wHuz9XVLEHpo3A32qzVadpB48qloombJTuUZrozt1326xwVujTAxDAJE-69GwFFhECsPrZOwS6dPcOOSwDP7Es8Ucs&val=KzA00EtpcmZxkoWho3LEFwcjmH8HJhv6FsOH-PN2tNE3fPTsfnUtT427f_mgX_on8CSdrynFL4PFzUhg0",
+          "shopid": "mayblue"
+        },
+        {
+          "name": "딘트",
+          "link": "/go.daum?skey=_cLVqDBReOUtesUVFO__YyKKYpa.VPZg79pft57UCMvn7r3vIFBAxOxBRFdFhO9Wr8FEwWzpw_KCK3D-oorQkePvN.oUPLmcbobS9cf5lvLOc5U_Eoz_3EmzQZi9ZWayRnN.L&val=YIA00VCfMJEXRt.qOsCpoXyjurIoBTXpHcuAjYAJSRnCynVQWT5JNo4ZS.S.Oes511e5KNDv_pQ4Ohwc0",
+          "shopid": "dint4645"
+        },
+        {
+          "name": "저스트원",
+          "link": "/go.daum?skey=Cx65oDC_fKmavamaoE61KOCU2fZ2RlBn4yx85HP_W_fW1pMgaD4RAiLgCkEhMlLk9JPtz3AyOgLEDkYtXcWia6pYQ3_fFxp_35oEz.Vr5ZrEjTJ1NrF68GX2gSEJlkLu949n4&val=ezg00aIzsB35cDG9Se-svbYZABsMJgtW6nK9Wcscib4PXG1bDVEBRmJErAPoPb3XPNu2ipszhLpkAOoo0",
+          "shopid": "jojean"
+        },
+        {
+          "name": "지젤슈즈",
+          "link": "/go.daum?skey=alcaDggMbVDLHjZo3xkV6c6knBKW.xL2xOTPx1TY5H6O8G2q1iyiwpOnxDKTz5Ll-oS9OY.klGE4vZVygoKR1ew7mWcMOjjvxaL8ZdTgFGzWDf4MX9dOfcL.DmWJPJdoR5NOC&val=uRA00EapS4jS.s7vqpaLUja4svkpvgaKeq3myIpDB1dGQw3CZXp2tH97GjngEI7XyMi3viHt7SS_r2d10",
+          "shopid": "zizhel"
+        },
+        {
+          "name": "리린",
+          "link": "/go.daum?skey=Sn33s7tkmsD6HN1ItoF6FiFrd.Bg64LP7UTcVEp-kmr6E3cYYNRa_zm.qcOvjyp9GvwvgV4Mk9zcwyt8dh5-JWaxTqZqR3iAXmHVOUaUuFLRi3V7IswN7i8gJHd1rv1-cmhbS&val=LDg008cp-C9SIuhu6z_a3TTlpIy9LAjR98F9Vl.vmoqPdkeJsWIFiQEDebCXiowjZstXzDcYe14miehY0",
+          "shopid": "mk_leelin"
+        },
+        {
+          "name": "페퍼",
+          "link": "/go.daum?skey=m3JGAHtObSP6APla5aN-4WoFbsbtTUCvNvjDReX9oFdLw9-nndvqclHFtWa8ia16fuCasWpz1qx22_RqyY2U3WkEkYlYPxJzIjpb-N2p9XcSVu54dHeUqysgV82VM-TJTFU7L&val=C3Q00rPfMrZ_p.2zu5-73z8EfvCjDdaK_JHsoRoAp_hMYWn9er6U1u_GGSq3BvfEBEcurCHD2dLytEzY0",
+          "shopid": "peper"
+        },
+        {
+          "name": "뮬리안",
+          "link": "/go.daum?skey=5ymbF8CeaEX3-nMVWGW4iH.ujcknaDrxVO3ohqS8nG4CekNW8CYr2Uc.-e9Mcyqj5V_H8wyI5eybMBWLrH3ZFkQpX66_XreTM2XLE.SrQfjSQTukKuwwVz6duCBRLmtXBcQ_m&val=FEg00uu3hlMo63V-Vo-ZAzAG578GJzruyp8hmNKS88CWDZ-eqWXc-fbR3rQnV1kUSIFvKqjfG3my8U8Y0",
+          "shopid": "moulian"
+        },
+        {
+          "name": "써니11",
+          "link": "/go.daum?skey=hgk9maY3i7HDKLrMeXY-pujSzZNuHftdP91ARl4pTFTGZv9oEMmh-sawYXqKs1dyXLrKD9Zs_dVuH7HsQz_N9u8.HU6BtTLgQOVIMnCmVv1.fCNAEFK.TeO7cr7jhvEQs7Ohl&val=pYA00pzmAtXwTt2HargOKZ117zwFTERfMHxfxIvkgKwKymO4fTaSibhCydewTwW7zaAn6WKKwWtiPSOc0",
+          "shopid": "sunny11st"
+        },
+        {
+          "name": "엘사베로니",
+          "link": "/go.daum?skey=SHUc0eKzMabxTFWhh9iy3.dW2qN_2UcBBYWwxmGtNRuR_7b9UHSuHC81T4dX-2P8jR3Og6no8zkgl_iXbOxyvJZQ5387sTnrNIdWXgECbWGOKUNkYB7OyfzFoiTeiU_f-sS9PppldSK9v42K.a1SgjSctIg00&val=x1w00DKE_NtL9cMma7PmjmB-AqW5YxyMR965XxNurjZbvALx5S5YMtuXMD_wELiKNheI4mmsT2QYlXAk0",
+          "shopid": "gufocompany"
+        },
+        {
+          "name": "아이디룩몰",
+          "link": "/go.daum?skey=nfII0sv4P_w-ALeisJnfXcP8k1zYVfUJdyr_IjMq68e1AO6F4GSxewSCmJ.hxYYHkHJ6rni-D4UTbSJuWlhYziF-py8Z.ZtsKL4PsSSaNMkX9GntmLCrL4ixQ4.TSLrQwt8YDocHTPKSHCqHDA7Ng8tLWgA00&val=RSQ00LQyPQGyuNj7U7LIC3.EukKSVIfpd6o24up7LG_Nr19h46Yi6yPyqfD4aBrthtvB79xvs5Tt6GhQ0",
+          "shopid": "idlookmall"
+        },
+        {
+          "name": "아리아퍼니쳐",
+          "link": "/go.daum?skey=VDBrV.eHCpUOlUFR_I4NGbKLIotnsj_dNN75P1sdNCPRYTr9yHJ2okfsmrix-qYle5i8iykAvjmG_6-1qlwhyghxT5LCFbgU.uIyvWqz2A.TmdwkzjbUdx64oW1UqwWOL3_Ed&val=Qng00OzE4hXnsJInoa-cPyXaMXyaTVO32qkkcXqBGws4UpmPOcNpdsEQtqxbcdqS2.S1kTjSklVLp_DM0",
+          "shopid": "muran33"
+        },
+        {
+          "name": "엄마옷데드라",
+          "link": "/go.daum?skey=uUgZljkJLFlc_ckRKK4rywWlSfx6_KUMoqGctrBMT3fg___9dHml224rCpB1PO_kSIxseWhyYq35X4WSxZa2C2S9lZzuzrnCLPoWvRHvdCSeh3fuZi_K_sxOL-zyfzfEVWnGo&val=MSA00nUmORi7UoGse3PslSivx-8Wc-9C5DTKvZm4lccfzvyvvkKtzBvzpsG9lqBLIZ6TL__bG6vgBu7c0",
+          "shopid": "lsh7614"
+        },
+        {
+          "name": "마지아룩",
+          "link": "/go.daum?skey=sJ310hhUWPhqFiT3oj51FicpVsfYxY9uli-L9Q1B5BYZ9rafC8dEmV4nM_5RLcXOJJ4ebVrf7CTROPF6RGlMIm3tLYOy7YQjyiHUi-r3eFLJ7DVlIfgk5rPl3DY9FWkyK.uPd9W_2fvL1v284Jap9.Q.h8w00&val=Gkw00ABGUPNoRyxb2wn7bjE9JjKaI9.bmwDD3Aslb1gzHLd7UrWShSB5yQ-UdAcnn-kSDqzK-MFvhiEc0",
+          "shopid": "syworld7200"
+        },
+        {
+          "name": "할리샵",
+          "link": "/go.daum?skey=JqJE0axuScKS7WA-A38dmGuhbr2h.ZDjqLwvkjbicOY.Qck_5ZWLHts1Y5eLo2-LwhnAE.RKI9C5w-HU6Z6jpSuOInqwz.nXnHXgGhjkXfDlI3qlutopeE7x81LnPI3eZgbKbfM1xYqdlqHIWEV6tvJaX2w00&val=skQ00AI_1sXWwXPD6SVZGgLwH2k38Hjp-yGbw1WiqUJJqlmq8Pui1ZM5caC3s_xqv9CxbBpm6mdwOZ5k0",
+          "shopid": "goldenhoney"
+        },
+        {
+          "name": "분홍코끼리",
+          "link": "/go.daum?skey=41sU0dP7kQ5HMuZ2Y-K_GieQiv18mcuTKPbcnHqp8-HUPiht5SCkuttJvE-XwBJm.veh9aVSYwWo82tCcqG3CBw83s5zQadCfSrsI3Jex7y8I6rxgRHhu25NAkgNt9kQE4.jKkdWZC-vzasbD4JchIoWy1A00&val=Wlw007ZQj.VrmBVm18vH.Mji.fRf8xOar2xIx23ZT_FzMbif-1BjquHAd4CDT9_r_L4R4XBWdoXCWIBg0",
+          "shopid": "pinkelephant"
+        },
+        {
+          "name": "스와니코코",
+          "link": "/go.daum?skey=t3zc06bd8QmtKN_5ie.jH6erHd1WoDQ3tn_M8QeeRCbUruhcBpdeq7LKHfeb_oKT94rkC-KuNluDd7f.WO4ik6F_r2PhLM2CnHWkawvBHjAOgUKpfoGOBaJSrzLCYWKdaG-1bQgCeu.MpE54yVjBnSH2Rpg00&val=mXg003Z2nQLlED4VSgWT.C9oq3WJgDOUI_V8Mn4ViK3Hrd-2IcllBy88LpZ--najHe8dWNtmOHtoNfuc0",
+          "shopid": "cf_swanicoco2"
+        },
+        {
+          "name": "러블리슈즈",
+          "link": "/go.daum?skey=5unQ0bGFHHATt3fla3Pg7Dwys.H5RUhb7WVl9qNaFj1JSc5eYHzSgAgUDRPaqTbu37-ltNifHDRADeD1jhHkj_VaO8h4gPagRBISYYSSUBfY_1amTflw8W7fqK3XaHxCfGRdKxYV3gLej1vWXgjXaMYuZoQ00&val=TiQ00UwJLpric8c8fClyNPdo1ukcWpuOCaCNh1vUl6KGbbV9u8XRFQdipdc15EMhFVgZg8eZePu7JfH50",
+          "shopid": "lovelyshoes"
+        }
+      ]
+    }
+  ],
+  "shoppingPartnerList": [
+    {
+      "title": "오픈마켓",
+      "type": "openmarket",
+      "list": [
+        {
+          "name": "G마켓",
+          "link": "/go.daum?skey=khHIuvJRdeuwbMZe3a7apMkP8WtSSMBu7Uj_A4HiCyhMpMdzTWk6MsUJ5MD75rJQlXKmuJJP3m5Kzmok4OO35TtHfnb_4x3bkl86tdJXz2SC8HnuOtlBQ83Rbj_bhmAykEDJJ&val=hVQ00TjdHG37lkNCDGa3CpacpnCyoRJ-m41Q1U7kaXiL..H9pqt1hI4IXSu2tzYRT4bOQq4lZHH8M9ao0",
+          "shopid": "gmarket"
+        },
+        {
+          "name": "옥션",
+          "link": "/go.daum?skey=EYGZdiB1jAnluOHmO.usBGoUNuCDk72YLlmoA7_2L8IXrN9Xe1P9caZHFWJbwABB9J8lZRZyZ7iXLAtqK2VHdaEuiB6E6BrEjwmIDVu5PPRhTH47c3IRYRMmakrjJU27251gR&val=g-A00kdX-qfeE5Ovx3K7s2Ppl5s6CEXpjeAParGeuS7RtN-B_ovWOT4DqzaguwHzVTxGUEymGHgugfDA0",
+          "shopid": "auction"
+        },
+        {
+          "name": "11번가",
+          "link": "/go.daum?skey=5aiv7QKXcA_ltMoVshQx9lMZlO6TRCfUFJKc-q96APLPA-pn_mobKzhVbJ_v9VxjURszZTIrz6LBVmUUJbXeibzV.nYiolyaWMKjnT.PmMznZ7dgFUqIfBaONLJItwEU57AW1&val=3kA00Z6A17-m-DAslOs5.v.5WoUfBa92BI5GYltnYUqYAngvdDS2vA5rn.A38kpaM4FWKJm7WY5AqzeQ0",
+          "shopid": "11st"
+        },
+        {
+          "name": "인터파크",
+          "link": "/go.daum?skey=k1N50yYMi9jHTsvGmVYn9_7lfIzlpShtndJ4RFwSWMJVBwKGhHrQmUnw9UuZklr76cJ.oiHrTseYA.X1mR4ahSBdmnMWpKl8SyBQiulyzUU6Jzf2sy.afxqZEOy344QJgcNTejtLRuZp5R3JvvWmvrDJFHg00&val=9Ww00LVQgl3b6EEuPOEWk_73lF5YYUGoCpDHTwXl4honIs.uNUnA5T_M5hzh2xWh3Of7eRNx9-wgmVaw0",
+          "shopid": "interpark"
+        },
+        {
+          "name": "롯데온",
+          "link": "/go.daum?skey=vmsE94EoNxFxKoOByVHeZskLWOqCMvRgVBgGfK5BEF_cNK3_hSUBsW.8eU4_Rd6R6m9F7Rm-UfUZcwZjA.Od-A56KJv5j9zYB64t5jb4FhpoSnyQ4v.M6xZeK7cpjpIVrHp6f&val=rJQ00okdfUfw-eKn9zzFJG-J8x_rOrnXM3J9pPxfQo6oBdZswxcxHiTkFwWpJvL.RI1V55zrMwnc_Gwk0",
+          "shopid": "lotte"
+        },
+        {
+          "name": "qoo10",
+          "link": "/go.daum?skey=MOSnNkQ8GsMP9xTxbjDJoRNwC8gPxFHyzO8_bgXCR32NR86of6hkiAqtA2Rtd.jGGUaE-GXauH1W5BWvrPq4zusrFHX5RnvXSDXemWBcuzj7--a3yLzF9Pt_6eJ9Is7XdjN.h&val=RBg00H92WPuxINlT4_fVuqcAPknWGAftdGMjxSkIzkz6KiPQlzJwtKQEpF8Ch7kyqLuV.cqEZTEfcBIg0",
+          "shopid": "qoo10"
+        },
+        {
+          "name": "쿠팡",
+          "link": "/go.daum?skey=Qq.q3RMLSUu.VlMtWCv-yD4MG9E6BYG_V5GvQ6wTXyKMcGciDUIWQubYfVRS92X3Vu4zNIWH7qGROhc.mh1Emn67U2H9vwgRXnwu5UavmowqPpIgcaR_fycALWzj3FVRS6kNT&val=NPQ00QYNbGe.MKj1v-AKH5PeOm4Xw_REdJg48KK8Ulky29EII-Amy8Y.uZsgqKqHC18AOX29ed7Zy_9w0",
+          "shopid": "coupang"
+        },
+        {
+          "name": "이베이쇼핑",
+          "link": "/go.daum?skey=DUWw04wIOTrgEprjGSTdCPzcQ5qSXpSQ.P_TRq3nYR.MOOUAQ.UHR7y6EvXNysEIwEpIVGQ1o6.hJ5z9.Tjrndzs-IB_Ar2iQa3DO7mzrMzlq3MGZzfLrnrwxarkn4Tn17H64DZtGsVmm741.Hwzhy-5G-w00&val=UPA00fKsNK_6cRClQdRS2QuwEd_Vkyk9pO.DDWMQyZonMOOw6aKqttKHxsBgwkQjZXAJxDSdO1qV.QzQ0",
+          "shopid": "ebayshop1"
+        }
+      ]
+    },
+    {
+      "title": "백화점",
+      "type": "department",
+      "list": [
+        {
+          "name": "AKmall",
+          "link": "/go.daum?skey=xP3g0qHgYI3ioVtubnP8YMmHVjDkYhULaxSdLWntmEDOsyxke1E9rRW8.tqTAp1pq7-o4gAxByFLbCFkLVwgfjE5SEJdOo_8Y2XdccNgNOUWd9jUUptZdTbu4mAXVhsWezUhIa6oh-AD3pU7jb1xWz8qqgg00&val=hVQ00TjdHG37lkNCDGa3CpacpnCyoRJ-m41Q1U7kaXiL..H9pqt1hI4IXSu2tzYRT4bOQq4lZHH8M9ao0",
+          "shopid": "samsungmall"
+        },
+        {
+          "name": "롯데백화점",
+          "link": "/go.daum?skey=BC.7EdsELN8gzC64MP1uottf9Rlu_e3Tj2OVbA6g_Nb2EoCosmDuFUbNwALvGyDnWpQblmuZLool677YXFPKYm1381Ox3CxZa_U_1Htcb958Ckd2tIc84kGWF_Y4mzgwmgaeN&val=g-A00kdX-qfeE5Ovx3K7s2Ppl5s6CEXpjeAParGeuS7RtN-B_ovWOT4DqzaguwHzVTxGUEymGHgugfDA0",
+          "shopid": "ellotte"
+        },
+        {
+          "name": "갤러리아몰",
+          "link": "/go.daum?skey=zoZI0oy98.BOLavmnN2GkExP1akJSeSnDvbQQ4BGwv96zEOjTRrLuN2tAQmVC.y8qtnpfhuYaF.Q7lIFCyUxhME7nWwytPjCSEM2D6QnVwJFne6Udkn.ZVWBeWWTRVK9RxkfDguo.9t_M.tlUZfVj6BrOJw00&val=3kA00Z6A17-m-DAslOs5.v.5WoUfBa92BI5GYltnYUqYAngvdDS2vA5rn.A38kpaM4FWKJm7WY5AqzeQ0",
+          "shopid": "galleria"
+        },
+        {
+          "name": "SSG",
+          "link": "/go.daum?skey=aSfgwffIzNrKLCYNylzv_odrZhIGPy72AyEJANymdSBGEvF6BUDF7Hvt7jlU1XDJ.79LNJE3HEhM9hI27YMKr-SC5PVHz1A5LiYs4aMz7Kmpj7TjfIvgvYQfABBuIyUlcZqKE&val=9Ww00LVQgl3b6EEuPOEWk_73lF5YYUGoCpDHTwXl4honIs.uNUnA5T_M5hzh2xWh3Of7eRNx9-wgmVaw0",
+          "shopid": "ssg14"
+        },
+        {
+          "name": "SM면세점",
+          "link": "/go.daum?skey=mqRk0gPD1oxAsY52RWcYs46V4Z2jkJhGcwP-gUzBYHVkdl2HOOS573iRE3xOyO42mwe781qvYQ_ZKSFk5HJB45Q8GSbwECazcS-8y4oYGyK9c5kb8HjyQoqjYIDl97tj6DRBEsQ9LSKUNXylNgyqga7rAOQ00&val=rJQ00okdfUfw-eKn9zzFJG-J8x_rOrnXM3J9pPxfQo6oBdZswxcxHiTkFwWpJvL.RI1V55zrMwnc_Gwk0",
+          "shopid": "smdutyfree"
+        }
+      ]
+    },
+    {
+      "title": "홈쇼핑",
+      "type": "homeshopping",
+      "list": [
+        {
+          "name": "CJ mall",
+          "link": "/go.daum?skey=z2E9QdpUGk62.vtpmzO6U4ORNo19jcYU91EMbmqGmkOAzL1d3VIvgBt558M766qVYLEQ5B-Pw63TKuEVP-mDO-yr1lZBwN6LAXucZlCE94ecee5P6nk3BDkkWub8X-tRL9i76&val=hVQ00TjdHG37lkNCDGa3CpacpnCyoRJ-m41Q1U7kaXiL..H9pqt1hI4IXSu2tzYRT4bOQq4lZHH8M9ao0",
+          "shopid": "cjmall"
+        },
+        {
+          "name": "롯데홈쇼핑",
+          "link": "/go.daum?skey=2WNk0F623K6OyLBchaW12.JbJvkB4O-lruhmuA-gUH1CTvY589yOlgPWjXlUSpASPsHjD1RukQRHQfCZyH-sn_JqexdyQsIAofylVw9RgHlTP_JRqVHfXDa9DdxEz4GludDyozfuX-skC1EHIt2v9goHOHw00&val=g-A00kdX-qfeE5Ovx3K7s2Ppl5s6CEXpjeAParGeuS7RtN-B_ovWOT4DqzaguwHzVTxGUEymGHgugfDA0",
+          "shopid": "lotteimall"
+        },
+        {
+          "name": "GS SHOP",
+          "link": "/go.daum?skey=Yi2rUo--scxZBJcig_EvGQq4.h_oTicgEeJvVucEdQ3BpsS5tra.Va7JnJ5DFTrCm.npYM1pmrs5zUC7bOv898zYQopsrrMYKbFA1-xympf54ODo6CazdXKNs9gEO5RjIWEUY&val=3kA00Z6A17-m-DAslOs5.v.5WoUfBa92BI5GYltnYUqYAngvdDS2vA5rn.A38kpaM4FWKJm7WY5AqzeQ0",
+          "shopid": "gseshop"
+        },
+        {
+          "name": "현대 Hmall",
+          "link": "/go.daum?skey=-xQdmlPg4nXNODsQAvrwlRmEHfEYY5VzgnTmPc2ofJD-RBQt3k6o63rQWLrnCT6C8QcR3avTt1kHCEariPtKwi6dssryZWvzX7rZ-uOMip.-fSuCHBOmNZVWX-uaDeZrziRai&val=9Ww00LVQgl3b6EEuPOEWk_73lF5YYUGoCpDHTwXl4honIs.uNUnA5T_M5hzh2xWh3Of7eRNx9-wgmVaw0",
+          "shopid": "hmall"
+        },
+        {
+          "name": "NSmall",
+          "link": "/go.daum?skey=xDzAJcwKLNPpYugSStcjk8tITUWfNyylhY4rSeCs4y5v2ZPiGzutl6hRLKnrYL9N8_dPEMW6Dxlus5NOz9mu8Dm-u7zP638VdZMng7qppWFUio4FY2TyiNh1F3RgAGpN7aX4F&val=rJQ00okdfUfw-eKn9zzFJG-J8x_rOrnXM3J9pPxfQo6oBdZswxcxHiTkFwWpJvL.RI1V55zrMwnc_Gwk0",
+          "shopid": "nseshop"
+        },
+        {
+          "name": "홈&쇼핑",
+          "link": "/go.daum?skey=.KKk092VNiDytdIOVLicClsvBmlNNfcQ7apzLmmff2X2vFycPPFjQI8Vhbslk4y9rvFTcOWbLBwnGbGeLA.tKczWeIiFSQrXEuueixLOIuCRYrUu2Dl5474bYwknjsOA9wcgoogkBTnnJFRVw51FzfmXPtQ00&val=RBg00H92WPuxINlT4_fVuqcAPknWGAftdGMjxSkIzkz6KiPQlzJwtKQEpF8Ch7kyqLuV.cqEZTEfcBIg0",
+          "shopid": "hnsmallcps"
+        },
+        {
+          "name": "K쇼핑",
+          "link": "/go.daum?skey=-LF2mrfB4QBj6RAFGkGAeZezq7zltaUuTtt3mXXT3.2-YzaCIoJ.9J7o4waYXZ7YAyrB2iaRAQtZYPN9rWyj3xqeqFkYVcPfmE5bkxkXHQofyXW6RfnLivUe569Mo1Ym.TDcr&val=NPQ00QYNbGe.MKj1v-AKH5PeOm4Xw_REdJg48KK8Ulky29EII-Amy8Y.uZsgqKqHC18AOX29ed7Zy_9w0",
+          "shopid": "kthitel"
+        },
+        {
+          "name": "신세계티비쇼핑",
+          "link": "/go.daum?skey=vXA90LT5ij2yaS3t4IJimzuIPLmUC.r2EhmYlKifJqoFiJ8I_ihmZwu-okiqL-ETotvWenDOiDWd9B8eM3Gg-kTFP8e6iRnH5hbnVOGjtBWRvWMYLhPqmo_6BfYGYW-uTsIO44uNywlxEi2jTfVUDARH9sw00&val=UPA00fKsNK_6cRClQdRS2QuwEd_Vkyk9pO.DDWMQyZonMOOw6aKqttKHxsBgwkQjZXAJxDSdO1qV.QzQ0",
+          "shopid": "shinsegaetvsh01"
+        },
+        {
+          "name": "공영홈쇼핑",
+          "link": "/go.daum?skey=ryFk0yin_5YZn-LjSDB--VzjUYz-fwRjXxjrXoazUx9Sr9oiYJ43iVO7WAOwFUQUUw3vX5U_9jALsrUCdn3Q4wFK-MEf37rhSRfo2YRT4b46FZ.q9GEKVrml3ekZSnJwy1Ovg8BX3tqpDp7FlGkJlCItxcg00&val=pVg00nTl9G-61uMBiVtrF997IekG9FlEYVUXC5Nyc5ePbLy-O._86MEVszcAmoezpI4i9_oIEY.NveFA0",
+          "shopid": "imshopping"
+        }
+      ]
+    },
+    {
+      "title": "마트/생활",
+      "type": "mart",
+      "list": [
+        {
+          "name": "홈플러스",
+          "link": "/go.daum?skey=y8Yk0OZDs.i_1vOIKChR6mf8ob9Mk-prep3aGGkyOT-d8PnpcJGrn_aqk4qI6td9ZZvntnlBfqyxpM3mTb74sJ7sita29vYeD2K_mmf19vGQAjRaKmwIEoLgzAetpv7BkMxQkrk9rEJgEzv3NEiepLkXZxg00&val=hVQ00TjdHG37lkNCDGa3CpacpnCyoRJ-m41Q1U7kaXiL..H9pqt1hI4IXSu2tzYRT4bOQq4lZHH8M9ao0",
+          "shopid": "homeplus"
+        },
+        {
+          "name": "NH마켓",
+          "link": "/go.daum?skey=888FgMLf7rZMo3HTCGGNGraj624Iu3BsZOIaEtebZQcJvysfaIiTHoyjnLOwzPKyWRRO_vUtnEgtcUWVTuPP1UOSQkxgOmEdXFQ47P3FtAWfWqnxJ6-hgQ-XLX5-SRyVoqK65&val=g-A00kdX-qfeE5Ovx3K7s2Ppl5s6CEXpjeAParGeuS7RtN-B_ovWOT4DqzaguwHzVTxGUEymGHgugfDA0",
+          "shopid": "hookasi"
+        },
+        {
+          "name": "롯데마트",
+          "link": "/go.daum?skey=KCE90.QLJVsTzSSO62WRJb7TqY8-mFe8ZL21JuCQDgmA_9v4oVoXUcpVJV_rhVLGre3PsyAiiE9shfK6JKo-.ks8ktLOUwLef8WgX2moIlsN6LNCfQlQndeY9BCeEBvgqVPAYR5eUw9xIBUFAElV61Cy.7g00&val=3kA00Z6A17-m-DAslOs5.v.5WoUfBa92BI5GYltnYUqYAngvdDS2vA5rn.A38kpaM4FWKJm7WY5AqzeQ0",
+          "shopid": "lottemart"
+        },
+        {
+          "name": "텐바이텐",
+          "link": "/go.daum?skey=o4gw0GgyFAvRUmHyGMoXEdXuMVFpuxzukT67ulXG_kh8Als2EeKl7f9eGvue2sDcS.KuZci3aFJY3DB9G37P-_WWG9RjIllZz8nYtySMJQcKe-37Z-XyC9BqaCgJ73ZjGztvjN6AMBWGj3MRSLLWuBQKrZQ00&val=9Ww00LVQgl3b6EEuPOEWk_73lF5YYUGoCpDHTwXl4honIs.uNUnA5T_M5hzh2xWh3Of7eRNx9-wgmVaw0",
+          "shopid": "tenbyten10x10"
+        },
+        {
+          "name": "제로투세븐",
+          "link": "/go.daum?skey=jmmLTlj7OZd8hielp9v.Ind24o-Xuc6AhhYVGF_fCli8oUgSo._QKRdeoyMDVfwc9.bAu52cloF2J86hIxr_A.i3higQQRJXF-CPq3QrFpPoH1CT97p4HjRl91kYO_yyXWPXC&val=rJQ00okdfUfw-eKn9zzFJG-J8x_rOrnXM3J9pPxfQo6oBdZswxcxHiTkFwWpJvL.RI1V55zrMwnc_Gwk0",
+          "shopid": "0to71"
+        },
+        {
+          "name": "동원몰",
+          "link": "/go.daum?skey=esI10LX9ymVouvLSN6mUwTnH5ZuAFCddzmJ5mpfqdbUVj2rzMvAND7oSO.bctNPNWAS47g2ieajdNv_Xl6.qMW_IiywxcpF_LPhJ88TM2Ct9U8KDtVrLMZestOcVrlUDu4rAHbDjSgA9-nvj6AzZKuw5egw00&val=RBg00H92WPuxINlT4_fVuqcAPknWGAftdGMjxSkIzkz6KiPQlzJwtKQEpF8Ch7kyqLuV.cqEZTEfcBIg0",
+          "shopid": "dongwonmall"
+        },
+        {
+          "name": "CJ더마켓",
+          "link": "/go.daum?skey=7OJk0cTgmHyQ_IFQgJtkHIKCR-W1Tp-9FRxVtFNjxsfeMo8jNGzEPjwpIjgP49nzzzaOyw4D7wkG8M_Kbn7qZk9qVefBiBgzBjRZy44gRuyOKmZ-KwQ7fmWF.Vh2nOkMEtYgUgNK4iMUfXA-6IuoKgFjs-g00&val=NPQ00QYNbGe.MKj1v-AKH5PeOm4Xw_REdJg48KK8Ulky29EII-Amy8Y.uZsgqKqHC18AOX29ed7Zy_9w0",
+          "shopid": "cjonmart"
+        },
+        {
+          "name": "알파몰",
+          "link": "/go.daum?skey=-5E50BGwvLP67B7UzbKJcjT4e8sMjAfS31QHil1HFBDoVreHwpUJsT3VwZja6vRZy-VE_bLWi5pdu9Mfd_hBHBu1XT2aSWY5T_xSUM8KRhVO7BpU-DbfD91zLVrRE9wm-BjN6lGf7uW-W5cRdbTF.61rFhA00&val=UPA00fKsNK_6cRClQdRS2QuwEd_Vkyk9pO.DDWMQyZonMOOw6aKqttKHxsBgwkQjZXAJxDSdO1qV.QzQ0",
+          "shopid": "alphamall1"
+        },
+        {
+          "name": "아이소이",
+          "link": "/go.daum?skey=DzaE0RwYUvgukyvspctIIrVHFYh_TEFQpqSkDkN6ZLvjs-zv1FcrWU5SUPASCsAq9M3q27mZmO7Ybyc5zne.otiNlfav1yS-iRBcaXBqRKkH7cJ9u_O4MJ6tCteDCVzQE8aWrcQ2yr9hGe7B4cgir_ZH8MQ00&val=pVg00nTl9G-61uMBiVtrF997IekG9FlEYVUXC5Nyc5ePbLy-O._86MEVszcAmoezpI4i9_oIEY.NveFA0",
+          "shopid": "iloveisoi"
+        },
+        {
+          "name": "1300k",
+          "link": "/go.daum?skey=TxEeerukyzVqi7PnQ.7etiIjQoFcPSznqIfTR5plQgF-4NAQ-wXIKDGobYhGYtpGMQ7TFjhbpWsfZagZQoPNMm1CRK1tDoRGNA-emzuYRjKgHM.1_uXVr5dIiRpHA6zr5vEoi&val=fVw00f36._Y_8FYECqNWbE4gXkZpy_T-c7qeV7rnSAzWXoIvq5qNMEPTyoUvy_6pdoMiAFncR5vOcMJU0",
+          "shopid": "1300k"
+        },
+        {
+          "name": "사조몰",
+          "link": "/go.daum?skey=mWBc06kOSG6TVMmXRwd3cGiOkZwWVKndfO4B7YqFUfrf9LPyuaWgS7rEBJsH3qKPtJcbMrbP7v.7unl9F7J9L51egXOPUxbg3Pgif6P25MT4PJRvglW4lgku1mPWWUbg5pEcsfTUK6NJ8Khj2kT4hb1ALzw00&val=iKg00xPSwYWAz_jyhfh7a1vBsxfSXusQZGSAA_koBiatuweFt7ts_u.hkGOGBzA81XHyrQ9lolVYv8iw0",
+          "shopid": "sajomall"
+        },
+        {
+          "name": "다이소몰",
+          "link": "/go.daum?skey=d94I0tptoGaDMaQcIMxvq2QAmuN8JV3cuHIMihYkmrT2AgQj_9vTkUivweLyGmwLnQBC2b1BsVVHG9CEjE7RIq1uDgTDTDZItCW6OKXBNcKlPnRh9WXi3Eqbxjbh_Fik2J7TlrfFQdO8SL6.B9iecAW9l8w00&val=.Rw00Ze67-3hQ.6W7_oFMl-vlYV8e7CPdlG2uuzmP1s-3kJ7w62EiOvCq_Q2vgPJM7W-QjZmGrUJMmSE0",
+          "shopid": "daonmall"
+        }
+      ]
+    },
+    {
+      "title": "소셜",
+      "type": "social",
+      "list": [
+        {
+          "name": "G9",
+          "link": "/go.daum?skey=v_nCB8LteywvILmKAXXT9STa9TLWTM7.t73-UpWOla2WF5C.pg1liRjtYV.ZO63vAk9Fhz7IuUDeeinS2D3rdbncC9RscgApYmq8n1HDOC5oVc4eNbp5UhblpsKjKS1VfjkBm&val=hVQ00TjdHG37lkNCDGa3CpacpnCyoRJ-m41Q1U7kaXiL..H9pqt1hI4IXSu2tzYRT4bOQq4lZHH8M9ao0",
+          "shopid": "g9today"
+        },
+        {
+          "name": "위메프",
+          "link": "/go.daum?skey=rbM90Bx-zp.pDgCD1qpMmrr_Txu72XDGMBMKn4NuX-jakooWrq8No4zRTClGJztKWu5DQ_saUjwMrZZcV7cigGT7Zz9X2_I9aFqAUpGwspd-8KlKkEKr5teU2HKAM4A6qkCCz6e84JUlcV1hayDNhQtS.Pw00&val=g-A00kdX-qfeE5Ovx3K7s2Ppl5s6CEXpjeAParGeuS7RtN-B_ovWOT4DqzaguwHzVTxGUEymGHgugfDA0",
+          "shopid": "namu-internet"
+        },
+        {
+          "name": "티몬",
+          "link": "/go.daum?skey=xwsU09iKrlHI5td6XMCwvjb8_X.na9BuQXDczYrSwlA6sYvsucybPsNNBbeBJ_m-K7HfReT9RY-NL9wLThGl5-42Ob9UwQjjP2GxCbJVeCFEE9EVmv53Hw19IGYPe5fZWnQPS.dyZsQsy9-ZzBt7VrOS11w00&val=3kA00Z6A17-m-DAslOs5.v.5WoUfBa92BI5GYltnYUqYAngvdDS2vA5rn.A38kpaM4FWKJm7WY5AqzeQ0",
+          "shopid": "ticketmonster"
+        }
+      ]
+    },
+    {
+      "title": "패션",
+      "type": "fashion",
+      "list": [
+        {
+          "name": "하프클럽",
+          "link": "/go.daum?skey=Kf2I0cQz8B2IOvHMC.NHu9rlDqh.JPoZLE5.es3Re.oYSFKOcvCq1.Kyk6tbTIBbCtqt89az3DDHTbnBtRo_GjWsQLYrqi42teGXterkxh8rA.Q_oizOAXf66sFXmGPYDSNyRA76fZO-MuHY27Bal5Y4tgQ00&val=hVQ00TjdHG37lkNCDGa3CpacpnCyoRJ-m41Q1U7kaXiL..H9pqt1hI4IXSu2tzYRT4bOQq4lZHH8M9ao0",
+          "shopid": "halfclub"
+        },
+        {
+          "name": "패션플러스",
+          "link": "/go.daum?skey=Os2c0vrWSE1oLWCXipOvt1YKDobUHi5t6p_.Xemxif.r-LMdH8uLHQWUrAe-pOx6Kfyt8kpwrMzoE2VeL4q6ZPvATimYsXkzIEIjezz-jSJ-N3c5EWGLsanUoQ1_SdTOqYyn7cIqVysYQri6zF-qZld4hDQ00&val=g-A00kdX-qfeE5Ovx3K7s2Ppl5s6CEXpjeAParGeuS7RtN-B_ovWOT4DqzaguwHzVTxGUEymGHgugfDA0",
+          "shopid": "fashionplus"
+        },
+        {
+          "name": "아이스타일24",
+          "link": "/go.daum?skey=iDlk08ZYtfUAIGavayuQuHLpRGqELOOlHfCCQ9hX8vcsPMhO9s.u5cAKpawzZr7jweojWWlOLf19Pk16jAmcFWY-csLvBq3_Q4un-wUF7fwOsMbw44XzG698XzYdEy6mH1b2sD9E.oKvDLhjetMadjyp74g00&val=3kA00Z6A17-m-DAslOs5.v.5WoUfBa92BI5GYltnYUqYAngvdDS2vA5rn.A38kpaM4FWKJm7WY5AqzeQ0",
+          "shopid": "istyle24"
+        },
+        {
+          "name": "LFmall",
+          "link": "/go.daum?skey=Hwa90.2tmt-RNHUcVTwVTelkKOW2CSqCDP5.11X1SdOS7boaYvoO-bT_NyRlYvTIqwyci4U.V7Znp-TpLOwX279Sba-CcIZWKpzoMEdjB6zLIqIqEH.KvAGNacGHsqZNc9-X9D1t_kaXXfgEIirLArNFrtw00&val=9Ww00LVQgl3b6EEuPOEWk_73lF5YYUGoCpDHTwXl4honIs.uNUnA5T_M5hzh2xWh3Of7eRNx9-wgmVaw0",
+          "shopid": "lgfashionshop"
+        },
+        {
+          "name": "보리보리",
+          "link": "/go.daum?skey=HQVw0PpenooD3Rp.2nSWsc2Zj_rzsB7UgwQu3aiXxMv7pj-.ZTE9m2nKIzNoNLgGDRhAxSmeGzJrvuPGR67b8iPMGo9bs6WrJpnIWY28ebe.PJ4cCqCrLfMnHkIloTwNj6zInPt9zl-RQ8A.CfpNaiKfaog00&val=rJQ00okdfUfw-eKn9zzFJG-J8x_rOrnXM3J9pPxfQo6oBdZswxcxHiTkFwWpJvL.RI1V55zrMwnc_Gwk0",
+          "shopid": "boriboris"
+        },
+        {
+          "name": "머스트잇",
+          "link": "/go.daum?skey=2qFE0GSnqMzTruhMUNLEZEyXB5Vz7Mc7Emm_yOd6wX8CghTMTLFEBalf8qBu1FZTicfCh9Y6JYcTcwgREOM2_Fm3nkU6MMWPhzgO6x.yAlHpvBzCFQyLqJuFALj3T_7SkAL_Coy9aynoNTKL.A4XZOaNyLg00&val=RBg00H92WPuxINlT4_fVuqcAPknWGAftdGMjxSkIzkz6KiPQlzJwtKQEpF8Ch7kyqLuV.cqEZTEfcBIg0",
+          "shopid": "yongmangu00"
+        },
+        {
+          "name": "위즈위드",
+          "link": "/go.daum?skey=SL43f3WdFWx3Vy93CSFuVW6RWb9a9RFdfh6NexzCDati5.1BBpjeugDreIsES69gU6cwMa-39dAgx7sVcYoBYZMytepZkauRGfOTOzBYB7a4ZrB6fDstZc7ZvmClf4hBefrE2&val=NPQ00QYNbGe.MKj1v-AKH5PeOm4Xw_REdJg48KK8Ulky29EII-Amy8Y.uZsgqKqHC18AOX29ed7Zy_9w0",
+          "shopid": "wizwid"
+        },
+        {
+          "name": "무신사스토어",
+          "link": "/go.daum?skey=J4Og0jE4w45_GXC_XLxVoLWX_7vTYoBqi55XRyYHq6yfYSxnhXhaIu8I9LL2STDSDBiG7j7g81w9KNE_OML5UhMZ6VNDhcQK1iLOML5Qiq6Lda7jxIAkiRoH1Zwc8vBWb-LXXHypNEvpg6nPmTg5OkXiPwQ00&val=UPA00fKsNK_6cRClQdRS2QuwEd_Vkyk9pO.DDWMQyZonMOOw6aKqttKHxsBgwkQjZXAJxDSdO1qV.QzQ0",
+          "shopid": "musinsa2"
+        },
+        {
+          "name": "품바이",
+          "link": "/go.daum?skey=osc90KpdukSFTCQhXHso.RK_rE6TehDxYk_jRnqAgCMQKak.Q9prCDSlcMJT2HIgYj.5n6kV2qOALkRfM2fxQWctPCcDK.JGLvkYkdnRDarGjkdZhQeQ4c9XuhFwYpCAokl9rMNI3osuP1bH.UcG9xIymXQ00&val=pVg00nTl9G-61uMBiVtrF997IekG9FlEYVUXC5Nyc5ePbLy-O._86MEVszcAmoezpI4i9_oIEY.NveFA0",
+          "shopid": "poombuy2"
+        },
+        {
+          "name": "루이까또즈",
+          "link": "/go.daum?skey=Ht1o04nXcRY2XyJDTr8QN5-KUyYRK7XUC2YVnHA4UacvKYWLuEsxnjLpYH3LuQjx.lPbMGG2tFPK8Gr3pD77eySPn4Z9ALC7h56W5Xmw7Ce7Kg.OwILPdtyxaZQBQk-VSZIRY53JdCc5TbQH12Wm46U_pmQ00&val=fVw00f36._Y_8FYECqNWbE4gXkZpy_T-c7qeV7rnSAzWXoIvq5qNMEPTyoUvy_6pdoMiAFncR5vOcMJU0",
+          "shopid": "louislouis"
+        },
+        {
+          "name": "마이클코어스",
+          "link": "/go.daum?skey=ZNvs0YmoPduObypTGoUHVlgYyq3xxc4sr3izFqAvpuW5DvgQor81l9IXpZkL1G1J1l1a.8zbMzBzdU1ag-W1DchEBht7SSEd-gg28QC7zczsTUi_YYUNah4BWilXxh926vLuM_Erb2roDp9jK3nIDP.dkjw00&val=iKg00xPSwYWAz_jyhfh7a1vBsxfSXusQZGSAA_koBiatuweFt7ts_u.hkGOGBzA81XHyrQ9lolVYv8iw0",
+          "shopid": "michaelkors01"
+        },
+        {
+          "name": "가방팝",
+          "link": "/go.daum?skey=RBN502gD-.zb.jFcZSMVvKr_4_OwaMDlP-AEIfnGq5Upxd3sK.ei3_5lat28.IijRZRgVs3NMXoIUKwQ.6qgllE74SKbIM7pSWqXFiK6cSJhHF-QmmdKb6WSVTwL29lQ2WyHBJupKqUh_PQpAHCrBDBXW_Q00&val=.Rw00Ze67-3hQ.6W7_oFMl-vlYV8e7CPdlG2uuzmP1s-3kJ7w62EiOvCq_Q2vgPJM7W-QjZmGrUJMmSE0",
+          "shopid": "gabangpop"
+        },
+        {
+          "name": "프리쉽",
+          "link": "/go.daum?skey=Vlf90yVV1Qd.SkA.yMEUFlHt-tPP3Ay_5Ep_BTyAiXeWcGIpPrvz6b-w_A7bbpjRQpbyjbLVu7vYxJO9MHg3HdSxwFszPTibkuuMYy71nSsQo.eXQ.5LBGO_8rcmRYotk_qGafELgn5sFI-KRayh69ioPFw00&val=HCQ0046RAsS3T1FbuGBSeABx45RG1ESjz9nDx8V.V_EMMYViXVahHhC_eUT68n3XrcSTN.U1MJgsUYnY0",
+          "shopid": "no_freeshipping"
+        }
+      ]
+    },
+    { "title": "뷰티", "type": "beauty", "list": [] },
+    {
+      "title": "레저/취미",
+      "type": "leisure",
+      "list": [
+        {
+          "name": "오케이몰",
+          "link": "/go.daum?skey=2UFg0ulwzmCscR6FQFvJ7RCkfMQqhiosFJWZinLpFK6iaB1IcjmoXOLUxNCsS3OS-sAavcVcfynkBImdUazDnOiBwixb46nihz-UZMnU_amP4UUcR.Gnmocab-fNyEoinyGZCCE.nxtHs_A76REkiuYx8XQ00&val=hVQ00TjdHG37lkNCDGa3CpacpnCyoRJ-m41Q1U7kaXiL..H9pqt1hI4IXSu2tzYRT4bOQq4lZHH8M9ao0",
+          "shopid": "okoutdoor1024"
+        },
+        {
+          "name": "고르고타고",
+          "link": "/go.daum?skey=oKSD845jfaHqf1W_mmPjfbFvSqOYw2zo9zIrLN-RUOif-JzDTNbwit7XLJnD9AcqP.VK1HOdPgf2J5c7pUkYbcIqwmnJwkWWLLps8Sw5NPkgu3AltksAVB8GLN6VC.nQQ1uzt&val=g-A00kdX-qfeE5Ovx3K7s2Ppl5s6CEXpjeAParGeuS7RtN-B_ovWOT4DqzaguwHzVTxGUEymGHgugfDA0",
+          "shopid": "anavehi"
+        }
+      ]
+    },
+    {
+      "title": "도서/공연",
+      "type": "book",
+      "list": [
+        {
+          "name": "YES24 티켓",
+          "link": "/go.daum?skey=tCb_5T.id8erw8tVXxrCckjDXkngBWT4fq2Pijxb..Fpd2vA65ri3RXonXCzDQLExwKwNqipLGPnz4zx_jEMdLPnwG6o-u6ADwleh1AoiS8C1SWsxzKc2rFey8_jIu2-.K9SK&val=hVQ00TjdHG37lkNCDGa3CpacpnCyoRJ-m41Q1U7kaXiL..H9pqt1hI4IXSu2tzYRT4bOQq4lZHH8M9ao0",
+          "shopid": "yes24"
+        },
+        {
+          "name": "G마켓 티켓",
+          "link": "/go.daum?skey=fLl10NZYRLgZsuqqNbWeSjZvCwWkpgPQ661YzBYihGC_bohZAf5Z.baVhPV6wfn-Q_WtvZv6eHAEPrm5guJ83lvkpUzPE7zDM4DzTRYT-c6drrelE9k1sTkzkPzArL6rCZmUgwnFJKC77bJpF5VK79oMVaQ00&val=g-A00kdX-qfeE5Ovx3K7s2Ppl5s6CEXpjeAParGeuS7RtN-B_ovWOT4DqzaguwHzVTxGUEymGHgugfDA0",
+          "shopid": "gmarket_ticket"
+        },
+        {
+          "name": "옥션 티켓",
+          "link": "/go.daum?skey=oMYU0L7F8VsQJyP7BHBlCcVN36aCQrB5DGkdu94rke1ujpVs9bSQGAXMFs1.-mKTgc_zrSzRwe_NbTsEUIV1zren3PTdrvBAlxmpPqPd-eetVsutbYubr8JM5j2vJkRqiQWzWkk2tDLBHfhxBNLqsKy71Sg00&val=3kA00Z6A17-m-DAslOs5.v.5WoUfBa92BI5GYltnYUqYAngvdDS2vA5rn.A38kpaM4FWKJm7WY5AqzeQ0",
+          "shopid": "auction_ticket"
+        },
+        {
+          "name": "티켓 링크",
+          "link": "/go.daum?skey=13Ms0Ap19_gr7ERWy54pA4NK2UrVQvG1d9NBg8HuOK9X6mgA2LJ53Ps6IAemJnbExJDaZG77EHTGffqahAXPG3nUlQ9Vqt7IsvJ1wEjCMws4pFDlHS6rHskht.oBhYsVhrc143MeICwDe3.-NwpfvSxB.-g00&val=9Ww00LVQgl3b6EEuPOEWk_73lF5YYUGoCpDHTwXl4honIs.uNUnA5T_M5hzh2xWh3Of7eRNx9-wgmVaw0",
+          "shopid": "ticketlink"
+        },
+        {
+          "name": "인터파크 티켓",
+          "link": "/go.daum?skey=Up_M0YloR94lRUe6nlbo5-Ct1Wfxj2-aeImLQPkkEo5IGKEdaEPw3g7rtbiS8i_j7dOwAjzonQKnDaJ1vJuZD_w89WRfaFptkEydazEe6qn.SgSGtKcMoPFQezfI8rrG43vfUNfFc8FiV.6q5BTQgtNgSrA00&val=rJQ00okdfUfw-eKn9zzFJG-J8x_rOrnXM3J9pPxfQo6oBdZswxcxHiTkFwWpJvL.RI1V55zrMwnc_Gwk0",
+          "shopid": "interpark_ent"
+        }
+      ]
+    }
+  ],
+  "code": "200"
+}
