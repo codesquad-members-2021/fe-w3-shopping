@@ -2,11 +2,13 @@
 // $font_color: #333;
 // $link_color: #00c;
 $font_family: Arial, sans-serif;
-$font_size: 18px;
-$title_padding: 20px 300px;
+$font_size: 16px;
+// $font_bold:
+$title_padding: 40px 300px;
 // $line_height: percentage(20px / $font_size);
 
 * {
+  // min-width: 1200px;
   //   color: $font_color;
 
   //   // Property Nesting
@@ -27,29 +29,30 @@ $title_padding: 20px 300px;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 1200px;
   background-color: lavenderblush;
   padding: $title_padding;
   .front__logo {
-    background-color: royalblue;
+    // background-color: royalblue;
     .logo__img {
-      height: 70px;
+      width: 119px;
+      // height: 70px;
     }
   }
   .front__input-box {
     margin-left: 40px;
-    background-color: red;
-    display: flex;
-    justify-self: start;
+    // background-color: red;
+    // display: flex;
+    // justify-self: start;
     .input-box__input {
-      //   display: inline-block;
       height: 50px;
-      width: 700px;
-      //   width: 600px;
-      flex: 0 70%;
-      //   border-radius: 20px;
+      width: 650px;
     }
-    .input-box__icon {
-      //   display: inline-block;
+    input {
+      margin: 0 auto;
+      border: none; /* <-- This thing here */
+      border: solid 1px #ccc;
+      border-radius: 10px;
     }
   }
 }
@@ -57,22 +60,28 @@ $title_padding: 20px 300px;
 nav {
   display: flex;
   justify-content: space-between;
-  background-color: greenyellow;
+  // background-color: greenyellow;
   padding: 20px 40px;
+  min-width: 1200px;
   .nav__category,
   .special-menu,
   .hash-tag,
   .add-on {
-    background-color: salmon;
+    // background-color: salmon;
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .hash-tag {
+    color: #888;
+    font-weight: 700;
   }
   .nav__category {
     flex-grow: 0.1;
   }
   .special-menu {
     flex-grow: 0.2;
+    font-weight: 700;
   }
   .hash-tag {
     flex-grow: 0.2;
@@ -91,27 +100,38 @@ nav {
 }
 
 .main-banner {
-  background-color: rosybrown;
+  // background-color: rosybrown;
   position: relative;
-  padding: 0 80px;
+  // padding: 0 80px;
   display: flex;
-  justify-self: center;
+  justify-content: center;
+  font-size: 0;
+  min-width: 1200px;
   // overflow: hidden;
+  a {
+    font-size: 0;
+  }
   .main-banner__static {
+    border: 1px solid #ccc;
     background-color: yellow;
-    position: absolute;
-    left: 10%;
+    // position: absolute;
+    // left: 10%;
     // padding-right: 100px;
-    display: inline-block;
+    // display: block;
+  }
+  img {
+    display: block;
   }
   .main-banner__slide {
-    background-color: red;
-    padding: 0 60px;
-    height: 340px;
+    // display: block;
+    border: 1px solid #ccc;
+    // background-color: red;
+    // padding: 20px 0;
+    // height: 342px;
     width: 685px;
-    margin-left: 500px;
+    // margin-left: 500px;
     // z-index: 1;
-    left: 4%;
+    // left: 4%;
     // height: 700px;
     overflow: hidden;
     // top: 30px;
@@ -124,7 +144,7 @@ nav {
       // display: inline-block;
       position: absolute;
       justify-content: flex-start;
-      background-color: greenyellow;
+      // background-color: greenyellow;
       // top: 30px;
       left: -585px;
     }
