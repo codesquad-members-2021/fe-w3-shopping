@@ -216,6 +216,8 @@ input {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    border: 1px solid $main_gray;
+
 
     .big_contents_wrapper {
         display:flex;
@@ -223,9 +225,10 @@ input {
         align-items: center;
         margin-left: 13%;
 
+
         .best {
             padding: 28px 0;
-            border: 1px solid $main_gray;
+           
         }
     }
 
@@ -244,13 +247,13 @@ input {
         justify-content: space-between;
         text-align: center;
         padding: 0;
-        border: 1px solid $main_gray;
+
 
         li {
             .item_list_img {
                 width: $item_list_size;
                 height: $item_list_size;
-                border: 1px solid $main_gray;
+
                 display:inline-block;
             }
 
@@ -261,6 +264,12 @@ input {
             }
         }
     }
+}
+
+.item_wrapper {
+    padding: 12px 18px;   
+    border-right: 1px solid $main_gray;
+    border-top: 1px solid $main_gray;
 }
 
 
@@ -284,7 +293,7 @@ input {
         height: 400px;
         position: relative;
         overflow: hidden;
-        border: 1px solid $main_gray;
+        border-left: 1px solid $main_gray;
     }
 }
 
