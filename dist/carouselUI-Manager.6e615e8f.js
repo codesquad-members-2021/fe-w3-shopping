@@ -135,22 +135,21 @@ var CarouselUI = /*#__PURE__*/function () {
   function CarouselUI() {
     _classCallCheck(this, CarouselUI);
 
-    this.el = document.querySelector('.carouselUI');
-    this.imgurl__a = "http://localhost:8080/rightpannel1.05c10acb.png";
-    this.imgurl__b = "http://localhost:8080/rightpannel2.9749f624.png";
-    this.imgurl__c = "http://localhost:8080/rightpannel3.a20f5d1e.png";
-    this.classCnt = 1;
+    this.carouselUI = document.querySelector('.carouselUI');
+    this.imgurl1 = "http://localhost:8080/rightpannel1.05c10acb.png";
+    this.imgurl2 = "http://localhost:8080/rightpannel2.9749f624.png";
+    this.imgurl3 = "http://localhost:8080/rightpannel3.a20f5d1e.png";
   }
 
   _createClass(CarouselUI, [{
     key: "makeImageDOM",
-    value: function makeImageDOM(img) {
-      this.el.insertAdjacentHTML("beforeend", "<div id=\"img".concat(this.classCnt++, "\" class=\"carouselUI--img\"><img src=\"").concat(img, "\" /></div>"));
+    value: function makeImageDOM(imgurl) {
+      this.carouselUI.insertAdjacentHTML("beforeend", "<div class=\"carouselUI--img\">\n                <img src=\"".concat(imgurl, "\" />\n            </div>"));
     }
   }, {
     key: "insertDOM",
     value: function insertDOM() {
-      fetch(this.imgurl__a).then(fetch(this.imgurl__b)).then(fetch(this.imgurl__c)).then(this.makeImageDOM(this.imgurl__a)).then(this.makeImageDOM(this.imgurl__b)).then(this.makeImageDOM(this.imgurl__c)).then(console.log(this.classCnt));
+      fetch(this.imgurl1).then(fetch(this.imgurl2)).then(fetch(this.imgurl3)).then(this.makeImageDOM(this.imgurl3)).then(this.makeImageDOM(this.imgurl1)).then(this.makeImageDOM(this.imgurl2)).then(this.makeImageDOM(this.imgurl3)).then(this.makeImageDOM(this.imgurl1));
     }
   }]);
 
@@ -167,37 +166,63 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var carouselUI = new _carouselUI.default();
 carouselUI.insertDOM();
+var leftBtn = document.querySelector('.carouselUI--leftBtn');
+var rightBtn = document.querySelector('.carouselUI--rightBtn');
+var ui = document.querySelectorAll('.carouselUI--img');
+var x = -485; // 1번째 페이지 보이기 위한 translate3d값 설정
 
-var testFn = function testFn() {
-  var leftBtn = document.querySelector('.carouselUI--leftBtn');
-  var rightBtn = document.querySelector('.carouselUI--rightBtn');
-  var el1 = document.querySelector("#img1");
-  var el2 = document.querySelector("#img2");
-  var el3 = document.querySelector("#img3");
-  var x = 0;
-  leftBtn.addEventListener('click', function () {
-    x -= 485;
-    el1.style.transform = "translate3d(".concat(x, "px,0px,0px)");
-    el2.style.transform = "translate3d(".concat(x, "px,0px,0px)");
-    el3.style.transform = "translate3d(".concat(x, "px,0px,0px)");
-
-    if (x == -970) {
-      x = 485;
-    }
-  });
-  rightBtn.addEventListener('click', function () {
-    if (x == 970) {
+ui.forEach(function (v) {
+  return v.style.transform = "translate3d(".concat(x, "px,0,0)");
+});
+leftBtn.addEventListener('click', function () {
+  if (x == -1455) {
+    setTimeout(function () {
       x = -485;
-    }
+      ui.forEach(function (v) {
+        return v.style.transition = "0ms";
+      });
+      ui.forEach(function (v) {
+        return v.style.transform = "translate3d(".concat(x, "px,0,0)");
+      });
+    }, 300);
+  }
 
-    x += 485;
-    el1.style.transform = "translate3d(".concat(x, "px,0px,0px)");
-    el2.style.transform = "translate3d(".concat(x, "px,0px,0px)");
-    el3.style.transform = "translate3d(".concat(x, "px,0px,0px)");
+  x -= 485;
+  ui.forEach(function (v) {
+    return v.style.transition = "300ms";
   });
-};
+  ui.forEach(function (v) {
+    return v.style.transform = "translate3d(".concat(x, "px,0,0)");
+  });
+});
+rightBtn.addEventListener('click', function () {
+  if (x == -485) {
+    setTimeout(function () {
+      x = -1455;
+      ui.forEach(function (v) {
+        return v.style.transition = "0ms";
+      });
+      ui.forEach(function (v) {
+        return v.style.transform = "translate3d(".concat(x, "px,0,0)");
+      });
+    }, 300);
+  }
 
-testFn();
+  x += 485;
+  ui.forEach(function (v) {
+    return v.style.transition = "300ms";
+  });
+  ui.forEach(function (v) {
+    return v.style.transform = "translate3d(".concat(x, "px,0,0)");
+  });
+});
+/* 개선 사항
+1. 각 el를 잡지않고 똑같은 클래스의 querySelectorAll로 한번에 속성 부여
+ (querySelectorAll은 유사배열이라 인덱스별로 지정을 해줘야 한다!!)
+2. 슬라이더 구조를 3 / 1,2,3 / 1 로 앞뒤에 페이지를 추가해놓는다.
+=> 마지막 페이지에서 다시 처음 or 마지막으로 가는 무빙을 취할 시, transition이 일어나고
+=> 그 뒤에 setTimeout을 통해 x값을 변경해준다.
+*/
 },{"./carouselUI":"js/carouselUI.js"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -226,7 +251,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49409" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55964" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

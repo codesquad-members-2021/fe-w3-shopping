@@ -30,15 +30,6 @@ $pannel-border: 1px solid gainsboro;
   overflow: hidden;
 }
 
-.carouselUI--img {
-  transform: translate3d(0px, 0px, 0px);
-  transition: all 0.3s;
-}
-
-.test {
-  transform: translate3d();
-}
-
 .carouselUI--leftBtn {
   position: absolute;
   top: 40%;
