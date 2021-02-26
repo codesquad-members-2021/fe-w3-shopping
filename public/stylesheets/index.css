@@ -705,7 +705,6 @@ a {
   position: absolute;
   flex: 0 0 auto;
   border-right: 1px solid #f1f1f1;
-  transition: opacity 0.4s;
 }
 .content__hot .carousel__special, .content__hot .carousel__special--next, .content__hot .carousel__special--prev {
   top: 50%;

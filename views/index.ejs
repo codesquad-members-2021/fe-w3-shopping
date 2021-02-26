@@ -146,150 +146,29 @@
                     <p class="content__hot__info">지금뜨는 테마 카테고리</p>
 
                     <div class="content__hot__carousel">
-                        <!-- 버튼 클릭당 2개의 아이템 이동, 보이는 최대 갯수 5개  -->
+                        
+                        <!-- 0 ~ 7 , -2 -1 순서로 하기 위해 다른 방식으로 만듬 -->
                         <ul>
-                            <li class="transformX__0">
-                                <a href="/">
-                                    <img src="/images/itemsample2.jfif" />
-                                    <div>
-                                        <span class="txt-bold"
-                                            >테스트1</span
-                                        >
-                                        <span class="txt-info"
-                                            >테스트1</span
-                                        >
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="transformX__1">
-                                <a href="/">
-                                    <img src="/images/itemsample2.jfif" />
-                                    <div>
-                                        <span class="txt-bold"
-                                            >테스트2</span
-                                        >
-                                        <span class="txt-info"
-                                            >테스트2</span
-                                        >
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="transformX__2">
-                                <a href="/">
-                                    <img src="/images/itemsample2.jfif" />
-                                    <div>
-                                        <span class="txt-bold"
-                                            >테스트3</span
-                                        >
-                                        <span class="txt-info"
-                                            >테스트3</span
-                                        >
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="transformX__3">
-                                <a href="/">
-                                    <img src="/images/itemsample2.jfif" />
-                                    <div>
-                                        <span class="txt-bold"
-                                            >테스트4</span
-                                        >
-                                        <span class="txt-info"
-                                            >테스트4</span
-                                        >
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="transformX__4">
-                                <a href="/">
-                                    <img src="/images/itemsample2.jfif" />
-                                    <div>
-                                        <span class="txt-bold"
-                                            >테스트5</span
-                                        >
-                                        <span class="txt-info"
-                                            >테스트5</span
-                                        >
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="transformX__5">
-                                <a href="/">
-                                    <img src="/images/itemsample2.jfif" />
-                                    <div>
-                                        <span class="txt-bold"
-                                            >테스트6</span
-                                        >
-                                        <span class="txt-info"
-                                            >테스트6</span
-                                        >
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="transformX__6">
-                                <a href="/">
-                                    <img src="/images/itemsample2.jfif"/>
-                                    <div>
-                                        <span class="txt-bold"
-                                            >테스트7</span
-                                        >
-                                        <span class="txt-info"
-                                            >테스트7</span
-                                        >
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="transformX__7">
-                                <a href="/">
-                                    <img src="/images/itemsample2.jfif"/>
-                                    <div>
-                                        <span class="txt-bold"
-                                            >테스트8</span
-                                        >
-                                        <span class="txt-info"
-                                            >테스트8</span
-                                        >
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="transformX__-2">
-                                <a href="/">
-                                    <img src="/images/itemsample2.jfif"/>
-                                    <div>
-                                        <span class="txt-bold"
-                                            >테스트9</span
-                                        >
-                                        <span class="txt-info"
-                                            >테스트9</span
-                                        >
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="transformX__-1">
-                                <a href="/">
-                                    <img src="/images/itemsample2.jfif"/>
-                                    <div>
-                                        <span class="txt-bold"
-                                            >테스트10</span
-                                        >
-                                        <span class="txt-info"
-                                            >테스트10</span
-                                        >
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
+                            <% for(let i = 0; i <= 9; i++) { %>
+                                <% 
+                                    let idx = i; 
+                                    if (i === 8) idx = -2
+                                    else if (i === 9) idx = -1;
 
+                                    const className = `transformX__${idx}`;
+                                %>
+                                <li class=<%=className%> >
+                                    <a>
+                                        <img src="/images/itemsample2.jfif" />
+                                        <div>
+                                            <span class="txt-bold">테스트<%= i+1 %></span>
+                                            <span class="txt-info">테스트<%= i+1 %></span>
+                                            <span class="i-theme"></span>
+                                        </div>
+                                    </a>
+                                </li>
+                            <% } %>                                                        
+                        </ul>
                         <button class="carousel__special--prev">
                             <span class="i-slide__special--prev"></span>
                         </button>
