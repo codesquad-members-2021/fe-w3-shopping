@@ -37,11 +37,11 @@ export class Slider {
 
     if (!targetBtn) return;
     const slider = document.querySelector('.main-top-slide-container');
-    const dot = this.manageDotRelatedValue(target);
+    const dot = this.getDotRelatedValues(target);
     this.moveDot(slider, dot);
   }
 
-  manageDotRelatedValue(target) {
+  getDotRelatedValues(target) {
     const isActive = document.querySelector('.active');
     const current = isActive.dataset.index;
     const clicked = target.dataset.index;
