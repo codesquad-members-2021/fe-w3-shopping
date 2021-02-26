@@ -5,6 +5,10 @@ export class Slider {
 
   onEvents() {
     this.silder.addEventListener('click', this.clickArrowBtnHandler.bind(this));
+    this.silder.addEventListener(
+      'mouseover',
+      this.mouseOverpageBtnHanlder.bind(this)
+    );
   }
 
   slideAutomatically() {
@@ -29,6 +33,19 @@ export class Slider {
       this.leftArrowClicked(slider);
     }
   }
+
+  // 페이징 dot을 구현 못했음
+  // mouseOverpageBtnHanlder({ target }) {
+  //   const targetBtn = target.closest('.page-btn');
+  //   if (!targetBtn) return;
+  //   const curIdx = target.dataset.index;
+  //   let output = ``;
+  //   if (curIdx === 0) {
+  //     for (let i = 0; i < slideImgs.length; i += 1) {
+  //       output += `${slideImgs[i]}`;
+  //     }
+  //   }
+  // }
 
   rightArrowClicked(slider) {
     slider.classList.add(`slide-move-right`);
