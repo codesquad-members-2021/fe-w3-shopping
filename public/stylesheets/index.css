@@ -63,7 +63,7 @@ a {
   width: 10%;
 }
 
-.col-2 {
+.col-2, .content__hot__carousel ul li {
   width: 20%;
 }
 
@@ -95,20 +95,67 @@ a {
   width: 90%;
 }
 
+.transformX__0 {
+  transform: translateX(0%);
+}
+
+.transformX__1 {
+  transform: translateX(100%);
+}
+
+.transformX__2 {
+  transform: translateX(200%);
+}
+
+.transformX__3 {
+  transform: translateX(300%);
+}
+
+.transformX__4 {
+  transform: translateX(400%);
+}
+
+.transformX__5 {
+  transform: translateX(500%);
+}
+
+.transformX__6 {
+  transform: translateX(600%);
+}
+
+.transformX__7 {
+  transform: translateX(700%);
+}
+
+.transformX__-1 {
+  transform: translateX(-100%);
+}
+
+.transformX__-2 {
+  transform: translateX(-200%);
+}
+
+.transition--opacity {
+  transition: opacity 0.4s;
+}
+.transition--transform {
+  transition: transform 0.4s;
+}
+
 .max-WH-auto, .content__main__carousel .slide, .content__main__one a, .view-li a img, .content__hot__carousel ul li a img, .content__more__view ul li a img {
   max-width: 100%;
   max-height: 100%;
 }
 
 .view-li, .content__hot__carousel ul li, .content__more__view ul li {
-  height: 276px;
-  padding: 21px 27px;
+  height: auto;
   border-bottom: 0 none;
   text-align: left;
   line-height: 14px;
   letter-spacing: -1px;
 }
 .view-li a, .content__hot__carousel ul li a, .content__more__view ul li a {
+  padding: 21px 27px;
   display: block;
 }
 .view-li a img:hover, .content__hot__carousel ul li a img:hover, .content__more__view ul li a img:hover {
@@ -427,7 +474,7 @@ a {
   width: 10%;
 }
 
-.col-2 {
+.col-2, .content__hot__carousel ul li {
   width: 20%;
 }
 
@@ -459,20 +506,67 @@ a {
   width: 90%;
 }
 
+.transformX__0 {
+  transform: translateX(0%);
+}
+
+.transformX__1 {
+  transform: translateX(100%);
+}
+
+.transformX__2 {
+  transform: translateX(200%);
+}
+
+.transformX__3 {
+  transform: translateX(300%);
+}
+
+.transformX__4 {
+  transform: translateX(400%);
+}
+
+.transformX__5 {
+  transform: translateX(500%);
+}
+
+.transformX__6 {
+  transform: translateX(600%);
+}
+
+.transformX__7 {
+  transform: translateX(700%);
+}
+
+.transformX__-1 {
+  transform: translateX(-100%);
+}
+
+.transformX__-2 {
+  transform: translateX(-200%);
+}
+
+.transition--opacity {
+  transition: opacity 0.4s;
+}
+.transition--transform {
+  transition: transform 0.4s;
+}
+
 .max-WH-auto, .content__main__carousel .slide, .content__main__one a, .view-li a img, .content__hot__carousel ul li a img, .content__more__view ul li a img {
   max-width: 100%;
   max-height: 100%;
 }
 
 .view-li, .content__hot__carousel ul li, .content__more__view ul li {
-  height: 276px;
-  padding: 21px 27px;
+  height: auto;
   border-bottom: 0 none;
   text-align: left;
   line-height: 14px;
   letter-spacing: -1px;
 }
 .view-li a, .content__hot__carousel ul li a, .content__more__view ul li a {
+  padding: 21px 27px;
   display: block;
 }
 .view-li a img:hover, .content__hot__carousel ul li a img:hover, .content__more__view ul li a img:hover {
@@ -598,16 +692,19 @@ a {
   margin: 0 auto;
   border: 1px solid #f1f1f1;
   position: relative;
+  overflow: hidden;
 }
 .content__hot__carousel ul {
   display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+  left: -1px;
+  height: 316px;
 }
 .content__hot__carousel ul li {
-  display: inline-block;
+  position: absolute;
+  flex: 0 0 auto;
   border-right: 1px solid #f1f1f1;
-}
-.content__hot__carousel ul li:last-child {
-  border-right: none;
 }
 .content__hot .carousel__special, .content__hot .carousel__special--next, .content__hot .carousel__special--prev {
   top: 50%;

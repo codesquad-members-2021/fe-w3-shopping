@@ -6,6 +6,32 @@
     }
 }
 
+@for $i from 0 through 9 {
+    @if $i == 8 {
+        .transformX__-1 {        
+            transform: translateX(-100%);             
+        } 
+    } @else if $i == 9 {
+        .transformX__-2 {        
+            transform: translateX(-200%);             
+        } 
+    } @else {
+        .transformX__#{$i} {        
+            transform: translateX(100% * $i);             
+        }
+    }
+}
+
+.transition {
+    &--opacity {
+        transition: opacity 0.4s;
+    }
+
+    &--transform {
+        transition: transform 0.4s;
+    }
+}
+
 .max-WH {
     &-auto {
         max-width: 100%;
@@ -13,17 +39,16 @@
     }
 }
 
-// li 태그용 Style (@extend 함)
-// (content__more__view & content__hot__carousel의 ul 안에서 사용)
+// content__more__view의 ul의 li 태그용 Style (@extend 함)
 .view-li {
-    height: 276px;
-    padding: 21px 27px;
+    height: auto;
     border-bottom: 0 none;
     text-align: left;
     line-height: 14px;
     letter-spacing: -1px;
 
     a {
+        padding: 21px 27px;
         display: block;
         img {
             @extend .max-WH-auto;

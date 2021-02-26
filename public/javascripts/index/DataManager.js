@@ -33,6 +33,11 @@ class DataManager {
         const url = `http://localhost:3001/api/moreData/${pageIdx}`;
         return this._fetchData(url);
     }
+
+    getHotCarouselData() {
+        const url = `http://localhost:3001/api/planning`;
+        return this._fetchData(url);
+    }
 }
 
 export default DataManager;

@@ -94,20 +94,20 @@
                     <div class="content__main__carousel">
                         <div class="slide">
                             <div
-                                class="item"
-                                style="transform: translate3d(-100%, 0, 0); transition: transform 0.4s;"
+                                class="item"                                
+                                style="transform: translateX(0%); transition: transform 0.4s;"
                             >
                                 <img src="/images/coffee_twig.png" />
                             </div>
                             <div
                                 class="item"
-                                style="transform: translate3d(0%, 0, 0); transition: transform 0.4s;"
+                                style="transform: translateX(100%); transition: transform 0.4s;"
                             >
                                 <img src="/images/carousel_test1.jfif" />
                             </div>
                             <div
                                 class="item"
-                                style="transform: translate3d(100%, 0, 0); transition: transform 0.4s;"
+                                style="transform: translateX(-100%); transition: transform 0.4s;"
                             >
                                 <img src="/images/carousel_test2.png" />
                             </div>
@@ -132,21 +132,7 @@
 
                 <div class="content__more">
                     <div class="content__more__view">
-                        <ul>
-                            <!--
-                                SAMPLE 
-                            <li class="noBorder">
-                                <a href="/">
-                                    <img src="/images/itemsample.jfif" />
-                                    <div>
-                                        <span class="txt-bold">테스트5</span>
-                                        <span class="txt-info">테스트5</span>
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                             -->
-                        </ul>
+                        <ul><!-- 더보기 데이터 동적 생성 --></ul>                        
                     </div>
 
                     <button
@@ -160,26 +146,29 @@
                     <p class="content__hot__info">지금뜨는 테마 카테고리</p>
 
                     <div class="content__hot__carousel">
-                        <!-- 버튼 클릭당 2개의 아이템 이동, 보이는 최대 갯수 5개  -->
+                        
+                        <!-- 0 ~ 7 , -2 -1 순서로 하기 위해 다른 방식으로 만듬 -->
                         <ul>
-                            <% for(let i = 0; i < 5; i++) { %>
-                            <li>
-                                <a href="/">
-                                    <img src="/images/itemsample2.jfif" />
-                                    <div>
-                                        <span class="txt-bold"
-                                            >테스트2-<%= (i+1) %></span
-                                        >
-                                        <span class="txt-info"
-                                            >테스트2-<%= (i+1) %></span
-                                        >
-                                        <span class="i-theme"></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <% } %>
-                        </ul>
+                            <% for(let i = 0; i <= 9; i++) { %>
+                                <% 
+                                    let idx = i; 
+                                    if (i === 8) idx = -2
+                                    else if (i === 9) idx = -1;
 
+                                    const className = `transformX__${idx}`;
+                                %>
+                                <li class= <%=className%> id= <%= i %> >
+                                    <a>
+                                        <img />
+                                        <div>
+                                            <span class="txt-bold"></span>
+                                            <span class="txt-info"></span>
+                                            <span class="i-theme"></span>
+                                        </div>
+                                    </a>
+                                </li>
+                            <% } %>                                                        
+                        </ul>
                         <button class="carousel__special--prev">
                             <span class="i-slide__special--prev"></span>
                         </button>
