@@ -1,4 +1,4 @@
-import { REQUEST_SUCESS, REQUEST_FAILED, $mileageEventSlide, $prevEventButton, $nextEventButton, $topMileageSlide, $mileageSlidePage, $mallEventList, $mallEventSlide, $hotDealWrapper } from './const';
+import { $mileageEventSlide, $prevEventButton, $nextEventButton, $topMileageSlide, $mileageSlidePage, $mallEventList, $mallEventSlide, $hotDealWrapper } from './const';
 
 class FetchAPI {
   constructor(unit) {
@@ -8,6 +8,10 @@ class FetchAPI {
       mallEventList: 'http://localhost:3000/api/mallEventList',
       hotDealList: 'http://localhost:3000/api/hotDealList',
       shoppingPartner: 'http://localhost:3000/api/shoppingPartner',
+    };
+    this.req = {
+      sucess: 'Request successful',
+      failed: 'Request failed',
     };
   }
   init() {
@@ -23,8 +27,8 @@ class FetchAPI {
         mileageEventCarousel.setMileageEventContents();
         return data;
       })
-      .then((status) => console.log(REQUEST_SUCESS, status.code))
-      .catch((error) => console.log(REQUEST_FAILED, error));
+      .then((status) => console.log(this.req.sucess, status.code))
+      .catch((error) => console.log(this.req.failed, error));
 
   mallEventList = () =>
     fetch(this.url.mallEventList)
@@ -33,8 +37,8 @@ class FetchAPI {
         const mallEventSection = new MallEventSection(data);
         return data;
       })
-      .then((status) => console.log(REQUEST_SUCESS, status.code))
-      .catch((error) => console.log(REQUEST_FAILED, error));
+      .then((status) => console.log(this.req.sucess, status.code))
+      .catch((error) => console.log(this.req.failed, error));
 
   hotDealList = () =>
     fetch(this.url.hotDealList)
@@ -44,8 +48,8 @@ class FetchAPI {
         hotDealSection.draw();
         return data;
       })
-      .then((status) => console.log(REQUEST_SUCESS, status.code))
-      .catch((error) => console.log(REQUEST_FAILED, error));
+      .then((status) => console.log(this.req.sucess, status.code))
+      .catch((error) => console.log(this.req.failed, error));
 }
 
 class EventSlider {
