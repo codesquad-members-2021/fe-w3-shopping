@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-size: 0;
 }
 
 body {
@@ -11,6 +12,11 @@ a {
   display: block;
   margin: 0 auto;
   text-decoration: none;
+}
+
+button {
+  border: none;
+  background-color: transparent;
 }
 
 .clear-both {
