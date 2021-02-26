@@ -28,9 +28,9 @@ class HotDealSlide {
   }
   handleMousedown({ target: { classList } }) {
     if (this.isPrevBtn(classList)) {
-      this.timer = setInterval(this.doubleSlidePrev.bind(this), 500);
+      this.timer = setInterval(this.doubleSlidePrev.bind(this), 2000);
     } else if (this.isNextBtn(classList)) {
-      this.timer = setTimeout(this.doubleSlideNext.bind(this), 500);
+      this.timer = setInterval(this.doubleSlideNext.bind(this), 2000);
     }
   }
   handleMouseup() {
