@@ -34,12 +34,7 @@ export default class Slide {
     this.carouselState.slideList.style.transform = `translateX(-${slideWidth * value}px)`;
   }
 
-  addTransition() {
-    // this.carouselState.slideList.style.transition = `${ms}ms`;
-    this.carouselState.slideList.classList.add("transition");
-  }
-
-  removeTransition() {
-    this.carouselState.slideList.classList.remove("transition");
+  transition(ms) {
+    this.carouselState.slideList.style.transition = `${ms}ms`;
   }
 }

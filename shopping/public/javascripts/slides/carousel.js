@@ -7,7 +7,7 @@ export default class Carousel extends Slide {
 
   adjustLastSlide(slideWidth, slideLen, slideSpeed, isNext) {
     setTimeout(() => {
-      this.removeTransition();
+      this.transition(0);
       this.transform(slideWidth, isNext ? 1 : slideLen);
     }, slideSpeed);
   }
@@ -16,7 +16,7 @@ export default class Carousel extends Slide {
     const { slideSpeed, slideWidth, slideLen, slideContents } = slideMaterials;
 
     if (conditions[0]) {
-      this.addTransition();
+      this.transition(slideSpeed);
       this.transform(slideWidth, isNext ? this.carouselState.currIndex + 2 + (itemCnt > 1 ? 1 : 0) : this.carouselState.currIndex + (itemCnt > 1 ? -1 : 0));
     }
 
