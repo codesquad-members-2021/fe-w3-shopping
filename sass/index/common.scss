@@ -6,6 +6,32 @@
     }
 }
 
+@for $i from 0 through 9 {
+    @if $i == 8 {
+        .transformX__-1 {        
+            transform: translateX(-100%);             
+        } 
+    } @else if $i == 9 {
+        .transformX__-2 {        
+            transform: translateX(-200%);             
+        } 
+    } @else {
+        .transformX__#{$i} {        
+            transform: translateX(100% * $i);             
+        }
+    }
+}
+
+.transition {
+    &--opacity {
+        transition: opacity 0.4s;
+    }
+
+    &--transform {
+        transition: transform 0.4s;
+    }
+}
+
 .max-WH {
     &-auto {
         max-width: 100%;

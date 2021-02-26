@@ -143,12 +143,17 @@
                 flex-wrap: nowrap;                
                 position: relative;
                 left: -1px;
+                height: 316px;
                                           
                 li {
                     @extend .col-2;
                     @extend .view-li;
-                    flex: 0 0 auto;                    
-                    border-right: 1px solid $lightGray;                    
+                    
+                    position: absolute;
+                    flex: 0 0 auto;
+                    border-right: 1px solid $lightGray;
+                    
+                    transition: opacity 0.4s;
                 }
             }
         }

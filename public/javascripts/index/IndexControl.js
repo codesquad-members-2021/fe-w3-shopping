@@ -5,16 +5,18 @@ class IndexControl {
     /**
      * @param {DataManager} dataManager
      */
-    constructor(dataManager, moreWrapSelector, mainCarouselWrapper) {
+    constructor(dataManager, moreWrapSelector, mainCarouselWrapper, hotCarouselWrapper) {
         this.dataManager = dataManager;
         this.moreWrapper = _.$(moreWrapSelector);
         this.mainCarouselWrapper = _.$(mainCarouselWrapper);
+        this.hotCarouselWrapper = _.$(hotCarouselWrapper);     
     }
 
     init() {
         this._setMoreWrapperClickEvent(this.moreWrapper);
         this._setMainCarouselClickEvent(this.mainCarouselWrapper);
-        this._setMainCarouselMouseoverEvent(this.mainCarouselWrapper)
+        this._setMainCarouselMouseoverEvent(this.mainCarouselWrapper);
+        this._setHotCarouselClickEvent(this.hotCarouselWrapper);
 
         setInterval(() => this._updateMainCarouselAnimation('next', _.$All('.slide > .item', this.mainCarouselWrapper)), 5000);
         this._createMoreViewItemsExecute(_.$('.content__more__btn', this.moreWrapper));
@@ -204,9 +206,44 @@ class IndexControl {
         }
     }
     
-    // [3] 하단 캐러셀 관련
+    // [3] 하단 캐러셀 관련        
+    _setHotCarouselClickEvent(hotCarouselWrapper) {
+        _.addEvent(hotCarouselWrapper, 'click', (e) =>
+            this._hotCarouselClickEventHandler(e),
+        );
+    }
 
-    // ---
+    _hotCarouselClickEventHandler({target}) {        
+        const pagingBtn =
+            _.closestSelector(target, '.carousel__special--prev') ||
+            _.closestSelector(target, '.carousel__special--next');
+        this._updateHotCarouselAnimationExecute(pagingBtn);
+    }
+
+    // 하단 캐러셀 동작 (이전, 다음 btn) (실행)
+    _updateHotCarouselAnimationExecute(pagingBtn) {
+        if (!pagingBtn) return;
+        const exType = pagingBtn.className.indexOf('prev') > -1 ? 'prev' : 'next';
+        const itemList = Array.from(_.$All('ul > li', this.hotCarouselWrapper));
+
+        for (let i = 0; i < 2; i++) 
+            this._updateHotCarouselAnimation(exType, itemList);
+    }
+
+    _updateHotCarouselAnimation(exType, itemList) {
+        itemList.forEach((item) => {
+            let transformValue = Number(item.className.replace('transformX__', ''));
+            
+            if (exType === 'prev') {
+                if (transformValue === 7)  transformValue = -2
+                else transformValue += 1;      
+            } else {
+                if (transformValue === -2)  transformValue = 7
+                else transformValue -= 1;                                
+            }
+            _.classReplace(item, item.className, `transformX__${transformValue}`)
+        });
+    }    
 }
 
 export default IndexControl;
