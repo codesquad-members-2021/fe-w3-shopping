@@ -1,18 +1,18 @@
 /* init */
-* {
-  border: 1px solid red;
-}
-
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 .hide {
   display: none !important;
 }
 
-ul, li {
+ul,
+li {
   list-style: none;
   display: inline;
 }
 
-button, input {
+button,
+input {
   border: transparent;
   background-color: transparent;
 }
@@ -158,10 +158,23 @@ button, input {
   align-items: center;
   padding: 0 10%;
 }
+.main .main_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .big_contents {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.big_contents .big_contents_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 13%;
 }
 
 .small_contents {
@@ -175,6 +188,70 @@ button, input {
 .small_contents .item_list .item_list_img {
   width: 200px;
   height: 200px;
+}
+
+.container {
+  width: 50%;
+  margin: 10px 0px;
+}
+.container .carousel {
+  width: 74%;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider {
+  height: 100%;
+  display: flex;
+  width: 300%;
+  transition: all 0.3s;
+}
+.slider section {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.controls .arrow i {
+  font-size: 60px;
+}
+
+.arrow.left {
+  left: 5px;
+}
+
+.arrow.right {
+  right: 5px;
+}
+
+.controls ul {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+.controls ul li {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #333;
+  border-radius: 50px;
+  margin: 10px;
+  cursor: pointer;
+}
+.controls ul .selected {
+  background: #333;
 }
 
 /*# sourceMappingURL=main.css.map */
