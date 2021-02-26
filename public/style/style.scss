@@ -224,6 +224,10 @@ body {
                     background-color: $main-grey-color;
                 }
             }
+
+            .page-btn:hover {
+                background-color: $main-black-color;
+            }
         }
 
         .main-top-article-secondline {
