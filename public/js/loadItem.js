@@ -12,17 +12,30 @@ export class LoadItem {
     this.showImgs();
   }
 
+  insertTemplate(slideURL, eventProducts) {
+    this.insertSlideTemplate(slideURL);
+    this.insertSecondLineTemplate(eventProducts);
+    this.insertThemeCategoryTemplate(eventProducts);
+  }
+
   showImgContents() {
     this.rawData
       .then((data) => {
         const slideURL = this.getSlideImgURL(data);
         const eventProducts = this.getEventProductList(data);
-        this.insertSlideTemplate(slideURL);
-        this.insertSecondLineTemplate(eventProducts);
-        this.insertThemeCategoryTemplate(eventProducts);
+        this.insertSecondLineTemplate(slideURL, eventProducts);
         this.showImgs();
       })
       .catch((error) => alert('에러입니다_loadItem.js 확인', error));
+  }
+
+  showImgs() {
+    const mainTopSecondLine = document.querySelectorAll(
+      '.main-top-article-sec-imgs.img-visibility-hidden'
+    );
+    for (let i = 0; i < 5; i += 1) {
+      mainTopSecondLine[i]?.classList.remove('img-visibility-hidden');
+    }
   }
 
   getSlideImgURL(data) {
@@ -47,15 +60,6 @@ export class LoadItem {
     `
       );
     });
-  }
-
-  showImgs() {
-    const mainTopSecondLine = document.querySelectorAll(
-      '.main-top-article-sec-imgs.img-visibility-hidden'
-    );
-    for (let i = 0; i < 5; i += 1) {
-      mainTopSecondLine[i]?.classList.remove('img-visibility-hidden');
-    }
   }
 
   insertSecondLineTemplate(eventProducts) {
