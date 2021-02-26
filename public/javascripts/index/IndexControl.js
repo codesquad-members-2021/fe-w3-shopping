@@ -14,7 +14,9 @@ class IndexControl {
     init() {
         this._setMoreWrapperClickEvent(this.moreWrapper);
         this._setMainCarouselClickEvent(this.mainCarouselWrapper);
+        this._setMainCarouselMouseoverEvent(this.mainCarouselWrapper)
 
+        setInterval(() => this._updateMainCarouselAnimation('next', _.$All('.slide > .item', this.mainCarouselWrapper)), 5000);
         this._createMoreViewItemsExecute(_.$('.content__more__btn', this.moreWrapper));
     }
 
@@ -94,32 +96,31 @@ class IndexControl {
     }
     // --
 
-    // [2] 상단 캐러샐 (content__main__carousel) 이벤트 등록 (이전, 다음)
+    // [2-1] 상단 캐러샐 (content__main__carousel) 이벤트 등록 (이전, 다음)
     _setMainCarouselClickEvent(mainCarouselWrapper) {
         _.addEvent(mainCarouselWrapper, 'click', (e) =>
             this._mainCarouselClickEventHandler(e),
         );
     }
 
-    _mainCarouselClickEventHandler(e) {
-        const { target } = e;
+    _mainCarouselClickEventHandler({target}) {        
         const pagingBtn =
             _.closestSelector(target, '.paging--prev') ||
             _.closestSelector(target, '.paging--next');
-        this._updateMainCarouseAnimationExecute(pagingBtn);
+        this._updateMainCarouselAnimationExecute(pagingBtn);
     }
 
     // 상단 캐러셀 동작 (이전, 다음 btn) (실행)
-    _updateMainCarouseAnimationExecute(pagingBtn) {
+    _updateMainCarouselAnimationExecute(pagingBtn) {
         if (!pagingBtn) return;
         const exType = pagingBtn.className.indexOf('prev') > -1 ? 'prev' : 'next';
         const itemList = Array.from(_.$All('.slide > .item', this.mainCarouselWrapper));
 
-        this._updateMainCarouseAnimation(exType, itemList);
+        this._updateMainCarouselAnimation(exType, itemList);
     }
 
-    _updateMainCarouseAnimation (exType, itemList) {
-        itemList.forEach((item, i) => {
+    _updateMainCarouselAnimation(exType, itemList, animateOpacity = false) {
+        itemList.forEach((item, itemIdx) => {
             const minus = item.style.transform.indexOf('-') > -1 ? true : false;
             const tmp = item.style.transform.match(/([0-9]+%)/g)[0];
             let transformX = minus ? `-${tmp}` : tmp;
@@ -127,39 +128,85 @@ class IndexControl {
 
             if (exType === 'prev') {
                 switch (transformX) {
-                    case '-100%':
-                        transformX = '0%';
-                        break;
                     case '0%':
                         transformX = '100%';
                         break;
                     case '100%':
                         transformX = '-100%';
                         flag = true;
+                        break;
+                    case '-100%':
+                        transformX = '0%';
                         break;
                     default:
                         break;
                 }
             } else {
                 switch (transformX) {
-                    case '-100%':
-                        transformX = '100%';
-                        flag = true;
-                        break;
                     case '0%':
                         transformX = '-100%';
                         break;
                     case '100%':
                         transformX = '0%';
                         break;
+                    case '-100%':
+                        transformX = '100%';
+                        flag = true;
+                        break;                    
                     default:
                         break;
                 }
             }
-            item.style.transition = flag ? 'opacity 0.4s' : 'transform 0.4s';
+
+            transformX === '0%' && this._updateMainCarouselPagingSpan(itemIdx);
+            
+            if (animateOpacity)
+                item.style.transition = 'opacity 0.4s'
+            else
+                item.style.transition = flag ? 'opacity 0.4s' : 'transform 0.4s';
+
             item.style.transform = `translate3d(${transformX}, 0, 0)`;
         });
     }
+
+    // 상단의 작은 span들 [- - -] 상태 업데이트
+    _updateMainCarouselPagingSpan(animationItemIdx) {
+        const pagingInnerSpanList = [...(_.$All('.paging__inner > span', this.mainCarouselWrapper))];
+        const findPrevCurrent = pagingInnerSpanList.find((span) => _.classContains(span, 'current'));
+        _.classRemove(findPrevCurrent, 'current');
+        _.classAdd(pagingInnerSpanList[animationItemIdx], 'current');
+    }
+
+    // [2-2] 상단 캐러셀 mouseover 이벤트 등록
+        // 작은 span (.paging__inner > span)에서 동작
+    _setMainCarouselMouseoverEvent(mainCarouselWrapper) {
+        _.addEvent(mainCarouselWrapper, 'mouseover', (e) => this._mainCarouselMouseoverEventHandler(e));        
+    }
+
+    _mainCarouselMouseoverEventHandler({target}) {        
+        const overSpan = _.closestSelector(target, '.paging__inner > span');        
+        
+        if (overSpan) {
+            const pagingInnerSpanList = [...overSpan.parentElement.children];            
+            const currStatusSpan = pagingInnerSpanList.find((span) => _.classContains(span, 'current'));
+
+            const overSpanIdx = pagingInnerSpanList.indexOf(overSpan);
+            const currStatusSpanIdx = pagingInnerSpanList.indexOf(currStatusSpan);
+
+            const abs = Math.abs(currStatusSpanIdx-overSpanIdx);
+
+            const itemList = Array.from(_.$All('.slide > .item', this.mainCarouselWrapper));
+            if (overSpanIdx > currStatusSpanIdx) {
+                [...Array(abs)].forEach((_) => this._updateMainCarouselAnimation('next', itemList, true))
+            } else if (overSpanIdx < currStatusSpanIdx) {
+                [...Array(abs)].forEach((_) => this._updateMainCarouselAnimation('prev', itemList, true))
+            } else return;
+        }
+    }
+    
+    // [3] 하단 캐러셀 관련
+
+    // ---
 }
 
 export default IndexControl;
