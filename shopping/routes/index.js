@@ -17,10 +17,9 @@ router.get("/homeContents.json", (req, res, next) => {
   res.send(homeContent);
 });
 
-router.get("/event.json", (req, res, next) => {
+router.get("/moreItem.json", (req, res, next) => {
   res.send(planningEvent);
 });
-
 
 
 module.exports = router;

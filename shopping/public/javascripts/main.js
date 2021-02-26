@@ -1,11 +1,18 @@
-import Slider from "./slider.js"
-import _ from "./utils.js";
+import Slider from "./slider.js";
+import Morebtn from "./more.js";
 
-const banner = _.$(".banner__right")
+import _ from "./utils.js";
+const main = _.$(".main_section");
+const banner = _.$(".banner__right", main);
+const $moreBtn = _.$(".more_contents", main);
+const $moreContainer = _.$(".shoppinglists", main);
 const slider = new Slider(banner);
 
-let item = fetch("http://localhost:3000/homeContents.json")	// (1)
-  .then(response => response.json())						// (2)
-  .then(json => console.log(json.contents[0].eventContent.subtitle));	//(3)
+let item = fetch("http://localhost:3000/moreItem.json")
+  .then((res) => res.json())
+  .then((json) => {
+    const morebtn = new Morebtn(json.mallEventList, $moreBtn, $moreContainer);
+    morebtn.init();
+  });
 
 slider.init();
