@@ -615,19 +615,28 @@ section {
               top: 0px;
               transform: translate3d(0px, 0px, 0px);
               // 여기 이상하게 틀어짐
-              left: -1285px;
+              left: -1287px;
               width: 3849px;
               .panel {
                 height: 100%;
                 overflow: hidden;
                 display: inline-block;
-                transform: translate3d(10px, 0px, 0px);
-                width: 4000px;
+                transform: translate3d(0px, 0px, 0px);
+                margin-right: -4px;
 
                 .list--item {
                   overflow: hidden;
-                  width: 4000px;
+                  width: 1276px;
                   background-color: #fff;
+
+                  .first {
+                    padding-right: 27px;
+                    width: 201px;
+                  }
+
+                  .last {
+                    padding-right: 26px;
+                  }
 
                   li {
                     display: inline-block;
@@ -644,15 +653,6 @@ section {
                     letter-spacing: -1px;
                     list-style: none;
                   }
-
-                  // .first {
-                  //   padding-right: 27px;
-                  //   width: 201px;
-                  // }
-
-                  // .last {
-                  //   padding-right: 26px;
-                  // }
 
                   .link--product {
                     display: block;
