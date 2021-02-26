@@ -1,9 +1,3 @@
-const insertContents = (...htmls) => (...contents) => {
-  // 해당 html 자리에 해당 콘텐츠 삽입
-  if (htmls.length !== contents.length) throw new Error("CANNOT INSERT STRS INTO HTMLS");
-  htmls.forEach((html, index) => (html.innerHTML = contents[index]));
-};
-
 const eventItem = (data) => {
   const { linkurl, imgurl } = data;
   return /*html*/ `<a href="${linkurl}"><img src="${imgurl}"/></a>`;
@@ -106,4 +100,4 @@ function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-export { eventItem, mileageListHtml, paginationHtml, mallEventListHtml, insertContents, hotDealList };
+export { eventItem, mileageListHtml, paginationHtml, mallEventListHtml, hotDealList };

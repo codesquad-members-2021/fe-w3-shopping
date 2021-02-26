@@ -21,7 +21,7 @@ router.get("/mileageList.json", function (req, res, next) {
 router.get("/mallEventList.json", function (req, res, next) {
   if (mallEventListIndex >= planningEvent.mallEventList.length) {
     res.status(503).end("NO MORE DATA");
-    mallEventListIndex = 5;
+    mallEventListIndex = 0;
   }
   const presentMallEventList = planningEvent.mallEventList.slice(mallEventListIndex, mallEventListIndex + 5);
   mallEventListIndex += 5;
