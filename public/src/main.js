@@ -1,29 +1,45 @@
+// const { urlencoded } = require('body-parser');
+
 function loadItems() {
-    return fetch('data/data.json')
+    cnt++;
+    return fetch(urlArr[cnt])
     .then(response => response.json())
-    .then(json => json.items);
+    .then(json => json.event);
 }
-
-function displayItems(items) {
-    const mainStaticBox = document.querySelector('.static__img');
-    // let static = items.filter(item => item.special === "best100");
-    // console.log(static.image);
-    // mainStaticBox.innerHTML = createHTMLString(static);
-    // let static = items.map(item => item.category === "best100");
-    // console.log(static);
-
-    // if(item.special-category === "best100") {
-    //     mainStaticBox.innerHTML = `<img src="${item.image}" alt="${item.category}" class="static__image" />`;
-    // }
-    mainStaticBox.innerHTML = items.map(item => createHTMLString(item));
+let cnt = 0;
+const urlArr = ["https://shoppinghow.kakao.com/v1.0/shophow/top/planningEvent.json?_=1614172843603",
+"https://shoppinghow.kakao.com/v1.0/shophow/top/planningEvent.json?_=1614214179932"];
+function displayStatic(items) {
+    const mainStaticBox = document.querySelector('.static__link');
+    // let static = items.filter(item => item.imgurl === "//shop2.daumcdn.net/shophow/sib/0_210219174942_MavwLdgvMXrxztHqCPIiDVOoiDjTUKCE");
+    console.log(items);
+    mainStaticBox.innerHTML = `<img src="${items.imgurl}" alt="매인 고정"></img>`
 }
+// let cnt = 0;
+// function slideCnt(items) {
+//     let slide  = items.filter(item => item.type === "main-slide");
+//     console.log(slide);
+//     slide.map(e => displaySlide(e));
+// }
+// function displaySlide(slide) {
+//     cnt++;
+//     const slideBox = document.querySelector(`.slide__link${cnt}`);
+//     // let slide  = items.filter(item => item.type === "main-slide");
+//     console.log(slide);
+//     slideBox.innerHTML = slide.map(e => createHTMLString(e));
+// }
 
-function createHTMLString(item) {
-    return `<img src="${item.image}" alt="${item.category}" class="static__image" />`;
-}
+// function createHTMLString(item) {
+//     return `<img src="${item.image}" alt="" class="${item.className}" />`;
+// }
 
-loadItems()
-  .then(items => {
-    displayItems(items);
-  })
-  .catch(console.log);
+// loadItems()
+//   .then(items => {
+//     displayStatic(items);
+
+//   })
+//   .catch(console.log);
+
+// loadItems();
+
+

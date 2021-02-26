@@ -71,18 +71,56 @@ nav .add-on .add-on__login li {
 
 .main-banner {
   background-color: rosybrown;
-  height: 300px;
-  display: flex;
-  justify-content: space-between;
-  padding: 40px 40px;
+  position: relative;
+  padding: 0 40px;
 }
 .main-banner .main-banner__static {
   background-color: yellow;
+  position: absolute;
+  display: inline-block;
 }
 .main-banner .main-banner__slide {
-  flex-grow: 0.7;
   background-color: red;
   padding: 0 60px;
+  height: 340px;
+  width: 685px;
+  margin-left: 500px;
+  overflow: hidden;
+  position: relative;
+}
+.main-banner .main-banner__slide .slide-bundle {
+  display: flex;
+  position: absolute;
+  justify-content: flex-start;
+  background-color: greenyellow;
+  left: -585px;
+}
+.main-banner .main-banner__slide .slide-bundle li {
+  display: inline-block;
+  margin-left: 100px;
+}
+.main-banner .main-banner__slide .slide-bundle li:nth-child(3) {
+  margin-right: 100px;
+}
+.main-banner .main-banner__slide .slide-bundle.active {
+  transform: translate3d(585px, 0, 0);
+  transition: transform 0.5s;
+}
+.main-banner .main-banner__slide .slide-bundle.left {
+  transform: translate3d(-585px, 0, 0);
+  transition: transform 0.5s;
+}
+.main-banner .main-banner__slide .slide__right {
+  position: absolute;
+  left: 630px;
+  top: 50%;
+  z-index: 2;
+}
+.main-banner .main-banner__slide .slide__left {
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  z-index: 2;
 }
 
 /*# sourceMappingURL=style.css.map */
