@@ -2,13 +2,7 @@
 /* --------▶︎▶︎▶︎ Template 클래스: 홈페이지에 필요한 템플릿을 만들고 띄운다. ◀︎◀︎◀︎--------*/
 /* --------------------------------------------------------------------- */
 
-/* Q: template을 클래스 밖으로 뺴라고 하셨었는데 이렇게되면 안에서 쓰이는 변수들까지 밖으로 빼야함...다른 방법이 있을까?
-- [ ] json데이터에서 받은 정보로 이미지 요청하는 방법 찾아볼 것. => fillUpImg()
-*/
-
-let productName;
-let explanation;
-const cellTemplate = `
+const boxTemplate = (productName,  explanation) => `
 <li>
     <a href="#">
         <img class="cell__lowehalf_pic" src="/images/test.png">
@@ -22,14 +16,35 @@ export default class UIMaker {
     constructor(_, reference){
         this._ = _;
         this.ref = reference;
+        this.pair = {
+            "best": reference.bestSeller,
+            // "event": ,
+            // "box": ,
+            // "carousel":
+        }
     }
-    getFileData(){
-        const promise = fetch("http://localhost:3000/image")
-        .then(response => console.log(response.json()))
-        // .then(data => this.saveEachData(data))
+
+    renderImg(){
+        const section = ['best', 'event', 'box', 'carousel'];
+        section.forEach(key => {
+            this.getData(key);
+        });
+    }
+
+    getData(key){
+       fetch(`http://localhost:3000/image?section=${key}`)
+        .then(res => res.json())
+        .then(data => this.fillUpImg(key, data))
         .catch(err => alert(err));
     }
-    fillUpImg(node, ImgJsonData){
 
+    fillUpImg(key, ImgJsonData){
+        const parentNode = this.pair[key];
+        console.log("1. parentNode:", this.ref.best);
+        console.log("2. key:", key);
+        //key를 기준으로 template이 추가되어야 하는 위치의 node를 담은 객체를 만든다.
+        const str = `<img src="${ImgJsonData.prefix}${ImgJsonData.list[0].src}" alt="${key}">`;
+        console.log("3. this.pair.best:", this.pair.best);
+        parentNode.innerHTML = str;
     }
 }

@@ -3,9 +3,8 @@
 /* --------------------------------------------------------------------- */
 
 /*
-- [ ] this.fileReader.getFileData(); 랑 this.UIMaker.fillUpImg();를 비동기로 연결해주기.
 - [ ] Template 클래스 생성해서 templating으로 DOM 채우기 (첫화면)
-- [ ] 캐러셀의 기본 이미지 띄워주기
+- [x] 캐러셀의 기본 이미지 띄워주기
 */
 
 import UIMaker from "./UIMaker.js";
@@ -30,7 +29,7 @@ class Main {
     init(){//json파일 받아서 저장(비동기) 프로미스? getFileData가 완료되어야 시작화면에 이미지 렌더링이 가능.
         //{ best, event, carousel, box }
         this.smallCarousel.addEvent(3);
-        this.UIMaker.fillUpImg();
+        this.UIMaker.renderImg();
     }
 }
 
