@@ -3,6 +3,8 @@
 /* --------------------------------------------------------------------- */
 
 /*
+1. 트랜스레이트X로 클릭 이벤트를 걸어주어 선택된 방향으로 움직이는 것처럼 보이게하기.
+2. 다시 트랜스레이트X를 취소한 후 panel의 순서가 바뀌도록 한다.
 - [x] 양쪽 화살표 아이콘 추가하기
 - [x] 슬라이드 트랜지션 이벤트 넣기
 - [ ] 오른쪽 화살표 클릭 시 순서가 바뀌는 기능 구현
@@ -18,13 +20,25 @@ export default class smallCarousel {
         this.nextButton = reference.nextButton;
         this.slide = reference.slide;
     }
+
     addEvent(panelNumber){
         this.prevButton.addEventListener('click', this.translateSlide.bind(this, 1, panelNumber));
         this.nextButton.addEventListener('click', this.translateSlide.bind(this, -1, panelNumber));
     }
+
     translateSlide(direction, panelNumber){
+        const selectedBtn = (direction === 1) ? 'prev' : 'next';
         this.slide.style.transitionDuration = "500ms";
         this.slide.style.transform = `translateX(${direction * (100 / panelNumber)}%)`;
+        window.setTimeout(() => {this.reorganizeEl(selectedBtn);}, 500);
+    }
+
+    reorganizeEl(selectedBtn) {
+        const slide = this.slide;
+        this._.removeTransform(slide, 'style');
+        (selectedBtn === 'prev') ?
+        slide.insertBefore(slide.lastElementChild, slide.firstElementChild):
+        slide.appendChild(slide.firstElementChild);
     }
 
 }

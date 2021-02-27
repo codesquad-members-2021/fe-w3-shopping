@@ -431,6 +431,7 @@ header {
   .carousel__btn-container {
     width: 125px;
     display: absolute;
+    z-index: 99;
 
     button {
       position: relative;
@@ -444,7 +445,7 @@ header {
   }
 
   .slide-window {
-    overflow: hidden; //이걸로 넘치는 걸 안보이게 함.
+    // overflow: hidden; //이걸로 넘치는 걸 안보이게 함.
     width: 514px;
     height: 340px;
     margin: 0 auto;

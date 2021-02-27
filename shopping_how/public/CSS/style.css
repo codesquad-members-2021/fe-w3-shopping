@@ -338,7 +338,8 @@ header {
   flex-direction: row; }
   .carousel1 .carousel__btn-container {
     width: 125px;
-    display: absolute; }
+    display: absolute;
+    z-index: 99; }
     .carousel1 .carousel__btn-container button {
       position: relative;
       border: none;
@@ -348,7 +349,6 @@ header {
       vertical-align: middle;
       background-color: transparent; }
   .carousel1 .slide-window {
-    overflow: hidden;
     width: 514px;
     height: 340px;
     margin: 0 auto;
