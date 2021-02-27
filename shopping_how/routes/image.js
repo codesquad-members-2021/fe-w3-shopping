@@ -4,8 +4,9 @@ const jsonData = require('../response.json');
 const { best, event, carousel, box } = jsonData;
 
 router.get("/", (req, res, next) => {
-    // console.log("req.query", req.query);
-    const key = req.query.section; // [ 'best', 'event', 'box', 'carousel' ]
+    // console.log("req.query", req.query); => { section: 'best' }
+    // req.query.section => [ 'best', 'event', 'box', 'carousel' ]
+    const key = req.query.section;
     sendRequestedData(res, key);
 });
 

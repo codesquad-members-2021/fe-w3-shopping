@@ -18,13 +18,13 @@ export default class UIMaker {
         this.ref = reference;
         this.pair = {
             "best": reference.bestSeller,
-            // "event": ,
+            "event": reference.slide,
             // "box": ,
             // "carousel":
         }
     }
 
-    renderImg(){
+    renderUI(){
         const section = ['best', 'event', 'box', 'carousel'];
         section.forEach(key => {
             this.getData(key);
@@ -39,18 +39,21 @@ export default class UIMaker {
     }
 
     //key를 기준으로 template이 추가되어야 하는 위치의 node를 담은 객체를 만든다.
-    fillUpImg(key, ImgJsonData){
+    fillUpImg(key, {prefix, list}){
         const parentNode = this.pair[key];
-        const commonPrefix = ImgJsonData.prefix;
-        const imgSource = ImgJsonData.list[0].src;
+        let str;
 
         switch(key) {
             case "best":
-                const str = `<img src="${commonPrefix}${imgSource}" alt="${key}">`;
+                str = `<img src="${prefix}${list[0].src}" alt="${key}">`;
                 parentNode.innerHTML = str;
             case "event":
-            case "carousel":
+                str = list.reduce((acc, cur) => acc += `<li class="panel"><img src="${prefix}${cur.src}"></li>`,'');
+                parentNode.innerHTML = str;
             case "box":
+            case "carousel":
         }
+
+        // parentNode.innerHTML = str;
     }
 }

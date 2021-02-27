@@ -26,10 +26,9 @@ class Main {
         this.smallCarousel = smallCarousel;
         this.init()
     }
-    init(){//json파일 받아서 저장(비동기) 프로미스? getFileData가 완료되어야 시작화면에 이미지 렌더링이 가능.
-        //{ best, event, carousel, box }
+    init(){
         this.smallCarousel.addEvent(3);
-        this.UIMaker.renderImg();
+        this.UIMaker.renderUI();
     }
 }
 
