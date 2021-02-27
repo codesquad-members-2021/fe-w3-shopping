@@ -5,7 +5,7 @@ import { CLASS_LIST } from './util/data.js';
 
 class BannerSlide extends Slide {
   constructor(data, selectors, animation) {
-    super(data, selectors, animation);
+    super({ data, selectors, animation, makeHtmlFn: makeSlideItem });
     this.currentData = this.data[Math.floor(this.data.length / 2)]; //data 가운데 값이 default
     this.originData = [...this.data];
     this.pagingBtn = selectors.pagingBtn;
@@ -13,10 +13,10 @@ class BannerSlide extends Slide {
   }
   init() {
     super.init();
-    super.onEvent();
     this.onEvent();
   }
   onEvent() {
+    super.onEvent();
     this.pagingBtn.addEventListener('mouseover', this.handleMouseOver.bind(this));
   }
   //prettier-ignore
@@ -38,11 +38,11 @@ class BannerSlide extends Slide {
     const midIdx = Math.floor(this.data.length / 2);
     this.currentData = this.data[midIdx];
   }
-  getSlideHTML() {
-    console.log('이건 쓰이냐?');
-    const slideHTML = this.data.reduce((acc, cur) => acc + makeSlideItem(cur), '');
-    return slideHTML;
-  }
+  // getSlideHTML() {
+  //   console.log('이건 쓰이냐?');
+  //   const slideHTML = this.data.reduce((acc, cur) => acc + makeSlideItem(cur), '');
+  //   return slideHTML;
+  // }
   //변경된 data를 기반으로 list를 중앙으로 옮기면서 렌더링하기
   render() {
     super.render();

@@ -1,13 +1,12 @@
-import { makeItemList } from './util/htmlTemplate.js';
-
 class Slide {
-  constructor(data, selectors, animation) {
+  constructor({ data, selectors, animation, makeHtmlFn }) {
     this.data = data;
     this.container = selectors.container;
     this.slideList = selectors.slideList;
     this.slideBtn = selectors.slideBtn;
     this.oneStep = animation.oneStep;
     this.transition = animation.transition;
+    this.makeHtmlFn = makeHtmlFn; //각 상황에 맞는 html template만들어주는 함수
   }
   init() {
     this.render();
@@ -46,13 +45,13 @@ class Slide {
   setNextData() {
     this.data.push(this.data.shift());
   }
+  //각 dom에 맞는 template dom을 만들어주는 함수를 인자로 받아서 사용
   getSlideHTML() {
-    const slideHTML = this.data.reduce((acc, cur) => acc + makeItemList(cur), '');
+    const slideHTML = this.data.reduce((acc, cur) => acc + this.makeHtmlFn(cur), '');
     return slideHTML;
   }
   render() {
     this.setSlideAnimation({ moveX: 0, transition: '' });
-    console.log(this);
     const slideHTML = this.getSlideHTML();
     this.slideList.innerHTML = slideHTML;
   }

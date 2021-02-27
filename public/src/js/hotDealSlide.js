@@ -1,17 +1,17 @@
 import Slide from './slide.js';
-import { makeSlideItem } from './util/htmlTemplate.js';
+import { makeItemList } from './util/htmlTemplate.js';
 
 class HotDealSlide extends Slide {
   constructor(data, selectors, animation) {
-    super(data, selectors, animation);
+    super({ data, selectors, animation, makeHtmlFn: makeItemList });
     this.timer;
   }
   init() {
     super.init();
-    super.onEvent();
     this.onEvent();
   }
   onEvent() {
+    super.onEvent();
     this.slideBtn.addEventListener('mousedown', this.handleMousedown.bind(this));
     this.slideBtn.addEventListener('mouseup', this.handleMouseup.bind(this));
   }
@@ -24,9 +24,6 @@ class HotDealSlide extends Slide {
   }
   handleMouseup() {
     if (this.timer) clearInterval(this.timer);
-  }
-  handleTransitionEnd() {
-    this.render();
   }
   doubleSlidePrev() {
     this.setSlideAnimation({ moveX: this.oneStep * 2, transition: this.transition });
