@@ -25,8 +25,7 @@ export class EvtCardTable extends ITable {
   }
 
   initSeeMoreBtn() {
-    this.$seeMoreBtn = _.genEl({
-      tagName: 'DIV',
+    this.$seeMoreBtn = _.genEl('DIV', {
       classNames: ['evt-card-table__see-more-btn'],
       template: `<span class="main-txt">더보기
         <span>&#40;</span>

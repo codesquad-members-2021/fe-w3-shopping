@@ -50,11 +50,13 @@ export class MainEvtSlide {
   }
 
   createPageCtrlIdxBtn(idx) {
-    const $ = document.createElement('DIV');
-    $.classList.add('slide__page-ctrl__idx-btn');
-    $.setAttribute('data-index', idx);
-    $.innerHTML = `<div class="page-ctrl__idx-btn__bar"></div>`;
-    return $;
+    return _.genEl('DIV', {
+        classNames: ['slide__page-ctrl__idx-btn'],
+        template: `<div class="page-ctrl__idx-btn__bar"></div>`,
+        attributes: {
+          'data-index': idx,
+        },
+    });
   }
 
   createPageCtrlLeftBtn() {
@@ -113,5 +115,12 @@ export class MainEvtSlide {
     _.$('.slide__page-ctrl__right-btn', this.$pageCtrl).addEventListener('click', () => {
       this.$pages.classList.add('move-to-right');
     });
+  }
+}
+
+
+export class HotdealEvtSlide {
+  constructor($target) {
+    this.$target = $target;
   }
 }
