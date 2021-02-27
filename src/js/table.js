@@ -1,5 +1,4 @@
 import { _ } from './util.js';
-import { createEvtCardListElFrom } from './common-creator.js';
 import { EvtCardListItem } from './list-item.js';
 
 class ITable {

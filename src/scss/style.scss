@@ -95,9 +95,14 @@ header {
       // width: 100%;
       display: inline-block;
       padding: 0;
-      margin: 0 auto;
-      background-color: $white;
+      margin-left: auto;
+      margin-right: auto;
+      // background-color: $white;
     }
+  }
+
+  section + section {
+    margin-top: 21px;
   }
 
   .body-sect-1 {
@@ -111,6 +116,17 @@ header {
         height: $main-evt-img-h;
         padding: 0;
       }
+    }
+  }
+
+  .body-sect-2 {
+    .body-sect-2__title {
+      float: left;
+      margin: 4px 0;
+      font-size: 22px;
+      font-weight: 400;
+      color: $black;
+      // background-color: transparent;
     }
   }
 }
@@ -202,10 +218,42 @@ header {
       @extend %debug-border-1;
       @extend %page-ctrl__arrow-btn;
       right: 32%;
-      
+
       .page-ctrl__right-btn__icon {
         @extend %page-ctrl__arrow-btn__icon;
         background-position: -145px -335px;
+      }
+    }
+  }
+}
+
+.evt-card-list {
+  @extend %hori-list;
+  display: inline-block;
+  width: 100%;
+
+  @for $i from $min-item-cnt through $max-item-cnt {
+    &.item-cnt-#{$i} {
+      .evt-card-list__item {
+        width: 100% / $i;
+      }
+    }
+  }
+
+  .evt-card-list__item {
+    padding: 21px;
+    position: relative;
+    text-align: left;
+    background-color: $white;
+
+    .item__link {
+      width: 100%;
+      position: relative;
+
+      .item__link__thumb {
+        img {
+          max-width: 100%;
+        }
       }
     }
   }
@@ -215,54 +263,24 @@ header {
   display: block;
   width: 100%;
 
-  .evt-card-list {
-    @extend %hori-list;
-    display: inline-block;
-
-    @for $i from 3 through 5 {
-      &.item-cnt-#{$i} {
-        .evt-card-list__item {
-          width: 100% / $i;
-        }
-      }
-    }
-
-    .evt-card-list__item {
-      padding: 21px;
-      position: relative;
-      text-align: left;
-      background-color: $white;
-
-      .item__link {
-        width: 100%;
-
-        .item__link__thumb {
-          img {
-            max-width: 100%;
-          }
-        }
-
-        .item__link__title {
-          margin-top: 10px;
-          font-size: 14px;
-          font-weight: 800;
-          color: $black;
-        }
-
-        .item__link__desc {
-          font-size: 12px;
-          color: $gray;
-        }
-
-        .item__link__theme {
-          width: 31px;
-          height: 18px;
-          margin-top: 10px;
-          background: $ic-url2;
-          background-position: 0 -850px;
-        }
-      }
-    }
+  .item__link__title {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 800;
+    color: $black;
+  }
+  
+  .item__link__desc {
+    font-size: 12px;
+    color: $gray;
+  }
+  
+  .item__link__theme {
+    width: 31px;
+    height: 18px;
+    margin-top: 10px;
+    background: $ic-url2;
+    background-position: 0 -850px;
   }
 
   .evt-card-table__see-more-btn {
@@ -289,6 +307,115 @@ header {
       .hilight-txt {
         color: $redorange;
       }
+    }
+  }
+}
+
+.hotdeal-evt-slide {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  .slide__card-list-cont {
+    @for $i from $min-item-cnt through $max-item-cnt {
+      &.item-cnt-#{$i} {
+        $tmp: 100% / $i;
+        $width: $tmp * $hotdeal-card-item-cnt ;
+        $item-width: $width / $hotdeal-card-item-cnt;
+
+        width: $width;
+        position: relative;
+        left: -1 * $item-width;
+
+        .evt-card-list__item {
+          width: 100% / $hotdeal-card-item-cnt;
+        }
+      }
+    }
+
+    .evt-card-list {
+      .evt-card-list__item {
+        .item__link__title {
+          margin-top: 11px;
+          height: 40px;
+          font-size: 13px;
+          color: $darkgray;
+        }
+
+        .item__link__price-info {
+          height: 43px;
+          margin-top: 5px;
+          position: relative;
+          overflow: hidden;
+
+          .price-info__price {
+            display: block;
+            float: left;
+            font-size: 14px;
+            font-weight: 800;
+            color: $black;
+          }
+
+          .price-info__discount {
+            display: block;
+            float: right;
+            font-size: 24px;
+            line-height: 30px;
+            color: $redorange;
+
+            &.hotdeal {
+              font-size: 18px;
+              letter-spacing: -1px;
+            }
+          }
+
+          .price-info__origin-price {
+            display: block;
+            position: absolute;
+            bottom: 6px;
+            left: 0;
+            font-size: 13px;
+            color: $gray;
+            text-decoration: line-through;
+          }
+        }
+      }
+
+      &.move-to-left {
+        transition-duration: 300ms;
+        transform: translateX(100% / $hotdeal-card-item-cnt);
+      }
+    
+      &.move-to-right {
+        transition-duration: 300ms;
+        transform: translateX(-1 * 100% / $hotdeal-card-item-cnt);
+      }
+    }
+  }
+
+  .slide__card-ctrl {
+    %card-ctrl__arrow-btn {
+      width: 40px;
+      height: 40px;
+      // background: $ic-url;
+      background: $black;
+    }
+
+    .card-ctrl__left-btn {
+      // background-position: 0 -340px;
+      @extend %card-ctrl__arrow-btn;
+      position: absolute;
+      top: 50%;
+      left: 0;
+    }
+
+    .card-ctrl__right-btn {
+      // background-position: 0 -340px;
+      @extend %card-ctrl__arrow-btn;
+      position: absolute;
+      top: 50%;
+      right: 0;
     }
   }
 }
