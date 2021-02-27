@@ -126,7 +126,6 @@ header {
     transition-duration: 0;
 
     .page {
-      // display: inline-block;
       float: left;
       padding: 0;
       margin: 0;
@@ -166,7 +165,6 @@ header {
       }
 
       .page-ctrl__idx-btn__bar {
-        // @extend %debug-border-1;
         display: inline-block;
         width: 15px;
         height: 5px;
@@ -182,7 +180,6 @@ header {
     }
 
     %page-ctrl__arrow-btn__icon {
-      // @extend %debug-border-0;
       display: inline-block;
       background-image: $ic-url;
       overflow: hidden;
@@ -219,7 +216,6 @@ header {
   width: 100%;
 
   .evt-card-list {
-    // @extend %debug-border-0;
     @extend %hori-list;
     display: inline-block;
 

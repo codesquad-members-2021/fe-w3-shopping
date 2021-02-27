@@ -1,5 +1,5 @@
 import { _ } from './util.js';
-import { createMainEvtCardElFrom } from './common-creator.js';
+import { createMainEvtCardElFrom, createEvtCardListElFrom } from './common-creator.js';
 
 // class ISlide {
   // constructor($target) {
@@ -16,6 +16,7 @@ import { createMainEvtCardElFrom } from './common-creator.js';
   COMMENT:
     Later, the codes for 'PageCtrl*' maybe seperated from this.
 */
+
 export class MainEvtSlide {
   constructor($target, jsonList) {
     this.$target = $target;
@@ -25,22 +26,22 @@ export class MainEvtSlide {
   }
 
   init() {
-    this.appendPageEls();
-    this.appendPageCtrl();
-    this.$pageCtrl.children[0].classList.add('select');
+    this.initPageEls();
+    this.initPageCtrl();
     this.onEvents();
   }
 
-  appendPageEls() {
+  initPageEls() {
     this.jsonList.forEach(json => this.$pages.appendChild(this.createPageElFrom(json)));
   }
 
-  appendPageCtrl() {
+  initPageCtrl() {
     for (let i = 0; i < this.jsonList.length; i++)
       this.$pageCtrl.appendChild(this.createPageCtrlIdxBtn(i));
 
     this.$pageCtrl.appendChild(this.createPageCtrlLeftBtn());
     this.$pageCtrl.appendChild(this.createPageCtrlRightBtn());
+    this.$pageCtrl.children[0].classList.add('select');
   }
 
   createPageElFrom(json) {
@@ -60,17 +61,17 @@ export class MainEvtSlide {
   }
 
   createPageCtrlLeftBtn() {
-    const $ = document.createElement('BUTTON');
-    $.classList.add('slide__page-ctrl__left-btn');
-    $.innerHTML = `<div class="page-ctrl__left-btn__icon"></div>`;
-    return $;
+    return _.genEl('BUTTON', {
+      classNames: ['slide__page-ctrl__left-btn'],
+      template:  `<div class="page-ctrl__left-btn__icon"></div>`,
+    });
   }
 
   createPageCtrlRightBtn() {
-    const $ = document.createElement('BUTTON');
-    $.classList.add('slide__page-ctrl__right-btn');
-    $.innerHTML = `<div class="page-ctrl__right-btn__icon"></div>`;
-    return $;
+    return _.genEl('BUTTON', {
+      classNames: ['slide__page-ctrl__right-btn'],
+      tempalte: `<div class="page-ctrl__right-btn__icon"></div>`,
+    });
   }
 
   select(idx) {
@@ -118,9 +119,19 @@ export class MainEvtSlide {
   }
 }
 
+import { HotdealEvtCardListItem } from './list-item.js';
 
 export class HotdealEvtSlide {
-  constructor($target) {
+  constructor($target, jsonList) {
     this.$target = $target;
+    this.jsonList = jsonList;
+  }
+
+  init() {
+    
+  }
+
+  initEl() {
+    this.$target.appendChild(createEvtCardListElFrom(this.jsonList));
   }
 }

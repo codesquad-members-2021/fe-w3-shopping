@@ -1,5 +1,6 @@
 import { _ } from './util.js';
 import { createEvtCardListElFrom } from './common-creator.js';
+import { EvtCardListItem } from './list-item.js';
 
 class ITable {
   constructor(target, columnCnt) {
@@ -27,10 +28,11 @@ export class EvtCardTable extends ITable {
   initSeeMoreBtn() {
     this.$seeMoreBtn = _.genEl('DIV', {
       classNames: ['evt-card-table__see-more-btn'],
-      template: `<span class="main-txt">더보기
-        <span>&#40;</span>
-        <span class="hilight-txt">${this.columnCnt}</span>
-        <span>&#47;&#160;${this.jsonList.length}건&#41;</span>
+      template:
+        `<span class="main-txt">더보기
+          <span>&#40;</span>
+          <span class="hilight-txt">${this.columnCnt}</span>
+          <span>&#47;&#160;${this.jsonList.length}건&#41;</span>
         </span>`,
     });
     
@@ -38,8 +40,18 @@ export class EvtCardTable extends ITable {
   }
 
   addRow(itemCnt = this.columnCnt) {
-    const $evtCardList = createEvtCardListElFrom(this.jsonList.slice(this.nextJsonIdxToLoad, this.nextJsonIdxToLoad + itemCnt));
-    this.$target.insertBefore($evtCardList, this.$seeMoreBtn);
+    const $ul = _.genEl('UL', {
+      classNames: ['evt-card-list', `item-cnt-${itemCnt}`]
+    });
+
+    this.jsonList
+        .slice(this.nextJsonIdxToLoad, this.nextJsonIdxToLoad + itemCnt)
+        .forEach(json => {
+          const evtCardLi = new EvtCardListItem(json);
+          $ul.appendChild(evtCardLi.element());
+        });
+
+    this.$target.insertBefore($ul, this.$seeMoreBtn);
     this.nextJsonIdxToLoad += itemCnt;
   }
 
