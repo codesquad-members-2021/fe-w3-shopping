@@ -30,7 +30,7 @@ export default class smallCarousel {
         const selectedBtn = (direction === 1) ? 'prev' : 'next';
         this.slide.style.transitionDuration = "300ms";
         this.slide.style.transform = `translateX(${direction * (100 / panelNumber)}%)`;
-        window.setTimeout(() => {this.reorganizeEl(selectedBtn);}, 300);
+        this.slide.ontransitionend = () => this.reorganizeEl(selectedBtn);
     }
 
     reorganizeEl(selectedBtn) {
