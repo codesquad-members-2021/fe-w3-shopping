@@ -349,6 +349,7 @@ header {
       vertical-align: middle;
       background-color: transparent; }
   .carousel1 .slide-window {
+    overflow: hidden;
     width: 514px;
     height: 340px;
     margin: 0 auto;
@@ -385,7 +386,7 @@ header {
 .slide {
   position: relative;
   height: 340px;
-  width: 1470px;
+  width: 1452px;
   left: -484px; }
   .slide .panel {
     display: inline-block;

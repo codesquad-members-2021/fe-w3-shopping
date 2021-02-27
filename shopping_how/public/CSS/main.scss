@@ -445,7 +445,7 @@ header {
   }
 
   .slide-window {
-    // overflow: hidden; //이걸로 넘치는 걸 안보이게 함.
+    overflow: hidden; //이걸로 넘치는 걸 안보이게 함.
     width: 514px;
     height: 340px;
     margin: 0 auto;
@@ -480,9 +480,8 @@ header {
 .slide {
   position: relative;
   height: 340px;
-  width: 1470px;
+  width: 1452px;
   left: -484px;
-  // transition-duration: 0ms;
   .panel {
     display: inline-block;
     width: 484px;

@@ -7,8 +7,8 @@
 2. 다시 트랜스레이트X를 취소한 후 panel의 순서가 바뀌도록 한다.
 - [x] 양쪽 화살표 아이콘 추가하기
 - [x] 슬라이드 트랜지션 이벤트 넣기
-- [ ] 오른쪽 화살표 클릭 시 순서가 바뀌는 기능 구현
-- [ ] 왼쪽 화살표 클릭 시 순서서가 바뀌는 기능 구현
+- [x] 오른쪽 화살표 클릭 시 순서가 바뀌는 기능 구현
+- [x] 왼쪽 화살표 클릭 시 순서서가 바뀌는 기능 구현
 - [ ] 이미지 하단 언더바에 마우스에 호버링 이벤트 넣기 : 호버 시 이미지 바꿈. (로직 설계 필요 - data-Index 사용할 방법 생각해보기)
 */
 
@@ -28,9 +28,9 @@ export default class smallCarousel {
 
     translateSlide(direction, panelNumber){
         const selectedBtn = (direction === 1) ? 'prev' : 'next';
-        this.slide.style.transitionDuration = "500ms";
+        this.slide.style.transitionDuration = "300ms";
         this.slide.style.transform = `translateX(${direction * (100 / panelNumber)}%)`;
-        window.setTimeout(() => {this.reorganizeEl(selectedBtn);}, 500);
+        window.setTimeout(() => {this.reorganizeEl(selectedBtn);}, 300);
     }
 
     reorganizeEl(selectedBtn) {
