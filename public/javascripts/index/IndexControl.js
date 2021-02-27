@@ -9,7 +9,9 @@ class IndexControl {
         this.dataManager = dataManager;
         this.moreWrapper = _.$(moreWrapSelector);
         this.mainCarouselWrapper = _.$(mainCarouselWrapper);
-        this.hotCarouselWrapper = _.$(hotCarouselWrapper);     
+        this.hotCarouselWrapper = _.$(hotCarouselWrapper); 
+        this.hotCarouselMousedownTimer = null;
+        this.hotCarouselMousedownRunCnt = 1;
     }
 
     init() {
@@ -19,6 +21,7 @@ class IndexControl {
         this._setMainCarouselClickEvent(this.mainCarouselWrapper);
         this._setMainCarouselMouseoverEvent(this.mainCarouselWrapper);
         this._setHotCarouselMousedownEvent(this.hotCarouselWrapper);
+        this._setHotCarouselMouseupEvent(this.hotCarouselWrapper);
 
         setInterval(() => this._updateMainCarouselAnimation('next', _.$All('.slide > .item', this.mainCarouselWrapper)), 5000);
         this._createMoreViewItemsExecute(_.$('.content__more__btn', this.moreWrapper));
@@ -228,19 +231,41 @@ class IndexControl {
             .catch((error) => console.error(error.message));          
     }
 
-    // 하단 캐러셀 이벤트 등록 (mousedown) (이전, 다음)
+    // 하단 캐러셀 이벤트 등록 (mousedown / mouseup) (이전, 다음 (1개씩 or 2개씩))
+    // mousedown
     _setHotCarouselMousedownEvent(hotCarouselWrapper) {        
-        _.addEvent(hotCarouselWrapper, 'mousedown', (e) =>
-            this._hotCarouselMousedownEventHandler(e),
+        _.addEvent(hotCarouselWrapper, 'mousedown', () =>
+            this._hotCarouselMousedownEventHandler()
         );
     }
 
-    _hotCarouselMousedownEventHandler({target}) {        
+    _hotCarouselMousedownEventHandler() {                
+        this.hotCarouselMousedownTimer = setInterval(() => {            
+            if (this.hotCarouselMousedownRunCnt <= 1) {            
+                this.hotCarouselMousedownRunCnt++;
+            }            
+        }, 1000);
+    }
+    
+    // mouseup
+    _setHotCarouselMouseupEvent(hotCarouselWrapper) {        
+        _.addEvent(hotCarouselWrapper, 'mouseup', (e) =>
+            this._hotCarouselMouseupEventHandler(e),
+        );
+    }
+
+    _hotCarouselMouseupEventHandler({target}) {
+        clearInterval(this.hotCarouselMousedownTimer);
+
         const pagingBtn =
             _.closestSelector(target, '.carousel__special--prev') ||
-            _.closestSelector(target, '.carousel__special--next');
-        this._updateHotCarouselAnimationExecute(pagingBtn);
+            _.closestSelector(target, '.carousel__special--next');    
+        
+        this._updateHotCarouselAnimationExecute(pagingBtn, this.hotCarouselMousedownRunCnt);
+        this.hotCarouselMousedownRunCnt = 1;
     }
+
+
 
     // 하단 캐러셀 동작 (이전, 다음 btn) (실행)
     _updateHotCarouselAnimationExecute(pagingBtn, runCnt = 1) {
