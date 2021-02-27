@@ -283,7 +283,6 @@ eventSliderListener.init();
 class MallEventSection {
   constructor(data) {
     this.data = data;
-    // console.log(this.data);
     this.slide = document.querySelector('#mallEventSlide');
     this.count = 0;
   }
@@ -312,7 +311,7 @@ class MallEventSection {
 
     return `
     <li class=${dataseq}>
-    <a href="${linkurl} class="link--product"
+    <a href=${linkurl} class="link--product"
       ><span class="info--thumb"
         ><img
           src=${imgurl}
@@ -354,18 +353,34 @@ class MallEventSlider {
     const listItem = $mallEventSlide.querySelectorAll('.list--item');
     $mallEventSlide.classList.replace('slide', 'slide--click--prev');
     setTimeout(() => {
-      $mallEventSlide.insertBefore(listItem[0].lastElementChild, listItem[1].firstElementChild);
-      $mallEventSlide.insertBefore(listItem[1].lastElementChild, listItem[2].firstElementChild);
-      $mallEventSlide.insertBefore(listItem[2].lastElementChild, listItem[0].firstElementChild);
+      const firstLast = listItem[0].lastElementChild.cloneNode(true);
+      const secondLast = listItem[1].lastElementChild.cloneNode(true);
+      const thirdLast = listItem[2].lastElementChild.cloneNode(true);
+      listItem[1].appendChild(firstLast);
+      listItem[0].removeChild(listItem[0].lastElementChild);
+      listItem[1].insertBefore(listItem[1].lastElementChild, listItem[1].firstElementChild);
+      listItem[2].appendChild(secondLast);
+      listItem[1].removeChild(listItem[1].lastElementChild);
+      listItem[2].insertBefore(listItem[2].lastElementChild, listItem[2].firstElementChild);
+      listItem[0].appendChild(thirdLast);
+      listItem[2].removeChild(listItem[2].lastElementChild);
+      listItem[0].insertBefore(listItem[0].lastElementChild, listItem[0].firstElementChild);
       $mallEventSlide.classList.replace('slide--click--prev', 'slide');
     }, 300);
   }
   clickNext() {
+    const listItem = $mallEventSlide.querySelectorAll('.list--item');
     $mallEventSlide.classList.replace('slide', 'slide--click--next');
     setTimeout(() => {
-      $mallEventSlide.insertBefore(listItem[1].firstElementChild, null);
-      $mallEventSlide.insertBefore(listItem[2].firstElementChild, null);
-      $mallEventSlide.insertBefore(listItem[0].firstElementChild, null);
+      const firstFirst = listItem[0].firstElementChild.cloneNode(true);
+      const secondFirst = listItem[1].firstElementChild.cloneNode(true);
+      const thirdFirst = listItem[2].firstElementChild.cloneNode(true);
+      listItem[2].appendChild(firstFirst);
+      listItem[0].removeChild(listItem[0].firstElementChild);
+      listItem[0].appendChild(secondFirst);
+      listItem[1].removeChild(listItem[1].firstElementChild);
+      listItem[1].appendChild(thirdFirst);
+      listItem[2].removeChild(listItem[2].firstElementChild);
       $mallEventSlide.classList.replace('slide--click--next', 'slide');
     }, 300);
   }

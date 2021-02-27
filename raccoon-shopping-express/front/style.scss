@@ -636,7 +636,7 @@ section {
 
                 .list--item {
                   overflow: hidden;
-                  width: 1276px;
+                  width: 1277px;
                   background-color: #fff;
 
                   .first {
@@ -662,52 +662,52 @@ section {
                     line-height: 14px;
                     letter-spacing: -1px;
                     list-style: none;
-                  }
 
-                  .link--product {
-                    display: block;
-                    overflow: hidden;
-                    position: relative;
-                    text-decoration: none;
-
-                    .info--thumb {
+                    .link--product {
                       display: block;
                       overflow: hidden;
-                      height: 200px;
+                      position: relative;
+                      text-decoration: none;
 
-                      .image--top {
-                        float: left;
+                      .info--thumb {
+                        display: block;
+                        overflow: hidden;
+                        height: 200px;
+
+                        .image--top {
+                          float: left;
+                        }
                       }
-                    }
-                    .info--title {
-                      display: block;
-                      overflow: hidden;
-                      margin: 10px 0 1px;
-                      font-size: 14px;
-                      white-space: nowrap;
-                      text-overflow: ellipsis;
-                      line-height: 22px;
-                      // 사실 폰트로 두께가 달라짐
-                      font-weight: 800;
-                    }
-                    .info--txt {
-                      display: block;
-                      color: #888;
-                    }
+                      .info--title {
+                        display: block;
+                        overflow: hidden;
+                        margin: 10px 0 1px;
+                        font-size: 14px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        line-height: 22px;
+                        // 사실 폰트로 두께가 달라짐
+                        font-weight: 800;
+                      }
+                      .info--txt {
+                        display: block;
+                        color: #888;
+                      }
 
-                    .ico--background2 {
-                      float: left;
-                      height: 18px;
-                      margin: 11px 4px 0 0;
-                      background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/img/ico_comm2_150514.gif) no-repeat;
-                      display: block;
-                      overflow: hidden;
-                      text-indent: -9999px;
-                    }
+                      .ico--background2 {
+                        float: left;
+                        height: 18px;
+                        margin: 11px 4px 0 0;
+                        background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/img/ico_comm2_150514.gif) no-repeat;
+                        display: block;
+                        overflow: hidden;
+                        text-indent: -9999px;
+                      }
 
-                    .ico--theme {
-                      width: 31px;
-                      background-position: 0 -850px;
+                      .ico--theme {
+                        width: 31px;
+                        background-position: 0 -850px;
+                      }
                     }
                   }
                 }
