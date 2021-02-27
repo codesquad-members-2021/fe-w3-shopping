@@ -38,13 +38,19 @@ export default class UIMaker {
         .catch(err => alert(err));
     }
 
+    //key를 기준으로 template이 추가되어야 하는 위치의 node를 담은 객체를 만든다.
     fillUpImg(key, ImgJsonData){
         const parentNode = this.pair[key];
-        console.log("1. parentNode:", this.ref.best);
-        console.log("2. key:", key);
-        //key를 기준으로 template이 추가되어야 하는 위치의 node를 담은 객체를 만든다.
-        const str = `<img src="${ImgJsonData.prefix}${ImgJsonData.list[0].src}" alt="${key}">`;
-        console.log("3. this.pair.best:", this.pair.best);
-        parentNode.innerHTML = str;
+        const commonPrefix = ImgJsonData.prefix;
+        const imgSource = ImgJsonData.list[0].src;
+
+        switch(key) {
+            case "best":
+                const str = `<img src="${commonPrefix}${imgSource}" alt="${key}">`;
+                parentNode.innerHTML = str;
+            case "event":
+            case "carousel":
+            case "box":
+        }
     }
 }
