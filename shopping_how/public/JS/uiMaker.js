@@ -23,6 +23,12 @@ export default class UIMaker {
         this._ = _;
         this.ref = reference;
     }
+    getFileData(){
+        const promise = fetch("http://localhost:3000/image")
+        .then(response => console.log(response.json()))
+        // .then(data => this.saveEachData(data))
+        .catch(err => alert(err));
+    }
     fillUpImg(node, ImgJsonData){
 
     }

@@ -8,8 +8,7 @@
 - [ ] 캐러셀의 기본 이미지 띄워주기
 */
 
-import { FileReader } from "./fileReader.js";
-import UIMaker from "./uiMaker.js";
+import UIMaker from "./UIMaker.js";
 import smallCarousel from "./smallCarousel.js";
 import _ from "./utill.js";
 
@@ -18,24 +17,23 @@ const REFERENCE = {
     bestSeller: _.$(".upper-half__left"),
     miniCarousel: _.$(".carousel1"),
     prevButton: _.$(".btn_prev"),
-    nextButton: _.$(".btn_next")
+    nextButton: _.$(".btn_next"),
+    slide: _.$(".slide")
 }
 
 class Main {
-    constructor(fileReader, UIMaker, smallCarousel){
-        this.fileReader = fileReader;
+    constructor(UIMaker, smallCarousel){
         this.UIMaker = UIMaker;
         this.smallCarousel = smallCarousel;
         this.init()
     }
     init(){//json파일 받아서 저장(비동기) 프로미스? getFileData가 완료되어야 시작화면에 이미지 렌더링이 가능.
-        const data = this.fileReader.getFileData();
         //{ best, event, carousel, box }
+        this.smallCarousel.addEvent(3);
         this.UIMaker.fillUpImg();
     }
 }
 
-const FILEREADER = new FileReader();
 const UIMAKER = new UIMaker(_, REFERENCE);
 const SMALLCAROUSEL = new smallCarousel(_, REFERENCE);
-const MAIN = new Main(FILEREADER, UIMAKER, SMALLCAROUSEL);
+new Main(UIMAKER, SMALLCAROUSEL);
