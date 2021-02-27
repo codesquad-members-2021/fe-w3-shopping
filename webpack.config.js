@@ -27,17 +27,17 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    // to use image files in .html
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: './rsc/img',
-          to: 'rsc/img',
-        },
-      ],
-    }),
-  ],
+  // plugins: [
+  //   // to use image files in .html
+  //   new CopyWebpackPlugin({
+  //     patterns: [
+  //       {
+  //         from: './rsc/img',
+  //         to: 'rsc/img',
+  //       },
+  //     ],
+  //   }),
+  // ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
