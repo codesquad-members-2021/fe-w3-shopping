@@ -1,13 +1,10 @@
 @import "../vars.scss";
 
 .article__top {
-  // background-color: teal;
-
   .top__event {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    // border: 1px solid $navbar-line-color;
 
     .event {
       border: 1px solid map-get($color-palette, top_border);
@@ -25,7 +22,6 @@
       position: relative;
 
       .slide_event {
-        // background-color: tan;
         width: map-get($slide_img, width);
         height: map-get($slide_img, height);
         margin: auto;
@@ -41,7 +37,6 @@
     }
 
     .paging_comm {
-      // border: 1px solid yellow;
       position: absolute;
       top: 283px;
       left: 0;
@@ -53,7 +48,6 @@
         top: -160px;
         font-size: 50px;
         color: map-get($color-palette, top_border);
-        //   background-color: blueviolet;
         padding: 0 5.5%;
       }
 
@@ -67,62 +61,40 @@
 
       .inner_paging {
         display: inline-block;
+      }
 
-        .btn_paging {
-          float: left;
-          margin-left: 3px;
-          background-color: map-get($color-palette, num_page-color);
+      .btn_paging {
+        float: left;
+        margin-left: 3px;
+        background-color: map-get($color-palette, num_page-color);
 
-          .num_page {
-            cursor: pointer;
-            display: block;
-            width: 15px;
-            height: 5px;
-          }
+        .num_page {
+          cursor: pointer;
+          display: block;
+          width: 15px;
+          height: 5px;
         }
-
-        .dot_active {
-          background-color: none;
-          background-color: black;
-        }
+      }
+      .dot_active {
+        background-color: none;
+        background-color: black;
       }
     }
   }
 
   .top__event-list {
-    // height: 100%;
-    // border: 1px solid red;
-
     .event-list__slide {
       width: 100%;
       position: relative;
-      text-align: center;
     }
 
-    a {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      color: map-get($font-color, content);
-
-      img {
-        height: 18em;
-      }
-
-      strong {
-        margin-top: 10px;
-        font-size: map-get($font-size, title);
-        color: map-get($font-color, title);
-      }
-
-      .ico_theme {
-        color: map-get($font-color, theme);
-        border: 1px solid map-get($font-color, theme);
-        border-radius: 2px;
-        position: absolute;
-        top: 300px;
-        left: 1em;
-      }
+    .ico_theme {
+      color: map-get($font-color, theme);
+      border: 1px solid map-get($font-color, theme);
+      border-radius: 2px;
+      position: absolute;
+      top: 300px;
+      left: 1em;
     }
 
     .btn_prev {

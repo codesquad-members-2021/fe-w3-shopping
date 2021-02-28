@@ -9,8 +9,6 @@
 
   .hotDeal__container {
     background-color: white;
-    // border: 1px solid blue;
-    // max-width: $slide_hotdeal_total-width;
     width: $slide_hotdeal_total-width;
     height: 351px;
     overflow: hidden;
@@ -19,14 +17,11 @@
   }
 
   .content_hotDeal {
-    // background-color: paleturquoise;
     width: 100%;
     display: flex;
   }
 
   .buttons_hotDeal {
-    // background-color: teal;
-    // height: 45px;
     display: flex;
     justify-content: space-between;
     position: absolute;
@@ -50,30 +45,7 @@
 
     li {
       border: 1px solid map-get($color-palette, top_border);
-      display: flex;
-      text-align: center;
       width: $slide_hotdeal_img-width;
-    }
-
-    a {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    img {
-      margin-top: 1em;
-      width: 80%;
-    }
-
-    strong {
-      margin: 0 1em;
-      font-size: map-get($font-size, title);
-      color: map-get($font-color, title);
-    }
-
-    .detail_price {
-      padding: 1em 0;
     }
   }
 }

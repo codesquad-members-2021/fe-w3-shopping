@@ -33,18 +33,64 @@ footer {
     font-size: 18px;
   }
 
-  .list_item {
-    // border: 1px solid red;
+  .list_item,
+  .list_keyword,
+  .list_how {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20%, auto));
     min-height: 350px;
-    // border: 1px solid map-get($color-palette, top_border);
+    text-align: center;
 
     ._GI_ {
-      // background-color: teal;
       padding: 20px 0;
-      // height: 100%;
       border: 1px solid map-get($color-palette, top_border);
+
+      a {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        color: map-get($font-color, content);
+
+        img {
+          height: 18em;
+        }
+
+        strong {
+          margin: 10px 10px 0 10px;
+          font-size: map-get($font-size, title);
+          color: map-get($font-color, title);
+        }
+      }
+    }
+  }
+
+  .list_hotDeal,
+  .list_keyword,
+  .list_how {
+    li {
+      display: flex;
+      text-align: center;
+    }
+
+    a {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    img {
+      margin-top: 1em;
+      width: 80%;
+    }
+
+    strong {
+      margin: 0 1em;
+      font-size: map-get($font-size, title);
+      color: map-get($font-color, title);
+    }
+
+    .detail_price {
+      padding: 1em 0;
     }
   }
 }

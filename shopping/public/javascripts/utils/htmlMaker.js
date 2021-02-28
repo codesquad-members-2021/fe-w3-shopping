@@ -1,21 +1,25 @@
+import { partnerState } from "./states.js";
+
+// html에 innerHTML할 html태그를 만드는 함수들
+
 const eventItem = (data) => {
   const { linkurl, imgurl } = data;
-  return /*html*/ `<a href="${linkurl}"><img src="${imgurl}"/></a>`;
+  return `<a href="${linkurl}"><img src="${imgurl}"/></a>`;
 };
 
 const mileageList = (href_url, img_url) => {
   // 3개 캐러셀 슬라이드
-  return /*html*/ `<div class="slide_content"><a href="${href_url}"><img src="${img_url}"></a></div>`;
+  return `<div class="slide_content"><a href="${href_url}"><img src="${img_url}"></a></div>`;
 };
 
 const mallEventList = (lists) => {
   // 더보기 제품들 목록
-  return /*html*/ `<div class="panel"><ul class="list_item">${lists}</ul></div>`;
+  return `<div class="panel"><ul class="list_item">${lists}</ul></div>`;
 };
 
 const mallEventItems = (href_url, img_url, title, info) => {
   // 더보기 제품들
-  return /*html*/ `<li class="_GI_">
+  return `<li class="_GI_">
         <a href="${href_url}">
           <span class="info_thumb">
             <img src="${img_url}" alt="" />
@@ -50,7 +54,14 @@ const mallEventListHtml = (array) => {
 const pageDotsHtml = (slideLen, startNum) => {
   // 페이지네이션 점들
   return new Promise((resolve, reject) => {
-    const pageChild = [...Array(slideLen).keys()].reduce((acc, val) => acc + `<span class="btn_paging ${val === startNum ? "dot_active" : ""}" data-index="${val}"><span class="num_page"></span></span>`, ``);
+    const pageChild = [...Array(slideLen).keys()].reduce(
+      (acc, val) =>
+        acc +
+        `<span class="btn_paging ${
+          val === startNum ? "dot_active" : ""
+        }" data-index="${val}"><span class="num_page"></span></span>`,
+      ``
+    );
     resolve(pageChild);
   });
 };
@@ -67,11 +78,11 @@ const paginationHtml = (pagination) => {
   });
 };
 
-const hotDealItems = (info, i) => {
+const homeContentItems = (info, i, kinds) => {
   const { imageurl, produrl, prodname, mprice } = info;
-  return `<li class="_GI_" data-id="${i}">
+  return `<li class="_GI_ ${kinds}_item" data-id="${i}">
   <a href="${produrl}">
-    <span class="thumb_hotdeal">
+    <span class="thumb_${kinds}">
       <img src="${imageurl}" alt="" />
     </span>
     <strong class="title_g">${prodname}</strong>
@@ -82,16 +93,32 @@ const hotDealItems = (info, i) => {
 </li>`;
 };
 
-const hotDealList = (data) => {
-  const contents = data.contents;
+const homeContentsList = (data, kinds) => {
+  const contents = data;
   let i = 0;
   let totalHtml = ``;
   Object.entries(contents).forEach((value, key) => {
     const currProducts = value[1].eventProducts;
-    let hotDealHtml = `<ul class="list_hotDeal">`;
-    hotDealHtml += currProducts.reduce((acc, val) => acc + hotDealItems(val, i++), ``);
+    let hotDealHtml = `<ul class="list_${kinds}">`;
+    hotDealHtml += currProducts.reduce((acc, val) => acc + homeContentItems(val, i++, kinds), ``);
     hotDealHtml += `</ul>`;
     totalHtml += hotDealHtml;
+  });
+  return totalHtml;
+};
+
+const partnerItems = (partners) => {
+  return partners.reduce((acc, val) => acc + `<li class="_GI_"><a href="#">${val}</a></li>`, ``);
+};
+
+const partnerList = (data) => {
+  let totalHtml = ``;
+  Object.entries(data).forEach((value, key) => {
+    const [title, partners] = value;
+    totalHtml += `<div class="category_partner">`;
+    totalHtml += `<strong class="title_mall">${partnerState[title]}</strong>`;
+    totalHtml += `<ul class="list_mall">${partnerItems(partners)}</ul>`;
+    totalHtml += `</div>`;
   });
   return totalHtml;
 };
@@ -100,4 +127,4 @@ function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-export { eventItem, mileageListHtml, paginationHtml, mallEventListHtml, hotDealList };
+export { eventItem, mileageListHtml, paginationHtml, mallEventListHtml, homeContentsList, partnerList };
