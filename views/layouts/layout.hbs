@@ -5,17 +5,15 @@
       <profile="http: //www.w3.org/2005/10/profile">
          <link rel="icon" type="image/png" href="http://example.com/myicon.png">
 
-
          <meta charset="UTF-8">
          <meta http-equiv="X-UA-Compatible" content="IE=edge">
          <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <title>SHOWPPING_HOW</title>
-         <link rel="stylesheet" href="style.css" />
+         <link rel="stylesheet" href="/style/style.css" />
          <link rel="preconnect" href="https://fonts.gstatic.com">
          <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
 
    </head>
-
 
    <body>
 
@@ -31,16 +29,8 @@
                <form action="" role="search" class="search_form">
                   <div class="search_box">
                      <input type="text" class="search_input" />
-                     <button type="submit" class="search_btn">
-                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
-                           style="display:block;fill:#f9624c;height:1.5rem;width:1.5rem;stroke:#f9624c;stroke-width:4;overflow:visible"
-                           aria-hidden="true" role="presentation" focusable="false">
-                           <g fill="none">
-                              <path
-                                 d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9">
-                              </path>
-                           </g>
-                        </svg>
+                     <button type="submit" class="basic_icon search_btn">
+                        돋보기
                      </button>
                   </div>
                </form>
@@ -49,10 +39,8 @@
          <div class="navigator wrap">
             <div class="nav_left">
                <div class="category">
-                  <div>
-                     <img src="/img/list.png" class="btn_icon" alt="category">
-                     카테고리
-                  </div>
+                  <div class="basic_icon basic_icon_3"></div>
+                  <span>카테고리</span>
                </div>
                <span class="txt_bar">txt_bar</span>
                <ul class="nav_menu">
@@ -94,11 +82,11 @@
                   </li>
                </ul>
             </div>
-            <div class="nav_right nav_user_menu">
-               <ul>
-                  <li><img class="btn_icon" src="/img/user.png" alt=""><a href="#">로그인</a></li>
-                  <li><img class="btn_icon" src="/img/history.png" alt=""><a href="#">최근본 상품</a></li>
-               </ul>
+            <div class="nav_right">
+
+               <li><img class="basic_icon basic_icon_4"><a href="#">로그인</a></li>
+               <li><img class="basic_icon basic_icon_5"><a href="#">최근본 상품</a></li>
+
             </div>
          </div>
          </div>
@@ -109,31 +97,41 @@
             <div class="evt_main">
                <div class="banner_area">
                   <a href="#">
-                     <img src="">
-                     {{!-- fetch_img_insertArea --}}
-                     </img>
+                     <img src=""></img>
                   </a>
                </div>
-               <div class="slide_area">
-                  <div class="slide_prev_main_next">
+               <div class="something">
+                  <div class="slide_area">
+                     <div class="slide_second_position">
+                        {{!--
+                        <div>슬라이드</div>
+                        <div>슬라이드</div>
+                        <div>슬라이드</div>
+                        <div>슬라이드</div>
+                        <div>슬라이드</div>
+                        --}}
+                     </div>
+                  </div>
+                  <div class="slide_ctrl">
                      <button class="prev">
                         <span>이전</span>
                      </button>
-                     <div class="slide">
-                        <div class="slide_second_position">
-                           {{!-- fetch_img_insertArea --}}
-                        </div>
 
+                     <div class="paging_btn">
+                        <span class="1">paging_btn</span>
+                        <span class="2">paging_btn</span>
+                        <span class="3">paging_btn</span>
                      </div>
+
                      <button class="next">
                         <span>다음</span>
                      </button>
                   </div>
-                  <div class="slide_ctrl"></div>
                </div>
             </div>
             <div class="evt_list">
                <ul class="panel">
+                  {{!--
                   <li class="panel_list">
                      <a href="#">
                         <img
@@ -142,43 +140,7 @@
                         <span>스타일리시함까지 갖춘 차량 아이템</span>
                         <span class="theme_icon">테마</span>
                      </a>
-                  </li>
-                  <li class="panel_list">
-                     <a href="#">
-                        <img
-                           src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FP4212071675.jpg%3Fut%3D20171219151418&scode=talkgift"></img>
-                        <p>안정적인 그립감의 핸들커버</p>
-                        <span>스타일리시함까지 갖춘 차량 아이템</span>
-                        <span class="theme_icon">테마</span>
-                     </a>
-                  </li>
-                  <li class="panel_list">
-                     <a href="#">
-                        <img
-                           src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FP4212071675.jpg%3Fut%3D20171219151418&scode=talkgift"></img>
-                        <p>안정적인 그립감의 핸들커버</p>
-                        <span>스타일리시함까지 갖춘 차량 아이템</span>
-                        <span class="theme_icon">테마</span>
-                     </a>
-                  </li>
-                  <li class="panel_list">
-                     <a href="#">
-                        <img
-                           src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FP4212071675.jpg%3Fut%3D20171219151418&scode=talkgift"></img>
-                        <p>안정적인 그립감의 핸들커버</p>
-                        <span>스타일리시함까지 갖춘 차량 아이템</span>
-                        <span class="theme_icon">테마</span>
-                     </a>
-                  </li>
-                  <li class="panel_list">
-                     <a href="#">
-                        <img
-                           src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FP4212071675.jpg%3Fut%3D20171219151418&scode=talkgift"></img>
-                        <p>안정적인 그립감의 핸들커버</p>
-                        <span>스타일리시함까지 갖춘 차량 아이템</span>
-                        <span class="theme_icon">테마</span>
-                     </a>
-                  </li>
+                  </li> --}}
                </ul>
                <button class="see_more_btn">더보기(1/279건) ⩒</button>
             </div>
@@ -187,65 +149,27 @@
 
          <div class="section_hot_deal wrap">
             <h3>지금뜨는 테마 카테고리</h3>
-            <div class="hot_deal_list">
-               <button class="prev"></button>
-               <ul class="panel">
+            <div class="slide_hot_deal">
 
-
-                  <li class="panel_list">
-                     <a href="#">
-                        <img
-                           src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FP4212071675.jpg%3Fut%3D20171219151418&scode=talkgift"></img>
-                        <p>안정적인 그립감의 핸들커버</p>
-                        <span>스타일리시함까지 갖춘 차량 아이템</span>
-                        <span class="theme_icon">테마</span>
-                     </a>
-                  </li>
-                  <li class="panel_list">
-                     <a href="#">
-                        <img
-                           src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FP4212071675.jpg%3Fut%3D20171219151418&scode=talkgift"></img>
-                        <p>안정적인 그립감의 핸들커버</p>
-                        <span>스타일리시함까지 갖춘 차량 아이템</span>
-                        <span class="theme_icon">테마</span>
-                     </a>
-                  </li>
-                  <li class="panel_list">
-                     <a href="#">
-                        <img
-                           src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FP4212071675.jpg%3Fut%3D20171219151418&scode=talkgift"></img>
-                        <p>안정적인 그립감의 핸들커버</p>
-                        <span>스타일리시함까지 갖춘 차량 아이템</span>
-                        <span class="theme_icon">테마</span>
-                     </a>
-                  </li>
-                  <li class="panel_list">
-                     <a href="#">
-                        <img
-                           src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FP4212071675.jpg%3Fut%3D20171219151418&scode=talkgift"></img>
-                        <p>안정적인 그립감의 핸들커버</p>
-                        <span>스타일리시함까지 갖춘 차량 아이템</span>
-                        <span class="theme_icon">테마</span>
-                     </a>
-                  </li>
-                  <li class="panel_list">
-                     <a href="#">
-                        <img
-                           src="//shop1.daumcdn.net/thumb/S318x318/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FP4212071675.jpg%3Fut%3D20171219151418&scode=talkgift"></img>
-                        <p>안정적인 그립감의 핸들커버</p>
-                        <span>스타일리시함까지 갖춘 차량 아이템</span>
-                        <span class="theme_icon">테마</span>
-                     </a>
-                  </li>
-
-               </ul>
-               <button class="next"></button>
+               <div class="hot_deal_list">
+                  {{!--
+                  <ul class="panel"></ul>
+                  <ul class="panel"></ul>
+                  <ul class="panel"></ul>
+                  <ul class="panel"></ul>
+                  <ul class="panel"></ul>
+                  <ul class="panel"></ul> --}}
+               </div>
+               <div class="slide_ctrl">
+                  <button class="prev">이전</button>
+                  <button class="next">다음</button>
+               </div>
             </div>
          </div>
          </div>
       </section>
 
-      <script type="module" src="play.js"></script>
+      <script type="module" src="/js/play.js"></script>
    </body>
 
 </html>

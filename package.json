@@ -4,10 +4,10 @@
   "description": "",
   "main": "express.js",
   "scripts": {
-    "build": "node-sass public/style.scss public/style.css && node-sass --watch public/style.scss public/style.css",
+    "build": "node-sass public/style/style.scss public/style/style.css && node-sass --watch public/style/style.scss public/style/style.css",
     "dev": "nodemon express.js -e js,json,hbs"
   },
-    "repository": {
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/skawnkk/fe-w3-shopping.git"
   },
@@ -24,6 +24,7 @@
     "parcel-bundler": "^1.12.4"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express-handlebars": "^5.2.1"
   }
 }

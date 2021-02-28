@@ -1,0 +1,13 @@
+.slide_area{
+   padding:0 30px;
+}
+
+.slide{
+   width: 485px;
+   display: flex;
+   overflow: hidden;
+   .slide_second_position{
+      display:flex;
+   }
+}
+

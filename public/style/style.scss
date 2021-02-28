@@ -1,0 +1,310 @@
+@import "./reset.css";
+@import "./carousel.scss";
+@import "./icon.scss";
+
+$menu_interval: .5rem;
+$color-emphasis: #f9624c;
+$color-css-grey:#bbbbbb;
+$color-text-grey: #888888;
+$color-background-beige: #f3f3f3; 
+$color-background-white: #fff; 
+$color-transparent-black: #222222d7;
+$color-transparent: #22222200;
+
+// common
+body{
+   background-color: $color-background-beige;
+   font-family: 'Nanum Gothic', sans-serif;
+   box-sizing: border-box;
+}
+
+a {
+   text-decoration: none;
+   color: #000;
+}
+
+p {
+   font-weight: 800;
+}
+
+.wrap{ 
+   width: 75vw;
+   margin: 0px auto;
+   padding: 0;
+}
+
+//header
+.header {
+   background-color: $color-background-white;
+   border-bottom: 1.5px solid $color-css-grey;   
+}
+
+.area_headtop{
+   display: flex;
+   justify-content:center;
+   align-items: center;
+   width: 100vw;
+   margin: 0 auto;
+   padding: 60px 0;
+   border-bottom: 1px solid $color-css-grey;
+   .banner{
+      margin-right: 30px;
+      a{
+         img{
+            width: 10vw;
+         }
+      }
+   }
+}
+
+.search_box{
+   border-radius: 10px;
+   border: 1px solid $color-css-grey;
+   padding: 1vh;
+   .search_input{
+      width: 800px;
+      height: 50px;
+      border: none;
+      padding-left: 4vh;
+      font-size: 1.3rem;
+      &:focus{
+         outline: none;
+      }
+   }
+   .search_btn{
+      margin-right: 10px;
+      border: none;
+      text-indent: -9999px;
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+   }
+}
+
+.navigator {
+   display: flex;
+   justify-content: space-between;
+   padding: 20px 0;
+   * {
+      display: flex;
+   }
+   .nav_left{
+      align-items: center;
+      .category{
+         display: flex;
+         align-items: center;
+         margin-right:10px;
+       
+         span{
+            display:block;
+            font-size: 18px;
+         }
+      }
+      .txt_bar{ 
+         width: 1px;
+         height: 18px;
+         background-color: $color-css-grey;
+         font-size:0px;
+      }
+
+      .nav_menu{
+         li{
+            padding: 0 10px;
+            a{
+               font: {
+                  weight: 700;
+                  size: 18px;
+               }
+                  &:hover{ 
+                  color: $color-emphasis;
+               }
+            } 
+         }     
+      }
+
+      .nav_special_menu{
+         li{
+            padding: 0 10px;
+            a{ 
+               font-weight: 700;
+               color: $color-text-grey;
+            }
+         }
+      }
+   }
+}
+
+.update { 
+   display: inline-block;
+   width: 5px;
+   height: 5px;
+   background-color: $color-emphasis;
+   font-size:0;
+   border-radius: 100%;
+}
+
+.nav_right{ 
+      li{
+         display: flex;
+         align-items: center;
+         img{
+            margin-left: 10px;
+            margin-right: 5px;
+            border: none;
+         }
+      }
+   
+}
+
+
+/*body*/
+
+.section_top{
+   background-color: $color-background-white;
+   margin-top: 30px;
+   border: 1px solid $color-css-grey;
+
+   .evt_main{
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      border-bottom: 1px solid $color-css-grey;
+
+      .banner_area{
+        text-align: center;
+        border-right: 1px solid $color-css-grey;
+      }
+
+      .slide_area{
+         padding:0px;
+         margin: 0 auto;
+         display: block;
+         width: 485px;
+         text-align: center;
+         overflow: hidden; 
+    
+         .slide_second_position{
+            display: flex;
+         }
+         
+      } 
+      .slide_ctrl{
+         display: flex;
+         justify-content:space-around;
+         
+         .prev{
+            position: relative;
+            top: -180px;
+            left: -50px;
+         }
+         .next{
+            position: relative;
+            top: -180px;
+            left: 50px;
+         }
+         .paging_btn{
+            display: flex;
+            span{
+               margin:3px;
+               display:block;
+               width: 20px;
+               height:6px;
+               background-color: $color-css-grey;
+               font-size: 0;
+            }
+         }
+      }
+   }
+}
+
+//evt_list && hot_deal 공통사용.
+.panel{
+   display: grid;
+   grid-template-columns: repeat(5, 1fr);
+   .panel_list{ 
+      border-right: 1px solid $color-css-grey;
+      border-bottom: 1px solid $color-css-grey;
+      padding: 27px;
+      &:last-child {
+         border-right:none;
+      }
+      a{
+         display:flex;
+         flex-flow: column nowrap;
+         align-items: center;
+         &:hover{
+            cursor: pointer;
+         }
+
+         img{
+            display: block;
+            width: 200px;
+            height: 200px;
+         }
+
+         p, span{
+            width: 200px;
+            display: block;
+            margin-top: 10px;
+            text-overflow:ellipsis;
+            overflow:hidden;
+            white-space:nowrap;
+         }
+      }
+   }
+}
+
+.see_more_btn{
+   width: 100%;
+   height: 80px;
+   border: none;
+}
+
+.section_hot_deal{
+   margin: 60px auto;
+   
+   h3 {
+      font-weight: 700;
+      font-size:20px;
+      padding: 10px;
+   }
+
+   .slide_hot_deal{
+      overflow: hidden;
+      .hot_deal_list{
+         display: flex;
+    
+     
+         button{
+            width: 50px;
+            height: 50px;
+            background-color:$color-transparent-black;
+            border:none;
+            
+         }
+         .panel{
+            width:100%;
+            border-top:1px solid $color-css-grey;   
+            border-left:1px solid $color-css-grey;
+            border-bottom: none;
+            .panel_list{
+               width: 232px;
+               background-color:$color-background-white;
+            }
+         }
+        }
+        .slide_ctrl{
+            display: flex;
+            justify-content: space-between;
+         .prev{
+            position: relative;
+            top: -220px;
+         }
+         .next{
+            position: relative;
+            top: -220px;
+         }
+      }
+
+
+   }
+}
