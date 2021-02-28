@@ -147,13 +147,13 @@ export default class Carousel extends Slide {
     });
   }
 
-  create(carouselMaterials, speed, needPagination = false, longClick = false) {
+  create = (carouselMaterials, speed, longClick = false) => (needPagination = false, paginationClassName, pageDotClassName) => {
     const { slideContents, buttons, slideList, slideWidth, startNum } = carouselMaterials;
     this.carouselState.slideList = slideList;
     const [slideSpeed, slideLen] = [speed, slideContents.length];
     if (needPagination) {
-      this.carouselState.slidePagination = document.querySelector(".slide_pagination");
-      this.carouselState.pageDots = document.querySelectorAll(".btn_paging");
+      this.carouselState.slidePagination = document.querySelector(`.${paginationClassName}`);
+      this.carouselState.pageDots = document.querySelectorAll(`.${pageDotClassName}`);
     }
     const slideMaterials = {
       slideSpeed,
@@ -174,5 +174,5 @@ export default class Carousel extends Slide {
     if (needPagination) {
       this.carouselState.slidePagination.addEventListener("click", (e) => this.movePagination(slideMaterials, e));
     }
-  }
+  };
 }

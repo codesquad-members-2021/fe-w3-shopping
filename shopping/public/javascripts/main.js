@@ -14,7 +14,12 @@ const pagination = document.querySelector(".slide_pagination");
 const mileageItems = api(urls.mileageList)(setHtmls, htmlMaker.mileageListHtml, insertContents)(slideList);
 mileageItems
   .then(() => htmlMaker.paginationHtml(pagination))
-  .then((contents) => setCarousel(contents, "buttons_pagination", { slideList, slideWidth: 485 }, 0)(300, false, true));
+  .then((contents) =>
+    setCarousel(contents, "buttons_pagination", { slideList, slideWidth: 485 }, 0)(300, false, true)(
+      "slide_pagination",
+      "btn_paging"
+    )
+  );
 
 // mallEvent 상품 - 더보기 클릭시 item 불러오기
 const mallEventSlideHtml = document.querySelector("#mallEventSlide");
@@ -34,7 +39,7 @@ const hotdealItems = api(urls.hotdeal)(setHtmls, htmlMaker.homeContentsList, ins
 hotdealItems.then(() => {
   const slideContents = document.querySelectorAll(".hotDeal_item");
   const hotdealList = document.querySelector(".content_hotDeal");
-  setCarousel(slideContents, "buttons_hotDeal", { slideList: hotdealList, slideWidth: 252 }, 0)(300, true, false);
+  setCarousel(slideContents, "buttons_hotDeal", { slideList: hotdealList, slideWidth: 252 }, 0)(300, true, false)();
 });
 
 // keyword 상품

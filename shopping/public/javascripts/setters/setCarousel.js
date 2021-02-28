@@ -12,17 +12,17 @@ const setCarouselMaterials = (slideContents, buttonClassName, specifics, startNu
   });
 };
 
-const setCarousel = (slideContents, buttonsClassName, spec, startNum) => (transitionTime, isLongClick, needPagination) => {
+const setCarousel = (slideContents, buttonsClassName, spec, startNum) => (transitionTime, isLongClick, needPagination) => (...pagingElements) => {
   setCarouselMaterials(slideContents, buttonsClassName, spec, startNum).then((materials) => {
     const c_state = Object.assign({}, carouselState);
     if (!isLongClick) {
       const carousel = new Carousel(c_state);
-      carousel.create(materials, transitionTime, needPagination, isLongClick);
+      carousel.create(materials, transitionTime, isLongClick)(needPagination, ...pagingElements);
     }
     if (isLongClick) {
       const l_state = Object.assign({}, longClickState);
       const carousel = new Carousel(c_state, l_state);
-      carousel.create(materials, transitionTime, needPagination, isLongClick);
+      carousel.create(materials, transitionTime, isLongClick)(needPagination, ...pagingElements);
     }
   });
 };

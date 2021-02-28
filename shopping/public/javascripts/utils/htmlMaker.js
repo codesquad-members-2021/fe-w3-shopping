@@ -107,16 +107,6 @@ const homeContentsList = (data, kinds) => {
   return totalHtml;
 };
 
-// const partner = {
-//   "오픈마켓" : ["G마켓", "옥션", "11번가", "인터파크", "롯데온", "qoo10", "쿠팡", "이베이쇼핑"],
-//   "백화점" : ["AKmall", "롯데백화점", "갤러리아몰", "SSG", "SM면세점"],
-//   "홈쇼핑" : ["CJ mall", ""]
-// }
-
-// const partnerList = () => {
-
-// }
-
 const partnerItems = (partners) => {
   return partners.reduce((acc, val) => acc + `<li class="_GI_"><a href="#">${val}</a></li>`, ``);
 };
