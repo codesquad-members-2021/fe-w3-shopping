@@ -34,10 +34,6 @@ hotdealItems.then(() => {
   setCarousel(slideContents, "buttons_hotDeal", { slideList: hotdealList, slideWidth: 252 }, 5)(300, true, false);
 });
 
+// keyword 상품
 const keywordItemHtml = document.querySelector(".content_keyword");
 const keywordItems = api(urls.keyword)(setHtmls, htmlMaker.homeContentsList, insertContents)(keywordItemHtml, "keyword");
-
-// keyword items
-// fetch(urls.keyword)
-//   .then((res) => res.json())
-//   .then((data) => console.log(data));

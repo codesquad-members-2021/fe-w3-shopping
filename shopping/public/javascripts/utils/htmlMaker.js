@@ -1,3 +1,5 @@
+// html에 innerHTML할 html태그를 만드는 함수들
+
 const eventItem = (data) => {
   const { linkurl, imgurl } = data;
   return `<a href="${linkurl}"><img src="${imgurl}"/></a>`;

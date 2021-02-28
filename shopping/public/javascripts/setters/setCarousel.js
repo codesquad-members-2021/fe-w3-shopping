@@ -1,3 +1,5 @@
+// main.js에서 캐러셀 만들 부분에 캐러셀 세팅해주는 함수
+
 import { carouselState, longClickState } from "../utils/states.js";
 import Carousel from "../slides/carousel.js";
 

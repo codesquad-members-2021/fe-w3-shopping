@@ -1,3 +1,5 @@
+// Request json-data
+
 const isError = (res) => res.status !== 200;
 
 const api = (url) => (callback, ...fns) => (arg, ...optionals) =>
