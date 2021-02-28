@@ -2,7 +2,8 @@ class itemList {
     constructor() {
         this.itemList = document.querySelector(".item_list"),
             this.showMoreBtn = document.querySelector(".show_more"),
-            this.smallContents = document.querySelector(".small_contents")
+            this.smallContents = document.querySelector(".small_contents"),
+            this.eventHandler();
     }
 
     eventHandler() {
@@ -54,4 +55,4 @@ class itemList {
 
 }
 
-new itemList().eventHandler();
+new itemList();
