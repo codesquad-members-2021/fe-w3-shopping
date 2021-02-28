@@ -30,18 +30,27 @@ router.get("/mallEventList.json", function (req, res, next) {
 });
 
 router.get("/hotdeal.json", function (req, res, next) {
-  const hotdealItems = homeContents.contents.slice(0, 40);
+  const hotdealItems = homeContents.contents.slice(0, 10);
   res.json(hotdealItems);
 });
 
 router.get("/keyword.json", function (req, res, next) {
-  const keywordItems = homeContents.contents.slice(45, 50);
+  const keywordItems = homeContents.contents.slice(20, 23);
   res.json(keywordItems);
 });
 
-router.get("/how.json", function (req, res, next) {
-  const howItems = homeContents.contents.slice(60, homeContents.length);
-  res.json(howItems);
+router.get("/how__relate.json", function (req, res, next) {
+  const howRelateItems = homeContents.contents.slice(23, 24);
+  res.json(howRelateItems);
+});
+
+router.get("/how__same.json", function (req, res, next) {
+  const howSameItems = homeContents.contents.slice(24, 25);
+  res.json(howSameItems);
+});
+
+router.get("/partners.json", function (req, res, next) {
+  res.json(JSON.parse(fs.readFileSync("./data/partners.json")));
 });
 
 /* GET home page. */

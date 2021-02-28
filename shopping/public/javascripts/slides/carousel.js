@@ -6,7 +6,7 @@ export default class Carousel extends Slide {
   }
 
   moveSlide = (itemCnt) => (slideMaterials, isNext, isPagination) => (...conditions) => {
-    const { slideSpeed, slideWidth, slideLen, slideContents } = slideMaterials;
+    const { slideSpeed, slideWidth, slideLen, slideContents, startNum } = slideMaterials;
     const adjustLastSlide = () => {
       setTimeout(() => {
         this.transition(0);
@@ -27,7 +27,7 @@ export default class Carousel extends Slide {
     });
 
     if (conditions[conditions.length - 1]) {
-      if (itemCnt <= 1) adjustLastSlide();
+      adjustLastSlide();
       this.carouselState.currIndex = isNext ? -1 : slideLen;
     }
 
@@ -35,7 +35,7 @@ export default class Carousel extends Slide {
 
     if (isPagination) {
       const currIndexStandard = isNext ? -1 : slideLen;
-      const newIndex = isNext ? slideLen - 1 : 0;
+      const newIndex = isNext ? slideLen - 1 : startNum;
       this.carouselState.pageDots[
         this.carouselState.currIndex === currIndexStandard ? newIndex : this.carouselState.currIndex
       ].classList.remove("dot_active");
@@ -89,7 +89,7 @@ export default class Carousel extends Slide {
   }
 
   longClickEvent(buttons, slideMaterials, needPagination) {
-    const { slideLen } = slideMaterials;
+    const { slideLen, startNum } = slideMaterials;
     buttons.addEventListener("mouseup", ({ target }) => {
       const button = target.classList;
 
@@ -97,8 +97,8 @@ export default class Carousel extends Slide {
         if (this.longClickState.isPressed) clearInterval(this.longClickState.timer.next);
         if (!this.longClickState.isMoved.next) {
           this.moveSlide(1)(slideMaterials, false, needPagination)(
-            this.carouselState.currIndex >= 0,
-            this.carouselState.currIndex === 0
+            this.carouselState.currIndex >= startNum,
+            this.carouselState.currIndex === startNum
           );
         }
         this.longClickState.isPressed = false;
@@ -122,17 +122,19 @@ export default class Carousel extends Slide {
       const button = target.classList;
 
       if (button.contains("btn_next")) {
+        console.log(this.carouselState.currIndex);
         this.longClickState.isPressed = true;
         this.longClickState.timer.next = setInterval(() => {
           this.moveSlide(2)(slideMaterials, false, needPagination)(
-            this.carouselState.currIndex >= 0,
-            this.carouselState.currIndex === 0
+            this.carouselState.currIndex >= startNum,
+            this.carouselState.currIndex === startNum
           );
           this.longClickState.isMoved.next = true;
         }, 1800);
       }
 
       if (button.contains("btn_prev")) {
+        console.log(this.carouselState.currIndex);
         this.longClickState.isPressed = true;
         this.longClickState.timer.prev = setInterval(() => {
           this.moveSlide(2)(slideMaterials, true, needPagination)(
@@ -158,6 +160,7 @@ export default class Carousel extends Slide {
       slideWidth,
       slideLen,
       slideContents,
+      startNum,
     };
 
     this.setTotalWidth(slideWidth, slideLen);

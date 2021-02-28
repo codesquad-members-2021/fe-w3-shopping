@@ -4,18 +4,28 @@
   position: relative;
   padding: 3em 0;
 
+  .title_home {
+    font-size: 20px;
+  }
+
   .section_etc {
     // border: 1px solid blueviolet;
+    position: relative;
 
     .cont_partner {
-      position: relative;
       display: flex;
       background-color: white;
       border: 1px solid map-get($color-palette, searchBar-color);
       padding: 2em 3em;
     }
 
+    strong {
+      font-size: map-get($font-size, title);
+    }
+
     ul {
+      margin-top: 1em;
+      // border: 1px solid red;
       display: flex;
       flex-direction: column;
       margin-right: 7em;

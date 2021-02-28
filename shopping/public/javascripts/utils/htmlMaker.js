@@ -1,3 +1,5 @@
+import { partnerState } from "./states.js";
+
 // html에 innerHTML할 html태그를 만드는 함수들
 
 const eventItem = (data) => {
@@ -78,7 +80,7 @@ const paginationHtml = (pagination) => {
 
 const homeContentItems = (info, i, kinds) => {
   const { imageurl, produrl, prodname, mprice } = info;
-  return `<li class="_GI_" data-id="${i}">
+  return `<li class="_GI_ ${kinds}_item" data-id="${i}">
   <a href="${produrl}">
     <span class="thumb_${kinds}">
       <img src="${imageurl}" alt="" />
@@ -105,8 +107,34 @@ const homeContentsList = (data, kinds) => {
   return totalHtml;
 };
 
+// const partner = {
+//   "오픈마켓" : ["G마켓", "옥션", "11번가", "인터파크", "롯데온", "qoo10", "쿠팡", "이베이쇼핑"],
+//   "백화점" : ["AKmall", "롯데백화점", "갤러리아몰", "SSG", "SM면세점"],
+//   "홈쇼핑" : ["CJ mall", ""]
+// }
+
+// const partnerList = () => {
+
+// }
+
+const partnerItems = (partners) => {
+  return partners.reduce((acc, val) => acc + `<li class="_GI_"><a href="#">${val}</a></li>`, ``);
+};
+
+const partnerList = (data) => {
+  let totalHtml = ``;
+  Object.entries(data).forEach((value, key) => {
+    const [title, partners] = value;
+    totalHtml += `<div class="category_partner">`;
+    totalHtml += `<strong class="title_mall">${partnerState[title]}</strong>`;
+    totalHtml += `<ul class="list_mall">${partnerItems(partners)}</ul>`;
+    totalHtml += `</div>`;
+  });
+  return totalHtml;
+};
+
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-export { eventItem, mileageListHtml, paginationHtml, mallEventListHtml, homeContentsList };
+export { eventItem, mileageListHtml, paginationHtml, mallEventListHtml, homeContentsList, partnerList };

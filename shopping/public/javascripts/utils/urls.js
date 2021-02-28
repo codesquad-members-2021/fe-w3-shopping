@@ -1,7 +1,12 @@
+const server = (json) => `http://localhost:3000${json}`;
+
 export const urls = {
-  event: "http://localhost:3000/event.json",
-  mileageList: "http://localhost:3000/mileageList.json",
-  mallEventList: "http://localhost:3000/mallEventList.json",
-  hotdeal: "http://localhost:3000/hotdeal.json",
-  keyword: "http://localhost:3000/keyword.json",
+  event: server("/event.json"),
+  mileageList: server("/mileageList.json"),
+  mallEventList: server("/mallEventList.json"),
+  hotdeal: server("/hotdeal.json"),
+  keyword: server("/keyword.json"),
+  howRelate: server("/how__relate.json"),
+  howSame: server("/how__same.json"),
+  partners: server("/partners.json"),
 };

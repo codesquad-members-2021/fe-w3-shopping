@@ -29,11 +29,24 @@ readmoreButton.addEventListener("click", () =>
 const hotDealItemHtml = document.querySelector(".content_hotDeal");
 const hotdealItems = api(urls.hotdeal)(setHtmls, htmlMaker.homeContentsList, insertContents)(hotDealItemHtml, "hotDeal");
 hotdealItems.then(() => {
-  const slideContents = document.querySelectorAll(".list_hotDeal");
+  const slideContents = document.querySelectorAll(".hotDeal_item");
   const hotdealList = document.querySelector(".content_hotDeal");
-  setCarousel(slideContents, "buttons_hotDeal", { slideList: hotdealList, slideWidth: 252 }, 5)(300, true, false);
+  setCarousel(slideContents, "buttons_hotDeal", { slideList: hotdealList, slideWidth: 252 }, 0)(300, true, false);
 });
 
 // keyword 상품
 const keywordItemHtml = document.querySelector(".content_keyword");
 const keywordItems = api(urls.keyword)(setHtmls, htmlMaker.homeContentsList, insertContents)(keywordItemHtml, "keyword");
+
+// how - relate 상품
+const howRelateItemHtml = document.querySelector(".how__relate");
+const howRelateItems = api(urls.howRelate)(setHtmls, htmlMaker.homeContentsList, insertContents)(howRelateItemHtml, "how");
+
+// how - same category 상품
+const howSameHtml = document.querySelector(".how__same");
+const howSameItems = api(urls.howSame)(setHtmls, htmlMaker.homeContentsList, insertContents)(howSameHtml, "how");
+
+// partners
+const contPartnerHtml = document.querySelector(".cont_partner");
+const partners = api(urls.partners)(setHtmls, htmlMaker.partnerList, insertContents)(contPartnerHtml);
+// const partners = api(urls.partners)(setHtmls, )
