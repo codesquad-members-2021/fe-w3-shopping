@@ -1,18 +1,13 @@
-class HotDealSection {
+export default class HotDealSection {
   constructor(data) {
     this.data = data;
     this.wrapper = document.querySelector('#hot-deal__wrapper');
     this.title = `품절주의! 역대급 핫딜`;
-    this.page = 1;
     this.target = document.querySelector('.more-item__button');
-  }
-
-  addEvent() {
-    this.target.addEventListener('click', this.moreListDraw.bind(this));
+    this.dataLength = 0;
   }
 
   draw() {
-    this.page++;
     this.getHotDealLists();
   }
 
@@ -82,9 +77,11 @@ class HotDealSection {
 
   moreListDraw() {
     const $hotDealList = document.querySelector('#hot-deal-list');
-    console.log(this);
     $hotDealList.insertAdjacentHTML('beforeend', `${this.getHotDealItems()}`);
   }
-}
 
-export { HotDealSection };
+  updateMoreListNumber(current, length) {
+    console.log('here');
+    this.target.innerHTML = `<span>더보기(${current}/${length})</span>`;
+  }
+}

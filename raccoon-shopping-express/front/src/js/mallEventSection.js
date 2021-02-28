@@ -1,4 +1,4 @@
-class MallEventSection {
+export default class MallEventSection {
   constructor(data) {
     this.data = data;
     this.slide = document.querySelector('#mallEventSlide');
@@ -44,5 +44,3 @@ class MallEventSection {
     `;
   }
 }
-
-export { MallEventSection };

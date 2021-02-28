@@ -1,6 +1,6 @@
 import { $topMileageSlide } from '../../main';
 
-class EventSlider {
+export default class EventSlider {
   constructor(target) {
     this.target = target;
     this.prev = document.querySelector('.slide--button--prev');
@@ -86,5 +86,3 @@ class EventSlider {
     }
   }
 }
-
-export { EventSlider };

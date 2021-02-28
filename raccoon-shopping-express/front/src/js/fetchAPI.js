@@ -1,10 +1,9 @@
-import { HotDealSection } from './hotDealSection';
-import { MileageEventCarousel } from './mileageEventCarousel';
-import { MallEventSection } from './mallEventSection';
+import HotDealSection from './hotDealSection';
+import MileageEventCarousel from './mileageEventCarousel';
+import MallEventSection from './mallEventSection';
 
-class FetchAPI {
-  constructor(unit) {
-    this.unit = unit;
+export default class FetchAPI {
+  constructor() {
     this.url = {
       mileageList: 'http://localhost:3000/api/mileageList',
       mallEventList: 'http://localhost:3000/api/mallEventList',
@@ -15,6 +14,8 @@ class FetchAPI {
       sucess: 'Request successful',
       failed: 'Request failed',
     };
+    this.page = 2;
+    this.dataLength = 0;
   }
 
   mileageList = () =>
@@ -42,21 +43,23 @@ class FetchAPI {
       .catch((error) => console.log(this.req.failed, error));
 
   hotDealList = (start, count) => {
-    const data = { start: start, count: count };
-    const queryParam = new URLSearchParams(data);
+    const param = { start: start, count: count };
+    const queryParam = new URLSearchParams(param);
     fetch(`${this.url.hotDealList}/?${queryParam.toString()}`)
       .then((response) => response.json())
       .then((data) => {
         const hotDealSection = new HotDealSection(data);
-        if (hotDealSection.page === 1) {
+        if (this.page === 2) {
+          this.page++;
           hotDealSection.draw();
+          return data;
         }
-        hotDealSection.addEvent();
+        this.page++;
+        hotDealSection.moreListDraw();
+        hotDealSection.updateMoreListNumber(10, this.dataLength);
         return data;
       })
       .then((status) => console.log(this.req.sucess, status.code))
       .catch((error) => console.log(this.req.failed, error));
   };
 }
-
-export { FetchAPI };

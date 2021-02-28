@@ -1,6 +1,6 @@
 import { $topMileageSlide } from '../../main';
 
-class MileageEventCarousel {
+export default class MileageEventCarousel {
   constructor(data) {
     this.data = data;
   }
@@ -23,5 +23,3 @@ class MileageEventCarousel {
     return panelDiv;
   }
 }
-
-export { MileageEventCarousel };
