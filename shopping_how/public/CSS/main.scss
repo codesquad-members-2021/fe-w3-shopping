@@ -516,6 +516,12 @@ header {
   border-bottom: 4px solid #f1f1f1;
   background-color: #dedada;
   cursor: pointer;
+  border: none;
+  outline: none;
+
+  &:hover {
+    background-color: #cccccc;
+  }
 }
 
 /*-------------------------------*/
