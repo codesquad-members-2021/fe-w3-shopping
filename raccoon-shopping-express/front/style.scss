@@ -619,12 +619,12 @@ section {
 
               &--click--prev {
                 @extend .slide;
-                transform: translate3d(255px, 0px, 0px);
+                transform: translate3d(256px, 0px, 0px);
                 transition-duration: 300ms;
               }
               &--click--next {
                 @extend .slide;
-                transform: translate3d(-255px, 0px, 0px);
+                transform: translate3d(-256px, 0px, 0px);
                 transition-duration: 300ms;
               }
               .panel {
