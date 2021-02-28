@@ -32,14 +32,14 @@ class MallEventSlider {
       this.prevTimer = setInterval(() => {
         this.clickPrev();
       }, 700);
-      return (this.seconds = 0);
+      return;
     }
 
     if (next()) {
       this.nextTimer = setInterval(() => {
         this.clickNext();
       }, 700);
-      return (this.seconds = 0);
+      return;
     }
   }
 
