@@ -10,6 +10,7 @@ const planningEvent = JSON.parse(fs.readFileSync("./data/planningEvent.json"));
 const homeContents = JSON.parse(fs.readFileSync("./data/homeContents.json"));
 
 let mallEventListIndex = 0;
+let isDoneOfMallEventList = false;
 
 router.get("/event.json", function (req, res, next) {
   res.json(planningEvent.event);
@@ -20,9 +21,11 @@ router.get("/mileageList.json", function (req, res, next) {
 });
 
 router.get("/mallEventList.json", function (req, res, next) {
+  if (isDoneOfMallEventList) return;
   if (mallEventListIndex >= planningEvent.mallEventList.length) {
     res.status(503).end("NO MORE DATA");
     mallEventListIndex = 0;
+    isDoneOfMallEventList = true;
   }
   const presentMallEventList = planningEvent.mallEventList.slice(mallEventListIndex, mallEventListIndex + 5);
   mallEventListIndex += 5;

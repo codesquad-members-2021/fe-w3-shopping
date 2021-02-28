@@ -22,7 +22,10 @@ const mallEventItems = api(urls.mallEventList)(setHtmls, htmlMaker.mallEventList
 
 const readmoreButton = document.querySelector("#mallEventList_more");
 readmoreButton.addEventListener("click", () =>
-  api(urls.mallEventList)(insertAdjacent, htmlMaker.mallEventListHtml)(mallEventSlide)
+  api(urls.mallEventList)(
+    insertAdjacent,
+    htmlMaker.mallEventListHtml
+  )(mallEventSlide).catch((err) => (readmoreButton.innerHTML = "마지막"))
 );
 
 // hotdeal 상품 - 캐러셀 5개 with longClick
@@ -49,4 +52,3 @@ const howSameItems = api(urls.howSame)(setHtmls, htmlMaker.homeContentsList, ins
 // partners
 const contPartnerHtml = document.querySelector(".cont_partner");
 const partners = api(urls.partners)(setHtmls, htmlMaker.partnerList, insertContents)(contPartnerHtml);
-// const partners = api(urls.partners)(setHtmls, )
