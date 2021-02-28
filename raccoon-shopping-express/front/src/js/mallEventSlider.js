@@ -65,12 +65,11 @@ class MallEventSlider {
 
   clickPrev() {
     const listItem = this.slide.querySelectorAll('.list--item');
+    const firstLast = listItem[0].lastElementChild.cloneNode(true);
+    const secondLast = listItem[1].lastElementChild.cloneNode(true);
+    const thirdLast = listItem[2].lastElementChild.cloneNode(true);
     this.slide.classList.replace('slide', 'slide--click--prev');
-
     setTimeout(() => {
-      const firstLast = listItem[0].lastElementChild.cloneNode(true);
-      const secondLast = listItem[1].lastElementChild.cloneNode(true);
-      const thirdLast = listItem[2].lastElementChild.cloneNode(true);
       listItem[1].appendChild(firstLast);
       listItem[0].removeChild(listItem[0].lastElementChild);
       listItem[1].insertBefore(listItem[1].lastElementChild, listItem[1].firstElementChild);
@@ -85,11 +84,11 @@ class MallEventSlider {
   }
   clickNext() {
     const listItem = this.slide.querySelectorAll('.list--item');
+    const firstFirst = listItem[0].firstElementChild.cloneNode(true);
+    const secondFirst = listItem[1].firstElementChild.cloneNode(true);
+    const thirdFirst = listItem[2].firstElementChild.cloneNode(true);
     this.slide.classList.replace('slide', 'slide--click--next');
     setTimeout(() => {
-      const firstFirst = listItem[0].firstElementChild.cloneNode(true);
-      const secondFirst = listItem[1].firstElementChild.cloneNode(true);
-      const thirdFirst = listItem[2].firstElementChild.cloneNode(true);
       listItem[2].appendChild(firstFirst);
       listItem[0].removeChild(listItem[0].firstElementChild);
       listItem[0].appendChild(secondFirst);
