@@ -348,6 +348,9 @@ header {
       height: 85px;
       vertical-align: middle;
       background-color: transparent; }
+      .carousel1 .carousel__btn-container button:focus {
+        border: none;
+        outline: none; }
   .carousel1 .slide-window {
     overflow: hidden;
     width: 514px;

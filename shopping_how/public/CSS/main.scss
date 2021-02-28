@@ -441,6 +441,12 @@ header {
       height: 85px;
       vertical-align: middle;
       background-color: transparent;
+
+      &:focus {
+        //클릭시 생기는 보더 없애기
+        border: none;
+        outline: none;
+      }
     }
   }
 
