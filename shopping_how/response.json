@@ -24,7 +24,7 @@
       }
     ]
   },
-  "carousel" : {
+  "box" : {
     "prefix" : "http://shop1.daumcdn.net/thumb/S318x318/",
     "list" : [
       {
@@ -119,7 +119,7 @@
       }
     ]
   },
-  "box" : {
+  "carousel" : {
     "prefix" : "http://shop2.daumcdn.net/shophow/c/image/content/set/ad8255/",
     "list" : [
       {

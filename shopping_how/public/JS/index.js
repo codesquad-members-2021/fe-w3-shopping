@@ -17,7 +17,8 @@ const REFERENCE = {
     miniCarousel: _.$(".carousel1"),
     prevButton: _.$(".btn_prev"),
     nextButton: _.$(".btn_next"),
-    slide: _.$(".slide")
+    slide: _.$(".slide"),
+    cells: _.$all(".cell-bottom")
 }
 
 class Main {

@@ -2,12 +2,12 @@
 /* --------▶︎▶︎▶︎ Template 클래스: 홈페이지에 필요한 템플릿을 만들고 띄운다. ◀︎◀︎◀︎--------*/
 /* --------------------------------------------------------------------- */
 
-const boxTemplate = (productName,  explanation) => `
+const boxTemplate = (prefix, src, title, content) => `
 <li>
     <a href="#">
-        <img class="cell__lowehalf_pic" src="/images/test.png">
-        <span class="cell__product_name">${productName}</span>
-        <span class="cell__explanation">${explanation}</span>
+        <img class="cell__lowehalf_pic" src="${prefix}${src}">
+        <span class="cell__product_name">${title}</span>
+        <span class="cell__explanation">${content}</span>
         <span class="cell__icon"></span>
     </a>
 </li>`;
@@ -19,7 +19,7 @@ export default class UIMaker {
         this.pair = {
             "best": reference.bestSeller,
             "event": reference.slide,
-            // "box": ,
+            "box": reference.cells,
             // "carousel":
         }
     }
@@ -38,22 +38,29 @@ export default class UIMaker {
         .catch(err => alert(err));
     }
 
-    //key를 기준으로 template이 추가되어야 하는 위치의 node를 담은 객체를 만든다.
     fillUpImg(key, {prefix, list}){
-        const parentNode = this.pair[key];
+        const targetNode = this.pair[key];
         let str;
 
         switch(key) {
             case "best":
                 str = `<img src="${prefix}${list[0].src}" alt="${key}">`;
-                parentNode.innerHTML = str;
+                targetNode.innerHTML = str;
+                break;
             case "event":
                 str = list.reduce((acc, cur) => acc += `<li class="panel"><img src="${prefix}${cur.src}"></li>`,'');
-                parentNode.innerHTML = str;
+                targetNode.innerHTML = str;
+                break;
             case "box":
+                const firstFiveEl = list.slice(0, 5);
+                firstFiveEl.forEach((cur, idx) => {
+                    str = boxTemplate(prefix, cur.src, cur.title, cur.content);
+                    targetNode[idx].innerHTML = str;
+                });
+                break;
             case "carousel":
         }
 
-        // parentNode.innerHTML = str;
+        // targetNode.innerHTML = str;
     }
 }
