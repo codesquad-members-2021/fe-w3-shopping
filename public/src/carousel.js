@@ -1,5 +1,6 @@
 
 
+// loadHomeContentsData();
 const mainSlide = document.querySelector(".main-banner__slide");
 const slideBundle = document.querySelector(".slide-bundle");
 // let lastList = 

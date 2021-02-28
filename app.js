@@ -15,10 +15,12 @@ app.use(express.static('public'));
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({extended:true}));
 
+app.get('/data/*', function(req,res) {
+    res.sendFile(__dirname + "/public/data/banner.json")
+    res.sendFile(__dirname + "/public/data/homeContents.json")
+});
+
 app.get('/', function(req,res) {
     res.sendFile(__dirname + "/public/index.html")
 });
 
-app.get('/', function(req,res) {
-    res.sendFile(__dirname + "/public/src/main.js")
-});
