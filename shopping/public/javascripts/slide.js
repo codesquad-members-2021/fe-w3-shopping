@@ -8,10 +8,10 @@ class Slider {
             this.comm = document.querySelectorAll(".controls li"),
             this.sliderImg = document.querySelectorAll(".slider section"),
             this.eventHandler();
-    }
-
-    eventHandler() {
-        for(let i = 0; i < 3; i++) this.loadRandomImage(i);
+            this.loadRandomImage(3);
+        }
+        
+        eventHandler() {
         this.rightArrow.addEventListener('click', () => {
             this.move("right");
         });
@@ -49,11 +49,13 @@ class Slider {
         return m + Math.floor((n - m + 1) * Math.random());
     }
 
-    loadRandomImage(idx) {
+    loadRandomImage(count) {
         const URL = "http://localhost:3000/homeData.json";
         fetch(URL)
             .then(response => response.json())
-            .then(json => this.renderImage(json.bigSlideList[idx].imgurl, idx))
+            .then(json => {
+                for(let i = 0; i < count; i++) this.renderImage(json.bigSlideList[i].imgurl, i)
+            })
             .catch(err => console.log(err));
     }
 
