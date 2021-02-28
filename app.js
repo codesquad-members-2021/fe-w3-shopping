@@ -11,6 +11,7 @@ const cors = require("cors"); //여기
 
 const indexRouter = require("./routes/index"); // 라우터 선언
 const imageRouter = require("./routes/image");
+const viewmoreRouter = require("./routes/viewmore");
 
 const app = express(); //미들웨어 등록을 위해 app 객체에 express 객체 등록
 // view engine setup : app.set 메서드를 통해 express 앱 설정
@@ -34,6 +35,7 @@ app.use(
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/image", imageRouter); //
+app.use("/viewmore", viewmoreRouter); //
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -10,8 +10,8 @@ export default class TopCarouselUI {
     this.init();
   }
 
-  requestImg() {
-    fetch("http://localhost:3000/image")
+  requestImg(server, req) {
+    fetch(`${server}/${req}`)
       .then(response => response.json())
       .then(json => {
         this.parseJson(json["topCarousel"]);
@@ -92,7 +92,7 @@ export default class TopCarouselUI {
   }
 
   init() {
-    this.requestImg();
+    this.requestImg("http://localhost:3000", "image");
     this.onEvent();
   }
 }
