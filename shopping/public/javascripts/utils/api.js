@@ -6,7 +6,6 @@ const api = (url) => (callback, ...fns) => (arg) =>
     .then((data) => {
       if (!data) return new Error("No data");
       callback(...fns)(data, arg);
-      // if (optionalFns.length) optionalFns.forEach((fn) => fn());
     })
     .catch((err) => console.log(err));
 
