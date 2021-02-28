@@ -8,11 +8,14 @@ const $buttonGroup = document.querySelectorAll('.button-group');
 
 const fetchAPI = new FetchAPI();
 const eventSliderListener = new EventSlider($mileageEventSlide);
+const mallEventSlider = new MallEventSlider($buttonGroup);
 
-fetchAPI.init();
+fetchAPI.mileageList();
+fetchAPI.mallEventList();
+fetchAPI.hotDealList(0, 10);
+
 eventSliderListener.init();
 
-const mallEventSlider = new MallEventSlider($buttonGroup);
 mallEventSlider.addEvent();
 
 export { $topMileageSlide };

@@ -16,11 +16,7 @@ class FetchAPI {
       failed: 'Request failed',
     };
   }
-  init() {
-    this.mileageList();
-    this.mallEventList();
-    this.hotDealList();
-  }
+
   mileageList = () =>
     fetch(this.url.mileageList)
       .then((response) => response.json())
@@ -45,16 +41,22 @@ class FetchAPI {
       .then((status) => console.log(this.req.sucess, status.code))
       .catch((error) => console.log(this.req.failed, error));
 
-  hotDealList = () =>
-    fetch(this.url.hotDealList)
+  hotDealList = (start, count) => {
+    const data = { start: start, count: count };
+    const queryParam = new URLSearchParams(data);
+    fetch(`${this.url.hotDealList}/?${queryParam.toString()}`)
       .then((response) => response.json())
       .then((data) => {
         const hotDealSection = new HotDealSection(data);
-        hotDealSection.draw();
+        if (hotDealSection.page === 1) {
+          hotDealSection.draw();
+        }
+        hotDealSection.addEvent();
         return data;
       })
       .then((status) => console.log(this.req.sucess, status.code))
       .catch((error) => console.log(this.req.failed, error));
+  };
 }
 
 export { FetchAPI };

@@ -25,11 +25,14 @@ router.get(JSON_DATA.mallEventList.path, function (req, res, next) {
   res.contentType(CONTENTS_TYPE);
   res.sendFile(JSON_DATA.mallEventList.file, option);
 });
+
 router.get(JSON_DATA.hotDealList.path, function (req, res, next) {
   const resFile = require(`${ROOT_PATH}/${JSON_DATA.hotDealList.file}`);
-  res.json(resFile);
-  // 더보기
+  const start = req.query.start;
+  const count = req.query.count;
+  res.send(resFile.hotdealList.slice(start, count));
 });
+
 router.get(JSON_DATA.shoppingPartner.path, function (req, res, next) {
   res.contentType(CONTENTS_TYPE);
   res.sendFile(JSON_DATA.shoppingPartner.file, option);
