@@ -5,16 +5,26 @@ class IndexControl {
     /**
      * @param {DataManager} dataManager
      */
-    constructor(dataManager, moreWrapSelector, mainCarouselWrapper, hotCarouselWrapper) {
+
+    constructor(dataManager, indexWrappers, options) {
         this.dataManager = dataManager;
-        this.moreWrapper = _.$(moreWrapSelector);
-        this.mainCarouselWrapper = _.$(mainCarouselWrapper);
-        this.hotCarouselWrapper = _.$(hotCarouselWrapper); 
+        const { mainBestWrapper, mainCarouselWrapper, moreWrapper, hotCarouselWrapper } = indexWrappers;
+        const { mainCarouselAnimateInterval } = options;
+
+        this.mainBestWrapper = mainBestWrapper;
+        this.mainCarouselWrapper = mainCarouselWrapper;
+        this.moreWrapper = moreWrapper;
+        this.hotCarouselWrapper = hotCarouselWrapper;
+
+        this.mainCarouselAnimateInterval = mainCarouselAnimateInterval;
+
         this.hotCarouselMousedownTimer = null;
         this.hotCarouselMousedownRunCnt = 1;
     }
 
     init() {
+        this._insertDataBestItem(this.mainBestWrapper);
+        this._insertDataMainCarousel(this.mainCarouselWrapper);
         this._insertDataHotCarousel(this.hotCarouselWrapper);
 
         this._setMoreWrapperClickEvent(this.moreWrapper);
@@ -23,8 +33,17 @@ class IndexControl {
         this._setHotCarouselMousedownEvent(this.hotCarouselWrapper);
         this._setHotCarouselMouseupEvent(this.hotCarouselWrapper);
 
-        setInterval(() => this._updateMainCarouselAnimation('next', _.$All('.slide > .item', this.mainCarouselWrapper)), 5000);
-        this._createMoreViewItemsExecute(_.$('.content__more__btn', this.moreWrapper));
+        setInterval(
+            () =>
+                this._updateMainCarouselAnimation(
+                    'next',
+                    _.$All('.slide > .item', this.mainCarouselWrapper),
+                ),
+            this.mainCarouselAnimateInterval,
+        );
+        this._createMoreViewItemsExecute(
+            _.$('.content__more__btn', this.moreWrapper),
+        );
     }
 
     // [1] 더보기 Wrapper (content__more) Click 이벤트 등록
@@ -104,6 +123,29 @@ class IndexControl {
     // --
 
     // [2] 상단 캐러셀 (content__main__carousel)
+    // 첫 로딩 시 상단 왼쪽 (BestItem)에 들어갈 정보 서버에서 불러옴
+    _insertDataBestItem(mainBestWrapper) {
+        const bestItemImgTag = _.$('a > img', mainBestWrapper);
+
+        this.dataManager.getMainBestData().then((data) => {
+            _.setAttr(bestItemImgTag, 'src', data.imgurl);
+        }).catch((err) => console.error(err.message));
+    }
+
+    // 첫 로딩 시 상단 오른쪽 캐러셀에 들어갈 정보 서버에서 불러옴
+    _insertDataMainCarousel(mainCarouselWrapper) {
+        const mainCarouselItemList = [..._.$All('.slide > div', mainCarouselWrapper)];
+        this.dataManager
+            .getMainCarouselData()
+            .then((data) => {
+                mainCarouselItemList.forEach((item, i) => {
+                    const itemImgTag = _.$('img', item);
+                    _.setAttr(itemImgTag, 'src', data[i].imgurl);
+                });
+            })
+            .catch((err) => console.error(err.message));
+    }
+
     // 상단 캐러셀 이벤트 등록 (이전, 다음)
     _setMainCarouselClickEvent(mainCarouselWrapper) {
         _.addEvent(mainCarouselWrapper, 'click', (e) =>
