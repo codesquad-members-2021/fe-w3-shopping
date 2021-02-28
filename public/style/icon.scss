@@ -1,0 +1,23 @@
+
+.basic_icon {
+
+   $h: 30px;
+   width: $h;
+   height: $h;
+   background: url(/img/icon.png) no-repeat;
+
+
+   @at-root.basic_icon_3 {
+      background-position-y:-$h;
+   }
+
+   @at-root.basic_icon_4 {
+      background-position-x: -$h;
+      background-position-y: -$h;
+   }
+
+   @at-root.basic_icon_5 {
+      background-position-x: -$h*2;
+      background-position-y: -$h;
+  }
+}  

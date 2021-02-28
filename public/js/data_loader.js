@@ -7,13 +7,19 @@ import {
 } from "./carousel.maker.js";
 
 import {
-   BannerImg
+   BannerImgMaker
 } from "./banner_img.js";
+import {
+   ViewMoreManager
+} from "./view_more_manager.js";
 
 export class LoaderFromJson {
    constructor(url, requestInfo, value) {
       this.requestInfo = requestInfo;
       this.value = value;
+      this.title;
+      this.desc;
+      this.imgurl;
       this.init(url);
    }
 
@@ -29,19 +35,29 @@ export class LoaderFromJson {
          if (imgurl) imgUrlArr.push(imgurl);
       })
 
-      if (this.value === 'carousel') return new CarouselMaker(imgUrlArr);
-      if (this.value === 'banner') return new BannerImg(imgUrlArr);
+      if (this.value === 'carousel') return new CarouselMaker(null, null, imgUrlArr, this.value);
+      if (this.value === 'banner') return new BannerImgMaker(imgUrlArr);
+      if (this.value === 'view_more' || this.value === 'view_more_basic') return new ViewMoreManager(titleArr, descArr, imgUrlArr, this.value);
+      if (this.value === 'carousel_hot') return new CarouselMaker(titleArr, descArr, imgUrlArr, this.value);
    }
 
    dataParsing(data) {
       if (data.length == undefined) data = [data];
 
       return data.map(el => {
-         let title = el.text;
-         let desc = el.text2;
-         let imgurl = el.imgurl;
-         if (title || desc || imgurl) {
-            return [title, desc, imgurl];
+         if (el.eventContent) {
+            el = el.eventContent;
+            this.title = el.title;
+            this.desc = el.subtitle;
+            this.imgurl = el.imgurl;
+         } else {
+            this.title = el.text;
+            this.desc = el.text2;
+            this.imgurl = el.imgurl;
+         }
+
+         if (this.title || this.desc || this.imgurl) {
+            return [this.title, this.desc, this.imgurl];
          }
       })
    }

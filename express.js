@@ -1,8 +1,9 @@
 const express = require("express");
 const hbs = require("express-handlebars");
+const cors = require("cors");
 
 const server = express();
-
+server.use(cors());
 server.engine("hbs", hbs({
    extname: "hbs",
    defaultLayout: "layout.hbs",
