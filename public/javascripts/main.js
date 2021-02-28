@@ -1,3 +1,4 @@
-import API from "./api.js";
+import TopCarouselUI from "./TopCarouselUI.js";
+import _ from "./util.js";
 
-const api = new API();
+const topCarouselUI = new TopCarouselUI();
