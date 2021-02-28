@@ -29,14 +29,14 @@ class Slider {
     }
 
     moveRight() {
-        this.sectionIndex = (this.sectionIndex < 2) ? this.sectionIndex + 1 : 2;
+        this.sectionIndex = (this.sectionIndex < 2) ? this.sectionIndex + 1 : 0;
         document.querySelector('.controls .selected').classList.remove('selected');
         this.indicatorParents.children[this.sectionIndex].classList.add('selected');
         this.slider.style.transform = `translate(` + (this.sectionIndex) * -33 + `%)`;
     }
 
     moveLeft() {
-        this.sectionIndex = (this.sectionIndex > 0) ? this.sectionIndex - 1 : 0;
+        this.sectionIndex = (this.sectionIndex > 0) ? this.sectionIndex - 1 : 2;
         document.querySelector('.controls .selected').classList.remove('selected');
         this.indicatorParents.children[this.sectionIndex].classList.add('selected');
         this.slider.style.transform = `translate(` + (this.sectionIndex) * -33 + `%)`;
