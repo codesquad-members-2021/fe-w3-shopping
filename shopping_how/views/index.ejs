@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>쇼핑하우</title>
-    <link rel='stylesheet' href='/stylesheets/normalize.css'/>
-    <link rel='stylesheet' href='/stylesheets/reset.css'/>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/CSS/normalize.css'/>
+    <link rel='stylesheet' href='/CSS/reset.css'/>
+    <link rel='stylesheet' href='/CSS/style.css' />
   </head>
   <body>
     <%#header.scss%>
@@ -55,20 +55,33 @@
     </header>
     <section class="main">
       <div class="grid_container">
-        <div class="cell upper-half__left">
-          <img src="/images/main-1.png" alt="main image1">
-        </div>
+        <div class="cell upper-half__left"></div>
         <div class="cell upper-half__right">
+        <%#여기서부터 미니캐러셀%>
           <div class="carousel1">
-            <img src="/images/main-2.png" alt="main image2" height="340" >
+            <div class="carousel__btn-container">
+              <button type="button" class="btn_prev" title="이전">
+                <span class="icon-slide-prev icon-prev"></span>
+              </button>
+            </div>
+            <div class="slide-window">
+              <ul class="slide">
+              </ul>
+            </div>
+            <div class="carousel__btn-container">
+              <button type="button" class="btn_next" title="다음">
+                <span class="icon-slide-next icon-next"></span>
+              </button>
+            </div>
           </div>
         </div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell">
+        <%#여기서부터 셀박스%>
+        <div class="cell cell-bottom"></div>
+        <div class="cell cell-bottom"></div>
+        <div class="cell cell-bottom"></div>
+        <div class="cell cell-bottom"></div>
+        <div class="cell cell-bottom"></div>
+        <div class="cell container_btn_more">
           <button class="btn_more_info">더보기(1 / n건)</button>
         </div>
       </div>
@@ -77,11 +90,16 @@
       <div class="hot_category__title">
         <h2>지금 뜨는 테마 카테고리<h2>
       </div>
-      <div class="carousel_container">
-
+      <%#여기서부터 빅캐러셀%>
+      <div class="carousel2">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
       </div>
       <div class="footer"></div>
     </section>
-    <script type="module" src="/javascripts/index.js"></script>
+    <script type="module" src="/JS/index.js"></script>
   </body>
 </html>
