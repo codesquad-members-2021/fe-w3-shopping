@@ -1,19 +1,16 @@
+import {slideContainer, slideBundle} from './main.js';
 class Carousel {
-    constructor() {
-        this.mainSlide = document.querySelector(".main-banner__slide");
-        this.slideBundle = document.querySelector(".slide-bundle");
-        this.children = this.slideBundle.children;
-        this.len = this.children.length;
+    constructor(slideBundle) {
+        this.children = slideBundle.children;
         this.setTime = 500;
         this.eventSignal = this.eventSignal();
-
     }
     eventSignal() {
         this.decideClickDirection();
         this.decideMouseoverChange();
     }
     decideMouseoverChange() {
-        this.mainSlide.addEventListener('mouseover', ({target}) => {
+        slideContainer.addEventListener('mouseover', ({target}) => {
             let targetKey = target.dataset.key;
             if(targetKey === undefined) {
                 return;
@@ -34,8 +31,7 @@ class Carousel {
     }
 
     decideClickDirection() {
-        // let dir = '';
-        this.mainSlide.addEventListener('click', ({target}) => {
+        slideContainer.addEventListener('click', ({target}) => {
             if(target.classList.contains('fa-chevron-right')) {
                 this.dir = 'right'
                 return this.moveContent();
@@ -47,22 +43,20 @@ class Carousel {
         })
     }
     moveContent() {
-        this.slideBundle.classList.toggle(this.dir);
+        slideBundle.classList.toggle(this.dir);
         setTimeout(() => {
             this.moveList(this.dir);
-            this.slideBundle.classList.toggle(this.dir);
+            slideBundle.classList.toggle(this.dir);
         }, this.setTime);
     }
     moveList() {
         if(this.dir.includes('right')) {
-            return this.slideBundle.insertBefore(this.children[this.len-1],this.children[0]);
+            return slideBundle.insertBefore(this.children[2],this.children[0]);
         }
         else if(this.dir.includes('left')) {
-            return this.slideBundle.appendChild(this.slideBundle.firstElementChild);
+            return slideBundle.appendChild(slideBundle.firstElementChild);
         }
     }
-
 }
 
-let slide = new Carousel();
-// slide.printCalo();
+let slide = new Carousel(slideBundle);

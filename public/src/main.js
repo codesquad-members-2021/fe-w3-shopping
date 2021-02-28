@@ -1,6 +1,7 @@
 // const mainSlide = document.querySelector(".main-banner__slide");
-// const slideBundle = document.querySelector(".slide-bundle");
-// const staticContainer = document.querySelector('.main-banner__static');
+const staticContainer = document.querySelector('.main-banner__static');
+const slideContainer = document.querySelector('.main-banner__slide');
+const slideBundle = document.querySelector(".slide-bundle");
 
 
 
@@ -20,3 +21,5 @@ export function loadHomeContentsData() {
     .then(response => response.json())
     .then(json => json.contents);
 }
+
+export {staticContainer, slideContainer, slideBundle};
