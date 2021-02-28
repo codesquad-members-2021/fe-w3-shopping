@@ -58,7 +58,6 @@ const mouse_slide = (img) => {
                     </li>`
         }
         counter += 5;
-        console.log(counter);
         five_slide.insertAdjacentHTML("beforeend",`<ul>${str}</ul>`);
         str = '';
     }
