@@ -16,6 +16,7 @@ import { createMainEvtCardElFrom } from './common-creator.js';
   COMMENT:
     Later, the codes for 'PageCtrl*' maybe seperated from this.
 */
+
 export class MainEvtSlide {
   constructor($target, jsonList) {
     this.$target = $target;
@@ -25,22 +26,22 @@ export class MainEvtSlide {
   }
 
   init() {
-    this.appendPageEls();
-    this.appendPageCtrl();
-    this.$pageCtrl.children[0].classList.add('select');
+    this.initPageEls();
+    this.initPageCtrl();
     this.onEvents();
   }
 
-  appendPageEls() {
+  initPageEls() {
     this.jsonList.forEach(json => this.$pages.appendChild(this.createPageElFrom(json)));
   }
 
-  appendPageCtrl() {
+  initPageCtrl() {
     for (let i = 0; i < this.jsonList.length; i++)
       this.$pageCtrl.appendChild(this.createPageCtrlIdxBtn(i));
 
     this.$pageCtrl.appendChild(this.createPageCtrlLeftBtn());
     this.$pageCtrl.appendChild(this.createPageCtrlRightBtn());
+    this.$pageCtrl.children[0].classList.add('select');
   }
 
   createPageElFrom(json) {
@@ -50,25 +51,27 @@ export class MainEvtSlide {
   }
 
   createPageCtrlIdxBtn(idx) {
-    const $ = document.createElement('DIV');
-    $.classList.add('slide__page-ctrl__idx-btn');
-    $.setAttribute('data-index', idx);
-    $.innerHTML = `<div class="page-ctrl__idx-btn__bar"></div>`;
-    return $;
+    return _.genEl('DIV', {
+        classNames: ['slide__page-ctrl__idx-btn'],
+        template: `<div class="page-ctrl__idx-btn__bar"></div>`,
+        attributes: {
+          'data-index': idx,
+        },
+    });
   }
 
   createPageCtrlLeftBtn() {
-    const $ = document.createElement('BUTTON');
-    $.classList.add('slide__page-ctrl__left-btn');
-    $.innerHTML = `<div class="page-ctrl__left-btn__icon"></div>`;
-    return $;
+    return _.genEl('BUTTON', {
+      classNames: ['slide__page-ctrl__left-btn'],
+      template:  `<div class="page-ctrl__left-btn__icon"></div>`,
+    });
   }
 
   createPageCtrlRightBtn() {
-    const $ = document.createElement('BUTTON');
-    $.classList.add('slide__page-ctrl__right-btn');
-    $.innerHTML = `<div class="page-ctrl__right-btn__icon"></div>`;
-    return $;
+    return _.genEl('BUTTON', {
+      classNames: ['slide__page-ctrl__right-btn'],
+      template: `<div class="page-ctrl__right-btn__icon"></div>`,
+    });
   }
 
   select(idx) {
@@ -79,10 +82,10 @@ export class MainEvtSlide {
     this.$pageCtrl.children[idx].classList.add('select');
     
     for (let idxDiff = idx - this.currSelectedIdx; idxDiff > 0; idxDiff--)
-      this.$pages.appendChild(this.$pages.removeChild(this.$pages.firstElementChild));
+      this.$pages.appendChild(this.$pages.firstElementChild);
     
     for (let idxDiff = idx - this.currSelectedIdx; idxDiff < 0; idxDiff++)
-      this.$pages.insertBefore(this.$pages.removeChild(this.$pages.lastElementChild), this.$pages.firstElementChild);
+      this.$pages.insertBefore(this.$pages.lastElementChild, this.$pages.firstElementChild);
 
     this.currSelectedIdx = idx;
   }
@@ -113,5 +116,71 @@ export class MainEvtSlide {
     _.$('.slide__page-ctrl__right-btn', this.$pageCtrl).addEventListener('click', () => {
       this.$pages.classList.add('move-to-right');
     });
+  }
+}
+
+import { HotdealEvtCardListItem } from './list-item.js';
+
+export class HotdealEvtSlide {
+  constructor({ target, jsonList, itemCnt }) {
+    this.$target = target;
+    [this.$cardListCont, this.$cardCtrl] = target.children;
+    this.$cardList;
+    this.jsonList = jsonList;
+    this.itemCnt = itemCnt;
+  }
+
+  init() {
+    _.$('.slide__card-list-cont', this.$target).classList.add(`item-cnt-${this.itemCnt}`);
+    this.initCardList();
+    this.initCardCtrl();
+    this.onEvents();
+  }
+
+  initCardList() {
+    const $cardList = _.genEl('UL', {
+      classNames: ['evt-card-list', `item-cnt-${this.itemCnt}`],//, `total-item-cnt-${this.jsonList.length}`],
+    });
+
+    this.jsonList.forEach(json => {
+      const cardListItem = new HotdealEvtCardListItem(json);
+      $cardList.appendChild(cardListItem.element());
+    });
+
+    this.$cardList = $cardList;
+    this.$cardListCont.appendChild($cardList);
+  }
+
+  initCardCtrl() {
+    const $leftBtn = _.genEl('BUTTON', {
+      classNames: ['card-ctrl__left-btn'],
+    });
+
+    const $rightBtn = _.genEl('BUTTON', {
+      classNames: ['card-ctrl__right-btn'],
+    });
+
+    this.$cardCtrl.appendChild($leftBtn);
+    this.$cardCtrl.appendChild($rightBtn);
+  }
+
+  onEvents() {
+    this.$target.addEventListener('transitionend', ({ target }) => {
+      if (target.classList.contains('move-to-left')) {
+        this.$cardList.classList.remove('move-to-left');
+        this.$cardList.insertBefore(this.$cardList.lastElementChild, this.$cardList.firstElementChild);
+      } else if(target.classList.contains('move-to-right')) {
+        this.$cardList.classList.remove('move-to-right');
+        this.$cardList.appendChild(this.$cardList.firstElementChild);
+      }
+    });
+
+    _.$('.card-ctrl__left-btn', this.$cardCtrl).addEventListener('click', () => {
+      this.$cardList.classList.add('move-to-left');
+    }, true);
+
+    _.$('.card-ctrl__right-btn', this.$cardCtrl).addEventListener('click', () => {
+      this.$cardList.classList.add('move-to-right');
+    }, true);
   }
 }

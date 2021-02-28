@@ -20,6 +20,10 @@
   },
   "homepage": "https://github.com/cchoongh/fe-w3-shopping#readme",
   "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.13.8",
+    "@babel/preset-env": "^7.13.8",
+    "babel-loader": "^8.2.2",
     "copy-webpack-plugin": "^6.0.0",
     "css-loader": "^5.0.2",
     "express": "^4.17.1",
