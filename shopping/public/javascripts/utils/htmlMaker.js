@@ -74,11 +74,11 @@ const paginationHtml = (pagination) => {
   });
 };
 
-const hotDealItems = (info, i) => {
+const homeContentItems = (info, i, kinds) => {
   const { imageurl, produrl, prodname, mprice } = info;
   return `<li class="_GI_" data-id="${i}">
   <a href="${produrl}">
-    <span class="thumb_hotdeal">
+    <span class="thumb_${kinds}">
       <img src="${imageurl}" alt="" />
     </span>
     <strong class="title_g">${prodname}</strong>
@@ -89,14 +89,14 @@ const hotDealItems = (info, i) => {
 </li>`;
 };
 
-const hotDealList = (data) => {
-  const contents = data.contents;
+const homeContentsList = (data, kinds) => {
+  const contents = data;
   let i = 0;
   let totalHtml = ``;
   Object.entries(contents).forEach((value, key) => {
     const currProducts = value[1].eventProducts;
-    let hotDealHtml = `<ul class="list_hotDeal">`;
-    hotDealHtml += currProducts.reduce((acc, val) => acc + hotDealItems(val, i++), ``);
+    let hotDealHtml = `<ul class="list_${kinds}">`;
+    hotDealHtml += currProducts.reduce((acc, val) => acc + homeContentItems(val, i++, kinds), ``);
     hotDealHtml += `</ul>`;
     totalHtml += hotDealHtml;
   });
@@ -107,4 +107,4 @@ function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-export { eventItem, mileageListHtml, paginationHtml, mallEventListHtml, hotDealList };
+export { eventItem, mileageListHtml, paginationHtml, mallEventListHtml, homeContentsList };

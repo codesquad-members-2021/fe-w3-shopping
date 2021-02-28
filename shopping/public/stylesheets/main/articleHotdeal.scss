@@ -50,30 +50,30 @@
 
     li {
       border: 1px solid map-get($color-palette, top_border);
-      display: flex;
-      text-align: center;
+      // display: flex;
+      // text-align: center;
       width: $slide_hotdeal_img-width;
     }
 
-    a {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+    // a {
+    //   display: flex;
+    //   flex-direction: column;
+    //   justify-content: space-between;
+    // }
 
-    img {
-      margin-top: 1em;
-      width: 80%;
-    }
+    // img {
+    //   margin-top: 1em;
+    //   width: 80%;
+    // }
 
-    strong {
-      margin: 0 1em;
-      font-size: map-get($font-size, title);
-      color: map-get($font-color, title);
-    }
+    // strong {
+    //   margin: 0 1em;
+    //   font-size: map-get($font-size, title);
+    //   color: map-get($font-color, title);
+    // }
 
-    .detail_price {
-      padding: 1em 0;
-    }
+    // .detail_price {
+    //   padding: 1em 0;
+    // }
   }
 }

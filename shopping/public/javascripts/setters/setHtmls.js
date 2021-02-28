@@ -1,5 +1,5 @@
-const setHtmls = (fn1, fn2) => (arg1, arg2) => {
-  const result = fn1(arg1);
+const setHtmls = (fn1, fn2) => (arg1, arg2, ...optionals) => {
+  const result = fn1(arg1, ...optionals);
   fn2(arg2)(result);
 };
 
