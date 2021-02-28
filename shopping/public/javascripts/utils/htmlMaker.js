@@ -50,7 +50,14 @@ const mallEventListHtml = (array) => {
 const pageDotsHtml = (slideLen, startNum) => {
   // 페이지네이션 점들
   return new Promise((resolve, reject) => {
-    const pageChild = [...Array(slideLen).keys()].reduce((acc, val) => acc + `<span class="btn_paging ${val === startNum ? "dot_active" : ""}" data-index="${val}"><span class="num_page"></span></span>`, ``);
+    const pageChild = [...Array(slideLen).keys()].reduce(
+      (acc, val) =>
+        acc +
+        `<span class="btn_paging ${
+          val === startNum ? "dot_active" : ""
+        }" data-index="${val}"><span class="num_page"></span></span>`,
+      ``
+    );
     resolve(pageChild);
   });
 };
