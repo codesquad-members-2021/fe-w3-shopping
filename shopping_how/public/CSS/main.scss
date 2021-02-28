@@ -77,6 +77,40 @@ li {
   display: inline-block;
 }
 
+@mixin cell_div {
+  border: 1px solid #f1f1f1;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  height: 308px;
+  background-size: cover;
+}
+
+@mixin cell_li {
+  padding: 21px 27px;
+  height: 276px;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  border-bottom: 0 none;
+  position: relative;
+  line-height: 14px;
+  letter-spacing: -1px;
+  background-size: cover;
+}
+
+@mixin cell_img {
+  display: inline-block;
+  border: 0;
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  aspect-ratio: auto 200 / 200; //이미지나 동영상을 비율대로 줄이거나 늘리는 데 사용
+}
+
 //extend 정의
 %icon-header {
   position: absolute;
@@ -352,16 +386,7 @@ header {
   }
 
   li {
-    padding: 21px 27px;
-    height: 276px;
-    width: 100%;
-    height: 100%;
-    text-align: left;
-    border-bottom: 0 none;
-    position: relative;
-    line-height: 14px;
-    letter-spacing: -1px;
-    background-size: cover; //핵중요
+    @include cell_li;
 
     img {
       width: 100%;
@@ -375,23 +400,10 @@ header {
 
 //그리드 셀
 .cell {
-  border: 1px solid #f1f1f1;
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  position: relative;
-  height: 310px;
-  background-size: cover;
+  @include cell_div;
 
   .cell__lowehalf_pic {
-    display: inline-block;
-    border: 0;
-    width: 100%;
-    height: 200px;
-    background-size: cover;
-    aspect-ratio: auto 200 / 200; //이미지나 동영상을 비율대로 줄이거나 늘리는 데 사용
+    @include cell_img;
   }
 
   .cell__product_name {
@@ -524,13 +536,81 @@ header {
       font-size: 0.8rem;
     }
   }
+}
 
-  .carousel_container {
-    border: 1px solid #dddcdc;
-    background-color: #fff;
-    height: 310px;
-    margin-bottom: 1rem;
+.carousel2 {
+  border: 1px solid #dddcdc;
+  background-color: #fff;
+  height: 310px;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-gap: 1px 1px;
+  grid-template-columns: repeat(5, 1fr);
+  border: 1px solid #dddcdc;
+
+  .item {
+    @include cell_div;
+
+    .item_pic {
+      @include cell_img;
+    }
+
+    li {
+      @include cell_li;
+    }
   }
+}
+
+.item_pic {
+  display: inline-block;
+  border: 0;
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  aspect-ratio: auto 200 / 200;
+}
+
+.item_name {
+  height: 40px;
+  margin: 11px 0 0;
+  font-size: 13px;
+  line-height: 20px;
+  color: #555;
+  word-break: break-all;
+}
+
+.item_txt_box {
+  height: 43px;
+  padding-top: 7px;
+  letter-spacing: 0;
+
+  .current-price {
+    float: left;
+    font-size: 14px;
+    line-height: 23px;
+    color: #000;
+    font-weight: 700;
+    font-family: Tahoma, sans-serif;
+  }
+
+  .discount-percentage {
+    padding-right: 5px;
+    font-size: 18px;
+    letter-spacing: -1px;
+    line-height: 30px;
+    color: #fc363c;
+    float: right;
+  }
+}
+
+.original-price {
+  display: block;
+  margin-top: -10px;
+  font-size: 13px;
+  color: #888;
+  line-height: 22px;
+  font-family: Tahoma, sans-serif;
+  text-decoration: line-through;
 }
 
 /*-------------------------------*/

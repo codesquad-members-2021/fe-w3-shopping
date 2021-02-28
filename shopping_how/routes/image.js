@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const jsonData = require('../response.json');
-const { best, event, carousel, box } = jsonData;
+const { best, event, carousel, box } = jsonData; //spread operator 
 
 router.get("/", (req, res, next) => {
     // console.log("req.query", req.query); => { section: 'best' }

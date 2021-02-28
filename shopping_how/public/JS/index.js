@@ -18,7 +18,8 @@ const REFERENCE = {
     prevButton: _.$(".btn_prev"),
     nextButton: _.$(".btn_next"),
     slide: _.$(".slide"),
-    cells: _.$all(".cell-bottom")
+    cells: _.$all(".cell-bottom"),
+    items: _.$all(".item")
 }
 
 class Main {
@@ -29,7 +30,7 @@ class Main {
     }
     init(){
         this.smallCarousel.addEvent(3);
-        this.UIMaker.renderUI();
+        this.UIMaker.renderUI('http://localhost:3000');
     }
 }
 
