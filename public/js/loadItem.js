@@ -108,13 +108,13 @@ export class LoadItem {
     );
 
     eventProducts.forEach(({ imgurl, dataseq, text, text2 }) => {
-      const themeProductTemplate = themeCategoryTemplate({
+      const template = themeCategoryTemplate({
         imgurl,
         dataseq,
         text,
         text2,
       });
-      themeCategoryImgs.insertAdjacentHTML('beforeend', themeProductTemplate);
+      themeCategoryImgs.insertAdjacentHTML('beforeend', template);
     });
   }
 }
