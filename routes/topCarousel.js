@@ -4,8 +4,7 @@ const fs = require("fs");
 const data = JSON.parse(fs.readFileSync("./public/data/response.json", "utf8"));
 
 router.get("/", (req, res, next) => {
-  console.log(data);
-  res.json(data);
+  res.json(data["topCarousel"]);
 });
 
 module.exports = router;

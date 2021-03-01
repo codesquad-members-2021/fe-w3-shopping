@@ -12,13 +12,17 @@ export default class ViewMore {
     fetch(`${server}/${req}`)
       .then(response => response.json())
       .then(json => {
-        console.log(json);
         this.drawViewMoreImage(json);
       });
   }
   updateGridLow() {
     this.$topSectionContainer.style.gridTemplateRows = `repeat(${this.currentLow}, 340px)`;
     this.currentLow++;
+  }
+
+  updateLoadState(dataSize) {
+    const $viewMoreText = _.$(".view-more__btn");
+    $viewMoreText.textContent = `더 보기(${this.imageIndex} / ${dataSize} 건)`;
   }
 
   drawViewMoreImage(data) {
@@ -40,8 +44,10 @@ export default class ViewMore {
       </div>
     </div>`;
     }
+
     this.$topSectionContainer.insertAdjacentHTML("beforeend", template);
     this.imageIndex += 5;
+    this.updateLoadState(data.length);
   }
 
   updateViewMoreImage() {

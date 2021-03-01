@@ -10,16 +10,16 @@ export default class TopCarouselUI {
     this.init();
   }
 
-  requestImg(server, req) {
+  requestServer(server, req) {
     fetch(`${server}/${req}`)
       .then(response => response.json())
       .then(json => {
-        this.parseJson(json["topCarousel"]);
+        this.drawCarouselImage(json);
         this.cloneContent();
       });
   }
 
-  parseJson(data) {
+  drawCarouselImage(data) {
     const $carousel = _.$(".item__carousel-wrap");
     for (const value of data) {
       let template = `<div class="carousel-content">
@@ -47,7 +47,7 @@ export default class TopCarouselUI {
 
   moveToOriginContent() {
     const $carouselContents = _.$All(".carousel-content");
-    console.log(22);
+
     switch ($carouselContents[this.counter].id) {
       case "lastClone":
         this.$carousel.style.transition = "none";
@@ -70,7 +70,6 @@ export default class TopCarouselUI {
     this.counter--;
     this.$carousel.style.transform =
       "translateX(" + -this.size * this.counter + "px)";
-    console.log(this.$carousel.style.transform);
   }
 
   moveNext() {
@@ -80,7 +79,6 @@ export default class TopCarouselUI {
     this.counter++;
     this.$carousel.style.transform =
       "translateX(" + -this.size * this.counter + "px)";
-    console.log(this.$carousel.style.transform);
   }
   onEvent() {
     this.$carousel.addEventListener(
@@ -92,7 +90,7 @@ export default class TopCarouselUI {
   }
 
   init() {
-    this.requestImg("http://localhost:3000", "image");
+    this.requestServer("http://localhost:3000", "topCarousel");
     this.onEvent();
   }
 }

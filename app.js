@@ -10,7 +10,7 @@ const cors = require("cors"); //여기
 //-------------------------------------------------------------------------------
 
 const indexRouter = require("./routes/index"); // 라우터 선언
-const imageRouter = require("./routes/image");
+const topCarouselRouter = require("./routes/topCarousel");
 const viewmoreRouter = require("./routes/viewmore");
 
 const app = express(); //미들웨어 등록을 위해 app 객체에 express 객체 등록
@@ -34,7 +34,7 @@ app.use(
 );
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
-app.use("/image", imageRouter); //
+app.use("/topCarousel", topCarouselRouter); //
 app.use("/viewmore", viewmoreRouter); //
 
 // catch 404 and forward to error handler
