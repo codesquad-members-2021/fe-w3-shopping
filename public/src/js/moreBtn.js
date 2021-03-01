@@ -1,3 +1,4 @@
+import { CLASS_LIST } from './util/data.js';
 import { makeItemList, makeMoreBtn, ul } from './util/htmlTemplate.js';
 
 class MoreButtonView {
@@ -39,7 +40,7 @@ class MoreButtonView {
   getMoreListHTML() {
     const currentIndex = Math.floor(this.currentData / this.maxData) - 1;
     const moreItemsHTML = this.data[currentIndex].reduce((acc, cur) => acc + makeItemList(cur), '');
-    const moreListHTML = ul({ value: moreItemsHTML, classes: ['event-item-list'] });
+    const moreListHTML = ul({ value: moreItemsHTML, classes: [CLASS_LIST.MORE_LIST] });
     return moreListHTML;
   }
   renderInit() {
