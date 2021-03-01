@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta property="og:title" content="대한민국 최저가 가격비교 쇼핑! 쇼핑하우 by kakaocommerce" />
+    <meta property="og:url" content="//shoppinghow.kakao.com" />
+    <meta property="og:image" content="//shop.daumcdn.net/shophow/front/kakaocommerce_shopping.png" />
+    <meta property="og:description" content="쇼핑하우 by kakaocommerce는 대한민국 온라인 쇼핑몰들의 상품 정보를 모두 모아 한번에 가격비교가 가능한, 최저가 가격비교 서비스 입니다." />
+    <title>쇼핑라쿤 by raccooncommerce</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
+    <link rel="stylesheet" type="text/css" href="/style.scss" />
+    <!-- <link rel="stylesheet" type="text/css" href="stylesheets/style.css" /> -->
+  </head>
+  <body>
+    <div class="body__container">
+      <header>
+        <div class="header__top">
+          <h1 class="title--shown">
+            <a href="/" class="link_shw _GC_">
+              <img src="//search1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/logo_shw.png" class="img_g" alt="쇼핑하우 by kakaocommerce" />
+            </a>
+          </h1>
+          <div class="search-bar">
+            <h2 class="screen-out">검색</h2>
+            <form id="kakaoSearch" name="kakaoSearch" class="frm_shwsearch" action="return false;" role="search">
+              <fieldset class="fld_shwsearch">
+                <legend class="screen-out">쇼핑하우검색</legend>
+                <div class="box_search">
+                  <label for="qTop" class="screen-out">검색어 입력</label>
+                  <input type="text" id="qTop" class="search-bar--keyword" size="55" autocomplete="off" spellcheck="false" autocapitalize="off" value="" /><!-- 2019-08-01 기존 id:qTop, name:q -->
+                  <button type="submit" class="search--btn">
+                    <span class="search--btn--ico search--btn--background"></span>
+                    <span class="search--text">검색</span>
+                  </button>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+          <div class="wrap_rollkeywords" id="upwardKeywordWrap">
+            <strong class="screen-out">인기 쇼핑 키워드</strong>
+            <ol class="list_rollkeywords" style="top: -160px">
+              <!-- 여긴 할 수 있으면 구현! top으로 롤링 -->
+
+              <!-- 2019-08-01 css top속성으로 키워드를 롤링 시킬 수 있습니다. -->
+
+              <!-- <li>
+                    <span class="num_rank">1</span>가정용금고
+                </li>
+
+              <li><span class="num_rank">2</span>왕갈비탕</li>
+
+              <li><span class="num_rank">3</span>천리향</li>
+
+              <li><span class="num_rank">4</span>단백질</li>
+
+              <li><span class="num_rank">5</span>리스테린</li>
+
+              <li><span class="num_rank">6</span>무선마우스</li>
+
+              <li><span class="num_rank">7</span>프롤린유산균</li>
+
+              <li><span class="num_rank">8</span>붙이는핫팩</li>
+
+              <li><span class="num_rank">9</span>리큅식품건조기</li>
+
+              <li><span class="num_rank">10</span>쿠쿠</li>
+
+              <li><span class="num_rank">1</span>가정용금고</li>
+
+              <li><span class="num_rank">2</span>왕갈비탕</li>
+              -->
+            </ol>
+          </div>
+        </div>
+        <nav role="navigation">
+          <div class="nav__wrapper">
+            <h2 class="screen-out">쇼핑하우 주요 메뉴</h2>
+            <div class="nav--category">
+              <button type="button" class="category-btn">카테고리<span class="ico--background ico--menu">펼치기</span></button>
+              <!-- 팝업메뉴 있는데 일단 생략함 -->
+            </div>
+            <span class="txt-bar"></span>
+            <strong class="screen-out">쇼핑하우 메뉴</strong>
+            <ul class="list--left">
+              <li>
+                <a href="/siso/p/hotdeal/list/" class="link--item" target="_self"> 핫딜 </a>
+              </li>
+              <li>
+                <a href="/siso/p/bestRank/" class="link--item" target="_self"> 베스트100 </a>
+              </li>
+              <li>
+                <a href="/siso/p/sale/today" class="link--item new--item" target="_self">
+                  <span class="txt-new">new</span>
+                  할인특가
+                </a>
+              </li>
+              <li>
+                <a href="/event/top" class="link--item" target="_self"> 기획전 </a>
+              </li>
+            </ul>
+
+            <span class="txt-bar narrow_hide"></span>
+            <strong class="screen-out">쇼핑하우 스페셜 메뉴</strong>
+            <ul class="list--right">
+              <li>
+                <a href="/siso/p/bestRank/C02/102105/102105105" class="link--sharp" target="_self"> #건강식품 </a>
+              </li>
+
+              <li>
+                <a href="/event/detail/53746" class="link--sharp" target="_self"> #제철음식 </a>
+              </li>
+
+              <li>
+                <a href="/event/detail/53633" class="link--sharp" target="_self"> #블루투스이어폰 </a>
+              </li>
+
+              <li>
+                <a href="/search/커블체어" class="link--sharp" target="_self"> #커블체어 </a>
+              </li>
+
+              <li>
+                <a href="/siso/p/bestRank/B02/100105/100105102" class="link--sharp new--item" target="_self">
+                  <span class="txt-new">new</span>
+
+                  #노트북
+                </a>
+              </li>
+            </ul>
+
+            <strong class="screen-out">쇼핑하우 사용자 메뉴</strong>
+            <ul class="list--user-box">
+              <li id="login-box">
+                <a
+                  href="https://accounts.kakao.com/login?continue=https%3A%2F%2Fbuy.kakao.com%2Fauth%2F11%2FcleanAuthentication%3FreturnUrl%3Dhttps%253A%252F%252Fshoppinghow.kakao.com%252Ftop"
+                  class="link--login"
+                >
+                  <span class="ico--user ico--background"></span>
+                  로그인
+                </a>
+              </li>
+              <li class="recent--product">
+                <!-- 2019-08-01 'on'클래스를 주면 최근본 상품 레이어가 활성화 됩니다. -->
+                <a href="#none" class="link--product">
+                  <span class="ico--background ico--product"></span>최근본 상품<span class="ico--background ico--arrow"> 펼치기</span
+                  ><!-- 2019-08-01 최근 상품 레이어가 펼쳐졌을 경우 '접기', 잡혀 있을경우 '펼치기'텍스트를 넣어주세요. -->
+                </a>
+                <!-- recent product 팝업 자리 -->
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <section class="section__contents">
+        <div id="contents__main">
+          <div id="main__article" role="main">
+            <h2 class="screen-out">쇼핑하우 홈</h2>
+            <div class="section--top">
+              <h3 class="screen-out">기획전 및 이벤트</h3>
+              <div class="contents__event">
+                <div class="event--item">
+                  <a href="//shoppinghow.kakao.com/siso/p/bestRank/E02/103101" class="link--event"
+                    ><img src="//shop4.daumcdn.net/shophow/sib/0_210219174900_cCDgZtbAhPiBQqcJamsODOWNoVrXILeM" width="485" height="340" class="img_g" alt="기획전 이벤트"
+                  /></a>
+                </div>
+                <div class="event--slide">
+                  <div class="event--slide--item" id="mileageSlide">
+                    <div class="slide" id="topMileageSlide">
+                      <!-- getMileageEventContents() -->
+                    </div>
+                  </div>
+                  <div class="paging--bar">
+                    <span class="inner--paging" id="mileageSlidePage">
+                      <em class="paging--button first adela" data-index="0">
+                        <span class="page--number adela" data-index="0"> <span class="screen-out">현재페이지</span>1 </span>
+                      </em>
+                      <span class="paging--button adela" data-index="1">
+                        <span class="page--number adela" data-index="1">2</span>
+                      </span>
+                      <span class="paging--button adela" data-index="2">
+                        <span class="page--number adela" data-index="2">3</span>
+                      </span>
+                    </span>
+                    <button type="button" class="slide--button slide--button--prev" title="이전"><span class="ico--slide ico--prev">이전</span></button>
+                    <button type="button" class="slide--button slide--button--next" title="다음"><span class="ico--slide ico--next">다음</span></button>
+                  </div>
+                </div>
+              </div>
+              <div id="mallEventList" class="mall__event contents--item contents--top">
+                <div id="mall__event--slide">
+                  <div class="slide" id="mallEventSlide">
+                    <!-- mall-event-panel -->
+                  </div>
+                </div>
+                <button type="button" class="button-group button--prev" title="이전"><span class="ico--home">이전</span></button
+                ><button type="button" class="button-group button--next" title="다음"><span class="ico--home">다음</span></button>
+              </div>
+            </div>
+            <div id="hot-deal__wrapper">
+              <div class="section--tab section--hot-deal">
+                <!-- hot-deal-lists -->
+                <div class="more-item__container">
+                  <button class="more-item__button">
+                    <!-- 더보기 span -->
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="hot-keyword__wrapper section--hot section--hit" style="display: none"></div>
+            <div id="top-recommend-keyword" class="section--tab section--rank">
+              <div class="title__hot-keyword">
+                <h3 class="title--txt">쇼핑 급상승 키워드</h3>
+                <span class="txt_info"></span>
+              </div>
+              <div class="contents--item">
+                <ul class="list--item _GL">
+                  <li class="_GI_">
+                    <strong class="title--rank"><a href="/search/싱크대물막이/" target="_blank" class="_GC_">1 . 싱크대물막이</a></strong
+                    ><a href="/search/싱크대물막이/" class="link--product _GC_"
+                      ><img
+                        src="//shop1.daumcdn.net/thumb/R250x250/?fname=https%3A%2F%2Fshop1.daumcdn.net%2Fshophow%2Fp%2FD5100447906.jpg%3Fut%3D20201216170208"
+                        onerror="this.src='//shop1.daumcdn.net/search/cdn/simage/shopping/img/nothumb_200.gif'"
+                        width="200"
+                        height="200"
+                        class="image-group"
+                        alt="실리콘 흡착 싱크대물막이 1개"
+                      /><strong class="info--title">실리콘 흡착 싱크대물막이 1개</strong><span class="txt--description"><span class="num--price">7,820</span>원</span></a
+                    >
+                  </li>
+                  <li class="_GI_">
+                    <strong class="title--rank"><a href="/search/더치커피/" target="_blank" class="_GC_">2 . 더치커피</a></strong
+                    ><a href="/search/더치커피/" class="link--product _GC_"
+                      ><img
+                        src="//shop2.daumcdn.net/thumb/R250x250/?fname=https%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FD5096601663.jpg%3Fut%3D20200703162742"
+                        onerror="this.src='//shop1.daumcdn.net/search/cdn/simage/shopping/img/nothumb_200.gif'"
+                        width="200"
+                        height="200"
+                        class="image-group"
+                        alt="하이드로 더치커피 30mlx100팩"
+                      /><strong class="info--title">하이드로 더치커피 30mlx100팩</strong><span class="txt--description"><span class="num--price">14,850</span>원</span></a
+                    >
+                  </li>
+                  <li class="_GI_">
+                    <strong class="title--rank"><a href="/search/울트라기어모니터/" target="_blank" class="_GC_">3 . 울트라기어모니터</a></strong
+                    ><a href="/search/울트라기어모니터/" class="link--product _GC_"
+                      ><img
+                        src="//shop1.daumcdn.net/thumb/R250x250/?fname=https%3A%2F%2Fshop1.daumcdn.net%2Fshophow%2Fp%2FD5097274028.jpg%3Fut%3D20200814171319"
+                        onerror="this.src='//shop1.daumcdn.net/search/cdn/simage/shopping/img/nothumb_200.gif'"
+                        width="200"
+                        height="200"
+                        class="image-group"
+                        alt="32GN550"
+                      /><strong class="info--title">32GN550</strong><span class="txt--description"><span class="num--price">319,000</span>원</span></a
+                    >
+                  </li>
+                  <li class="_GI_">
+                    <strong class="title--rank"><a href="/search/착즙기/" target="_blank" class="_GC_">4 . 착즙기</a></strong
+                    ><a href="/search/착즙기/" class="link--product _GC_"
+                      ><img
+                        src="//shop1.daumcdn.net/thumb/R250x250/?fname=https%3A%2F%2Fshop1.daumcdn.net%2Fshophow%2Fp%2FD5094239302.jpg%3Fut%3D20200601232313"
+                        onerror="this.src='//shop1.daumcdn.net/search/cdn/simage/shopping/img/nothumb_200.gif'"
+                        width="200"
+                        height="200"
+                        class="image-group"
+                        alt="이지 H-200"
+                      /><strong class="info--title">이지 H-200</strong><span class="txt--description"><span class="num--price">381,650</span>원</span></a
+                    >
+                  </li>
+                  <li class="_GI_">
+                    <strong class="title--rank"><a href="/search/오덴세/" target="_blank" class="_GC_">5 . 오덴세</a></strong
+                    ><a href="/search/오덴세/" class="link--product _GC_"
+                      ><img
+                        src="//shop1.daumcdn.net/thumb/R250x250/?fname=https%3A%2F%2Fshop1.daumcdn.net%2Fshophow%2Fp%2FA5095114490.jpg%3Fut%3D20200422122610"
+                        onerror="this.src='//shop1.daumcdn.net/search/cdn/simage/shopping/img/nothumb_200.gif'"
+                        width="200"
+                        height="200"
+                        class="image-group"
+                        alt="시손느 프리미엄 4인 홈세트 20p"
+                      /><strong class="info--title">시손느 프리미엄 4인 홈세트 20p</strong><span class="txt--description"><span class="num--price">283,450</span>원</span></a
+                    >
+                  </li>
+                  <li class="_GI_">
+                    <strong class="title--rank"><a href="/search/저분자콜라겐/" target="_blank" class="_GC_">6 . 저분자콜라겐</a></strong
+                    ><a href="/search/저분자콜라겐/" class="link--product _GC_"
+                      ><img
+                        src="//shop2.daumcdn.net/thumb/R250x250/?fname=https%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FB5099244419.jpg%3Fut%3D20201029223837"
+                        onerror="this.src='//shop1.daumcdn.net/search/cdn/simage/shopping/img/nothumb_200.gif'"
+                        width="200"
+                        height="200"
+                        class="image-group"
+                        alt="저분자 피쉬 콜라겐 펩타이드 90포"
+                      /><strong class="info--title">저분자 피쉬 콜라겐 펩타이드 90포</strong><span class="txt--description"><span class="num--price">44,300</span>원</span></a
+                    >
+                  </li>
+                  <li class="_GI_">
+                    <strong class="title--rank"><a href="/search/샤워커튼/" target="_blank" class="_GC_">7 . 샤워커튼</a></strong
+                    ><a href="/search/샤워커튼/" class="link--product _GC_"
+                      ><img
+                        src="//shop2.daumcdn.net/thumb/R250x250/?fname=https%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FE3871791359.jpg%3Fut%3D20170919120119"
+                        onerror="this.src='//shop1.daumcdn.net/search/cdn/simage/shopping/img/nothumb_200.gif'"
+                        width="200"
+                        height="200"
+                        class="image-group"
+                        alt="스테인리스 커브형 샤워커튼봉"
+                      /><strong class="info--title">스테인리스 커브형 샤워커튼봉</strong><span class="txt--description"><span class="num--price">7,180</span>원</span></a
+                    >
+                  </li>
+                  <li class="_GI_">
+                    <strong class="title--rank"><a href="/search/아크릴가림막/" target="_blank" class="_GC_">8 . 아크릴가림막</a></strong
+                    ><a href="/search/아크릴가림막/" class="link--product _GC_"
+                      ><img
+                        src="//shop1.daumcdn.net/thumb/R250x250/?fname=https%3A%2F%2Fshop1.daumcdn.net%2Fshophow%2Fp%2FE5100094892.jpg%3Fut%3D20201128124546"
+                        onerror="this.src='//shop1.daumcdn.net/search/cdn/simage/shopping/img/nothumb_200.gif'"
+                        width="200"
+                        height="200"
+                        class="image-group"
+                        alt="식당칸막이 아크릴 가림막 길이 높이 투명 [60X60CM]"
+                      /><strong class="info--title">식당칸막이 아크릴 가림막 길이 높이 투명 [60X60CM]</strong><span class="txt--description"><span class="num--price">15,900</span>원</span></a
+                    >
+                  </li>
+                  <li class="no_normal _GI_">
+                    <strong class="title--rank"><a href="/search/낮잠이불/" target="_blank" class="_GC_">9 . 낮잠이불</a></strong
+                    ><a href="/search/낮잠이불/" class="link--product _GC_"
+                      ><img
+                        src="//shop2.daumcdn.net/thumb/R250x250/?fname=https%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FD5101572701.jpg%3Fut%3D20210121135858"
+                        onerror="this.src='//shop1.daumcdn.net/search/cdn/simage/shopping/img/nothumb_200.gif'"
+                        width="200"
+                        height="200"
+                        class="image-group"
+                        alt="베이비 포리 순면 낮잠이불 풀세트"
+                      /><strong class="info--title">베이비 포리 순면 낮잠이불 풀세트</strong><span class="txt--description"><span class="num--price">35,900</span>원</span></a
+                    >
+                  </li>
+                  <li class="no_normal _GI_">
+                    <strong class="title--rank"><a href="/search/뉴발란스327/" target="_blank" class="_GC_">10 . 뉴발란스327</a></strong
+                    ><a href="/search/뉴발란스327/" class="link--product _GC_"
+                      ><img
+                        src="//shop2.daumcdn.net/thumb/R250x250/?fname=https%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FQ12024292285.jpg%3Fut%3D20210121080435"
+                        onerror="this.src='//shop1.daumcdn.net/search/cdn/simage/shopping/img/nothumb_200.gif'"
+                        width="200"
+                        height="200"
+                        class="image-group"
+                        alt="뉴발란스 327 솔트 화이트 블랙 흰검 흰색 MS327FE"
+                      /><strong class="info--title">뉴발란스 327 솔트 화이트 블랙 흰검 흰색 MS327FE</strong><span class="txt--description"><span class="num--price">128,000</span>원</span></a
+                    >
+                  </li>
+                </ul>
+                <span class="bg_loading" style="display: none"><span class="ico_home">상품 목록 로딩 중</span></span>
+              </div>
+            </div>
+            <div class="#foru section_tab section_how" style="display: none"></div>
+          </div>
+        </div>
+
+        <div class="contents__etc">
+          <div class="banner--item" style="display: none"></div>
+          <div class="shopping-partner__wrapper">
+            <h3 class="title--text">쇼핑하우 파트너</h3>
+            <div class="section__etc">
+              <div class="contents-partner">
+                <div class="partner--category">
+                  <strong class="title--mall">오픈마켓</strong>
+                  <ul class="list--mall">
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">G마켓</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">옥션</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">11번가</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">인터파크</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">롯데온</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">qoo10</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">쿠팡</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">이베이쇼핑</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="partner--category">
+                  <strong class="title--mall">백화점</strong>
+                  <ul class="list--mall">
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">AKmall</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">롯데백화점</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">갤러리아몰</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">SSG</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">SM면세점</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="partner--category">
+                  <strong class="title--mall">홈쇼핑</strong>
+                  <ul class="list--mall">
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">CJ mall</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">롯데홈쇼핑</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">GS SHOP</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">현대 Hmall</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">NSmall</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">홈&amp;쇼핑</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">K쇼핑</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">신세계티비쇼핑</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">공영홈쇼핑</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="partner--category">
+                  <strong class="title--mall">마트/생활</strong>
+                  <ul class="list--mall">
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">홈플러스</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">NH마켓</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">롯데마트</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">텐바이텐</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">제로투세븐</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">동원몰</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">CJ더마켓</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">알파몰</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">아이소이</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">1300k</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">사조몰</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">다이소몰</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="partner--category">
+                  <strong class="title--mall">소셜</strong>
+                  <ul class="list--mall">
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">G9</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">위메프</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">라쿤</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="partner--category">
+                  <strong class="title--mall">패션</strong>
+                  <ul class="list--mall">
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">하프클럽</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">패션플러스</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">아이스타일24</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">LFmall</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">보리보리</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">머스트잇</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">위즈위드</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">무신사스토어</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">품바이</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">루이까또즈</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">마이클코어스</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">가방팝</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">프리쉽</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="partner--category">
+                  <strong class="title--mall">레저/취미</strong>
+                  <ul class="list--mall">
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">오케이몰</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">고르고타고</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="partner--category">
+                  <strong class="title--mall">도서/공연</strong>
+                  <ul class="list--mall">
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">YES24 티켓</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">G마켓 티켓</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">옥션 티켓</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">티켓 링크</a>
+                    </li>
+                    <li class="_GI_">
+                      <a href="#" target="_blank" class="link--mall">인터파크 티켓</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <button type="button" class="button--home">더보기</button>
+            </div>
+            <a href="/siso/p/partner" class="link--all">전체보기</a>
+          </div>
+          <div class="notice__wrapper">
+            <div class="section_notice">
+              <h2 class="tit_notice">공지사항</h2>
+              <a href="http://shopping.daum.net/siso/p/notice/detail/noticeId:651&amp;pageNum:1" class="link_notice _GC_">[공지] 카카오쇼핑 이용약관 개정 안내 (2020.11.12 시행)</a>
+              <span class="ico_comm2 ico_new">NEW</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <hr class="screen-out" />
+        <!-- // daumContent -->
+        <div class="left_banner" id="leftWingBanner"></div>
+        <!-- // quick menu -->
+        <div id="daumFoot" class="#footer" role="contentinfo" style="">
+          <div class="footer_shw">
+            <h2 class="screen-out">서비스 이용정보</h2>
+            <div class="wrap_link">
+              <div class="inner_link">
+                <a href="https://buy.kakao.com/about/11/terms" target="_blank" class="link_info _GC_">서비스 약관/정책</a><span class="txt_bar">|</span
+                ><a href="https://buy.kakao.com/about/11/privacy" target="_blank" class="link_info _GC_"><strong>개인정보처리방침</strong></a
+                ><!-- 2019-07-12 strong 태그 추가 수정 --><span class="txt_bar">|</span>
+                <a href="javascript:;" class="link_info _GC_" onclick="window.open('/html/noticeOfLaw.html','shopPop','width=988,height=500,resizable=yes,scrollbars=yes')">법적고지</a
+                ><span class="txt_bar">|</span> <a target="_blank" href="//www.kakaocommerce.com/youthpolicy" class="link_info _GC_">청소년보호정책</a><span class="txt_bar">|</span>
+                <a target="_blank" href="//ccs.kakao.com/help?service=150" class="link_info _GC_">쇼핑하우고객센터</a><span class="txt_bar">|</span>
+                <a target="_blank" href="//shopping.biz.daum.net/join/main" class="link_info _GC_">입점/광고안내</a><span class="txt_bar">|</span>
+                <a target="_blank" href="//shopping.biz.daum.net" class="link_info _GC_">쇼핑하우비즈센터</a>
+              </div>
+            </div>
+            <div class="wrap_info">
+              <p class="kakaocommerce_info">
+                (주)카카오커머스 대표이사 홍은택<span class="txt_bar">|</span>주소 : 경기도 성남시 분당구 대왕판교로660, A동 5층 일부(삼평동, 유스페이스1)<span class="txt_bar">|</span>사업자등록번호 :
+                891-88-00985 <a target="_blank" href="https://buy.kakao.com/about/11/businessinfo" class="link_info _GC_">사업자 정보확인</a><br />통신판매업신고번호 : 제 2019–성남분당B-0090호<span
+                  class="txt_bar"
+                  >|</span
+                ><!-- 2019-07-12 삭제 시작  구매안전서비스 : <a target="_blank" href="https://st.kakaocdn.net/shoppingstore/manual/payment_guarantee.png" class="link_info">가입사실확인</a><br>  2019-07-12 삭제 끝 -->이메일문의
+                : <a href="mailto:help.notice@kakaocorp.com" class="link_info _GC_">shopping_cs@kakaocommerce.com</a><span class="txt_bar">|</span>고객센터 : <strong>1544-5664</strong> (평일 10:00 -
+                18:30)
+              </p>
+              <p class="txt_caution">
+                (주)카카오커머스는 통신판매중개자로서 통신판매의 당사자가 아니며 상품의 주문, 배송 및 환불 등과 관련한 의무와 책임은 각 판매자에게 있습니다.<br />
+                최종 상품 정보는 구매 전 판매처에서 반드시 확인해주세요.<br />
+                각 판매처의 매매보호 서비스를 통해 구매안전 절차 확인 후(에스크로/소비자피해보험/채무지금보증계약) 상품을 구매해 주시기 바랍니다.
+              </p>
+              <small class="txt_copyright"> Copyright © <a href="https://kakaocommerce.com/" class="link_kakaocommerce _GC_">kakaocommerce</a> Corp. All rights reserved. </small>
+            </div>
+          </div>
+        </div>
+        <hr class="screen-out" />
+        <!-- // daumFoot -->
+        <div id="wrapMinidaum" data-gg="{lk:pc_gnb_minidaum}"></div>
+        <a href="#top" class="btn_follow _GC_"><span class="ico_home ico_follow">TOP</span></a>
+      </footer>
+    </div>
+    <script src="/main.js" type="module"></script>
+  </body>
+</html>
