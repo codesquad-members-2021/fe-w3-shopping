@@ -1,11 +1,12 @@
-import { $topMileageSlide } from '../../main';
+import EventSlider from './eventSlider';
 
-export default class MileageEventCarousel {
+export default class MileageEventCarousel extends EventSlider {
   constructor(data) {
+    super();
     this.data = data;
   }
   setMileageEventContents() {
-    $topMileageSlide.insertAdjacentHTML('afterbegin', this.getMileageEventContents());
+    this.slide.insertAdjacentHTML('afterbegin', this.getMileageEventContents());
   }
   getMileageEventContents() {
     const imgurlArr = this.data.mileageList.map((el) => el.imgurl);

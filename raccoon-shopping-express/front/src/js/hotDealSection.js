@@ -66,7 +66,7 @@ export default class HotDealSection {
     return items;
   }
 
-  moreListDraw() {
+  drawExtraList() {
     const $hotDealList = document.querySelector('#hot-deal-list');
     $hotDealList.insertAdjacentHTML('beforeend', `${this.getHotDealItems()}`);
   }

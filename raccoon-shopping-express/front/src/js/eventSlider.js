@@ -1,16 +1,12 @@
-import { $topMileageSlide } from '../../main';
-
 export default class EventSlider {
   constructor(target) {
     this.target = target;
     this.prev = document.querySelector('.slide--button--prev');
     this.next = document.querySelector('.slide--button--next');
     this.page = document.querySelector('#mileageSlidePage');
-    this.slide = $topMileageSlide;
+    this.slide = document.querySelector('#topMileageSlide');
   }
-  init() {
-    if (this.target) this.addEvent();
-  }
+
   addEvent() {
     this.target.addEventListener('mouseover', this.overEventSlider.bind(this));
     this.target.addEventListener('mouseout', this.outEventSlider.bind(this));

@@ -15,7 +15,7 @@ export default class RequestData extends FetchAPI {
 
   requestData() {
     const requestItems = this.page * this.items;
-    this.hotDealList(this.current, requestItems);
+    this.getHotDealList(this.current, requestItems);
     this.current = requestItems;
     this.page++;
   }

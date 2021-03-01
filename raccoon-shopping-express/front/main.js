@@ -8,20 +8,19 @@ const ITEMS = 5;
 const CURRENT = 0;
 
 const $mileageEventSlide = document.querySelector('.event--slide');
-const $topMileageSlide = document.querySelector('#topMileageSlide');
 const $buttonGroup = document.querySelectorAll('.button-group');
 
 const fetchAPI = new FetchAPI();
-const eventSliderListener = new EventSlider($mileageEventSlide);
+const eventSlider = new EventSlider($mileageEventSlide);
 const mallEventSlider = new MallEventSlider($buttonGroup);
 const requestData = new RequestData(PAGE, ITEMS, CURRENT);
 
-fetchAPI.mileageList();
-fetchAPI.mallEventList();
+fetchAPI.getMileageList();
+fetchAPI.getMallEventList();
 requestData.requestData();
 
-eventSliderListener.init();
+eventSlider.addEvent();
 mallEventSlider.addEvent();
 requestData.addEvent();
 
-export { $topMileageSlide, PAGE };
+export { PAGE };

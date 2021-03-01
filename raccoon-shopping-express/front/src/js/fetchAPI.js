@@ -17,7 +17,7 @@ export default class FetchAPI {
     };
   }
 
-  mileageList = () =>
+  getMileageList = () =>
     fetch(this.url.mileageList)
       .then((response) => response.json())
       .then((data) => {
@@ -28,7 +28,7 @@ export default class FetchAPI {
       .then((status) => console.log(this.req.sucess, status.code))
       .catch((error) => console.log(this.req.failed, error));
 
-  mallEventList = () =>
+  getMallEventList = () =>
     fetch(this.url.mallEventList)
       .then((response) => response.json())
       .then((data) => {
@@ -41,7 +41,7 @@ export default class FetchAPI {
       .then((status) => console.log(this.req.sucess, status.code))
       .catch((error) => console.log(this.req.failed, error));
 
-  hotDealList = (start, count) => {
+  getHotDealList = (start, count) => {
     const param = { start: start, count: count };
     const queryParam = new URLSearchParams(param);
     fetch(`${this.url.hotDealList}/?${queryParam.toString()}`)
@@ -53,7 +53,7 @@ export default class FetchAPI {
           hotDealSection.updateMoreListNumber(count, data.dataLength);
           return data.list;
         }
-        hotDealSection.moreListDraw();
+        hotDealSection.drawExtraList();
         hotDealSection.updateMoreListNumber(count, data.dataLength);
         return data.list;
       })
