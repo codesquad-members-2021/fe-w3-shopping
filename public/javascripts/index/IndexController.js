@@ -1,7 +1,6 @@
 import _ from '../util.js';
-import DataManager from './DataManager.js'; // 추후 제거, 여기서 작업하기 편하게 넣어놓은것.
 
-class IndexControl {
+class IndexController {
     /**
      * @param {DataManager} dataManager
      */
@@ -373,4 +372,4 @@ class IndexControl {
     }    
 }
 
-export default IndexControl;
+export default IndexController;

@@ -1,5 +1,5 @@
 import _ from './util.js';
-import IndexControl from './index/IndexControl.js';
+import IndexController from './index/IndexController.js';
 import DataManager from './index/DataManager.js';
 
 const serverInfo = {serverURL: 'http://localhost:3001'};
@@ -29,4 +29,4 @@ const options = {
     hotCarouselTransitionDuration: '0.4s',
 };
 
-new IndexControl(dataManager, indexWrappers, controlItems, options).init();
+new IndexController(dataManager, indexWrappers, controlItems, options).init();
