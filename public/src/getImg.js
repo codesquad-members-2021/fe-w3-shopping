@@ -93,18 +93,22 @@ for(let i=cnt; i<=cntSum; i++) {
     div.appendChild(ul);
 }
 subSlide.appendChild(div);
-// if(cnt<11) {
-//     // return displaymoreContents(images);
-// }
+
 cnt = cnt+5;
 cntSum = cntSum + 5;
-// if(cnt2<3) {
-//     return displaymoreContents(images);
-// }
-moreBtn.addEventListener('click', () => {
-    console.log('a');
-    return displaymoreContents(images);
-})
+
+}
+let cnt3 =0;
+function getMoreEvent(images) {
+    cnt3++;
+    moreBtn.removeEventListener('click', () => {
+        console.log('a');
+        return displaymoreContents(images);
+    });
+    moreBtn.addEventListener('click', () => {
+        console.log('a');
+        return displaymoreContents(images);
+    })
 }
 
 
@@ -114,14 +118,12 @@ loadBannerData()
         console.log(images);
         displayStaticImg(images);
         displaySlideImg(images);
-        // displayissue(images);
     })
 
 loadHomeContentsData()
     .then(images => {
-        // let imageArr = images.map( e => e.eventContent.imgurl);
-        // console.log(imageArr[2])
         displayissue(images);
         displaymoreContents(images);
+        getMoreEvent(images);
     })
 
