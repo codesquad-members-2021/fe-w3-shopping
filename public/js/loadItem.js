@@ -1,3 +1,9 @@
+import {
+  eventProductTemplate,
+  slideTemplate,
+  themeCategoryTemplate,
+} from './HTMLTemplate.js';
+
 export class LoadItem {
   constructor(rawData) {
     this.rawData = rawData;
@@ -67,14 +73,8 @@ export class LoadItem {
       '.main-top-slide-container'
     );
     urls.forEach((url, idx) => {
-      mainTopSlideSection.insertAdjacentHTML(
-        'beforeend',
-        `
-      <a class="slide-img" href="#">
-      <img src="${url}" alt="main-top-${idx}" />
-    </a>
-    `
-      );
+      const template = slideTemplate(url, idx);
+      mainTopSlideSection.insertAdjacentHTML('beforeend', template);
     });
   }
 
@@ -82,20 +82,16 @@ export class LoadItem {
     const mainTopSecondLine = document.querySelector(
       '.main-top-article-secondline'
     );
+
     const loadimgs = () => {
-      eventProducts.forEach((url) => {
-        mainTopSecondLine.insertAdjacentHTML(
-          'beforeend',
-          `<li class="main-top-article-sec-imgs img-visibility-hidden">
-          <a class="main-top-sec-img" href="#">
-            <img src="${url.imgurl}" alt="${url.dataseq}"/>
-          </a>
-          <div class="main-top-article-description">
-            <h6>${url.text}</h6>
-            <p>${url.text2}</p>
-          </div>
-        </li>`
-        );
+      eventProducts.forEach(({ imgurl, dataseq, text, text2 }) => {
+        const template = eventProductTemplate({
+          imgurl,
+          dataseq,
+          text,
+          text2,
+        });
+        mainTopSecondLine.insertAdjacentHTML('beforeend', template);
       });
     };
 
@@ -111,19 +107,14 @@ export class LoadItem {
       '.main-theme-category-lists'
     );
 
-    eventProducts.forEach((url) => {
-      themeCategoryImgs.insertAdjacentHTML(
-        'beforeend',
-        `<li class="main-theme-category-list">
-        <a class="main-theme-cateogry-img" href="#"
-          ><img src="${url.imgurl}" alt="${url.dataseq}"
-        /></a>
-        <div class="main-theme-category-description">
-          <h6>${url.text}</h6>
-          <p>${url.text2}</p>
-        </div>
-      </li>`
-      );
+    eventProducts.forEach(({ imgurl, dataseq, text, text2 }) => {
+      const themeProductTemplate = themeCategoryTemplate({
+        imgurl,
+        dataseq,
+        text,
+        text2,
+      });
+      themeCategoryImgs.insertAdjacentHTML('beforeend', themeProductTemplate);
     });
   }
 }
