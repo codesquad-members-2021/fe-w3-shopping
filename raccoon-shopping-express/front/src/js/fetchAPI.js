@@ -1,6 +1,7 @@
 import HotDealSection from './hotDealSection';
 import MileageEventCarousel from './mileageEventCarousel';
 import MallEventSection from './mallEventSection';
+import { PAGE } from '../../main';
 
 export default class FetchAPI {
   constructor() {
@@ -14,7 +15,6 @@ export default class FetchAPI {
       sucess: 'Request successful',
       failed: 'Request failed',
     };
-    this.page = 2;
   }
 
   mileageList = () =>
@@ -48,13 +48,11 @@ export default class FetchAPI {
       .then((response) => response.json())
       .then((data) => {
         const hotDealSection = new HotDealSection(data.list);
-        if (this.page === 2) {
-          this.page++;
+        if (this.page === PAGE + 1) {
           hotDealSection.draw();
           hotDealSection.updateMoreListNumber(count, data.dataLength);
           return data.list;
         }
-        this.page++;
         hotDealSection.moreListDraw();
         hotDealSection.updateMoreListNumber(count, data.dataLength);
         return data.list;
