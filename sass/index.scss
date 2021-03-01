@@ -1,5 +1,625 @@
-@import "./index/root.scss";
-@import "./index/common.scss";
-@import "./index/icon.scss";
-@import "./index/header.scss";
-@import "./index/content.scss";
+@charset "UTF-8";
+
+$fontSize: 12px;
+$fontFamily: NanumGothic, '나눔고딕', 'Nanum Gothic', 'Malgun Gothic',
+    '맑은 고딕', Dotum, '돋움', Helvetica, AppleSDGothicNeo, Arial, sans-serif;
+$lineHeight: 1.5;
+
+$backgroundColor: #f3f3f3;
+$black: #333;
+$lightGray: #f1f1f1;
+$white: #fff;
+$gray: #ccc;
+$gray_2: #888;
+$auto: 0 auto;
+
+$width: 1280px;
+$oneWidth: 10%;
+
+
+// common ---------------------------------------------------------------- [1]
+@for $i from 1 through 9 {
+    .col-#{$i} {
+        width: $oneWidth * $i;
+    }
+}
+
+@for $i from 0 through 9 {
+    @if $i == 8 {
+        .transformX__-1 {        
+            transform: translateX(-100%);             
+        } 
+    } @else if $i == 9 {
+        .transformX__-2 {        
+            transform: translateX(-200%);             
+        } 
+    } @else {
+        .transformX__#{$i} {        
+            transform: translateX(100% * $i);             
+        }
+    }
+}
+
+.transition {
+    &--opacity {
+        transition: opacity 0.4s;
+    }
+
+    &--transform {
+        transition: transform 0.4s;
+    }
+}
+
+.max-WH {
+    &-auto {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+// content__more__view의 ul의 li 태그용 Style (@extend 함)
+.view-li {
+    height: auto;
+    border-bottom: 0 none;
+    text-align: left;
+    line-height: 14px;
+    letter-spacing: -1px;
+
+    a {
+        padding: 21px 27px;
+        display: block;
+    }
+
+    a > img {
+        @extend .max-WH-auto;
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
+    a > div {
+        span {
+            display: block;
+        }        
+    }
+
+    a > div .txt-bold {
+        margin: 10px 0 1px;
+        line-height: 22px;
+
+        font-size: 14px;
+        font-weight: bold;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &:hover {
+            text-decoration: underline;
+        }                            
+    }
+
+    a > div .txt-info {
+        color: $gray_2;
+        font-size: $fontSize;
+    }
+}
+
+
+// icon ---------------------------------------------------------------- [2]
+.icon {
+    background: url('/images/ico_gnb_shw.png') no-repeat;
+    background-size: 130px 90px;
+    display: block;
+
+    &__carousel {
+        background: url('/images/img_home.png') no-repeat;
+        display: block;
+    }
+
+    &__comm2 {
+        background: url('/images/ico_comm2.gif') no-repeat;
+        display: block;
+    }
+
+    &__special {
+        background: url('/images/img_special.png') no-repeat;
+        display: block;
+    }
+}
+
+.wh {
+    &-23 {
+        width: 23px;
+        height: 23px;
+    }
+
+    &-28 {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+.w {
+    &-10 {
+        width: 10px;
+    }
+
+    &-23 {
+        width: 23px;
+    }
+
+    &-31 {        
+        width: 31px;        
+    }
+}
+
+.h {
+    &-17 {
+        height: 17px;
+    }
+
+    &-18 {
+        height: 18px;
+    }
+
+    &-45 {
+        height: 45px;
+    }
+}
+
+
+.i {
+    &-search {
+        @extend .icon, .wh-23;
+    }
+
+    &-category {
+        @extend .icon, .wh-28;
+        background-position: 0 -30px;
+    }
+
+    &-user {
+        @extend .icon, .wh-28;
+        background-position: -30px -30px;
+    }
+
+    &-recent {
+        @extend .icon, .wh-28;
+        background-position: -60px -30px;
+    }
+
+    &-slide__paging {
+        &--prev {
+            @extend .icon__carousel, .w-23, .h-45;
+            background-position: 1px 0px;
+        }
+        &--next {
+            @extend .icon__carousel, .w-23, .h-45;
+            background-position: -30px 0px;
+        }
+    }
+            
+    &-slide__special {
+        &--prev {
+            @extend .icon__special, .w-10, .h-17;
+            margin: 12px auto;
+            background-position: -110px -100px;
+        }
+        &--next {
+            @extend .icon__special, .w-10, .h-17;
+            margin: 12px auto;
+            background-position: -150px -100px;
+        }
+    }
+
+    &-theme {
+        @extend .icon__comm2, .w-31, .h-18;
+        background-position: 0 -850px;
+        margin: 8px 4px 0 0;
+    }
+}
+
+
+// root ----------------------------------------------------------------
+body {
+    font-size: $fontSize;
+    font-family: $fontFamily;
+    color: $black;
+    background-color: $backgroundColor;
+    line-height: $lineHeight;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: $black;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// 전체 Wrapper
+.all-wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+// header ----------------------------------------------------------------
+$header-fontWeight: 700;
+$header-letterSpacing: -1.15px;
+
+$menu-borderColor: #efefef;
+$menu-boxShadow: rgba(0, 0, 0, 0.16);
+$menu-fontSize: 16px;
+
+
+.header {
+    width: 100%;
+    background-color: $white;
+}
+
+.header__logo-search {
+    @extend .flex-center;
+
+    width: $width;
+    margin: $auto;
+
+    padding-top: 43px;
+    background-color: $white;
+
+    .logo {
+        img {
+            width: 119px;
+            height: auto;
+        }
+    }
+
+    .search {
+        $search-borderColor: #cecfd1;
+
+        width: 670px;
+        height: 54px;
+        margin: 0 24px 0 30px;
+        padding: 16px 60px 14px 30px;
+
+        border-radius: 10px;
+        border: 1px solid $search-borderColor;
+
+        background-color: $white;
+        box-sizing: border-box;
+
+        position: relative;
+    }
+
+
+
+    .search input {
+        color: $black;
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        font-weight: $header-fontWeight;
+        font-size: 20px;
+        line-height: 22px;
+
+        letter-spacing: $header-letterSpacing;
+    }
+
+    .search button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 52px;
+        height: 52px;
+    }
+
+    .search span {
+        margin: $auto;
+    }
+}
+
+.header__menu {
+    position: relative;
+    margin-top: 40px;
+    border-top: 1px solid $menu-borderColor;
+    box-shadow: 0 1px $menu-boxShadow;
+
+    .emphasis {
+        position: absolute;
+        right: -6px;
+        top: -1px;
+
+        width: 5px;
+        height: 5px;
+        border-radius: 100%;
+        background-color: #f9624c;
+    }
+}
+
+
+.header__menu__wrapper {
+    width: $width;
+    margin: $auto;
+
+    display: flex;
+    justify-content: flex-start;
+
+    span.txt-bar {
+        width: 1px;
+        height: 18px;
+        margin-top: 18px;
+        background-color: #e3e3e3;
+    }
+
+    .category {
+        button {
+            @extend .flex-center;
+            width: 122px;
+            height: 54px;            
+        }
+
+        button span {
+            display: inline-block;
+            margin-left: 5px;
+            font-size: $menu-fontSize;
+        }
+    }
+}
+
+
+
+
+.header__menu__wrapper ul {
+    @extend .flex-center;
+
+    height: 54px;
+    padding: 0 12px 0 8px;
+    letter-spacing: $header-letterSpacing;
+
+    li {
+        font-size: 15px;
+        font-weight: $header-fontWeight;
+    }
+
+    &.list-hot {
+        li {
+            padding: 0 13px;            
+        }
+
+        li a {            
+            position: relative;             
+        }
+
+        li a:hover {
+            color: #f65b3d;
+        }
+    }
+
+    &.list-hash {
+        max-width: 535px;
+        padding: 0 12px;
+
+        li {
+            padding: 0 10px;
+        }
+
+        li a {
+            position: relative;
+            color: $gray_2;
+        }
+    }      
+
+    &.list-usergroup {
+        margin-left: auto;
+
+        li {
+            padding: 0 10px;
+        }
+
+        li a {
+            @extend .flex-center;            
+        }
+
+        li a span {
+            margin-left: 4px;
+            display: inline-block;
+            font-weight: normal;
+            font-size: $menu-fontSize;
+        }
+    }    
+}
+
+// 여기까지 고쳐봄.. 근데 맞게한건지 모르겠으며, SCSS 규칙이 이해가 되질 않고 있음. ==================================================================================
+
+// content ----------------------------------------------------------------
+
+.content {
+    .header + & {
+        margin-top: 19px;
+    }
+    width: $width;
+    margin: $auto;
+}
+
+
+.content__main {
+    display: flex;
+    border: 1px solid $lightGray;
+    background-color: $white;
+}
+
+.content__main__one {
+    @extend .col-4;
+    height: 340px;
+    border-right: 1px solid $lightGray;
+
+    a {
+        @extend .max-WH-auto;
+        @extend .flex-center;
+        width: 100%;
+        margin: $auto;
+    }
+}
+
+.content__main__carousel {
+    @extend .col-6;
+
+    position: relative;
+    height: 340px;
+    overflow: hidden;
+
+    .slide {
+        @extend .max-WH-auto;
+        position: relative;
+
+        width: 485px;
+        margin: $auto;
+        height: inherit;
+        overflow: hidden;                
+
+        .item {
+            position: absolute;                    
+        }
+    }
+
+    .paging {
+        position: absolute;
+        text-align: center;
+
+        top: 283px;
+        left: 0;
+        width: 100%;
+    }
+
+
+    .paging__inner {
+        margin: $auto;
+        @extend .flex-center;
+
+        span {
+            display: inline-block;
+            padding: 0px 10px;
+            margin: 0 2px;
+            height: 5px;
+            background-color: $gray;
+        }
+
+        span.current {
+            background-color: $black;
+        }
+    }
+
+    .paging--prev {
+        position: absolute;
+        left: 52px;
+        top: -146px;
+    }
+
+    .paging--next {
+        position: absolute;
+        right: 52px;
+        top: -146px;
+    }
+}
+
+.content__more {
+    background-color: $white;
+    border: 1px solid $lightGray;
+    border-top: none;
+}
+
+.content__more__view {
+    ul {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+
+        li {
+            @extend .view-li;
+            border-right: 1px solid $lightGray;
+            border-bottom: 1px solid $lightGray;
+        }
+
+        li.noBorder {
+            // js에서 불러올때 상태 바꾸기 (classList 활용)
+            border-right: none;
+        }
+    }
+}
+
+.content__more__btn {
+    width: 100%;
+    padding: 20px 0;
+    background-color: #e9e9e9;
+}
+
+
+.content__hot {
+    margin: 40px auto;
+    
+    &__info {
+        margin-bottom: 10px;
+        font-size: 20px;
+        line-height: 20px;
+        letter-spacing: -1.55px;
+    }
+}
+
+
+.content__hot__carousel {
+    background-color: $white;
+    margin: $auto;
+    border: 1px solid $lightGray;
+    position: relative;
+    overflow: hidden;
+
+    ul {
+        display: flex;
+        flex-wrap: nowrap;                
+        position: relative;
+        left: -1px;
+        height: 316px;
+                                  
+        li {
+            @extend .col-2;
+            @extend .view-li;
+            
+            position: absolute;
+            flex: 0 0 auto;
+            border-right: 1px solid $lightGray;                    
+        }
+    }
+
+    .carousel__special {
+        top: 50%;
+        margin-top: -20px;
+        position: absolute;
+    
+        width: 41px;
+        height: 41px;
+    
+        background-position: 0 -40px;
+        background-color: black;
+        opacity: 0.5;
+    
+        &--prev {
+            @extend .carousel__special;
+            left: 1px;
+        }
+    
+        &--next {
+            @extend .carousel__special;
+            right: 1px;
+        }
+    }
+}
