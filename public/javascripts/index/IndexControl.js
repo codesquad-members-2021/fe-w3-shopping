@@ -51,34 +51,34 @@ class IndexControl {
     }
 
     init() {
-        this._insertDataBestItem(this.mainBestItemImg);
-        this._insertDataMainCarousel(this.mainSlideItems);
-        this._insertDataHotCarousel(this.hotSlideItems);
+        this.insertDataBestItem(this.mainBestItemImg);
+        this.insertDataMainCarousel(this.mainSlideItems);
+        this.insertDataHotCarousel(this.hotSlideItems);
 
-        this._setMoreWrapperClickEvent(this.moreWrapper);
-        this._setMainCarouselClickEvent(this.mainCarouselWrapper, this.mainSlideItems);
-        this._setMainCarouselMouseoverEvent(this.mainCarouselWrapper, this.mainSlideItems);
-        this._setHotCarouselMousedownEvent(this.hotCarouselWrapper);
-        this._setHotCarouselMouseupEvent(this.hotCarouselWrapper, this.hotSlideItems);
+        this.setMoreWrapperClickEvent(this.moreWrapper);
+        this.setMainCarouselClickEvent(this.mainCarouselWrapper, this.mainSlideItems);
+        this.setMainCarouselMouseoverEvent(this.mainCarouselWrapper, this.mainSlideItems);
+        this.setHotCarouselMousedownEvent(this.hotCarouselWrapper);
+        this.setHotCarouselMouseupEvent(this.hotCarouselWrapper, this.hotSlideItems);
 
-        this._setMainCarouselInterval(
+        this.setMainCarouselInterval(
             this.mainCarouselAnimateDirection,
             this.mainSlideItems,
             this.mainCarouselAnimateInterval,
         );
 
-        this._createMoreViewItemsExecute(this.moreViewBtn, this.moreViewFrame);
+        this.createMoreViewItemsExecute(this.moreViewBtn, this.moreViewFrame);
     }
 
-    _setMainCarouselInterval(direction, mainSlideItems, timeout) {
+    setMainCarouselInterval(direction, mainSlideItems, timeout) {
         setInterval(
-            () => this._updateMainCarouselAnimation(direction, mainSlideItems),
+            () => this.updateMainCarouselAnimation(direction, mainSlideItems),
             timeout,
         );
     }
 
     // [1] 더보기 Wrapper (content__more) Click 이벤트 등록
-    _setMoreWrapperClickEvent(moreWrapper) {
+    setMoreWrapperClickEvent(moreWrapper) {
         _.addEvent(moreWrapper, 'click', (e) =>
             this._moreWrapperClickEventHandler(e),
         );
@@ -88,20 +88,26 @@ class IndexControl {
         const { target } = e;
 
         if (target === this.moreViewBtn)
-            this._createMoreViewItemsExecute(target, this.moreViewFrame);
+            this.createMoreViewItemsExecute(target, this.moreViewFrame);
     }
 
     // 더보기 데이터가 들어갈 틀 생성 (실행)
-    _createMoreViewItemsExecute(moreBtn, moreViewFrame) {
-        this.dataManager.getMoreData(moreBtn.value)
-            .then((moreData) => this._createMoreViewItems(moreData, moreViewFrame))            
-            .then(() => this._updateMoreBtnInnerText(moreBtn))
+    createMoreViewItemsExecute(moreBtn, moreViewFrame) {
+        const urlPath = `/api/moreData/${moreBtn.value}`;
+
+        // 더보기 데이터 (버튼), 일부만 가져옴
+        this.dataManager.fetchData(urlPath) 
+            .then((moreData) => this.createMoreViewItems(moreData, moreViewFrame))            
+            .then(() => this.updateMoreBtnInnerText(moreBtn))
             .catch((error) => console.error(error.message));     
     }
 
     // 더보기 버튼의 InnexText 갱신
-    _updateMoreBtnInnerText(moreBtn) {
-        this.dataManager.getAllMoreData()
+    updateMoreBtnInnerText(moreBtn) {
+        const urlPath = '/api/moreData';
+
+        // 더보기 데이터 전부 가져옴
+        this.dataManager.fetchData(urlPath)        
             .then(
                 (moreAlldata) =>
                     (moreBtn.innerText = `더보기(${moreBtn.value * 5}/${
@@ -112,7 +118,7 @@ class IndexControl {
             .catch((err) => console.error(err));
     }
 
-    _createMoreViewItems(moreData, moreViewFrame) {
+    createMoreViewItems(moreData, moreViewFrame) {
         const frame = moreViewFrame;
 
         moreData.forEach((data, i) => {
@@ -122,12 +128,12 @@ class IndexControl {
             if (i === moreData.length-1)
                 _.classAdd(li, 'noBorder');
 
-            const a = this._createTagAndSetAttribute('a', 'href', '/');
-            const img = this._createTagAndSetAttribute('img', 'src', `https:${imgurl}`);
+            const a = this.createTagAndSetAttribute('a', 'href', '/');
+            const img = this.createTagAndSetAttribute('img', 'src', `https:${imgurl}`);
             const div = _.createElement('div');
 
-            const spanBold = this._createTagAndTextClassName('span', title, 'txt-bold');
-            const spanInfo = this._createTagAndTextClassName('span', subtitle, 'txt-info');
+            const spanBold = this.createTagAndTextClassName('span', title, 'txt-bold');
+            const spanInfo = this.createTagAndTextClassName('span', subtitle, 'txt-info');
             const spanTheme = _.createElement('span');
             _.classAdd(spanTheme, "i-theme");
 
@@ -138,13 +144,13 @@ class IndexControl {
         });
     }
 
-    _createTagAndSetAttribute(strTag, attrKey, attrValue) {
+    createTagAndSetAttribute(strTag, attrKey, attrValue) {
         const tag = _.createElement(strTag);
         _.setAttr(tag, attrKey, attrValue);
         return tag;
     }
 
-    _createTagAndTextClassName(strTag, text, className) {
+    createTagAndTextClassName(strTag, text, className) {
         const tag = _.createElement(strTag);
         _.appendChild(tag, _.createTextNode(text));
         _.classAdd(tag, className);
@@ -154,16 +160,23 @@ class IndexControl {
 
     // [2] 상단 캐러셀 (content__main__carousel)
     // 첫 로딩 시 상단 왼쪽 (BestItem)에 들어갈 정보 서버에서 불러옴
-    _insertDataBestItem(mainBestItemImg) {
-        this.dataManager.getMainBestData().then((data) => {
-            _.setAttr(mainBestItemImg, 'src', data.imgurl);
-        }).catch((err) => console.error(err.message));
+    insertDataBestItem(mainBestItemImg) {
+        const urlPath = '/api/bestData';
+
+        // 상단 Best 상품 (왼쪽) 데이터
+        this.dataManager.fetchData(urlPath)
+            .then((data) => {
+                _.setAttr(mainBestItemImg, 'src', data.imgurl);
+            })
+            .catch((err) => console.error(err.message));
     }
 
     // 첫 로딩 시 상단 오른쪽 캐러셀에 들어갈 정보 서버에서 불러옴
-    _insertDataMainCarousel(mainSlideItems) {
-        this.dataManager
-            .getMainCarouselData()
+    insertDataMainCarousel(mainSlideItems) {
+        const urlPath = '/api/mainCarouselData';
+        
+        // 상단 캐러셀 상품 (오른쪽) 데이터
+        this.dataManager.fetchData(urlPath)            
             .then((data) => {
                 mainSlideItems.forEach((item, i) => {
                     const itemImgTag = _.$('img', item);
@@ -174,27 +187,27 @@ class IndexControl {
     }
 
     // 상단 캐러셀 이벤트 등록 (이전, 다음)
-    _setMainCarouselClickEvent(mainCarouselWrapper, mainSlideItems) {
+    setMainCarouselClickEvent(mainCarouselWrapper, mainSlideItems) {
         _.addEvent(mainCarouselWrapper, 'click', (e) =>
-            this._mainCarouselClickEventHandler(e, mainSlideItems),
+            this.mainCarouselClickEventHandler(e, mainSlideItems),
         );
     }
 
-    _mainCarouselClickEventHandler({target}, mainSlideItems) {        
+    mainCarouselClickEventHandler({target}, mainSlideItems) {        
         const pagingBtn =
             _.closestSelector(target, '.paging--prev') ||
             _.closestSelector(target, '.paging--next');
-        this._updateMainCarouselAnimationExecute(pagingBtn, mainSlideItems);
+        this.updateMainCarouselAnimationExecute(pagingBtn, mainSlideItems);
     }
 
     // 상단 캐러셀 동작 (이전, 다음 btn) (실행)
-    _updateMainCarouselAnimationExecute(pagingBtn, mainSlideItems) {
+    updateMainCarouselAnimationExecute(pagingBtn, mainSlideItems) {
         if (!pagingBtn) return;
         const exType = pagingBtn.className.indexOf('prev') > -1 ? 'prev' : 'next';        
-        this._updateMainCarouselAnimation(exType, mainSlideItems);
+        this.updateMainCarouselAnimation(exType, mainSlideItems);
     }
 
-    _updateMainCarouselAnimation(exType, itemList, animateOpacity = false) {
+    updateMainCarouselAnimation(exType, itemList, animateOpacity = false) {
         
         const invisibleFirstValue = -1;
         const invisibleLastValue = 1;
@@ -222,7 +235,7 @@ class IndexControl {
                 } else transformValue -= plusValue;                                
             }
         
-            (transformValue === visibleValue) && this._updateMainCarouselPagingSpan(itemIdx, this.mainSlidePagingInnerList);                        
+            (transformValue === visibleValue) && this.updateMainCarouselPagingSpan(itemIdx, this.mainSlidePagingInnerList);                        
 
             if (animateOpacity) 
                 item.style.transition = 'opacity ' + transitionDuration;
@@ -234,7 +247,7 @@ class IndexControl {
     }
 
     // 상단의 작은 span들 [- - -] 상태 업데이트
-    _updateMainCarouselPagingSpan(animationItemIdx, pagingInnerSpanList) {        
+    updateMainCarouselPagingSpan(animationItemIdx, pagingInnerSpanList) {        
         const findPrevCurrent = [...pagingInnerSpanList].find((span) => _.classContains(span, 'current'));
         _.classRemove(findPrevCurrent, 'current');
         _.classAdd(pagingInnerSpanList[animationItemIdx], 'current');
@@ -242,11 +255,11 @@ class IndexControl {
 
     // 상단 캐러셀 mouseover 이벤트 등록
         // 작은 span (.paging__inner > span)에서 동작
-    _setMainCarouselMouseoverEvent(mainCarouselWrapper, itemList) {
-        _.addEvent(mainCarouselWrapper, 'mouseover', (e) => this._mainCarouselMouseoverEventHandler(e, itemList));        
+    setMainCarouselMouseoverEvent(mainCarouselWrapper, itemList) {
+        _.addEvent(mainCarouselWrapper, 'mouseover', (e) => this.mainCarouselMouseoverEventHandler(e, itemList));        
     }
 
-    _mainCarouselMouseoverEventHandler({target}, itemList) {        
+    mainCarouselMouseoverEventHandler({target}, itemList) {        
         const overSpan = _.closestSelector(target, '.paging__inner > span');        
         if (!overSpan) return;
         
@@ -259,16 +272,19 @@ class IndexControl {
         const abs = Math.abs(currStatusSpanIdx-overSpanIdx);
         
         if (overSpanIdx > currStatusSpanIdx) {
-            [...Array(abs)].forEach((_) => this._updateMainCarouselAnimation('next', itemList, true))
+            [...Array(abs)].forEach((_) => this.updateMainCarouselAnimation('next', itemList, true))
         } else if (overSpanIdx < currStatusSpanIdx) {
-            [...Array(abs)].forEach((_) => this._updateMainCarouselAnimation('prev', itemList, true))
+            [...Array(abs)].forEach((_) => this.updateMainCarouselAnimation('prev', itemList, true))
         } else return;        
     }
     
     // [3] 하단 캐러셀 (content__hot__carousel)
     // 첫 로딩 시 하단 캐러셀에 들어갈 정보 서버에서 불러옴
-    _insertDataHotCarousel(hotCarouselItemList) {        
-        this.dataManager.getHotCarouselData()
+    insertDataHotCarousel(hotCarouselItemList) {        
+        const urlPath = '/api/hotCarouselData';
+
+        // 하단 캐러셀 데이터 가져와서 이미 만들어진 DOM에 속성변경 & 텍스트 추가
+        this.dataManager.fetchData(urlPath)
             .then((planningData) => {
                 hotCarouselItemList.forEach((item, i) => {
                     const img = _.$('a > img', item);
@@ -284,13 +300,13 @@ class IndexControl {
 
     // 하단 캐러셀 이벤트 등록 (mousedown / mouseup) (이전, 다음 (1개씩 or 2개씩))
     // mousedown
-    _setHotCarouselMousedownEvent(hotCarouselWrapper) {        
+    setHotCarouselMousedownEvent(hotCarouselWrapper) {        
         _.addEvent(hotCarouselWrapper, 'mousedown', () =>
-            this._hotCarouselMousedownEventHandler()
+            this.hotCarouselMousedownEventHandler()
         );
     }
 
-    _hotCarouselMousedownEventHandler() {                
+    hotCarouselMousedownEventHandler() {                
         this.hotCarouselMousedownTimer = setInterval(() => {            
             if (this.hotCarouselMousedownRunCnt <= 1) {            
                 this.hotCarouselMousedownRunCnt++;
@@ -299,35 +315,35 @@ class IndexControl {
     }
     
     // mouseup
-    _setHotCarouselMouseupEvent(hotCarouselWrapper, hotSlideItems) {        
+    setHotCarouselMouseupEvent(hotCarouselWrapper, hotSlideItems) {        
         _.addEvent(hotCarouselWrapper, 'mouseup', (e) =>
-            this._hotCarouselMouseupEventHandler(e, hotSlideItems),
+            this.hotCarouselMouseupEventHandler(e, hotSlideItems),
         );
     }
 
-    _hotCarouselMouseupEventHandler({target}, itemList) {
+    hotCarouselMouseupEventHandler({target}, itemList) {
         clearInterval(this.hotCarouselMousedownTimer);
 
         const pagingBtn =
             _.closestSelector(target, '.carousel__special--prev') ||
             _.closestSelector(target, '.carousel__special--next');    
         
-        this._updateHotCarouselAnimationExecute(pagingBtn, itemList, this.hotCarouselMousedownRunCnt);
+        this.updateHotCarouselAnimationExecute(pagingBtn, itemList, this.hotCarouselMousedownRunCnt);
         this.hotCarouselMousedownRunCnt = 1;
     }
 
 
 
     // 하단 캐러셀 동작 (이전, 다음 btn) (실행)
-    _updateHotCarouselAnimationExecute(pagingBtn, itemList, runCnt = 1) {
+    updateHotCarouselAnimationExecute(pagingBtn, itemList, runCnt = 1) {
         if (!pagingBtn) return;
         const exType = pagingBtn.className.indexOf('prev') > -1 ? 'prev' : 'next';        
         
         for (let i = 0; i < runCnt; i++) 
-            this._updateHotCarouselAnimation(exType, itemList)        
+            this.updateHotCarouselAnimation(exType, itemList)        
     }
 
-    _updateHotCarouselAnimation(exType, itemList) {
+    updateHotCarouselAnimation(exType, itemList) {
 
         const plusValue = 1;
         const invisibleFirstValue = -2;
