@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/c3d44d5c03.js" crossorigin="anonymous"></script>
-    <script src="src/main.js" defer></script>
-    <script src="src/carousel.js" defer></script>
+    <script type="module" src="src/main.js" defer></script>
+    <script type="module" src="src/getImg.js" defer></script>
+    <script type="module" src="src/carousel.js" defer></script>
+    <script type="module" src="src/bottomCarousel.js" defer></script>
     <title>fe-w3-shopping</title>
 </head>
 <body>
@@ -18,7 +20,6 @@
             </div>
             <div class="front__input-box">
                 <input type="text" placeholder="4 소파패드" class="input-box__input">
-                <div class="input-box__icon"><i class="fas fa-search"></i></div>
             </div>
         </div>
         <nav>
@@ -53,130 +54,36 @@
         </nav>
     </header>
     <div class="main-banner">
-        <div class="main-banner__static">
-            <a href="#" class="static__link">
-                <img src="images/static1.png" alt="" class="static__img1">
-            </a>
-        </div>
-        <div class="main-banner__slide">
-            <div class="slide__right">
-                <i class="fas fa-chevron-right"></i>
+            <div class="main-banner__static">
             </div>
-            <div class="slide__left">
-                <i class="fas fa-chevron-left"></i>
+            <div class="main-banner__slide">
+                <div class="slide__right">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="slide__left">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="slide__under-bundle">
+                    <div class="slide__under-btn1" data-key="list1"></div>
+                    <div class="slide__under-btn2" data-key="list2"></div>
+                    <div class="slide__under-btn3" data-key="list3"></div>
+                </div>
+                <ul class="slide-bundle">
+                </ul>
             </div>
-            <div class="slide__view-box"></div>
-            <ul class="slide-bundle">
-                <li class="slide-list">
-                    <a href="#" class="slide__link1">
-                        <img src="images/slide1.png" alt="" class="slide__img1">
-                    </a>
-                </li>
-                <li class="slide-list">
-                    <a href="#" class="slide__link2">
-                        <img src="images/slide2.png" alt="" class="slide__img2">
-                    </a>
-                </li>
-                <li class="slide-list">
-                    <a href="#" class="slide__link3">
-                        <img src="images/slide3.png" alt="" class="slide__img3">
-                    </a>
-                </li>
-            </ul>
-        </div>
     </div>
     <div class="sub-menu">
         <div class="sub-menu__silde">
-            <ul class="sub-slide">
-                <li class="sub-slide__img1"></li>
-                <li class="sub-slide__title"></li>
-                <li class="sub-slide__desc"></li>
-                <li class="sub-slide__theme"></li>
-            </ul>
-            <ul class="sub-slide">
-                <li class="sub-slide__img2"></li>
-                <li class="sub-slide__title"></li>
-                <li class="sub-slide__desc"></li>
-                <li class="sub-slide__theme"></li>
-            </ul>
-            <ul class="sub-slide">
-                <li class="sub-slide__img3"></li>
-                <li class="sub-slide__title"></li>
-                <li class="sub-slide__desc"></li>
-                <li class="sub-slide__theme"></li>
-            </ul>
-            <ul class="sub-slide">
-                <li class="sub-slide__img4"></li>
-                <li class="sub-slide__title"></li>
-                <li class="sub-slide__desc"></li>
-                <li class="sub-slide__theme"></li>
-            </ul>
         </div>
         <div class="sub-menu__more">더보기</div>
     </div>
     <div class="issue-banner">
+        <div class="arrow__right"><i class="fas fa-arrow-right fa-3x"></i></div>
+        <div class="arrow__left"><i class="fas fa-arrow-left fa-3x"></i></div>
         <div class="issue-banner__title">지금뜨는 테마 카테고리</div>
         <div class="issue-banner__slide">
-            <ul class="issue-slide">
-                <li class="issue-slide__img"></li>
-                <li class="issue-slide__title"></li>
-                <li class="issue-slide__desc"></li>
-                <li class="issue-slide__theme"></li>
-            </ul>
-            <ul class="issue-slide">
-                <li class="issue-slide__img"></li>
-                <li class="issue-slide__title"></li>
-                <li class="issue-slide__desc"></li>
-                <li class="issue-slide__theme"></li>
-            </ul>
-            <ul class="issue-slide">
-                <li class="issue-slide__img"></li>
-                <li class="issue-slide__title"></li>
-                <li class="issue-slide__desc"></li>
-                <li class="issue-slide__theme"></li>
-            </ul>
-            <ul class="issue-slide">
-                <li class="issue-slide__img"></li>
-                <li class="issue-slide__title"></li>
-                <li class="issue-slide__desc"></li>
-                <li class="issue-slide__theme"></li>
-            </ul>
-            <ul class="issue-slide">
-                <li class="issue-slide__img"></li>
-                <li class="issue-slide__title"></li>
-                <li class="issue-slide__desc"></li>
-                <li class="issue-slide__theme"></li>
-            </ul>
-            <ul class="issue-slide">
-                <li class="issue-slide__img"></li>
-                <li class="issue-slide__title"></li>
-                <li class="issue-slide__desc"></li>
-                <li class="issue-slide__theme"></li>
-            </ul>
-            <ul class="issue-slide">
-                <li class="issue-slide__img"></li>
-                <li class="issue-slide__title"></li>
-                <li class="issue-slide__desc"></li>
-                <li class="issue-slide__theme"></li>
-            </ul>
-            <ul class="issue-slide">
-                <li class="issue-slide__img"></li>
-                <li class="issue-slide__title"></li>
-                <li class="issue-slide__desc"></li>
-                <li class="issue-slide__theme"></li>
-            </ul>
-            <ul class="issue-slide">
-                <li class="issue-slide__img"></li>
-                <li class="issue-slide__title"></li>
-                <li class="issue-slide__desc"></li>
-                <li class="issue-slide__theme"></li>
-            </ul>
-            <ul class="issue-slide">
-                <li class="issue-slide__img"></li>
-                <li class="issue-slide__title"></li>
-                <li class="issue-slide__desc"></li>
-                <li class="issue-slide__theme"></li>
-            </ul>
+            <ul class="issue-bundle"></ul>
+
         </div>
     </div>
 </body>
