@@ -1,5 +1,5 @@
 import { dataManager } from './dataManager.js';
-import { LoadItem } from './loadItem.js';
+import { LoadItem } from './LoadItem.js';
 import { Slider } from './Slider.js';
 
 const loadItems = (rawData) => {
