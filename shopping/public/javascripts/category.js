@@ -1,19 +1,40 @@
-class MainItemList {
+class Category {
     constructor() {
-        this.itemList = document.querySelector(".item_list"),
-            this.showMoreBtn = document.querySelector(".show_more"),
-            this.smallContents = document.querySelector(".small_contents"),
-            this.onEvent();
+        this.sectionIndex = 0,
+        this.slider = document.querySelector(".category.slider"),
+        this.controls = document.querySelector(".sub_main.controls"),
+        this.onEvent();
     }
 
     onEvent() {
         window.addEventListener("load", () => {
-            this.loadRandomItems(5);
+            this.loadRandomItems(10);
         });
-        this.showMoreBtn.addEventListener("click", () => {
-            this.loadRandomItems(5);
+        
+        this.controls.addEventListener("click" , (event) => {
+            this.onClick(event);
         });
+        
+
     }
+
+    onClick(event) {
+        const itemShowing = 5;
+        const action = event.target.dataset.action;
+        console.log(action);
+        if(action) this[action](itemShowing);
+    }
+
+    moveLeft(categoryCount) {
+        this.sectionIndex = (this.sectionIndex > 0 ) ? this.sectionIndex - 1 : categoryCount;
+        this.slider.style.transform = `translate(` + (this.sectionIndex) * -10 + `%)`;
+    }
+
+    moveRight(categoryCount) {
+        this.sectionIndex = (this.sectionIndex < categoryCount ) ? this.sectionIndex + 1 : 0;
+        this.slider.style.transform = `translate(` + (this.sectionIndex) * -10 + `%)`;
+    }
+
 
     getRandomNum(m, n) {
         return m + Math.floor((n - m + 1) * Math.random());
@@ -27,21 +48,21 @@ class MainItemList {
 
                     const ul = document.createElement("ul");
                     ul.classList.add("item_list");
-                    this.smallContents.appendChild(ul);
+                    this.slider.appendChild(ul);
 
                     for (let i = 0; i < imgCount; i++) {
                         const data = json.mallEventList;
                         const index = this.getRandomNum(0, data.length - 1);
                         this.renderItemList(data[index].imgurl, data[index].text, data[index].text2);
                     }
-            });
+            })
+            .catch(err => console.log(err));
     }
-
 
     renderItemList(img, title, text) {
         const li = document.createElement("li");
         const div = document.createElement("div");
-        const ul = this.smallContents.querySelectorAll(".item_list");
+        const ul = this.slider.querySelectorAll(".item_list");
 
         
         li.appendChild(div);
@@ -50,9 +71,6 @@ class MainItemList {
         
         ul[ul.length-1].appendChild(li);
     }
-
-
-
 }
 
-export default MainItemList;
+export default Category;

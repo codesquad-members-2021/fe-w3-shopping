@@ -1,9 +1,10 @@
 class Best {
     constructor() {
-        this.best = document.querySelector(".best");
+        this.best = document.querySelector(".best"),
+        this.onEvent();
     }
 
-    eventHandler() {
+    onEvent() {
         window.addEventListener("load", this.loadRandomImage.bind(this));
     }
 
@@ -24,4 +25,5 @@ class Best {
     }
 }
 
-new Best().eventHandler();
+
+export default Best;

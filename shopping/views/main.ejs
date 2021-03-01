@@ -60,66 +60,78 @@
 
     <section class="main">
 
-      <div class = "main_wrapper">
-        <div class = "big_contents">
-            <div class="big_contents_wrapper">
-                <div class = "best">
-                    베스트 이미지
-                </div>
-                <div class="container">
-                    <div class="carousel">
-                      <div class="slider">
-                        <section>content for section 1</section>
-                        <section>content for section 2</section>
-                        <section>content for section 3</section>
-                      </div>
-                      <div class="controls">
-                        <span class="arrow left">
-                          <i class="material-icons">
-                            keyboard_arrow_left
-                          </i>
-                         </span>
-                        <span class="arrow right">
-                          <i class="material-icons">
-                          keyboard_arrow_right
-                          </i>
-                         </span>
-                        <ul>
-                          <li class = "selected"></li>
-                          <li></li>
-                          <li></li>
-                        </ul>
-                      </div>
+        <div class="main_wrapper">
+            <div class="big_contents">
+                <div class="big_contents_wrapper">
+                    <div class="best">
+                        베스트 이미지
                     </div>
-                  </div>
+                    <div class="container">
+                        <div class="carousel">
+                            <div class="slider">
+                                <section>content for section 1</section>
+                                <section>content for section 2</section>
+                                <section>content for section 3</section>
+                            </div>
+                            <div class="controls">
+                                <span class="arrow left">
+                                    <i class="material-icons">
+                                        keyboard_arrow_left
+                                    </i>
+                                </span>
+                                <span class="arrow right">
+                                    <i class="material-icons">
+                                        keyboard_arrow_right
+                                    </i>
+                                </span>
+                                <ul>
+                                    <li class="selected" data-action="pagingComm" id = "0"></li>
+                                    <li data-action="pagingComm" id = "1"></li>
+                                    <li data-action="pagingComm" id = "2"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
-         
-           
+
+            <div class="small_contents">
+
+            </div>
+            <button class="show_more">더보기</button>
         </div>
-
-        <div class = "small_contents">
-            <ul class = "item_list">
-
-            </ul>
-            <button class = "show_more">더보기</button>
-        </div>
-
-
-        <div class = "trend_category">
-            <button id = "prev_category"></button>
-            <h2>지금뜨는 테마 카테고리</h2>
-            <ul class = "category_list">
-
-            </ul>
-            <button id = "next_category"></button>
-        </div>
-
-      </div>
     </section>
-    <script src="/javascripts/header.js"></script>
-    <script src="/javascripts/best.js"></script>
-    <script src="/javascripts/bigSlide.js"></script>
-    <script src="/javascripts/itemList.js"></script>
+
+    <section class="sub_main">
+        <div class="sub_main_wrapper">
+            <div class="category_title"><span>지금뜨는 테마 카테고리</span></div>
+            <div class="category container">
+                <div class="category carousel">
+                    <div class="category slider">
+   
+                    </div>
+                    <div class="sub_main controls">
+                        <span class="sub_main arrow right">
+                            <i class="material-icons" data-action="moveRight">
+                                keyboard_arrow_right
+                            </i>
+                        </span>
+                        <span class="sub_main arrow left">
+                            <i class="material-icons" data-action="moveLeft">
+                                keyboard_arrow_left
+                            </i>
+                        </span>
+                    </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script type="module" src="/javascripts/main.js"></script>
+
 </body>
 
 </html>
