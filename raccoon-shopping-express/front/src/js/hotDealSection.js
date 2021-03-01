@@ -1,4 +1,4 @@
-import { $moreItemButton, CURRENT } from '../../main';
+import { $moreItemButton } from '../../main';
 
 export default class HotDealSection {
   constructor(data) {
@@ -74,9 +74,11 @@ export default class HotDealSection {
   }
 
   updateMoreListNumber(current, length) {
-    if (CURRENT === length) {
+    console.log(current, length);
+    if (current === length) {
       $moreItemButton.style.color = '#aeaeae';
       $moreItemButton.setAttribute('disabled', '');
+      return;
     }
     this.target.innerHTML = `<span>더보기(${current}/${length})</span>`;
   }

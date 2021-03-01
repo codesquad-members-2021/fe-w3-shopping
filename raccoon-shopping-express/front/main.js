@@ -24,4 +24,4 @@ eventSliderListener.init();
 mallEventSlider.addEvent();
 requestData.addEvent();
 
-export { $topMileageSlide, CURRENT, PAGE };
+export { $topMileageSlide, PAGE };
