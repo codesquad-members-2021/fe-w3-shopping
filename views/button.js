@@ -5,9 +5,6 @@ const carouselSlide = document.querySelector(".carousel_slide");
 const RIGHT = document.querySelector(".right_button"); 
 const LEFT = document.querySelector(".left_button");
 
-let counter = 1;
-const size = carouselImg[0].clientWidth;
-
 RIGHT.addEventListener('click', () => {
     carouselSlide.classList.add(TRANS_RIGHT);
     carouselSlide.classList.add(ON);

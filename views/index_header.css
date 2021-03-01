@@ -1,0 +1,179 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  padding-top: 43px;
+  align-items: center;
+  justify-content: center;
+}
+.header .header_box {
+  display: flex;
+  height: 80px;
+}
+.header .header_box h1 {
+  margin-top: 0;
+  padding-right: 30px;
+}
+.header a {
+  display: flex;
+  width: 120px;
+  height: 50px;
+}
+
+.search_bar {
+  display: flex;
+  position: relative;
+  margin: auto;
+  margin-top: 0;
+  padding: 10px 60px 10px 30px;
+  border: 1px solid #cdcdcd;
+  border-radius: 10px;
+  align-items: center;
+}
+.search_bar .search_input {
+  display: block;
+  font-size: 25px;
+  width: 500px;
+  height: 30px;
+  border: none;
+}
+.search_bar button {
+  position: absolute;
+  cursor: pointer;
+  right: 0;
+  width: 52px;
+  height: 55px;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.search_bar button:active {
+  transform: translateY(2px);
+}
+
+.button_img {
+  display: block;
+  width: 23px;
+  height: 23px;
+  margin: auto;
+  background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
+}
+
+.header_multibox {
+  position: relative;
+  width: 100%;
+  margin-top: 40px;
+  border-top: 1px solid #cdcdcd;
+  border-bottom: 1px solid #cdcdcd;
+}
+.header_multibox * {
+  font-size: 16px;
+}
+.header_multibox .category_cover {
+  position: relative;
+  display: flex;
+  width: 1280px;
+  margin: 10px auto;
+  justify-content: center;
+}
+.header_multibox .category_cover ul {
+  display: flex;
+  margin: 0;
+}
+.header_multibox .category_cover li {
+  list-style-type: none;
+}
+.header_multibox .category_cover .division_bar {
+  width: 1px;
+  height: 18px;
+  margin-top: 5px;
+  background-color: #e3e3e3;
+}
+.header_multibox .category_cover .icon, .header_multibox .category_cover .button_icon_three, .header_multibox .category_cover .menu_lists_right .button_icon_two, .header_multibox .category_cover .category_box .button_icon {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+}
+.header_multibox .category_cover .category_box {
+  cursor: pointer;
+  position: relative;
+  width: 120px;
+  padding-left: 40px;
+  align-self: center;
+  text-align: center;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.header_multibox .category_cover .category_box:active {
+  transform: translateY(2px);
+}
+.header_multibox .category_cover .category_box .button_icon {
+  top: -2px;
+  left: 10px;
+  background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
+  background-position: 0 -30px;
+}
+.header_multibox .category_cover .menu_lists_left {
+  float: left;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.08em;
+  padding: 0 12px 0 8px;
+}
+.header_multibox .category_cover .menu_lists_left li {
+  padding: 0 13px;
+}
+.header_multibox .category_cover .menu_lists_center {
+  padding: 0 12px;
+  float: left;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.08em;
+  color: #888;
+}
+.header_multibox .category_cover .menu_lists_center li {
+  padding: 0 10px;
+}
+.header_multibox .category_cover .menu_lists_right {
+  float: right;
+}
+.header_multibox .category_cover .menu_lists_right li:active {
+  transform: translateY(2px);
+}
+.header_multibox .category_cover .menu_lists_right a {
+  position: relative;
+  color: black;
+  text-decoration: none;
+  padding-left: 36px;
+}
+.header_multibox .category_cover .menu_lists_right a:last-child {
+  padding-right: 16px;
+}
+.header_multibox .category_cover .menu_lists_right .button_icon_two {
+  top: -2px;
+  left: 5px;
+  background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
+  background-position: -30px -30px;
+}
+.header_multibox .category_cover .button_icon_three {
+  top: -2px;
+  left: 5px;
+  background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
+  background-position: -60px -30px;
+}
+.header_multibox .arrow_icon {
+  position: absolute;
+  width: 8px;
+  height: 5px;
+  top: 10px;
+  right: -1px;
+  background: url(//shop1.daumcdn.net/search/cdn/simage/shopping/v2/common/nav/ico_gnb_shw.png) no-repeat;
+  background-position: -60px -60px;
+}
+
+/*# sourceMappingURL=index_header.css.map */
