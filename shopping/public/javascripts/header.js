@@ -1,10 +1,11 @@
 class Header {
     constructor() {
         this.nav = document.querySelector(".nav"),
-        this.hashtag = document.querySelector(".nav_hashtag")
+        this.hashtag = document.querySelector(".nav_hashtag"),
+        this.onEvent();
     }
 
-    eventHandler() {
+    onEvent() {
         window.addEventListener('load', this.toggleHastag.bind(this));
         window.addEventListener('resize', this.toggleHastag.bind(this));
     }
@@ -19,4 +20,4 @@ class Header {
 }
 
 
-new Header().eventHandler();
+new Header();

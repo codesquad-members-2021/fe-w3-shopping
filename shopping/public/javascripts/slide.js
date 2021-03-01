@@ -7,11 +7,11 @@ class Slider {
             this.indicatorParents = document.querySelector(".controls ul"),
             this.comm = document.querySelectorAll(".controls li"),
             this.sliderImg = document.querySelectorAll(".slider section"),
-            this.eventHandler();
+            this.onEvent();
             this.loadRandomImage(3);
         }
         
-        eventHandler() {
+        onEvent() {
         this.rightArrow.addEventListener('click', () => {
             this.move("right");
         });

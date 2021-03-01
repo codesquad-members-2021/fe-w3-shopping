@@ -3,10 +3,10 @@ class itemList {
         this.itemList = document.querySelector(".item_list"),
             this.showMoreBtn = document.querySelector(".show_more"),
             this.smallContents = document.querySelector(".small_contents"),
-            this.eventHandler();
+            this.onEvent();
     }
 
-    eventHandler() {
+    onEvent() {
         window.addEventListener("load", () => {
             this.loadRandomItems(5);
         });
@@ -41,7 +41,7 @@ class itemList {
     renderItemList(img, title, text) {
         const li = document.createElement("li");
         const div = document.createElement("div");
-        const ul = document.querySelectorAll(".item_list");
+        const ul = this.smallContents.querySelectorAll(".item_list");
 
         
         li.appendChild(div);
