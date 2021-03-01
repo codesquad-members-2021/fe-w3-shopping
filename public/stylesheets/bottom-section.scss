@@ -12,7 +12,7 @@
   border: none;
   top: 100px;
   //outline: blue solid;
-  left: 252px;
+  left: 0px;
   width: 41px;
   height: 41px;
   background: url("//shop1.daumcdn.net/search/cdn/simage/shopping/img/img_special_160823.png")
@@ -32,7 +32,7 @@
   position: absolute;
   border: none;
   top: 100px;
-  right: 1656px;
+  right: 0px;
   width: 41px;
   height: 41px;
   background: url("//shop1.daumcdn.net/search/cdn/simage/shopping/img/img_special_160823.png")
@@ -49,6 +49,7 @@
 }
 
 .section-bottom {
+  position: relative;
   margin: 19px 600px;
   border: #cecfd1 1px solid;
   background-color: white;
@@ -72,8 +73,9 @@
   }
 }
 .bottom__carousel_wrap {
-  transform: translateX(-254px);
-  width: 1590px * 2;
+  outline: yellow solid;
+  transform: translateX(-254px * 2);
+  width: 4000px;
   display: flex;
   height: 300px;
 }
