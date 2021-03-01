@@ -38,8 +38,14 @@ export default class ViewMore {
         <img
           class="img-box"
           src=${JSON.stringify(value["imgurl"])}/>
-        <strong class="img-title">${JSON.stringify(value["text"])}</strong>
-        <span class="img-text">${JSON.stringify(value["text2"])}</span>
+        <strong class="img-title">${JSON.stringify(value["text"]).replace(
+          /\"/gi,
+          ""
+        )}</strong>
+        <span class="img-text">${JSON.stringify(value["text2"]).replace(
+          /\"/gi,
+          ""
+        )}</span>
         <span class="img-icon">테마</span>
       </div>
     </div>`;
