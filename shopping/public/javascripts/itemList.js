@@ -1,4 +1,4 @@
-class itemList {
+class MainItemList {
     constructor() {
         this.itemList = document.querySelector(".item_list"),
             this.showMoreBtn = document.querySelector(".show_more"),
@@ -55,4 +55,4 @@ class itemList {
 
 }
 
-new itemList();
+new MainItemList();

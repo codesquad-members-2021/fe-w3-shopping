@@ -20,17 +20,18 @@ class Category {
 
     onClick(event) {
         const action = event.target.dataset.action;
-        if(action) this[action]();
+        console.log(action);
+        if(action) this[action](5);
     }
 
-    moveLeft() {
-        this.sectionIndex = (this.sectionIndex > 0 ) ? this.sectionIndex - 1 : 5;
-        this.slider.style.transform = `translate(` + (this.sectionIndex) * -11 + `%)`;
+    moveLeft(categoryCount) {
+        this.sectionIndex = (this.sectionIndex > 0 ) ? this.sectionIndex - 1 : categoryCount;
+        this.slider.style.transform = `translate(` + (this.sectionIndex) * -10 + `%)`;
     }
 
-    moveRight() {
-        this.sectionIndex = (this.sectionIndex < 5 ) ? this.sectionIndex + 1 : 0;
-        this.slider.style.transform = `translate(` + (this.sectionIndex) * -11 + `%)`;
+    moveRight(categoryCount) {
+        this.sectionIndex = (this.sectionIndex < categoryCount ) ? this.sectionIndex + 1 : 0;
+        this.slider.style.transform = `translate(` + (this.sectionIndex) * -10 + `%)`;
     }
 
 
