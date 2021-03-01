@@ -11,13 +11,16 @@ export class Slider {
   // 자동으로 움직이는 슬라이더 해보고 싶어서 구현
   slideAutomatically() {
     const imgLists = document.querySelector('.main-theme-category-lists');
-    let i = 0;
     let timerId = setTimeout(function tick() {
-      if (i > 3) {
-        i = 0;
-      }
-      imgLists.style.transform = `translate3d(-${77.5 * i}rem,0,0)`;
-      i += 1;
+      imgLists.style.transform = 'translate3d(-77.5rem, 0, 0)';
+      imgLists.ontransitionend = () => {
+        imgLists.style.transitionDuration = '0ms';
+        imgLists.style.transform = 'translate3d(0, 0, 0)';
+        for (let i = 0; i < 5; i += 1) {
+          imgLists.appendChild(imgLists.firstElementChild);
+        }
+      };
+      imgLists.style.transitionDuration = '700ms';
       timerId = setTimeout(tick, 2500);
     }, 2500);
   }

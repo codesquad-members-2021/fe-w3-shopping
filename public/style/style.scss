@@ -319,10 +319,12 @@ body {
         }
 
         .main-theme-category-lists {
+            left: -77.5rem;
             padding: 0 1.5rem;
             display: flex;
             transform: translate3d(0,0,0);
             transition: transform 0.7s linear;
+            position: relative;
         }
 
         .main-theme-category-list {
