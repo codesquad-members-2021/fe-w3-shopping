@@ -25,4 +25,5 @@ class Best {
     }
 }
 
-new Best();
+
+export default Best;

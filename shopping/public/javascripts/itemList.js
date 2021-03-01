@@ -55,4 +55,4 @@ class MainItemList {
 
 }
 
-new MainItemList();
+export default MainItemList;

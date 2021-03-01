@@ -72,4 +72,4 @@ class Category {
     }
 }
 
-new Category();
+export default Category;

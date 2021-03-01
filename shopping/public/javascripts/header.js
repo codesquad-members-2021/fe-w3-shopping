@@ -19,5 +19,5 @@ class Header {
     }
 }
 
+export default Header;
 
-new Header();
