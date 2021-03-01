@@ -212,6 +212,16 @@ input {
   border-right: 1px solid #ececec;
   border-top: 1px solid #ececec;
 }
+.item_wrapper .item_list_img {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+}
+.item_wrapper span {
+  display: block;
+  padding: 2px 0;
+  text-align: left;
+}
 
 .img_title {
   font-size: 14px;
@@ -291,6 +301,47 @@ input {
   height: 80px;
   background: #ececec;
   cursor: pointer;
+}
+
+.sub_main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.sub_main .sub_main_wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 64%;
+}
+.sub_main .sub_main_wrapper .category_title > span {
+  text-align: left;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.category.container {
+  width: 100%;
+}
+.category.container .carousel {
+  width: 100%;
+  height: 289px;
+}
+
+.category.slider {
+  width: 200%;
+  display: flex;
+}
+.category.slider .item_list {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+
+.sub_main .controls .material-icons {
+  background: #888;
+  color: #f3f3f3;
+  opacity: 70%;
+  font-size: 200%;
 }
 
 /*# sourceMappingURL=main.css.map */
