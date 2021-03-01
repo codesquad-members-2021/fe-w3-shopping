@@ -6,7 +6,6 @@ const logger = require('morgan');
 const cors = require('cors'); // CORS 미들웨어 객체 선언
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const imageRouter = require('./routes/image');
 
 const app = express();
