@@ -357,21 +357,26 @@ input {
     display: flex;
     align-items: center;
     flex-direction: column;
+    background: $bg_color;
 
     .sub_main_wrapper {
         display: flex;
         flex-direction: column;
         width: 64%;
+        background: #ffffff;
+
         .category_title > span {
             text-align: left;
             font-size: 20px;
             font-weight: bold;
+            background: #ffffff;
         }
     }
 }
 
 .category.container {
     width: 100%;
+    background: #f3f3f3;
 
     .carousel {
         width: 100%;
@@ -382,7 +387,8 @@ input {
 .category.slider {
     width: 200%;
     display: flex;
-
+    background: #ffffff;
+    
     .item_list {
         display: flex;
         flex-direction: row;

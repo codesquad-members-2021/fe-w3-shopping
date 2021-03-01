@@ -307,20 +307,24 @@ input {
   display: flex;
   align-items: center;
   flex-direction: column;
+  background: #f3f3f3;
 }
 .sub_main .sub_main_wrapper {
   display: flex;
   flex-direction: column;
   width: 64%;
+  background: #ffffff;
 }
 .sub_main .sub_main_wrapper .category_title > span {
   text-align: left;
   font-size: 20px;
   font-weight: bold;
+  background: #ffffff;
 }
 
 .category.container {
   width: 100%;
+  background: #f3f3f3;
 }
 .category.container .carousel {
   width: 100%;
@@ -330,6 +334,7 @@ input {
 .category.slider {
   width: 200%;
   display: flex;
+  background: #ffffff;
 }
 .category.slider .item_list {
   display: flex;
