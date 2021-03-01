@@ -8,14 +8,6 @@ export default class HotDealSection {
   }
 
   draw() {
-    this.getHotDealLists();
-  }
-
-  getHotDealLists() {
-    return this.getHotDealTitle();
-  }
-
-  getHotDealTitle() {
     return this.wrapper.querySelector('.section--hot-deal').insertAdjacentHTML(
       'afterbegin',
       `
