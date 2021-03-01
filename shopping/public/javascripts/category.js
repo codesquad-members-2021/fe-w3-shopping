@@ -19,9 +19,10 @@ class Category {
     }
 
     onClick(event) {
+        const itemShowing = 5;
         const action = event.target.dataset.action;
         console.log(action);
-        if(action) this[action](5);
+        if(action) this[action](itemShowing);
     }
 
     moveLeft(categoryCount) {

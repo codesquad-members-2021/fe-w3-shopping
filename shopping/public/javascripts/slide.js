@@ -7,6 +7,7 @@ class Slider {
             this.indicatorParents = document.querySelector(".controls ul"),
             this.comm = document.querySelectorAll(".controls li"),
             this.sliderImg = document.querySelectorAll(".slider section"),
+            this.itemSize = 33,
             this.onEvent();
             this.loadRandomImage(3);
         }
@@ -34,19 +35,21 @@ class Slider {
         this.sectionIndex = Number(ind);
         document.querySelector('.controls .selected').classList.remove('selected');
         el.classList.add('selected');
-        this.slider.style.transform = `translate(` + (this.sectionIndex) * -33 + `%)`;
+        this.slider.style.transform = `translate(` + (this.sectionIndex) * -this.itemSize + `%)`;
     }
 
     move(direction) {
+        const firstSection = 0;
+        const lastSection = 2;
         if(direction === "right") {
-            this.sectionIndex = (this.sectionIndex < 2) ? this.sectionIndex + 1 : 0;
+            this.sectionIndex = (this.sectionIndex < lastSection) ? this.sectionIndex + 1 : firstSection;
         }
         if(direction === "left") {
-            this.sectionIndex = (this.sectionIndex > 0) ? this.sectionIndex - 1 : 2;
+            this.sectionIndex = (this.sectionIndex > firstSection) ? this.sectionIndex - 1 : lastSection;
         }
         document.querySelector('.controls .selected').classList.remove('selected');
         this.indicatorParents.children[this.sectionIndex].classList.add('selected');
-        this.slider.style.transform = `translate(` + (this.sectionIndex) * -33 + `%)`;
+        this.slider.style.transform = `translate(` + (this.sectionIndex) * -this.itemSize + `%)`;
     }
 
 
