@@ -1,6 +1,6 @@
 import { makeItemList, makeMoreBtn, ul } from './util/htmlTemplate.js';
 
-class More {
+class MoreButtonView {
   constructor(data, { container, moreBtn }) {
     this.data = data;
     this.currentData = 5; //this.data의 몇번째 데이터까지 렌더링돼있나 확인
@@ -61,4 +61,4 @@ class More {
   }
 }
 
-export default More;
+export default MoreButtonView;

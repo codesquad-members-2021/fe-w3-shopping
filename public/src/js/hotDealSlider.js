@@ -1,7 +1,7 @@
-import Slide from './slide.js';
+import Slide from './slider.js';
 import { makeItemList } from './util/htmlTemplate.js';
 
-class HotDealSlide extends Slide {
+class HotDealSlider extends Slide {
   constructor(data, selectors, animation) {
     super({ data, selectors, animation, makeHtmlFn: makeItemList });
     this.timer;
@@ -39,4 +39,4 @@ class HotDealSlide extends Slide {
   }
 }
 
-export default HotDealSlide;
+export default HotDealSlider;

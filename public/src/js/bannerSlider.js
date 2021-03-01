@@ -1,15 +1,15 @@
-import Slide from './slide.js';
+import Slide from './slider.js';
 import { makeSlideItem } from './util/htmlTemplate.js';
-import { domSelect } from './util/util.js';
+import { domSelector } from './util/util.js';
 import { CLASS_LIST } from './util/data.js';
 
-class BannerSlide extends Slide {
+class BannerSlider extends Slide {
   constructor(data, selectors, animation) {
     super({ data, selectors, animation, makeHtmlFn: makeSlideItem });
     this.currentData = this.data[Math.floor(this.data.length / 2)]; //data 가운데 값이 default
     this.originData = [...this.data];
     this.pagingBtn = selectors.pagingBtn;
-    this.pagingBtns = domSelect('.btn-paging', true, this.pagingBtn);
+    this.pagingBtns = domSelector({ selector: '.btn-paging', multi: true, base: this.pagingBtn });
   }
   init() {
     super.init();
@@ -71,4 +71,4 @@ class BannerSlide extends Slide {
     }
   }
 }
-export default BannerSlide;
+export default BannerSlider;

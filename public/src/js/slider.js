@@ -1,4 +1,4 @@
-class Slide {
+class Slider {
   constructor({ data, selectors, animation, makeHtmlFn }) {
     this.data = data;
     this.container = selectors.container;
@@ -61,4 +61,4 @@ class Slide {
   }
 }
 
-export default Slide;
+export default Slider;
