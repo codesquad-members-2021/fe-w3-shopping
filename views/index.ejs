@@ -87,30 +87,20 @@
                 <div class="content__main">
                     <div class="content__main__one">
                         <a href="/">
-                            <img src="/images/car_best.png" />
+                            <img/>
                         </a>
                     </div>
 
                     <div class="content__main__carousel">
                         <div class="slide">
-                            <div
-                                class="item"                                
-                                style="transform: translateX(0%); transition: transform 0.4s;"
-                            >
-                                <img src="/images/coffee_twig.png" />
+                            <% for(let i = 0; i <= 2; i++) { 
+                                let className = `transformX__${i}`;
+                                if (i === 2) className = `transformX__-1`;
+                            %>
+                            <div class='<%= className  %> item'>
+                                <img />
                             </div>
-                            <div
-                                class="item"
-                                style="transform: translateX(100%); transition: transform 0.4s;"
-                            >
-                                <img src="/images/carousel_test1.jfif" />
-                            </div>
-                            <div
-                                class="item"
-                                style="transform: translateX(-100%); transition: transform 0.4s;"
-                            >
-                                <img src="/images/carousel_test2.png" />
-                            </div>
+                            <% } %>
                         </div>
 
                         <div class="paging">

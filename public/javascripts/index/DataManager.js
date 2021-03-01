@@ -1,42 +1,19 @@
 import _ from '../util.js';
 
 class DataManager {
-    /**
-     * @param {String} url
-     */
-    _fetchData(url) {
-        return new Promise((resolve, reject) => {
-            fetch(url).then(
-                (res) => {
-                    if (res.ok) {
-                        res.json().then((data) => resolve(data));
-                    } else {
-                        reject(new Error('Server Error'));
-                    }
-                },
-                (error) => {
-                    reject(new Error(error.message));
-                },
-            );
-        });
-    }
-
-    getAllMoreData() {
-        const url = `http://localhost:3001/api/moreData`;
-        return this._fetchData(url);
+    constructor({serverURL}) {        
+        this.serverURL = serverURL;   // 서버 주소      // http://localhost:3001
     }
 
     /**
-     * @param {Number} pageIdx
+     * @param {String} urlPath
      */
-    getMoreData(pageIdx) {
-        const url = `http://localhost:3001/api/moreData/${pageIdx}`;
-        return this._fetchData(url);
-    }
-
-    getHotCarouselData() {
-        const url = `http://localhost:3001/api/planning`;
-        return this._fetchData(url);
+    fetchData(urlPath) {
+        const url = `${this.serverURL}${urlPath}`;
+        return fetch(url)
+            .then((res) => res.json())
+            .then((data) => data)
+            .catch((error) => console.error(error));
     }
 }
 
