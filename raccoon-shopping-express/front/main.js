@@ -1,6 +1,6 @@
 import FetchAPI from './src/js/fetchAPI';
 import EventSlider from './src/js/eventSlider';
-import { MallEventSlider } from './src/js/mallEventSlider';
+import MallEventSlider from './src/js/mallEventSlider';
 
 const $mileageEventSlide = document.querySelector('.event--slide');
 const $topMileageSlide = document.querySelector('#topMileageSlide');
@@ -22,6 +22,10 @@ function requestData() {
   fetchAPI.hotDealList(CURRENT, requestItems);
   CURRENT = requestItems;
   PAGE++;
+  if (CURRENT === 95) {
+    $moreItemButton.style.color = '#aeaeae';
+    $moreItemButton.setAttribute('disabled', '');
+  }
 }
 
 fetchAPI.mileageList();

@@ -30,7 +30,8 @@ router.get(JSON_DATA.hotDealList.path, function (req, res, next) {
   const resFile = require(`${ROOT_PATH}/${JSON_DATA.hotDealList.file}`);
   const start = req.query.start;
   const count = req.query.count;
-  res.send(resFile.hotdealList.slice(start, count));
+  const responseData = { list: resFile.hotdealList.slice(start, count), dataLength: resFile.hotdealList.length };
+  res.send(responseData);
 });
 
 router.get(JSON_DATA.shoppingPartner.path, function (req, res, next) {

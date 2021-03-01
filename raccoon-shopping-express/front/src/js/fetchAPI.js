@@ -15,7 +15,6 @@ export default class FetchAPI {
       failed: 'Request failed',
     };
     this.page = 2;
-    this.dataLength = 0;
   }
 
   mileageList = () =>
@@ -48,16 +47,17 @@ export default class FetchAPI {
     fetch(`${this.url.hotDealList}/?${queryParam.toString()}`)
       .then((response) => response.json())
       .then((data) => {
-        const hotDealSection = new HotDealSection(data);
+        const hotDealSection = new HotDealSection(data.list);
         if (this.page === 2) {
           this.page++;
           hotDealSection.draw();
-          return data;
+          hotDealSection.updateMoreListNumber(count, data.dataLength);
+          return data.list;
         }
         this.page++;
         hotDealSection.moreListDraw();
-        hotDealSection.updateMoreListNumber(10, this.dataLength);
-        return data;
+        hotDealSection.updateMoreListNumber(count, data.dataLength);
+        return data.list;
       })
       .then((status) => console.log(this.req.sucess, status.code))
       .catch((error) => console.log(this.req.failed, error));

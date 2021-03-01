@@ -1,10 +1,9 @@
 export default class HotDealSection {
   constructor(data) {
     this.data = data;
-    this.wrapper = document.querySelector('#hot-deal__wrapper');
     this.title = `품절주의! 역대급 핫딜`;
+    this.wrapper = document.querySelector('#hot-deal__wrapper');
     this.target = document.querySelector('.more-item__button');
-    this.dataLength = 0;
   }
 
   draw() {
@@ -73,7 +72,6 @@ export default class HotDealSection {
   }
 
   updateMoreListNumber(current, length) {
-    console.log('here');
     this.target.innerHTML = `<span>더보기(${current}/${length})</span>`;
   }
 }

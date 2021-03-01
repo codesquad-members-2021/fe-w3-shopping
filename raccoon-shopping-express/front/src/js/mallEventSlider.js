@@ -1,4 +1,4 @@
-class MallEventSlider {
+export default class MallEventSlider {
   constructor(target) {
     this.target = target;
     this.slide = document.querySelector('#mallEventSlide');
@@ -7,7 +7,6 @@ class MallEventSlider {
     this.nextTimer = -1;
   }
   addEvent() {
-    // this.target.forEach((el) => el.addEventListener('click', this.mallEventSlider.bind(this)));
     this.target.forEach((el) => el.addEventListener('mousedown', this.longClickSlide.bind(this)));
     this.target.forEach((el) => el.addEventListener('mouseup', this.clearLongClickSlide.bind(this)));
   }
@@ -99,5 +98,3 @@ class MallEventSlider {
     }, 300);
   }
 }
-
-export { MallEventSlider };
