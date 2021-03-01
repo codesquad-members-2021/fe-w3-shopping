@@ -5,7 +5,7 @@ class MoreButtonView {
   constructor(data, { container, moreBtn }) {
     this.data = data;
     this.currentData = 5; //this.data의 몇번째 데이터까지 렌더링돼있나 확인
-    this.maxData = 5;
+    this.maxView = 5;
     this.totalData = data.length;
     this.container = container;
     this.moreBtn = moreBtn;
@@ -19,26 +19,26 @@ class MoreButtonView {
     this.moreBtn.addEventListener('click', this.handleClick.bind(this));
   }
   handleClick() {
-    const currentIndex = Math.floor(this.currentData / this.maxData) - 1;
+    const currentIndex = Math.floor(this.currentData / this.maxView) - 1;
     const nextData = this.data[currentIndex + 1];
     if (nextData) {
       this.currentData += nextData.length;
       this.renderMore();
     } else {
-      this.currentData = 5;
+      this.currentData = this.maxView; //끝까지 다보여줬으면 초기화(접기)
       this.renderInit();
     }
   }
-  //this.data를 화면에 따라 5개씩 잘라 2차원배열
+  //this.data를 화면에 따라 maxView(5개)씩 잘라 2차원배열
   splitData() {
     const splitedData = [];
-    for (let i = 0; i < this.data.length; i += 5) {
-      splitedData.push(this.data.slice(i, i + 5));
-    }
+    this.data.forEach((v, idx, src) => {
+      if (idx % 5 === 0) splitedData.push(src.slice(idx, idx + this.maxView));
+    });
     this.data = splitedData;
   }
   getMoreListHTML() {
-    const currentIndex = Math.floor(this.currentData / this.maxData) - 1;
+    const currentIndex = Math.floor(this.currentData / this.maxView) - 1;
     const moreItemsHTML = this.data[currentIndex].reduce((acc, cur) => acc + makeItemList(cur), '');
     const moreListHTML = ul({ value: moreItemsHTML, classes: [CLASS_LIST.MORE_LIST] });
     return moreListHTML;
