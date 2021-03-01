@@ -19,7 +19,7 @@ class MoreButtonView {
     this.moreBtn.addEventListener('click', this.handleClick.bind(this));
   }
   handleClick() {
-    const currentIndex = Math.floor(this.currentData / this.maxView) - 1;
+    const currentIndex = Math.floor(this.currentData / this.maxView) - 1; //인덱스이니까 -1
     const nextData = this.data[currentIndex + 1];
     if (nextData) {
       this.currentData += nextData.length;
@@ -33,7 +33,7 @@ class MoreButtonView {
   splitData() {
     const splitedData = [];
     this.data.forEach((v, idx, src) => {
-      if (idx % 5 === 0) splitedData.push(src.slice(idx, idx + this.maxView));
+      if (idx % this.maxView === 0) splitedData.push(src.slice(idx, idx + this.maxView));
     });
     this.data = splitedData;
   }
