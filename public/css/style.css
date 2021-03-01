@@ -77,6 +77,7 @@ nav .add-on .add-on__login li {
 
 .main-banner {
   position: relative;
+  margin: 40px;
   display: flex;
   justify-content: center;
   font-size: 0;
@@ -87,7 +88,9 @@ nav .add-on .add-on__login li {
 }
 .main-banner .main-banner__static {
   border: 1px solid #ccc;
-  background-color: yellow;
+}
+.main-banner .static__img1 {
+  margin: 0 40px;
 }
 .main-banner img {
   display: block;
@@ -157,6 +160,82 @@ nav .add-on .add-on__login li {
   z-index: 3;
   top: 300px;
   left: 45%;
+}
+
+.sub-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sub-menu .sub-menu__more {
+  background-color: green;
+  height: 100px;
+}
+.sub-menu .divBox {
+  width: 1200px;
+  background-color: red;
+  display: flex;
+  justify-content: space-around;
+}
+.sub-menu .img__more {
+  width: 200px;
+  height: 200px;
+}
+
+.issue-banner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.issue-banner .arrow__left,
+.issue-banner .arrow__right {
+  size: 30px;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+}
+.issue-banner .arrow__left {
+  left: 17%;
+}
+.issue-banner .arrow__right {
+  left: 81%;
+}
+.issue-banner .issue-banner__title {
+  align-self: flex-start;
+}
+.issue-banner .issue-banner__slide {
+  padding-top: 30px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  width: 1260px;
+  height: 300px;
+  position: relative;
+}
+.issue-banner .issue-bundle {
+  position: absolute;
+  left: -225px;
+  display: flex;
+  justify-content: center;
+}
+.issue-banner .issue-list {
+  padding: 22px;
+}
+.issue-banner .issue-list:nth-child(1),
+.issue-banner .issue-list:nth-child(2) {
+  display: none;
+}
+.issue-banner .img__img {
+  width: 200px;
+  height: 200px;
+}
+.issue-banner .issue-bundle.right {
+  transform: translate3d(245px, 0, 0);
+  transition: transform 0.5s;
+}
+.issue-banner .issue-bundle.left {
+  transform: translate3d(-245px, 0, 0);
+  transition: transform 0.5s;
 }
 
 /*# sourceMappingURL=style.css.map */

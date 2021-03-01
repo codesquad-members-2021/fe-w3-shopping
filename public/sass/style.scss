@@ -102,6 +102,7 @@ nav {
 .main-banner {
   // background-color: rosybrown;
   position: relative;
+  margin: 40px;
   // padding: 0 80px;
   display: flex;
   justify-content: center;
@@ -113,14 +114,18 @@ nav {
   }
   .main-banner__static {
     border: 1px solid #ccc;
-    background-color: yellow;
+    // background-color: yellow;
     // position: absolute;
     // left: 10%;
     // padding-right: 100px;
     // display: block;
   }
+  .static__img1 {
+    margin: 0 40px;
+  }
   img {
     display: block;
+    // padding: 0 20px;
   }
   .main-banner__slide {
     // display: block;
@@ -211,6 +216,102 @@ nav {
       top: 300px;
       left: 45%;
     }
+  }
+}
+.sub-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // justify-content: center;
+  .sub-menu__more {
+    background-color: green;
+    height: 100px;
+  }
+  .divBox {
+    width: 1200px;
+    background-color: red;
+    display: flex;
+    justify-content: space-around;
+  }
+  .img__more {
+    width: 200px;
+    height: 200px;
+  }
+}
+.issue-banner {
+  position: relative;
+  // background-color: red;
+  // width: 1000px;
+  // height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+  .arrow__left,
+  .arrow__right {
+    size: 30px;
+    position: absolute;
+    top: 50%;
+    // left: 40px;
+    z-index: 1;
+    // left: 30px;
+  }
+  .arrow__left {
+    left: 17%;
+  }
+  .arrow__right {
+    left: 81%;
+  }
+
+  .issue-banner__title {
+    // display: block;
+    align-self: flex-start;
+  }
+  .issue-banner__slide {
+    // align-self: flex-;
+    // align-items: center;
+    padding-top: 30px;
+    // background-color: blue;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    width: 1260px;
+    height: 300px;
+    // position: absolute;
+    position: relative;
+    // left: 19%;
+    // display: flex;
+    // justify-content: flex-start;
+    // position: absolute;
+  }
+  // .issue-list
+  .issue-bundle {
+    position: absolute;
+    left: -225px;
+    display: flex;
+    justify-content: center;
+  }
+  .issue-list {
+    padding: 22px;
+  }
+  .issue-list:nth-child(1),
+  .issue-list:nth-child(2) {
+    display: none;
+  }
+  .img__img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .issue-bundle.right {
+    // transition-duration: 3s;
+    transform: translate3d(245px, 0, 0);
+    transition: transform 0.5s;
+  }
+  .issue-bundle.left {
+    // transition-duration: 3s;
+    transform: translate3d(-245px, 0, 0);
+    transition: transform 0.5s;
   }
 }
 // #main {

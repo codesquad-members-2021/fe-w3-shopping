@@ -1,4 +1,4 @@
-import {slideContainer, slideBundle} from './main.js';
+import {slideContainer, slideBundle, issueBundle} from './main.js';
 class Carousel {
     constructor(slideBundle) {
         this.children = slideBundle.children;
@@ -9,6 +9,7 @@ class Carousel {
         this.decideClickDirection();
         this.decideMouseoverChange();
     }
+
     decideMouseoverChange() {
         slideContainer.addEventListener('mouseover', ({target}) => {
             let targetKey = target.dataset.key;
@@ -60,3 +61,4 @@ class Carousel {
 }
 
 let slide = new Carousel(slideBundle);
+// console.log(issueBundle.tagName)
