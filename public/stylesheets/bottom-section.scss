@@ -1,0 +1,78 @@
+.carousel__title {
+  margin-bottom: 11px;
+  width: 1274px;
+  margin: 19px 600px;
+  font-size: 22px;
+  line-height: 22px;
+  letter-spacing: -2px;
+}
+
+#b_paging-btn-prev {
+  position: absolute;
+  border: none;
+  top: 100px;
+  //outline: blue solid;
+  left: 252px;
+  width: 41px;
+  height: 41px;
+  background: url("//shop1.daumcdn.net/search/cdn/simage/shopping/img/img_special_160823.png")
+    no-repeat;
+  background-position: 0, -40px;
+  #prev {
+    height: 17px;
+    margin: 12px 17px 12px 14px;
+    display: block;
+    background: url("//shop1.daumcdn.net/search/cdn/simage/shopping/img/img_special_160823.png")
+      no-repeat;
+    background-position: -110px, -100px;
+  }
+}
+
+#b_paging-btn-next {
+  position: absolute;
+  border: none;
+  top: 100px;
+  right: 1656px;
+  width: 41px;
+  height: 41px;
+  background: url("//shop1.daumcdn.net/search/cdn/simage/shopping/img/img_special_160823.png")
+    no-repeat;
+  background-position: 0, -40px;
+  #next {
+    height: 17px;
+    margin: 12px 17px 12px 14px;
+    display: block;
+    background: url("//shop1.daumcdn.net/search/cdn/simage/shopping/img/img_special_160823.png")
+      no-repeat;
+    background-position: -110px, -100px;
+  }
+}
+
+.section-bottom {
+  margin: 19px 600px;
+  border: #cecfd1 1px solid;
+  width: 254px * 5;
+  height: 310px;
+  //overflow: hidden;
+}
+
+.bottom__carousel_item {
+  padding: 21px 27px;
+  width: 254px;
+  height: 293px;
+  text-align: left;
+  line-height: 100px;
+  .img-box {
+    width: 200px;
+  }
+  .text-wrap {
+    position: absolute;
+    top: 223px;
+  }
+}
+.bottom__carousel_wrap {
+  transform: translateX(-254px);
+  width: 1590px * 2;
+  display: flex;
+  height: 300px;
+}
