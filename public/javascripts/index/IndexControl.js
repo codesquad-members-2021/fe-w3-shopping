@@ -6,43 +6,74 @@ class IndexControl {
      * @param {DataManager} dataManager
      */
 
-    constructor(dataManager, indexWrappers, options) {
+    constructor(dataManager, indexWrappers, controlItems, options) {
         this.dataManager = dataManager;
-        const { mainBestWrapper, mainCarouselWrapper, moreWrapper, hotCarouselWrapper } = indexWrappers;
-        const { mainCarouselAnimateInterval } = options;
+        const {
+            mainBestWrapper,
+            mainCarouselWrapper,
+            moreWrapper,
+            hotCarouselWrapper,
+        } = indexWrappers;
+        const {
+            mainSlideItems,
+            mainSlidePagingInnerList,
+            mainBestItemImg,
+            moreViewBtn,
+            moreViewFrame,
+            hotSlideItems,
+        } = controlItems;
+        const {
+            mainCarouselAnimateInterval,
+            mainCarouselAnimateDirection,
+            mainCarouselTransitionDuration,
+            hotCarouselTransitionDuration,
+        } = options;
 
         this.mainBestWrapper = mainBestWrapper;
         this.mainCarouselWrapper = mainCarouselWrapper;
         this.moreWrapper = moreWrapper;
         this.hotCarouselWrapper = hotCarouselWrapper;
 
+        this.mainSlideItems = mainSlideItems;        
+        this.mainSlidePagingInnerList = mainSlidePagingInnerList;
+        this.mainBestItemImg = mainBestItemImg;
+        this.moreViewBtn = moreViewBtn;
+        this.moreViewFrame = moreViewFrame;
+        this.hotSlideItems = hotSlideItems;
+
         this.mainCarouselAnimateInterval = mainCarouselAnimateInterval;
+        this.mainCarouselAnimateDirection = mainCarouselAnimateDirection;
+        this.mainCarouselTransitionDuration = mainCarouselTransitionDuration;
+        this.hotCarouselTransitionDuration = hotCarouselTransitionDuration;
 
         this.hotCarouselMousedownTimer = null;
         this.hotCarouselMousedownRunCnt = 1;
     }
 
     init() {
-        this._insertDataBestItem(this.mainBestWrapper);
-        this._insertDataMainCarousel(this.mainCarouselWrapper);
-        this._insertDataHotCarousel(this.hotCarouselWrapper);
+        this._insertDataBestItem(this.mainBestItemImg);
+        this._insertDataMainCarousel(this.mainSlideItems);
+        this._insertDataHotCarousel(this.hotSlideItems);
 
         this._setMoreWrapperClickEvent(this.moreWrapper);
-        this._setMainCarouselClickEvent(this.mainCarouselWrapper);
-        this._setMainCarouselMouseoverEvent(this.mainCarouselWrapper);
+        this._setMainCarouselClickEvent(this.mainCarouselWrapper, this.mainSlideItems);
+        this._setMainCarouselMouseoverEvent(this.mainCarouselWrapper, this.mainSlideItems);
         this._setHotCarouselMousedownEvent(this.hotCarouselWrapper);
-        this._setHotCarouselMouseupEvent(this.hotCarouselWrapper);
+        this._setHotCarouselMouseupEvent(this.hotCarouselWrapper, this.hotSlideItems);
 
-        setInterval(
-            () =>
-                this._updateMainCarouselAnimation(
-                    'next',
-                    _.$All('.slide > .item', this.mainCarouselWrapper),
-                ),
+        this._setMainCarouselInterval(
+            this.mainCarouselAnimateDirection,
+            this.mainSlideItems,
             this.mainCarouselAnimateInterval,
         );
-        this._createMoreViewItemsExecute(
-            _.$('.content__more__btn', this.moreWrapper),
+
+        this._createMoreViewItemsExecute(this.moreViewBtn, this.moreViewFrame);
+    }
+
+    _setMainCarouselInterval(direction, mainSlideItems, timeout) {
+        setInterval(
+            () => this._updateMainCarouselAnimation(direction, mainSlideItems),
+            timeout,
         );
     }
 
@@ -55,16 +86,15 @@ class IndexControl {
 
     _moreWrapperClickEventHandler(e) {
         const { target } = e;
-        const targetClassName = `.${target.className}`;
 
-        if (targetClassName === '.content__more__btn')
-            this._createMoreViewItemsExecute(target);
+        if (target === this.moreViewBtn)
+            this._createMoreViewItemsExecute(target, this.moreViewFrame);
     }
 
     // 더보기 데이터가 들어갈 틀 생성 (실행)
-    _createMoreViewItemsExecute(moreBtn) {
+    _createMoreViewItemsExecute(moreBtn, moreViewFrame) {
         this.dataManager.getMoreData(moreBtn.value)
-            .then((moreData) => this._createMoreViewItems(moreData))            
+            .then((moreData) => this._createMoreViewItems(moreData, moreViewFrame))            
             .then(() => this._updateMoreBtnInnerText(moreBtn))
             .catch((error) => console.error(error.message));     
     }
@@ -82,8 +112,8 @@ class IndexControl {
             .catch((err) => console.error(err));
     }
 
-    _createMoreViewItems(moreData) {
-        const ul = _.$('ul',  _.$('.content__more__view', this.moreWrapper) );
+    _createMoreViewItems(moreData, moreViewFrame) {
+        const frame = moreViewFrame;
 
         moreData.forEach((data, i) => {
             const { eventContent: { title, subtitle, imgurl } } = data;
@@ -104,7 +134,7 @@ class IndexControl {
             _.appendChildren(a, img, div);
             _.appendChildren(div, spanBold, spanInfo, spanTheme);
             _.appendChild(li, a);
-            _.appendChild(ul, li);
+            _.appendChild(frame, li);
         });
     }
 
@@ -124,21 +154,18 @@ class IndexControl {
 
     // [2] 상단 캐러셀 (content__main__carousel)
     // 첫 로딩 시 상단 왼쪽 (BestItem)에 들어갈 정보 서버에서 불러옴
-    _insertDataBestItem(mainBestWrapper) {
-        const bestItemImgTag = _.$('a > img', mainBestWrapper);
-
+    _insertDataBestItem(mainBestItemImg) {
         this.dataManager.getMainBestData().then((data) => {
-            _.setAttr(bestItemImgTag, 'src', data.imgurl);
+            _.setAttr(mainBestItemImg, 'src', data.imgurl);
         }).catch((err) => console.error(err.message));
     }
 
     // 첫 로딩 시 상단 오른쪽 캐러셀에 들어갈 정보 서버에서 불러옴
-    _insertDataMainCarousel(mainCarouselWrapper) {
-        const mainCarouselItemList = [..._.$All('.slide > div', mainCarouselWrapper)];
+    _insertDataMainCarousel(mainSlideItems) {
         this.dataManager
             .getMainCarouselData()
             .then((data) => {
-                mainCarouselItemList.forEach((item, i) => {
+                mainSlideItems.forEach((item, i) => {
                     const itemImgTag = _.$('img', item);
                     _.setAttr(itemImgTag, 'src', data[i].imgurl);
                 });
@@ -147,121 +174,103 @@ class IndexControl {
     }
 
     // 상단 캐러셀 이벤트 등록 (이전, 다음)
-    _setMainCarouselClickEvent(mainCarouselWrapper) {
+    _setMainCarouselClickEvent(mainCarouselWrapper, mainSlideItems) {
         _.addEvent(mainCarouselWrapper, 'click', (e) =>
-            this._mainCarouselClickEventHandler(e),
+            this._mainCarouselClickEventHandler(e, mainSlideItems),
         );
     }
 
-    _mainCarouselClickEventHandler({target}) {        
+    _mainCarouselClickEventHandler({target}, mainSlideItems) {        
         const pagingBtn =
             _.closestSelector(target, '.paging--prev') ||
             _.closestSelector(target, '.paging--next');
-        this._updateMainCarouselAnimationExecute(pagingBtn);
+        this._updateMainCarouselAnimationExecute(pagingBtn, mainSlideItems);
     }
 
     // 상단 캐러셀 동작 (이전, 다음 btn) (실행)
-    _updateMainCarouselAnimationExecute(pagingBtn) {
+    _updateMainCarouselAnimationExecute(pagingBtn, mainSlideItems) {
         if (!pagingBtn) return;
-        const exType = pagingBtn.className.indexOf('prev') > -1 ? 'prev' : 'next';
-        const itemList = Array.from(_.$All('.slide > .item', this.mainCarouselWrapper));
-
-        this._updateMainCarouselAnimation(exType, itemList);
+        const exType = pagingBtn.className.indexOf('prev') > -1 ? 'prev' : 'next';        
+        this._updateMainCarouselAnimation(exType, mainSlideItems);
     }
 
     _updateMainCarouselAnimation(exType, itemList, animateOpacity = false) {
-        itemList.forEach((item, itemIdx) => {
-            const minus = item.style.transform.indexOf('-') > -1 ? true : false;
-            const tmp = item.style.transform.match(/([0-9]+%)/g)[0];
-            let transformX = minus ? `-${tmp}` : tmp;
-            let flag = false;
+        
+        const invisibleFirstValue = -1;
+        const invisibleLastValue = 1;
+        const plusValue = 1;
+        const visibleValue = 0;
+
+        const transitionDuration = this.mainCarouselTransitionDuration;
+
+
+        itemList.forEach((item, itemIdx) => {            
+            const transformClassName = item.className.split(" ").find((v) => (v.indexOf('transformX__') > -1));            
+
+            let transformValue = Number(transformClassName.replace('transformX__', ''));
+            let opacity = false;
 
             if (exType === 'prev') {
-                switch (transformX) {
-                    case '0%':
-                        transformX = '100%';
-                        break;
-                    case '100%':
-                        transformX = '-100%';
-                        flag = true;
-                        break;
-                    case '-100%':
-                        transformX = '0%';
-                        break;
-                    default:
-                        break;
-                }
+                if (transformValue === invisibleLastValue) {
+                    transformValue = invisibleFirstValue;
+                    opacity = true;
+                } else transformValue += plusValue;      
             } else {
-                switch (transformX) {
-                    case '0%':
-                        transformX = '-100%';
-                        break;
-                    case '100%':
-                        transformX = '0%';
-                        break;
-                    case '-100%':
-                        transformX = '100%';
-                        flag = true;
-                        break;                    
-                    default:
-                        break;
-                }
+                if (transformValue === invisibleFirstValue) {
+                    transformValue = invisibleLastValue;
+                    opacity = true;
+                } else transformValue -= plusValue;                                
             }
+        
+            (transformValue === visibleValue) && this._updateMainCarouselPagingSpan(itemIdx, this.mainSlidePagingInnerList);                        
 
-            transformX === '0%' && this._updateMainCarouselPagingSpan(itemIdx);
-            
-            if (animateOpacity)
-                item.style.transition = 'opacity 0.4s'
+            if (animateOpacity) 
+                item.style.transition = 'opacity ' + transitionDuration;
             else
-                item.style.transition = flag ? 'opacity 0.4s' : 'transform 0.4s';
-
-            item.style.transform = `translateX(${transformX})`;
+                item.style.transition = opacity ? `opacity ${transitionDuration}` : `transform ${transitionDuration}`;
+                
+            _.classReplace(item, transformClassName, `transformX__${transformValue}`)
         });
     }
 
     // 상단의 작은 span들 [- - -] 상태 업데이트
-    _updateMainCarouselPagingSpan(animationItemIdx) {
-        const pagingInnerSpanList = [...(_.$All('.paging__inner > span', this.mainCarouselWrapper))];
-        const findPrevCurrent = pagingInnerSpanList.find((span) => _.classContains(span, 'current'));
+    _updateMainCarouselPagingSpan(animationItemIdx, pagingInnerSpanList) {        
+        const findPrevCurrent = [...pagingInnerSpanList].find((span) => _.classContains(span, 'current'));
         _.classRemove(findPrevCurrent, 'current');
         _.classAdd(pagingInnerSpanList[animationItemIdx], 'current');
     }
 
     // 상단 캐러셀 mouseover 이벤트 등록
         // 작은 span (.paging__inner > span)에서 동작
-    _setMainCarouselMouseoverEvent(mainCarouselWrapper) {
-        _.addEvent(mainCarouselWrapper, 'mouseover', (e) => this._mainCarouselMouseoverEventHandler(e));        
+    _setMainCarouselMouseoverEvent(mainCarouselWrapper, itemList) {
+        _.addEvent(mainCarouselWrapper, 'mouseover', (e) => this._mainCarouselMouseoverEventHandler(e, itemList));        
     }
 
-    _mainCarouselMouseoverEventHandler({target}) {        
+    _mainCarouselMouseoverEventHandler({target}, itemList) {        
         const overSpan = _.closestSelector(target, '.paging__inner > span');        
+        if (!overSpan) return;
         
-        if (overSpan) {
-            const pagingInnerSpanList = [...overSpan.parentElement.children];            
-            const currStatusSpan = pagingInnerSpanList.find((span) => _.classContains(span, 'current'));
+        const pagingInnerSpanList = [...overSpan.parentElement.children];            
+        const currStatusSpan = pagingInnerSpanList.find((span) => _.classContains(span, 'current'));
 
-            const overSpanIdx = pagingInnerSpanList.indexOf(overSpan);
-            const currStatusSpanIdx = pagingInnerSpanList.indexOf(currStatusSpan);
+        const overSpanIdx = pagingInnerSpanList.indexOf(overSpan);
+        const currStatusSpanIdx = pagingInnerSpanList.indexOf(currStatusSpan);
 
-            const abs = Math.abs(currStatusSpanIdx-overSpanIdx);
-
-            const itemList = Array.from(_.$All('.slide > .item', this.mainCarouselWrapper));
-            if (overSpanIdx > currStatusSpanIdx) {
-                [...Array(abs)].forEach((_) => this._updateMainCarouselAnimation('next', itemList, true))
-            } else if (overSpanIdx < currStatusSpanIdx) {
-                [...Array(abs)].forEach((_) => this._updateMainCarouselAnimation('prev', itemList, true))
-            } else return;
-        }
+        const abs = Math.abs(currStatusSpanIdx-overSpanIdx);
+        
+        if (overSpanIdx > currStatusSpanIdx) {
+            [...Array(abs)].forEach((_) => this._updateMainCarouselAnimation('next', itemList, true))
+        } else if (overSpanIdx < currStatusSpanIdx) {
+            [...Array(abs)].forEach((_) => this._updateMainCarouselAnimation('prev', itemList, true))
+        } else return;        
     }
     
     // [3] 하단 캐러셀 (content__hot__carousel)
     // 첫 로딩 시 하단 캐러셀에 들어갈 정보 서버에서 불러옴
-    _insertDataHotCarousel(hotCarouselWrapper) {
-        const itemList = Array.from(_.$All('ul > li', hotCarouselWrapper));
-        
+    _insertDataHotCarousel(hotCarouselItemList) {        
         this.dataManager.getHotCarouselData()
             .then((planningData) => {
-                itemList.forEach((item, i) => {
+                hotCarouselItemList.forEach((item, i) => {
                     const img = _.$('a > img', item);
                     const spanBold = _.$('.txt-bold', item);
                     const spanInfo = _.$('.txt-info', item);
@@ -290,54 +299,59 @@ class IndexControl {
     }
     
     // mouseup
-    _setHotCarouselMouseupEvent(hotCarouselWrapper) {        
+    _setHotCarouselMouseupEvent(hotCarouselWrapper, hotSlideItems) {        
         _.addEvent(hotCarouselWrapper, 'mouseup', (e) =>
-            this._hotCarouselMouseupEventHandler(e),
+            this._hotCarouselMouseupEventHandler(e, hotSlideItems),
         );
     }
 
-    _hotCarouselMouseupEventHandler({target}) {
+    _hotCarouselMouseupEventHandler({target}, itemList) {
         clearInterval(this.hotCarouselMousedownTimer);
 
         const pagingBtn =
             _.closestSelector(target, '.carousel__special--prev') ||
             _.closestSelector(target, '.carousel__special--next');    
         
-        this._updateHotCarouselAnimationExecute(pagingBtn, this.hotCarouselMousedownRunCnt);
+        this._updateHotCarouselAnimationExecute(pagingBtn, itemList, this.hotCarouselMousedownRunCnt);
         this.hotCarouselMousedownRunCnt = 1;
     }
 
 
 
     // 하단 캐러셀 동작 (이전, 다음 btn) (실행)
-    _updateHotCarouselAnimationExecute(pagingBtn, runCnt = 1) {
+    _updateHotCarouselAnimationExecute(pagingBtn, itemList, runCnt = 1) {
         if (!pagingBtn) return;
-        const exType = pagingBtn.className.indexOf('prev') > -1 ? 'prev' : 'next';
-        const itemList = Array.from(_.$All('ul > li', this.hotCarouselWrapper));
+        const exType = pagingBtn.className.indexOf('prev') > -1 ? 'prev' : 'next';        
         
         for (let i = 0; i < runCnt; i++) 
             this._updateHotCarouselAnimation(exType, itemList)        
     }
 
     _updateHotCarouselAnimation(exType, itemList) {
+
+        const plusValue = 1;
+        const invisibleFirstValue = -2;
+        const invisibleLastValue = 7;
+
+        const transitionDuration = this.hotCarouselTransitionDuration;
+
         itemList.forEach((item) => {
             let transformValue = Number(item.className.replace('transformX__', ''));
             let opacity = false;
 
             if (exType === 'prev') {
-                if (transformValue === 7) {
-                    transformValue = -2;
+                if (transformValue === invisibleLastValue) {
+                    transformValue = invisibleFirstValue;
                     opacity = true;
-                } else transformValue += 1;      
+                } else transformValue += plusValue;      
             } else {
-                if (transformValue === -2) {
-                    transformValue = 7;
+                if (transformValue === invisibleFirstValue) {
+                    transformValue = invisibleLastValue;
                     opacity = true;
-                } else transformValue -= 1;                                
+                } else transformValue -= plusValue;                                
             }
-            
-            item.style.transition = opacity ? 'opacity 0.4s' : 'transform 0.4s';
 
+            item.style.transition = opacity ? `opacity ${transitionDuration}` : `transform ${transitionDuration}`;
             _.classReplace(item, item.className, `transformX__${transformValue}`)
         });
     }    

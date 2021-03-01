@@ -11,8 +11,22 @@ const indexWrappers = {
     moreWrapper: _.$('.content__more'),
     hotCarouselWrapper: _.$('.content__hot__carousel')
 };
+
+const  {mainBestWrapper, mainCarouselWrapper, moreWrapper, hotCarouselWrapper} = indexWrappers;
+const controlItems = {
+    mainSlideItems: _.$All('.slide > div', mainCarouselWrapper),
+    mainSlidePagingInnerList: _.$All('.paging__inner > span', mainCarouselWrapper),
+    mainBestItemImg: _.$('a > img', mainBestWrapper),    
+    moreViewBtn: _.$('.content__more__btn', moreWrapper),
+    moreViewFrame: _.$('ul',  _.$('.content__more__view', moreWrapper) ),
+    hotSlideItems: _.$All('ul > li', hotCarouselWrapper),
+};
+
 const options = {
     mainCarouselAnimateInterval: 5000,
-}
+    mainCarouselAnimateDirection: 'next',
+    mainCarouselTransitionDuration: '0.4s',
+    hotCarouselTransitionDuration: '0.4s',
+};
 
-new IndexControl(dataManager, indexWrappers, options).init();
+new IndexControl(dataManager, indexWrappers, controlItems, options).init();
