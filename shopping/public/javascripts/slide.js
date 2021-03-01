@@ -18,15 +18,20 @@ class Slider {
         this.leftArrow.addEventListener('click', () => {
             this.move("left");
         });
-        this.comm.forEach((el, ind) => {
-            el.addEventListener('mouseenter', () => {
-                this.pagingComm(el, ind);
-            });
+
+        this.indicatorParents.addEventListener('mouseover', (event) => {
+            this.onOver(event);
         });
     }
 
+    onOver(event) {
+        const action = event.target.dataset.action;
+        if(action) this[action](event.target, event.target.id);
+    }
+
     pagingComm(el, ind) {
-        this.sectionIndex = ind;
+        console.log("hi");
+        this.sectionIndex = Number(ind);
         document.querySelector('.controls .selected').classList.remove('selected');
         el.classList.add('selected');
         this.slider.style.transform = `translate(` + (this.sectionIndex) * -33 + `%)`;
