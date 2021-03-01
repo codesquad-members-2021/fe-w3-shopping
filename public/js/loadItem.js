@@ -84,13 +84,8 @@ export class LoadItem {
     );
 
     const loadimgs = () => {
-      eventProducts.forEach(({ imgurl, dataseq, text, text2 }) => {
-        const template = eventProductTemplate({
-          imgurl,
-          dataseq,
-          text,
-          text2,
-        });
+      eventProducts.forEach((imgData) => {
+        const template = eventProductTemplate(imgData);
         mainTopSecondLine.insertAdjacentHTML('beforeend', template);
       });
     };
@@ -107,13 +102,8 @@ export class LoadItem {
       '.main-theme-category-lists'
     );
 
-    eventProducts.forEach(({ imgurl, dataseq, text, text2 }) => {
-      const template = themeCategoryTemplate({
-        imgurl,
-        dataseq,
-        text,
-        text2,
-      });
+    eventProducts.forEach((imgData) => {
+      const template = themeCategoryTemplate(imgData);
       themeCategoryImgs.insertAdjacentHTML('beforeend', template);
     });
   }
