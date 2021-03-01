@@ -8,6 +8,7 @@ export class Slider {
     this.silder.addEventListener('mouseover', this.mouseoverHandler.bind(this));
   }
 
+  // 자동으로 움직이는 슬라이더 해보고 싶어서 구현
   slideAutomatically() {
     const imgLists = document.querySelector('.main-theme-category-lists');
     let i = 0;
