@@ -1,5 +1,5 @@
-import { DataManager } from './dataManager.js';
-import { LoadItem } from './loadItem.js';
+import { dataManager } from './dataManager.js';
+import { LoadItem } from './LoadItem.js';
 import { Slider } from './Slider.js';
 
 const loadItems = (rawData) => {
@@ -15,8 +15,11 @@ const excuteSlide = () => {
 };
 
 const main = () => {
-  const dataManager = new DataManager();
-  const rawData = dataManager.responsedJSONData();
+  const rawData = dataManager(
+    'http://localhost:3000',
+    'data',
+    'planningEvent.json'
+  );
   loadItems(rawData);
   excuteSlide();
 };
