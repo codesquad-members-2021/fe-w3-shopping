@@ -1,5 +1,3 @@
-import { $moreItemButton } from '../../main';
-
 export default class HotDealSection {
   constructor(data) {
     this.data = data;
@@ -75,11 +73,11 @@ export default class HotDealSection {
 
   updateMoreListNumber(current, length) {
     console.log(current, length);
+    this.target.innerHTML = `<span>더보기(${current}/${length})</span>`;
     if (current === length) {
-      $moreItemButton.style.color = '#aeaeae';
-      $moreItemButton.setAttribute('disabled', '');
+      this.target.style.color = '#aeaeae';
+      this.target.setAttribute('disabled', '');
       return;
     }
-    this.target.innerHTML = `<span>더보기(${current}/${length})</span>`;
   }
 }
