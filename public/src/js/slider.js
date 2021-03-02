@@ -1,4 +1,6 @@
-class Slide {
+import { CLASS_LIST } from './util/data';
+
+class Slider {
   constructor({ data, selectors, animation, makeHtmlFn }) {
     this.data = data;
     this.container = selectors.container;
@@ -26,10 +28,12 @@ class Slide {
     this.render();
   }
   isPrevBtn(classList) {
-    return classList.contains('btn-prev') || classList.contains('fa-chevron-left');
+    const { PREV_BTN, PREV_ICON } = CLASS_LIST;
+    return classList.contains(PREV_BTN) || classList.contains(PREV_ICON);
   }
   isNextBtn(classList) {
-    return classList.contains('btn-next') || classList.contains('fa-chevron-right');
+    const { NEXT_BTN, NEXT_ICON } = CLASS_LIST;
+    return classList.contains(NEXT_BTN) || classList.contains(NEXT_ICON);
   }
   slidePrev() {
     this.setSlideAnimation({ moveX: this.oneStep, transition: this.transition });
@@ -61,4 +65,4 @@ class Slide {
   }
 }
 
-export default Slide;
+export default Slider;
